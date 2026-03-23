@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sum of Squares &amp; Variance Demo – Psychology Statistics Demos</title>
+<title>Independent Samples &amp; ANOVA Demo – Psychology Statistics Demos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./single_sample.html" aria-current="page"> 
+    <a class="nav-link" href="./single_sample.html"> 
 <span class="menu-text">1. Single Sample</span></a>
   </li>  
   <li class="nav-item">
@@ -109,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">2. Sampling Distributions</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ind_samples.html"> 
+    <a class="nav-link active" href="./ind_samples.html" aria-current="page"> 
 <span class="menu-text">3. Independent Samples</span></a>
   </li>  
 </ul>
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sum of Squares &amp; Variance Demo</h1>
+<h1 class="title">Independent Samples &amp; ANOVA Demo</h1>
 </div>
 
 
@@ -151,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
 #|   shinylive does not work in self-contained HTML documents.
 #|   Please set `embed-resources: false` in your metadata.
 #| standalone: true
-#| viewerHeight: 900
+#| viewerHeight: 1000
 
 from shiny import App, render, ui, reactive
 import numpy as np
@@ -164,30 +164,36 @@ app_ui = ui.page_fluid(
             ui.input_select(
                 "dist", "Base Distribution Shape",
                 {"norm": "Normal (Symmetric, Bell)", 
-                 "unif": "Uniform (Flat, Rectangular)", 
+                 "unif": "Uniform (Flat, Rectangular)",
                  "exp": "Exponential (Right-Skewed)",
                  "bimodal": "Bimodal (Two Peaks)",
                  "beta": "Beta (Left-Skewed)"}
             ),
-            # These inputs are now always visible and apply to ALL distributions
             ui.input_numeric("pop_mu", "Set Population Mean (μ):", value=0.0, step=1.0),
             ui.input_numeric("pop_var", "Set Population Variance (σ²):", value=1.0, min=0.1, step=0.5),
             ui.hr(),
-            ui.input_action_button("draw_1", "Add 1 Score", class_="btn-primary"),
-            ui.input_action_button("draw_10", "Add 10 Scores", class_="btn-success"),
-            ui.input_action_button("reset", "Start Over", class_="btn-danger"),
-            ui.markdown("Compare calculations using the **Population Mean (μ)** vs. the **Sample Mean (M)**."),
+            ui.input_numeric("n1", "Group 1 Size (n₁):", value=30, min=2, step=1),
+            ui.input_numeric("n2", "Group 2 Size (n₂):", value=30, min=2, step=1),
+            ui.hr(),
+            ui.input_action_button("draw_1", "Draw 1 Sample", class_="btn-primary"),
+            ui.input_action_button("draw_10", "Draw 10 Samples", class_="btn-success"),
+            ui.input_action_button("draw_100", "Draw 100 Samples", class_="btn-warning"),
+            ui.input_action_button("reset", "Clear History", class_="btn-danger"),
+            ui.markdown("Compare the Sum of Squares (SS) and Mean Squares (MS) within each group versus between the sample means."),
             width=300
         ),
-        ui.output_plot("main_plot", height="800px")
+        ui.output_plot("main_plot", height="900px")
     )
 )
 
 # 2. Define the Server Logic
 def server(input, output, session):
-    sample_data = reactive.Value([])
+    history = reactive.Value({
+        'm_grand': [], 'm_diff': [], 
+        'ss1': [], 'ss2': [], 'diff_ss': [], 'ss_grand': [],
+        'var1': [], 'var2': [], 'diff_var': [], 'var_grand': []
+    })
 
-    # Mathematical properties of the raw, unscaled base distributions
     def get_base_params(d):
         if d == "norm":      return 0.0, 1.0
         elif d == "unif":    return 0.5, np.sqrt(1.0 / 12.0)
@@ -195,62 +201,110 @@ def server(input, output, session):
         elif d == "bimodal": return 0.0, np.sqrt(4.25)
         elif d == "beta":    return 0.8, np.sqrt(16.0 / 1100.0)
 
-    # Generate raw scores, then standardize and scale them to match user inputs
-    def draw_scaled_scores(n_scores):
+    def draw_k_samples(k):
         d = input.dist()
         target_mu = float(input.pop_mu())
         target_sigma = np.sqrt(float(input.pop_var()))
         base_mu, base_sigma = get_base_params(d)
+        n1 = int(input.n1())
+        n2 = int(input.n2())
+        n_total = n1 + n2
         
-        # 1. Draw from raw distribution
-        if d == "norm":      raw = np.random.standard_normal(n_scores)
-        elif d == "unif":    raw = np.random.uniform(size=n_scores)
-        elif d == "exp":     raw = np.random.exponential(size=n_scores)
-        elif d == "bimodal": 
-            centers = np.where(np.random.rand(n_scores) &lt; 0.5, -2, 2)
-            raw = np.random.normal(centers, 0.5)
-        elif d == "beta":    raw = np.random.beta(8, 2, size=n_scores)
-            
-        # 2. Scale and shift to match user's mu and sigma
-        scaled_scores = (raw - base_mu) * (target_sigma / base_sigma) + target_mu
-        return scaled_scores.tolist()
+        def get_raw(n):
+            size = (k, n)
+            if d == "norm":      return np.random.standard_normal(size)
+            elif d == "unif":    return np.random.uniform(size=size)
+            elif d == "exp":     return np.random.exponential(size=size)
+            elif d == "bimodal": 
+                centers = np.where(np.random.rand(k, n) &lt; 0.5, -2, 2)
+                return np.random.normal(centers, 0.5)
+            elif d == "beta":    return np.random.beta(8, 2, size=size)
+
+        # Process Group 1
+        raw1 = get_raw(n1)
+        scaled1 = (raw1 - base_mu) * (target_sigma / base_sigma) + target_mu
+        m1 = np.mean(scaled1, axis=1)
+        ss1 = np.sum((scaled1 - m1[:, None])**2, axis=1)
+        var1 = ss1 / (n1 - 1) if n1 &gt; 1 else np.zeros(k) * np.nan
+        
+        # Process Group 2
+        raw2 = get_raw(n2)
+        scaled2 = (raw2 - base_mu) * (target_sigma / base_sigma) + target_mu
+        m2 = np.mean(scaled2, axis=1)
+        ss2 = np.sum((scaled2 - m2[:, None])**2, axis=1)
+        var2 = ss2 / (n2 - 1) if n2 &gt; 1 else np.zeros(k) * np.nan
+        
+        # Process Grand Mean and Mean Difference
+        m_grand = (n1 * m1 + n2 * m2) / n_total
+        m_diff = m1 - m2
+        
+        # Process Between-Groups (Difference)
+        diff_ss = (n1 * n2 / n_total) * (m1 - m2)**2
+        diff_var = diff_ss / 1.0 
+        
+        # Process Grand Mean vs Population Mean
+        ss_grand = n_total * (m_grand - target_mu)**2
+        var_grand = ss_grand / 1.0
+        
+        curr = history.get().copy()
+        curr['m_grand'].extend(m_grand.tolist())
+        curr['m_diff'].extend(m_diff.tolist())
+        curr['ss1'].extend(ss1.tolist())
+        curr['ss2'].extend(ss2.tolist())
+        curr['diff_ss'].extend(diff_ss.tolist())
+        curr['ss_grand'].extend(ss_grand.tolist())
+        curr['var1'].extend(var1.tolist())
+        curr['var2'].extend(var2.tolist())
+        curr['diff_var'].extend(diff_var.tolist())
+        curr['var_grand'].extend(var_grand.tolist())
+        history.set(curr)
 
     @reactive.Effect
     @reactive.event(input.draw_1)
-    def add_one():
-        sample_data.set(sample_data() + draw_scaled_scores(1))
+    def add_1(): draw_k_samples(1)
 
     @reactive.Effect
     @reactive.event(input.draw_10)
-    def add_ten():
-        sample_data.set(sample_data() + draw_scaled_scores(10))
+    def add_10(): draw_k_samples(10)
 
     @reactive.Effect
-    @reactive.event(input.reset, input.dist, input.pop_mu, input.pop_var) 
+    @reactive.event(input.draw_100)
+    def add_100(): draw_k_samples(100)
+
+    @reactive.Effect
+    @reactive.event(input.reset, input.dist, input.pop_mu, input.pop_var, input.n1, input.n2) 
     def clear_data():
-        sample_data.set([])
+        history.set({'m_grand': [], 'm_diff': [], 'ss1': [], 'ss2': [], 'diff_ss': [], 'ss_grand': [], 
+                     'var1': [], 'var2': [], 'diff_var': [], 'var_grand': []})
 
     # 3. Render the Plots
     @output
     @render.plot
     def main_plot():
-        data = sample_data()
-        n = len(data)
-        d = input.dist()
+        curr = history.get()
+        num_samples = len(curr['m_grand'])
         
+        d = input.dist()
         target_mu = float(input.pop_mu())
         true_var = float(input.pop_var())
         target_sigma = np.sqrt(true_var)
         base_mu, base_sigma = get_base_params(d)
+        n1 = int(input.n1())
+        n2 = int(input.n2())
         
-        fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(10, 10))
-        fig.tight_layout(pad=5.0)
+        fig = plt.figure(figsize=(16, 10))
+        gs = fig.add_gridspec(2, 6)
         
-        # --- TOP PLOT: Population Distribution ---
-        # Dynamically frame the x-axis for ALL distributions based on sigma
+        ax_pop = fig.add_subplot(gs[0, 0:2])
+        ax_grand = fig.add_subplot(gs[0, 2:4])
+        ax_diff = fig.add_subplot(gs[0, 4:6])
+        ax_ss = fig.add_subplot(gs[1, 0:3])
+        ax_ms = fig.add_subplot(gs[1, 3:6])
+        
+        fig.tight_layout(pad=5.0, w_pad=2.0, h_pad=4.0)
+        
+        # --- TOP LEFT: Population Distribution (Always Drawn) ---
         x_vals = np.linspace(target_mu - 4*target_sigma, target_mu + 4*target_sigma, 1000)
-        
-        # To draw the scaled PDF, we reverse-map the x-axis back to the base distribution
         scale_factor = target_sigma / base_sigma
         x_base = (x_vals - target_mu) / scale_factor + base_mu
         
@@ -265,86 +319,99 @@ def server(input, output, session):
         elif d == "beta":
             y_base = np.where((x_base &gt;= 0) &amp; (x_base &lt;= 1), 72 * (x_base**7) * (1 - x_base), 0)
             
-        # Scale the height of the PDF so the area underneath remains 1
         y_vals = y_base / scale_factor
             
-        ax1.plot(x_vals, y_vals, color='gray', linewidth=2)
-        ax1.fill_between(x_vals, y_vals, alpha=0.2, color='gray')
-        ax1.axvline(target_mu, color='black', linestyle='--', label=f'Population mean $μ$ ({target_mu:.2f})')
-        ax1.set_xlim(target_mu - 4*target_sigma, target_mu + 4*target_sigma)
+        ax_pop.plot(x_vals, y_vals, color='gray', linewidth=1)
+        ax_pop.fill_between(x_vals, y_vals, alpha=0.2, color='gray')
+        ax_pop.axvline(target_mu, color='black', linestyle='--', label=f'True μ ({target_mu:.2f})')
+        ax_pop.set_xlim(target_mu - 4*target_sigma, target_mu + 4*target_sigma)
+        ax_pop.set_title("Population Distribution")
+        ax_pop.set_xlabel("Score Value")
+        ax_pop.legend(loc='upper right')
         
-        if n &gt; 0:
-            ax1.scatter(data, np.zeros(n), color='dodgerblue', zorder=5, label='Sample Points', alpha=0.6)
-            ax1.axvline(np.mean(data), color='red', linestyle='-', label=f'Sample mean $M$ ({np.mean(data):.2f})')
-            
-        ax1.set_title("Population Distribution &amp; Sample Scores")
-        ax1.legend(loc='upper right')
-        
-        # Base state before any data is drawn for bottom two plots
-        if n == 0:
-            for ax in [ax2, ax3]:
+        if num_samples == 0:
+            for ax, title in zip([ax_grand, ax_diff, ax_ss, ax_ms], 
+                                 ["Sampling Dist. of Grand Mean", "Sampling Dist. of Mean Diff (M₁ - M₂)", 
+                                  "Sampling Dist. of Sum of Squares (SS)", "Sampling Dist. of Mean Squares (MS)"]):
                 ax.set_xlim(0, 10)
-                ax.set_ylim(0, max(5, true_var * 2))
-                ax.text(5, max(5, true_var * 2) / 2, "Click 'Add 1 Score' to begin", ha='center', va='center', fontsize=12)
-            ax2.set_title("Sum of Squares Growth")
-            ax3.set_title("Variance Estimates")
+                ax.set_ylim(0, 5)
+                ax.text(5, 2.5, "Click 'Draw Samples' to begin", ha='center', va='center', fontsize=11)
+                ax.set_title(title)
             return fig
-            
-        # --- Calculate Histories ---
-        n_values = np.arange(1, n + 1)
-        ss_mu_vals, ss_xbar_vals, diff_ss_vals = [], [], []
-        var_mu_vals, var_xbar_vals, diff_var_vals = [], [], []
+
+        # --- TOP MIDDLE: Sampling Distribution of Grand Mean ---
+        ax_grand.hist(curr['m_grand'], bins=20, density=True, color='dodgerblue', edgecolor='black', alpha=0.6)
         
-        for i in range(1, n + 1):
-            subset = np.array(data[:i])
-            xbar = np.mean(subset)
-            
-            # Sum of Squares
-            ss_mu = np.sum((subset - target_mu)**2)
-            ss_xbar = np.sum((subset - xbar)**2)
-            diff_ss = i * (target_mu - xbar)**2 
-            
-            ss_mu_vals.append(ss_mu)
-            ss_xbar_vals.append(ss_xbar)
-            diff_ss_vals.append(diff_ss)
-            
-            # Variance
-            var_mu = ss_mu / i
-            var_xbar = ss_xbar / (i - 1) if i &gt; 1 else np.nan
-            diff_var = (target_mu - xbar)**2
-            
-            var_mu_vals.append(var_mu)
-            var_xbar_vals.append(var_xbar)
-            diff_var_vals.append(diff_var)
-                
-        # --- MIDDLE PLOT: Sum of Squares ---
-        ax2.plot(n_values, ss_mu_vals, color='purple', marker='o', markersize=4, label='SS using $\\sum (x_i - μ)^2$')
-        ax2.plot(n_values, ss_xbar_vals, color='darkorange', marker='s', markersize=4, label='SS using $\\sum (x_i - M)^2$')
-        ax2.plot(n_values, diff_ss_vals, color='seagreen', marker='^', markersize=4, label='$n(μ - M)^2$')
+        std_err_grand = target_sigma / np.sqrt(n1 + n2)
+        x_g = np.linspace(target_mu - 4*std_err_grand, target_mu + 4*std_err_grand, 200)
+        y_g = (1 / (std_err_grand * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x_g - target_mu) / std_err_grand)**2)
         
-        ax2.set_title("Sum of Squares (SS) vs. Sample Size")
-        ax2.set_xlabel("Sample Size (n)")
-        ax2.set_ylabel("Sum of Squares")
-        ax2.set_xlim(0, max(10, n + 1))
-        ax2.legend(loc='upper left')
+        ax_grand.plot(x_g, y_g, color='darkblue', linewidth=1, label='Theo. N(μ, σ²/(n₁+n₂))')
+        ax_grand.axvline(target_mu, color='black', linestyle='--', linewidth=1, label=f'True μ ({target_mu:.2f})')
+        ax_grand.axvline(np.mean(curr['m_grand']), color='blue', linestyle='-', linewidth=1, label=f'Mean of $M_{{grand}}$ ({np.mean(curr["m_grand"]):.2f})')
         
-        # --- BOTTOM PLOT: Variance ---
-        ax3.axhline(true_var, color='black', linestyle='--', linewidth=2, label=f'True σ² ({true_var:.3f})')
-        ax3.plot(n_values, var_mu_vals, color='purple', marker='o', markersize=4, alpha=0.7, label='$s^2$ using $\\frac{\\sum (x_i - \\mu)^2}{n}$')
-        if n &gt; 1:
-            ax3.plot(n_values, var_xbar_vals, color='darkorange', marker='s', markersize=4, alpha=0.7, label='$s^2$ using $\\frac{\\sum (x_i - M)^2}{n-1}$')
-        ax3.plot(n_values, diff_ss_vals, color='seagreen', marker='^', markersize=4, alpha=0.7, label='$n(μ - M)^2$')
-            
-        ax3.set_title("Variance vs. Sample Size")
-        ax3.set_xlabel("Sample Size (n)")
-        ax3.set_ylabel("Variance")
-        ax3.set_xlim(0, max(10, n + 1))
+        ax_grand.set_title(f"Grand Mean (Total Samples: {num_samples})")
+        ax_grand.set_xlabel("Grand Mean ($M_{grand}$)")
+        ax_grand.legend(loc='upper right')
+
+        # --- TOP RIGHT: Sampling Distribution of Mean Difference ---
+        # Updated colors to visually link the "Mean Difference" with "Between Groups"
+        ax_diff.hist(curr['m_diff'], bins=20, density=True, color='seagreen', edgecolor='black', alpha=0.6)
         
-        # Dynamic y-axis for variance
-        max_var = max(max(var_mu_vals), np.nanmax(var_xbar_vals) if n &gt; 1 else 0, max(diff_ss_vals), true_var)
-        ax3.set_ylim(0, max_var * 1.5)
-        ax3.legend(loc='upper right')
+        std_err_diff = np.sqrt((true_var / n1) + (true_var / n2))
+        x_d = np.linspace(0 - 4*std_err_diff, 0 + 4*std_err_diff, 200)
+        y_d = (1 / (std_err_diff * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x_d - 0) / std_err_diff)**2)
         
+        ax_diff.plot(x_d, y_d, color='darkgreen', linewidth=1, label='Theo. N(0, σ²/n₁ + σ²/n₂)')
+        ax_diff.axvline(0, color='black', linestyle='--', linewidth=1, label='True Diff (0)')
+        ax_diff.axvline(np.mean(curr['m_diff']), color='forestgreen', linestyle='-', linewidth=1, label=f'Mean of Diffs ({np.mean(curr["m_diff"]):.2f})')
+        
+        ax_diff.set_title("Mean Difference (M₁ - M₂)")
+        ax_diff.set_xlabel("Mean Difference")
+        ax_diff.legend(loc='upper right')
+
+        # # --- Calculate Global Bins for Bottom Panels ---
+        # # Ensures all histograms in the same panel have identical bin widths
+        # ss_min = min(np.min(curr['ss1']), np.min(curr['ss2']), np.min(curr['diff_ss']), np.min(curr['ss_grand']))
+        # ss_max = max(np.max(curr['ss1']), np.max(curr['ss2']), np.max(curr['diff_ss']), np.max(curr['ss_grand']))
+        # ss_bins = np.linspace(ss_min, ss_max, 100)
+
+        # ms_min = min(np.nanmin(curr['var1']), np.nanmin(curr['var2']), np.nanmin(curr['diff_var']), np.nanmin(curr['var_grand']))
+        # ms_max = max(np.nanmax(curr['var1']), np.nanmax(curr['var2']), np.nanmax(curr['diff_var']), np.nanmax(curr['var_grand']))
+        # ms_bins = np.linspace(ms_min, ms_max, 100)
+
+        # --- BOTTOM LEFT: Sampling Distribution of SS ---
+        ax_ss.hist(curr['ss1'], bins=30, color='purple', alpha=0.5, label='$SS_1$')
+        ax_ss.hist(curr['ss2'], bins=30, color='darkorange', alpha=0.5, label='$SS_2$')
+        ax_ss.hist(curr['diff_ss'], bins=30, color='seagreen', alpha=0.6, label='$SS_{between}$')
+        ax_ss.hist(curr['ss_grand'], bins=30, color='dodgerblue', alpha=0.6, label='$SS_{grand}$')
+        
+        ax_ss.axvline(np.mean(curr['ss1']), color='purple', linestyle='dashed', linewidth=1)
+        ax_ss.axvline(np.mean(curr['ss2']), color='darkorange', linestyle='dashed', linewidth=1)
+        ax_ss.axvline(np.mean(curr['diff_ss']), color='seagreen', linestyle='dashed', linewidth=1)
+        ax_ss.axvline(np.mean(curr['ss_grand']), color='dodgerblue', linestyle='dashed', linewidth=1)
+        
+        ax_ss.set_title("Sampling Dist. of Sum of Squares (SS)")
+        ax_ss.set_xlabel("Sum of Squares")
+        ax_ss.legend(loc='upper right')
+
+        # --- BOTTOM RIGHT: Sampling Distribution of Mean Squares (MS) ---
+        ax_ms.hist(curr['var1'], bins=30, color='purple', alpha=0.5, label='$MS_1$ (s²₁)')
+        ax_ms.hist(curr['var2'], bins=30, color='darkorange', alpha=0.5, label='$MS_2$ (s²₂)')
+        ax_ms.hist(curr['diff_var'], bins=100, color='seagreen', alpha=0.6, label='$MS_{between}$')
+        ax_ms.hist(curr['var_grand'], bins=100, color='dodgerblue', alpha=0.6, label='$MS_{grand}$')
+        
+        ax_ms.axvline(true_var, color='black', linestyle='--', linewidth=1, label=f'True σ² ({true_var:.3f})')
+        
+        ax_ms.axvline(np.nanmean(curr['var1']), color='purple', linestyle='dashed', linewidth=1)
+        ax_ms.axvline(np.nanmean(curr['var2']), color='darkorange', linestyle='dashed', linewidth=1)
+        ax_ms.axvline(np.mean(curr['diff_var']), color='seagreen', linestyle='dashed', linewidth=1)
+        ax_ms.axvline(np.mean(curr['var_grand']), color='dodgerblue', linestyle='dashed', linewidth=1)
+        
+        ax_ms.set_title("Sampling Dist. of Mean Squares (MS)")
+        ax_ms.set_xlabel("Variance Estimate (MS)")
+        ax_ms.legend(loc='upper right')
+
         return fig
 
 app = App(app_ui, server)</code></pre>
