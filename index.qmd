@@ -19,6 +19,10 @@ Instead of just memorizing formulas, you are going to generate real data, watch 
 - **What you will do:** Draw dozens (or hundreds!) of samples all at once.
 - **What you will learn:** See the **Central Limit Theorem** in action as the distribution of sample means forms a bell curve. You will also track the average of all your sample variances to prove that dividing by $n-1$ creates an *unbiased estimator* that perfectly targets the true population variance ($\sigma^2$).
 
+**[3. Independent Samples](ind_samples.qmd)**
+- **What you will do:** Draw pairs of samples from the same population and compare them.
+- **What you will learn:** Explore how the variability within each sample (SS₁ and SS₂) relates to the variability between the sample means (SS_between) and the variability of the grand mean (SS_grand). You will see how these concepts underpin the logic of ANOVA and why we use mean squares (MS) to estimate variance in this context.
+
 ::: {.callout-note}
 These modules are designed to be exploratory and interactive. Feel free to experiment with different population parameters, sample sizes, and numbers of samples to see how the concepts hold up under various conditions. The goal is to develop a deep, intuitive understanding of these statistical principles, not just to see them work in one specific case.
 :::
