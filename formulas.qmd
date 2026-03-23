@@ -1,0 +1,49 @@
+### The Notation Setup
+* **$n_1, n_2$**: The sample sizes for Group 1 and Group 2.
+* **$n$**: The total sample size across both groups ($n = n_1 + n_2$).
+* **$k$**: The number of groups (in this case, $k=2$).
+* **$X_{1,i}, X_{2,i}$**: The individual observations (scores) in Group 1 and Group 2.
+* **$M_1, M_2$**: The sample means for Group 1 and Group 2.
+* **$\mu$**: The true population mean.
+* **$M_{\mathrm{grand}}$**: The overall pooled mean of all observations: 
+  $$M_{\mathrm{grand}} = \frac{n_1M_1 + n_2M_2}{n}$$
+
+---
+
+### 1. Within-Group Estimates (Purple & Orange)
+
+**Group 1:**
+$$SS_1 = \sum (X_{1,i} - M_1)^2$$
+$$MS_1 = s_1^2 = \frac{SS_1}{n_1 - 1}$$
+
+**Group 2:**
+$$SS_2 = \sum (X_{2,i} - M_2)^2$$
+$$MS_2 = s_2^2 = \frac{SS_2}{n_2 - 1}$$
+
+---
+
+### 2. Between-Groups Estimate (Green)
+
+$$SS_{\mathrm{between}} = n_1(M_1 - M_{\mathrm{grand}})^2 + n_2(M_2 - M_{\mathrm{grand}})^2$$
+
+*(Algebraic shortcut for exactly two groups):*
+$$SS_{\mathrm{between}} = \frac{n_1 n_2}{n}(M_1 - M_2)^2$$
+
+$$MS_{\mathrm{between}} = \frac{SS_{\mathrm{between}}}{k - 1}$$
+
+---
+
+### 3. Grand Mean vs. Population Mean (Blue)
+
+$$SS_{\mathrm{grand}} = n(M_{\mathrm{grand}} - \mu)^2$$
+$$MS_{\mathrm{grand}} = \frac{SS_{\mathrm{grand}}}{1}$$
+
+---
+
+### 4. The Complete Variance Decomposition Identity
+
+$$\sum (X_{1,i} - \mu)^2 + \sum (X_{2,i} - \mu)^2 = SS_1 + SS_2 + SS_{\mathrm{between}} + n(M_{\mathrm{grand}} - \mu)^2$$
+
+Because we divide each Sum of Squares by its respective degrees of freedom, the Expected Value of all four Mean Squares perfectly converges on the true population variance:
+
+$$E(MS_1) = E(MS_2) = E(MS_{\mathrm{between}}) = E(MS_{\mathrm{grand}}) = \sigma^2$$

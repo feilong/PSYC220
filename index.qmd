@@ -23,6 +23,10 @@ Instead of just memorizing formulas, you are going to generate real data, watch 
 - **What you will do:** Draw pairs of samples from the same population and compare them.
 - **What you will learn:** Explore how the variability within each sample (SS₁ and SS₂) relates to the variability between the sample means (SS_between) and the variability of the grand mean (SS_grand). You will see how these concepts underpin the logic of ANOVA and why we use mean squares (MS) to estimate variance in this context.
 
+**[4. Formulas Explained](formulas.qmd)**
+- **What you will do:** Read through a detailed breakdown of the key formulas for Sum of Squares and Variance in the context of independent samples.
+- **What you will learn:** Understand the algebraic structure of these formulas, how they relate to each other, and why they all converge on the true population variance in expectation.
+
 ::: {.callout-note}
 These modules are designed to be exploratory and interactive. Feel free to experiment with different population parameters, sample sizes, and numbers of samples to see how the concepts hold up under various conditions. The goal is to develop a deep, intuitive understanding of these statistical principles, not just to see them work in one specific case.
 :::

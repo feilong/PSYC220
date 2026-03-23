@@ -13,6 +13,8 @@ website:
         text: "2. Sampling Distributions"
       - href: ind_samples.qmd
         text: "3. Independent Samples"
+      - href: formulas.qmd
+        text: "4. Formulas Explained"
 
 format:
   html:
