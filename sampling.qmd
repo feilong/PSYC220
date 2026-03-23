@@ -1,0 +1,221 @@
+---
+title: "Multiple Samples & Sampling Distributions Demo"
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+filters:
+  - shinylive
+---
+
+:::{.column-screen-inset}
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 950
+
+from shiny import App, render, ui, reactive
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Define the User Interface
+app_ui = ui.page_fluid(
+    ui.layout_sidebar(
+        ui.sidebar(
+            ui.input_select(
+                "dist", "Base Distribution Shape",
+                {"norm": "Normal (Symmetric, Bell)", 
+                 "unif": "Uniform (Flat, Rectangular)",
+                 "exp": "Exponential (Right-Skewed)",
+                 "bimodal": "Bimodal (Two Peaks)",
+                 "beta": "Beta (Left-Skewed)"}
+            ),
+            ui.input_numeric("pop_mu", "Set Population Mean (μ):", value=0.0, step=1.0),
+            ui.input_numeric("pop_var", "Set Population Variance (σ²):", value=1.0, min=0.1, step=0.5),
+            ui.input_numeric("n", "Sample Size (n):", value=30, min=2, step=1),
+            ui.hr(),
+            ui.input_action_button("draw_1", "Draw 1 Sample", class_="btn-primary"),
+            ui.input_action_button("draw_10", "Draw 10 Samples", class_="btn-success"),
+            ui.input_action_button("draw_100", "Draw 100 Samples", class_="btn-warning"),
+            ui.input_action_button("reset", "Clear History", class_="btn-danger"),
+            ui.markdown("Watch how the sampling distributions build as you draw more samples of size $n$."),
+            width=300
+        ),
+        ui.output_plot("main_plot", height="850px")
+    )
+)
+
+# 2. Define the Server Logic
+def server(input, output, session):
+    history = reactive.Value({
+        'means': [], 'ss_mu': [], 'ss_xbar': [], 'diff_ss': [], 
+        'var_mu': [], 'var_xbar': [], 'diff_var': []
+    })
+
+    def get_base_params(d):
+        if d == "norm":      return 0.0, 1.0
+        elif d == "unif":    return 0.5, np.sqrt(1.0 / 12.0)
+        elif d == "exp":     return 1.0, 1.0
+        elif d == "bimodal": return 0.0, np.sqrt(4.25)
+        elif d == "beta":    return 0.8, np.sqrt(16.0 / 1100.0)
+
+    def draw_k_samples(k):
+        d = input.dist()
+        target_mu = float(input.pop_mu())
+        target_sigma = np.sqrt(float(input.pop_var()))
+        base_mu, base_sigma = get_base_params(d)
+        n = int(input.n())
+        
+        size = (k, n)
+        
+        if d == "norm":      raw = np.random.standard_normal(size)
+        elif d == "unif":    raw = np.random.uniform(size=size)
+        elif d == "exp":     raw = np.random.exponential(size=size)
+        elif d == "bimodal": 
+            centers = np.where(np.random.rand(k, n) < 0.5, -2, 2)
+            raw = np.random.normal(centers, 0.5)
+        elif d == "beta":    raw = np.random.beta(8, 2, size=size)
+            
+        scaled_scores = (raw - base_mu) * (target_sigma / base_sigma) + target_mu
+        means = np.mean(scaled_scores, axis=1)
+        
+        # Sum of Squares
+        ss_mu = np.sum((scaled_scores - target_mu)**2, axis=1)
+        ss_xbar = np.sum((scaled_scores - means[:, None])**2, axis=1)
+        diff_ss = n * (target_mu - means)**2
+        
+        # Variances (Mean Squares)
+        var_mu = ss_mu / n
+        var_xbar = ss_xbar / (n - 1) if n > 1 else np.zeros(k) * np.nan
+        diff_var = n * (target_mu - means)**2 # Updated to match n(μ - M)^2
+        
+        curr = history.get().copy()
+        curr['means'].extend(means.tolist())
+        curr['ss_mu'].extend(ss_mu.tolist())
+        curr['ss_xbar'].extend(ss_xbar.tolist())
+        curr['diff_ss'].extend(diff_ss.tolist())
+        curr['var_mu'].extend(var_mu.tolist())
+        curr['var_xbar'].extend(var_xbar.tolist())
+        curr['diff_var'].extend(diff_var.tolist())
+        history.set(curr)
+
+    @reactive.Effect
+    @reactive.event(input.draw_1)
+    def add_1(): draw_k_samples(1)
+
+    @reactive.Effect
+    @reactive.event(input.draw_10)
+    def add_10(): draw_k_samples(10)
+
+    @reactive.Effect
+    @reactive.event(input.draw_100)
+    def add_100(): draw_k_samples(100)
+
+    @reactive.Effect
+    @reactive.event(input.reset, input.dist, input.pop_mu, input.pop_var, input.n) 
+    def clear_data():
+        history.set({'means': [], 'ss_mu': [], 'ss_xbar': [], 'diff_ss': [], 'var_mu': [], 'var_xbar': [], 'diff_var': []})
+
+    # 3. Render the Plots
+    @output
+    @render.plot
+    def main_plot():
+        curr = history.get()
+        num_samples = len(curr['means'])
+        
+        d = input.dist()
+        target_mu = float(input.pop_mu())
+        true_var = float(input.pop_var())
+        target_sigma = np.sqrt(true_var)
+        base_mu, base_sigma = get_base_params(d)
+        n = int(input.n())
+        
+        fig, axs = plt.subplots(2, 2, figsize=(14, 10))
+        fig.tight_layout(pad=6.0)
+        ax1, ax2, ax3, ax4 = axs.flatten()
+        
+        # --- TOP LEFT: Population Distribution ---
+        x_vals = np.linspace(target_mu - 4*target_sigma, target_mu + 4*target_sigma, 1000)
+        scale_factor = target_sigma / base_sigma
+        x_base = (x_vals - target_mu) / scale_factor + base_mu
+        
+        if d == "norm":   
+            y_base = (1 / np.sqrt(2 * np.pi)) * np.exp(-0.5 * x_base**2)
+        elif d == "unif": 
+            y_base = np.where((x_base >= 0) & (x_base <= 1), 1, 0)
+        elif d == "exp":  
+            y_base = np.where(x_base >= 0, np.exp(-x_base), 0)
+        elif d == "bimodal":
+            y_base = (1 / np.sqrt(2 * np.pi)) * (np.exp(-2 * (x_base + 2)**2) + np.exp(-2 * (x_base - 2)**2))
+        elif d == "beta":
+            y_base = np.where((x_base >= 0) & (x_base <= 1), 72 * (x_base**7) * (1 - x_base), 0)
+            
+        y_vals = y_base / scale_factor
+            
+        ax1.plot(x_vals, y_vals, color='gray', linewidth=2)
+        ax1.fill_between(x_vals, y_vals, alpha=0.2, color='gray')
+        ax1.axvline(target_mu, color='black', linestyle='--', label=f'True μ ({target_mu:.2f})')
+        ax1.set_xlim(target_mu - 4*target_sigma, target_mu + 4*target_sigma)
+        ax1.set_title("Population Distribution")
+        ax1.set_xlabel("Score Value")
+        ax1.legend(loc='upper right')
+        
+        if num_samples == 0:
+            for ax, title in zip([ax2, ax3, ax4], ["Sampling Distribution of Mean (M)", "Sampling Distribution of Sum of Squares", "Sampling Distribution of Variance (Mean Squares)"]):
+                ax.set_xlim(0, 10)
+                ax.set_ylim(0, 5)
+                ax.text(5, 2.5, f"Click 'Draw Samples' to build distribution\n(n = {n})", ha='center', va='center', fontsize=11)
+                ax.set_title(title)
+            return fig
+
+        # --- TOP RIGHT: Sampling Distribution of the Mean ---
+        # Plotted as density to overlay theoretical curve
+        ax2.hist(curr['means'], bins=20, density=True, color='dodgerblue', edgecolor='black', alpha=0.6)
+        
+        # Theoretical Distribution Overlay
+        std_err = target_sigma / np.sqrt(n)
+        x_m = np.linspace(target_mu - 4*std_err, target_mu + 4*std_err, 200)
+        y_m = (1 / (std_err * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x_m - target_mu) / std_err)**2)
+        ax2.plot(x_m, y_m, color='darkgreen', linewidth=2, label='Theoretical $N(μ, σ^2/n)$')
+        
+        ax2.axvline(target_mu, color='black', linestyle='--', linewidth=2, label=f'True μ ({target_mu:.2f})')
+        ax2.axvline(np.mean(curr['means']), color='red', linestyle='-', linewidth=2, label=f'Mean of M\'s ({np.mean(curr["means"]):.2f})')
+        ax2.set_title(f"Sampling Dist. of the Mean (Total Samples: {num_samples})")
+        ax2.set_xlabel("Sample Mean (M)")
+        ax2.legend(loc='upper right')
+
+        # --- BOTTOM LEFT: Sampling Distribution of SS ---
+        ax3.hist(curr['ss_mu'], bins=20, color='purple', alpha=0.5, label='SS using $\\sum (x_i - μ)^2$')
+        ax3.hist(curr['ss_xbar'], bins=20, color='darkorange', alpha=0.5, label='SS using $\\sum (x_i - M)^2$')
+        ax3.hist(curr['diff_ss'], bins=100, color='seagreen', alpha=0.6, label='$n(μ - M)^2$')
+        
+        # Add ticks for means
+        ax3.axvline(np.mean(curr['ss_mu']), color='purple', linestyle='dashed', linewidth=2.5)
+        ax3.axvline(np.mean(curr['ss_xbar']), color='darkorange', linestyle='dashed', linewidth=2.5)
+        ax3.axvline(np.mean(curr['diff_ss']), color='seagreen', linestyle='dashed', linewidth=2.5)
+        
+        ax3.set_title("Sampling Dist. of Sum of Squares (SS)")
+        ax3.set_xlabel("Sum of Squares")
+        ax3.legend(loc='upper right')
+
+        # --- BOTTOM RIGHT: Sampling Distribution of Variances (Mean Squares) ---
+        ax4.hist(curr['var_mu'], bins=20, color='purple', alpha=0.5, label='$s^2$ using $\\frac{\\sum (x_i - \\mu)^2}{n}$')
+        if n > 1:
+            ax4.hist(curr['var_xbar'], bins=20, color='darkorange', alpha=0.5, label='$s^2$ using $\\frac{\\sum (x_i - M)^2}{n-1}$')
+        ax4.hist(curr['diff_var'], bins=100, color='seagreen', alpha=0.6, label='$n(μ - M)^2$')
+        ax4.axvline(true_var, color='black', linestyle='--', linewidth=2, label=f'True σ² ({true_var:.3f})')
+        
+        # Add ticks for means
+        ax4.axvline(np.mean(curr['var_mu']), color='purple', linestyle='dashed', linewidth=2.5)
+        if n > 1:
+            ax4.axvline(np.nanmean(curr['var_xbar']), color='darkorange', linestyle='dashed', linewidth=2.5)
+        ax4.axvline(np.mean(curr['diff_var']), color='seagreen', linestyle='dashed', linewidth=2.5)
+        
+        ax4.set_title("Sampling Dist. of Variance (Mean Squares)")
+        ax4.set_xlabel("Variance Estimate")
+        ax4.legend(loc='upper right')
+
+        return fig
+
+app = App(app_ui, server)
+```
+:::

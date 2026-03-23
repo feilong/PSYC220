@@ -1,0 +1,24 @@
+---
+title: "Interactive Statistics Demonstrations"
+subtitle: "Understanding Sum of Squares, Variance, and Degrees of Freedom"
+---
+
+Welcome! These interactive modules are designed to help you build a visual, intuitive understanding of some of the most fundamental (and sometimes tricky) concepts in statistics.
+
+Instead of just memorizing formulas, you are going to generate real data, watch how the math reacts, and see the geometric proofs of these concepts unfold in real-time.
+
+### Choose a Module to Begin:
+
+**[1. Single Sample Growth](single_sample.qmd)**
+
+- **What you will do:** Draw individual scores one at a time from a population of your choice.
+- **What you will learn:** Watch how the Sum of Squares ($SS$) grows as your sample size increases. More importantly, you will see exactly why calculating variance using the sample mean ($M$) systematically underestimates the true variance compared to using the population mean ($\mu$)—and why we have to divide by $n-1$ to fix it!
+
+**[2. Sampling Distributions](sampling.qmd)**
+
+- **What you will do:** Draw dozens (or hundreds!) of samples all at once.
+- **What you will learn:** See the **Central Limit Theorem** in action as the distribution of sample means forms a bell curve. You will also track the average of all your sample variances to prove that dividing by $n-1$ creates an *unbiased estimator* that perfectly targets the true population variance ($\sigma^2$).
+
+::: {.callout-note}
+These modules are designed to be exploratory and interactive. Feel free to experiment with different population parameters, sample sizes, and numbers of samples to see how the concepts hold up under various conditions. The goal is to develop a deep, intuitive understanding of these statistical principles, not just to see them work in one specific case.
+:::
