@@ -27,6 +27,10 @@ Instead of just memorizing formulas, you are going to generate real data, watch 
 - **What you will do:** Read through a detailed breakdown of the key formulas for Sum of Squares and Variance in the context of independent samples.
 - **What you will learn:** Understand the algebraic structure of these formulas, how they relate to each other, and why they all converge on the true population variance in expectation.
 
+**[5. Guess Correlation](guess_correlation.qmd)**
+- **What you will do:** Adjust the number of points in a scatter plot and guess the correlation (r) before revealing the true value.
+- **What you will learn:** Develop an intuitive sense for how correlation manifests in data, and how the strength of the relationship between two variables can be visually assessed.
+
 ::: {.callout-note}
 These modules are designed to be exploratory and interactive. Feel free to experiment with different population parameters, sample sizes, and numbers of samples to see how the concepts hold up under various conditions. The goal is to develop a deep, intuitive understanding of these statistical principles, not just to see them work in one specific case.
 :::

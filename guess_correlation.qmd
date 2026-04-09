@@ -1,0 +1,86 @@
+---
+title: "Guess the Correlation"
+format: html
+filters:
+  - shinylive
+---
+
+## Test Your Intuition
+
+Adjust the number of points, guess the correlation (r) of the scatter plot, and click the button to reveal the true answer!
+
+```{shinylive-python}
+#| standalone: true
+#| components: [viewer]
+#| viewerHeight: 700
+
+from shiny import App, render, ui, reactive
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. UI Definition (Updated to modern Shiny API)
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.input_slider("n_points", "Number of Points (N)", min=10, max=500, value=100, step=10),
+        ui.input_action_button("btn_next", "Generate Next Trial"),
+        ui.input_action_button("btn_reveal", "Reveal Correlation"),
+        ui.br(), ui.br(),
+        ui.output_ui("correlation_ui")
+    ),
+    ui.output_plot("scatter_plot", width="500px", height="500px")
+)
+
+# 2. Server Logic
+def server(input, output, session):
+    # Reactive values to hold state across button clicks
+    current_r = reactive.Value(np.random.uniform(-1, 1))
+    is_revealed = reactive.Value(False)
+
+    # React to "Next Trial" button
+    @reactive.Effect
+    @reactive.event(input.btn_next)
+    def _():
+        current_r.set(np.random.uniform(-1, 1))
+        is_revealed.set(False)
+
+    # React to "Reveal" button
+    @reactive.Effect
+    @reactive.event(input.btn_reveal)
+    def _():
+        is_revealed.set(True)
+
+    # Generate and render the plot
+    @render.plot
+    def scatter_plot():
+        n = input.n_points()
+        r = current_r.get()
+        
+        # Generate correlated data using multivariate normal distribution
+        mean = [0, 0]
+        cov = [[1, r], [r, 1]]
+        x, y = np.random.multivariate_normal(mean, cov, n).T
+        
+        # Plotting with matplotlib
+        fig, ax = plt.subplots(figsize=(6, 6))
+        ax.scatter(x, y, alpha=0.6, color="#2c3e50", edgecolors='white', linewidth=0.5)
+        ax.set_xlim(-4, 4)
+        ax.set_ylim(-4, 4)
+        ax.grid(True, linestyle='--', alpha=0.5)
+        ax.set_aspect('equal', adjustable='box')
+        ax.set_xlabel("X")
+        ax.set_ylabel("Y")
+        
+        return fig
+
+    # Render the text revealing the correlation
+    @render.ui
+    def correlation_ui():
+        if is_revealed.get():
+            val = current_r.get()
+            return ui.h4(f"True Correlation (r): {val:.3f}")
+        else:
+            return ui.h4("True Correlation (r): ???")
+
+app = App(app_ui, server)
+
+```
