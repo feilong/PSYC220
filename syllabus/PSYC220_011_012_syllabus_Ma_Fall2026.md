@@ -110,9 +110,9 @@ Your email address in Blackboard should match your preferred university email. I
 
 The course is based on standalone slides and course handouts, so that course materials are free of cost to you. These materials will be posted on [Blackboard](https://blackboard.sc.edu/) (<https://blackboard.sc.edu/>). All course readings/materials comply with copyright/fair use policies.
 
-The lecture pace will not allow time to copy the slides during class. I recommend printing or downloading the slides beforehand so that you can focus on annotating them during class.
+The slides will be available to you on Blackboard, so there is no need to write down everything you see in class. Spend class following the explanation and annotating the parts that matter, rather than transcribing.
 
-For those who seek a companion text, I recommend "An Introduction to Psychological Statistics" by Foster et al. (2018) (<https://irl.umsl.edu/cgi/viewcontent.cgi?article=1000&context=oer>). The book is free, and it is optional: I do not lecture from it or assign readings in it. If you would like a second explanation of a topic, the course schedule at the end of this syllabus lists the chapter that corresponds to each topic.
+For those who seek a companion text, I recommend "Introduction to Statistics in the Psychological Sciences" by Cote, Gordon, Randell, Schmitt, and Marvin (2021; revised 2023) (<https://irl.umsl.edu/cgi/viewcontent.cgi?article=1024&context=oer>). The book is free, and it is optional: I do not lecture from it or assign readings in it. If you would like a second explanation of a topic, the course schedule at the end of this syllabus lists the chapter that corresponds to each topic. Its appendices also contain the statistical tables (z, t, F, r) we will use.
 
 We will also make use of a computer software called "SPSS" to apply the statistical concepts we learn in real data. You will practice using SPSS each week in your lab section for the course, and course exams will include questions using SPSS output.
 
@@ -513,4 +513,4 @@ Put these six dates in your calendar now. **Each exam focuses on everything taug
 
 Your lab section meets each Friday. This schedule is tentative: if we need to adjust the pace, I will announce the change in class and on Blackboard, but **exam dates will not move**.
 
-Chapter numbers in the Reading column refer to the *optional* companion text, Foster et al. (2018), linked under "Course Materials." Nothing in it is required and I do not lecture from it; the chapters are listed so that you know where to look if you want a second explanation of a topic.
+Chapter numbers in the Reading column refer to the *optional* companion text, Cote et al. (2021), linked under "Course Materials." Nothing in it is required and I do not lecture from it; the chapters are listed so that you know where to look if you want a second explanation of a topic.
