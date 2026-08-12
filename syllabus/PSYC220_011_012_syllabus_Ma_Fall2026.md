@@ -48,6 +48,8 @@ Discovery I, Room 308
 
 Office hours: TBA, and by appointment
 
+When you email either of us, please put **"PSYC 220"** and your section number in the subject line (e.g., "PSYC 220-011"). We teach two sections that meet together for lecture but separately for lab, and this helps us answer you accurately and quickly.
+
 ## Academic Bulletin Course Description
 
 Psychological Statistics (3 Credits)—Introduction to statistical methods essential for psychological research.
@@ -76,6 +78,18 @@ Upon successful completion of this course, you will be able to:
 
 7.  Explain under what conditions different statistical tests are used.
 
+## Lab Section Description
+
+You are enrolled in a weekly lab section led by your TA. It is a small-group setting where you can get help with material you are uncomfortable with or having trouble grasping, and every lab follows the same shape:
+
+1.  A brief summary of what we covered in lecture that week.
+
+2.  **Working through that week's lab assignment together, question by question.** This is the bulk of the hour.
+
+3.  Time for your questions—about lab, lecture, homework, or an upcoming exam.
+
+Some lab assignments ask you to run analyses in SPSS and read the output, and your TA will show you how. Lab meets on Fridays, after both lecture meetings for the week, so it is the best place to consolidate what you saw in class.
+
 ## Course Communication and Feedback
 
 I will communicate with you regarding grades and assignments. If you need to get in touch with me, the best method is via email. Generally, I will reply to emails within 24 hours and will provide feedback on major assignments within one week.
@@ -96,15 +110,13 @@ Your email address in Blackboard should match your preferred university email. I
 
 ## Course Materials
 
-The course is based on standalone slides and course handouts. These materials will be posted on [Blackboard](https://blackboard.sc.edu/) (<https://blackboard.sc.edu/>). All course readings/materials comply with copyright/fair use policies.
+The course is based on standalone slides and course handouts, so that course materials are free of cost to you. These materials will be posted on [Blackboard](https://blackboard.sc.edu/) (<https://blackboard.sc.edu/>). All course readings/materials comply with copyright/fair use policies.
 
-For those who seek a companion text, I recommend “An Introduction to Psychological Statistics” by Foster et al. (2018) (<https://irl.umsl.edu/cgi/viewcontent.cgi?article=1000&context=oer>).
+The lecture pace will not allow time to copy the slides during class. I recommend printing or downloading the slides beforehand so that you can focus on annotating them during class.
 
-We will also make use of a computer software called “SPSS” to apply the statistical concepts
+For those who seek a companion text, I recommend "An Introduction to Psychological Statistics" by Foster et al. (2018) (<https://irl.umsl.edu/cgi/viewcontent.cgi?article=1000&context=oer>). The book is free, and it is optional: I do not lecture from it or assign readings in it. If you would like a second explanation of a topic, the course schedule at the end of this syllabus lists the chapter that corresponds to each topic.
 
-we learn in real data. You will practice using SPSS each week in your lab section for the course,
-
-and course exams will include questions using SPSS output.
+We will also make use of a computer software called "SPSS" to apply the statistical concepts we learn in real data. You will practice using SPSS each week in your lab section for the course, and course exams will include questions using SPSS output.
 
 ## Technology Requirements
 
@@ -168,7 +180,35 @@ There will be 10 homework assignments for the lecture components of the class an
 
 You will turn in homework assignments at the beginning of class on a given due date. Lab assignments will be reviewed at the end of each lab period. Please plan accordingly and complete your assignments by the deadlines to ensure that unanticipated circumstances do not affect you turning in work. *I do not accept late assignments to respect your TA’s time as a working student.*
 
-There are four class exams, including a cumulative final. Each exam is worth 100 points. I only count three exams toward your grade, by dropping your lowest score. *I do not offer any make-up exams given this policy***.**
+There are four class exams, including a cumulative final. Each exam is worth 100 points. I only count three exams toward your grade, by dropping your lowest score.
+
+Exams include multiple-choice, short-answer, and computational questions, as well as questions asking you to read and interpret SPSS output. Scantrons will be provided; **bring your own pencils**, as we do not supply them.
+
+You may bring **one letter-sized "cheat sheet," front and back**, to every exam, including the final. It must be **handwritten by you**—not typed, not printed, not photocopied, and not borrowed from another student. Within that constraint it may contain anything you like. I allow this so that you can spend your preparation on understanding the material rather than on memorizing formulas, and I require that you write it yourself because deciding what belongs on the page, and copying it out by hand, is itself one of the most effective ways to study.
+
+Apart from your cheat sheet and a permitted calculator, exams are closed-book: no textbooks, no additional notes, and no cell phones, tablets, laptops, smart watches, or other electronic devices.
+
+## Make-Up Work Policy
+
+Make-up work—for homework, lab assignments, and exams—will be given **without penalty** when you have a university-approved [excused absence](https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/) (https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/). This is a change from previous semesters: the dropped exam score is no longer the only accommodation for a missed exam.
+
+If you miss an exam or assignment because of an unanticipated excused absence (e.g., illness or injury, legal proceedings, death in the immediate family), request certification through the [Office of Student Advocacy](https://sc.edu/about/offices_and_divisions/student_affairs/student-services/academic_success/ombuds_services/our_services/class_absences/index.php) (https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/academic_success/ombuds_services/index.php) at the first opportunity:
+
+- Fill out the online [Student Advocacy Report Form](https://cm.maxient.com/reportingform.php?UnivofSouthCarolina&layout_id=77) (https://cm.maxient.com/reportingform.php?UnivofSouthCarolina&layout_id=77).
+
+- If the absence meets the requirements for an excused absence, the Office of Student Advocacy will certify it and notify your instructors.
+
+- **It is your responsibility to contact me when you return** to request and schedule the make-up work. All make-up work must be completed within one week of your return to class.
+
+Please do not send medical or personal documentation directly to me or to your TA—send it to the Office of Student Advocacy.
+
+For absences you can **anticipate** at the start of the term and that qualify as excused (e.g., authorized University activities, religious observances—see the [Interfaith Calendar](https://sc.edu/about/offices_and_divisions/student_affairs/student-services/student_life/spiritual_religious_life/interfaith_calendar/) (https://sc.edu/about/offices_and_divisions/student_affairs/student-services/student_life/spiritual_religious_life/interfaith_calendar/)), email me by the end of the second week of the semester with the dates and, if applicable, a request for make-up work. Anticipated absences for medical reasons go to the Office of Student Advocacy rather than to me.
+
+If you know in advance that you will miss an exam for a reason that is *not* a university-approved excused absence (e.g., a family wedding), contact me **as early as possible** and I will try to arrange for you to take the exam *before* the scheduled date. No make-up will be arranged if you contact me after the exam has been given.
+
+Missed work associated with an **unexcused** absence receives a zero, which the dropped exam score may or may not cover. Pop quizzes and other extra credit cannot be made up, because they are extra credit: missing them cannot keep you from earning 100% of the course points.
+
+Students who miss the **final exam** with a certified excused absence will be given a make-up opportunity in accordance with university policy. Depending on circumstances, this may be an alternative time within the same final exam period, a grade of 'I' (Incomplete) with completion under the conditions specified in the "Assignment of Incomplete Grade" form, or a deferred examination taken at the next regular examination period (and within one calendar year).
 
 ## Grading Policy
 
@@ -196,11 +236,25 @@ Total Possible Points = 500 points
 
 **F: \<60%** (≤299.5 points)
 
+Extra credit from pop quizzes is added on top of these totals, so it is possible to exceed 500 points.
+
+Letter grades are assigned strictly according to the scale above; I do not round. Wherever the line is drawn there will always be students just below and just above it, and rounding does not remove that problem—it only moves the line and creates a new group of students who are just below. Drawing the lines before the course begins is what keeps the system fair and transparent for everyone. Note also that, following FERPA, I cannot discuss your grades over email; please come to office hours if you would like to talk about where you stand.
+
 ## Attendance Policy
 
-You are expected to attend class. Though I do not plan to monitor absences, *I strongly encourage you to attend class*. Course material is cumulative, and it will be very difficult to catch up if you miss too much.
+You are expected to attend class. Though I do not plan to monitor absences, and attendance itself carries no grade penalty, *I strongly encourage you to attend class*. Course material is cumulative, and it will be very difficult to catch up if you miss too much.
 
-To incentivize your attendance, I will (a) work through examples in class that will not be posted on Blackboard, and (b) offer in-class, extra credit pop quizzes over the semester. Quizzes will not be announced and will be given at the beginning of a class period. If you are late for class and we have finished the quiz, you forfeit your opportunity to take it.
+To incentivize your attendance, I will (a) work through examples in class that will not be posted on Blackboard, and (b) offer in-class, extra credit pop quizzes over the semester. Quizzes will not be announced and will be given at the beginning of a class period. If you are late for class and we have finished the quiz, you forfeit your opportunity to take it. Across the semester, pop quizzes can add up to 10 extra credit points to your course total.
+
+If you are absent, you remain responsible for the material covered in class. See "Make-Up Work Policy" above for how excused absences are handled.
+
+## What You Should Expect
+
+- "Statistics is not primarily a matter of plugging numbers into formulas and performing rote computations." The point of this course is to acquaint you with the thinking behind the formulas—how statisticians draw inferences and make decisions from data. Rote memorization, or leaning on notes without genuine understanding, will not carry you through this class.
+
+- The material is genuinely cumulative: you need what we do in the first month to understand what we do in the last. The early material can look deceptively easy, and the hardest stretch begins around hypothesis testing. It is difficult to catch up once you fall behind, so keep turning in homework and attending lab.
+
+- This course is about methods you can use in your own life and research. We will work through many examples in lecture and lab, and you will see application questions on homework and exams. Real-life examples are based on made-up data and are used only to illustrate the material; the conclusions do not represent scientific fact or my own opinions.
 
 ## Academic Integrity Statement
 
@@ -302,7 +356,7 @@ This campus offers a wide range of academic support services to help students ac
 
 ## Disability Services
 
-The [Student Disability Resource Center](http://www.sa.sc.edu/sds/) (SDRC) (http://www.sa.sc.edu/sds/) empowers students to manage challenges and limitations imposed by disabilities. To receive reasonable accommodations from me, you must be registered with the Student Disability Resource Center (1705 College Street, Close-Hipp Suite 102, Columbia, SC 29208, 803-777-6142). Any student with a documented disability should contact the SDRC to arrange appropriate accommodation. Once registered, students with disabilities are encouraged to contact me (within the first week of the semester) to discuss the logistics of any accommodation needed to fulfill course requirements.
+The [Student Disability Resource Center](http://www.sa.sc.edu/sds/) (SDRC) (http://www.sa.sc.edu/sds/) empowers students to manage challenges and limitations imposed by disabilities. To receive reasonable accommodations from me, you must be registered with the Student Disability Resource Center (1705 College Street, Close-Hipp Suite 102, Columbia, SC 29208, 803-777-6142). Any student with a documented disability should contact the SDRC to arrange appropriate accommodation. Registration takes at least two weeks and includes a required orientation, so please start early. Once registered, students with disabilities are encouraged to contact me (within the first week of the semester) to discuss the logistics of any accommodation needed to fulfill course requirements.
 
 ## Mental Health and Well-Being
 
@@ -344,7 +398,7 @@ Remember that if you use anything that is not your own writing or media (quotes 
 
 ## Acknowledgement
 
-Part of the syllabus was adapted from materials kindly provided by Prof. Amanda Fairchild.
+Part of the syllabus was adapted from materials kindly provided by many PSYC 220 instructors at USC.
 
 ## Tentative Course Schedule
 
