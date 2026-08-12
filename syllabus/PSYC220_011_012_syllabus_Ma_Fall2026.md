@@ -479,7 +479,7 @@ Put these six dates in your calendar now. **Each exam focuses on everything taug
 | 2 | Thu 8/20 | **Topic 2.** Basic Concepts & Distributions | Ch. 1–2 |
 | 3 | Tue 8/25 | **Topic 3.** Measures of Central Tendency & Graphs | Ch. 3 |
 | 4 | Thu 8/27 | **Topic 4.** Measures of Spread & Variability | Ch. 3 |
-| 5 | Tue 9/1 | Topic 4, continued | Ch. 3 |
+| 5 | Tue 9/1 | Review & Q&A: preparation for Exam 1 |  |
 | 6 | Thu 9/3 | **EXAM 1** (Topics 1–4) |  |
 | 7 | Tue 9/8 | **Topic 5.** z-scores & the Standard Normal Distribution | Ch. 4 |
 | 8 | Thu 9/10 | Topic 5, continued | Ch. 4 |
@@ -495,7 +495,7 @@ Put these six dates in your calendar now. **Each exam focuses on everything taug
 |  | Thu 10/15 | *Fall Break — no class* |  |
 | 18 | Tue 10/20 | **Topic 13.** Dependent-Samples *t*-test | Ch. 9 |
 | 19 | Thu 10/22 | **Topic 14.** Independent-Samples *t*-test | Ch. 10 |
-| 20 | Tue 10/27 | Synthesis: which *t*-test when, effect sizes, SPSS output | Ch. 8–10 |
+| 20 | Tue 10/27 | Review & Q&A: preparation for Exam 4 |  |
 | 21 | Thu 10/29 | **EXAM 4** (Topics 13–14) |  |
 |  | Tue 11/3 | *General Election Day — no class* |  |
 | 22 | Thu 11/5 | **Topic 15.** Analysis of Variance (ANOVA) | Ch. 11 |
