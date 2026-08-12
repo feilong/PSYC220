@@ -241,7 +241,7 @@ A: One dropped score only protects you once. Any second missed exam counts as a 
 
 ## Make-Up Work Policy
 
-Make-up work—for homework, lab assignments, and exams—will be given **without penalty** when you have a university-approved [excused absence](https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/) (https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/). This is a change from previous semesters: the dropped exam score is no longer the only accommodation for a missed exam.
+Make-up work—for homework, lab assignments, and exams—will be given **without penalty** when you have a university-approved [excused absence](https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/) (https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/).
 
 If you miss an exam or assignment because of an unanticipated excused absence (e.g., illness or injury, legal proceedings, death in the immediate family), request certification through the [Office of Student Advocacy](https://sc.edu/about/offices_and_divisions/student_affairs/student-services/academic_success/ombuds_services/our_services/class_absences/index.php) (https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/academic_success/ombuds_services/index.php) at the first opportunity:
 
