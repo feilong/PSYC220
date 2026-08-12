@@ -86,7 +86,7 @@ You are enrolled in a weekly lab section led by your TA. It is a small-group set
 
 3.  Time for your questions—about lab, lecture, homework, or an upcoming exam.
 
-Some lab assignments ask you to run analyses in SPSS and read the output, and your TA will show you how. Lab meets on Fridays, after both lecture meetings for the week, so it is the best place to consolidate what you saw in class.
+Where a topic calls for it, your TA will also introduce SPSS and show you what its output looks like—the goal is that you can read a printout, not that you master the software. Lab meets on Fridays, after both lecture meetings for the week, so it is the best place to consolidate what you saw in class.
 
 ## Course Communication and Feedback
 
@@ -114,7 +114,7 @@ The slides will be available to you on Blackboard, so there is no need to write 
 
 For those who seek a companion text, I recommend "Introduction to Statistics in the Psychological Sciences" by Cote, Gordon, Randell, Schmitt, and Marvin (2021; revised 2023) (<https://irl.umsl.edu/cgi/viewcontent.cgi?article=1024&context=oer>). The book is free, and it is optional: I do not lecture from it or assign readings in it. If you would like a second explanation of a topic, the course schedule at the end of this syllabus lists the chapter that corresponds to each topic. Its appendices also contain the statistical tables (z, t, F, r) we will use.
 
-We will also make use of a computer software called "SPSS" to apply the statistical concepts we learn in real data. You will practice using SPSS each week in your lab section for the course, and course exams will include questions using SPSS output.
+We will also make use of a statistical software package called "SPSS." What you are expected to take away from it is the ability to **read and interpret SPSS output**: real analyses are reported in this form, and course exams will include questions that ask you to pull the answer out of a printout. You are not expected to become a proficient SPSS user, and you will not be graded on your ability to operate the software. Your TA will introduce SPSS in lab where a topic calls for it.
 
 ## Interactive Demonstrations
 
@@ -215,11 +215,11 @@ There are **six exams** this semester: five in-semester exams and a cumulative f
 
 - The final exam is **cumulative** and covers the whole course. Its date and time are set by the [University Registrar](https://sc.edu/about/offices_and_divisions/registrar/final_exams/index.php) (https://sc.edu/about/offices_and_divisions/registrar/final_exams/index.php) according to our lecture meeting time: **Tuesday, December 8, at 12:30 p.m.** Note that this is *not* our usual class time, and it falls before the last day of the exam period—do not book travel home before it.
 
-- Exams include multiple-choice, short-answer, and computational questions, as well as questions asking you to read and interpret SPSS output. Scantrons will be provided; **bring your own pencils**, as we do not supply them.
+- Exams test both computation and understanding. You will work problems and calculate values by hand, interpret what a result means, decide which test fits a given design, and read values out of SPSS output. Scantrons will be provided; **bring your own pencils**, as we do not supply them.
 
 - You may bring **one letter-sized "cheat sheet," front and back**, to every exam, including the final. It must be **handwritten by you**—not typed, not printed, not photocopied, and not borrowed from another student. Within that constraint it may contain anything you like. I allow this so that you can spend your preparation on understanding the material rather than on memorizing formulas, and I require that you write it yourself because deciding what belongs on the page, and copying it out by hand, is itself one of the most effective ways to study. A typed, printed, or shared sheet will be collected at the start of the exam and you will take the exam without it. I will still provide the statistical tables (z, t, F, and r) that you need.
 
-- Apart from your cheat sheet and a permitted calculator (see "Calculators" above), exams are closed-book: no textbooks, no additional notes, and no cell phones, tablets, laptops, smart watches, or other electronic devices.
+- Exams are closed-book. The only two things you may have at your desk are your handwritten cheat sheet and a permitted calculator (see "Calculators" above). Nothing else: no textbooks, no other notes, and no phones, tablets, laptops, smart watches, or any other electronic device.
 
 **FAQ**
 
