@@ -307,11 +307,9 @@ If you are absent, you remain responsible for the material covered in class. See
 
 ## Academic Integrity Statement
 
-As a partner in your learning, it is important to both of us that any assignment submission is a pure reflection of your work and understanding. Suspicions of alleged violations of Cheating – defined as "unauthorized assistance in connection with any academic work" and/or Falsification, which includes "Misrepresenting or misleading others with respect to academic work or misrepresenting facts for an academic advantage" – will be referred to the Office of Academic Integrity.
+When students, faculty, and staff wrote the Carolinian Creed, their choice for the first tenet was, "I will practice personal and academic integrity." As partners in your learning, it is important for both of us that any assignment submission is a pure reflection of your work and understanding. Suspicions of alleged violations of Cheating—defined as "unauthorized assistance in connection with any academic work"—and/or Falsification, which includes "Misrepresenting or misleading others with respect to academic work or misrepresenting facts for an academic advantage," will be referred to the Office of Student Conduct and Academic Integrity (OSCAI).
 
-You are expected to practice the highest possible standards of academic integrity. Any deviation from this expectation will result in a minimum academic penalty of your failing the assignment and will result in additional disciplinary measures. This includes improper citation of sources, using another student's work, and any other form of academic misrepresentation.
-
-The first tenet of the Carolinian Creed is, "I will practice personal and academic integrity."
+You are expected to practice the highest standards of academic integrity. Any deviation from this expectation will result in a referral to the OSCAI for an allegation of a violation of the Honor Code. If a violation is found, there will be a minimum academic penalty of your failing the assignment, in addition to outcomes from the OSCAI. This includes improper citation of sources, using another student's work, unauthorized use of artificial intelligence, and any other form of academic misrepresentation.
 
 Below are some websites for you to visit to learn more about university policies:
 
@@ -319,7 +317,7 @@ Below are some websites for you to visit to learn more about university policies
 
 - [Academic Responsibility](https://www.sc.edu/policies/ppm/staf625.pdf) (https://www.sc.edu/policies/ppm/staf625.pdf)
 
-- [Office of Student Conduct and Academic Integrity](https://www.sa.sc.edu/academicintegrity/) (https://www.sa.sc.edu/academicintegrity/)
+- [Office of Student Conduct and Academic Integrity](https://sc.edu/about/offices_and_divisions/student_conduct_and_academic_integrity/) (https://sc.edu/about/offices_and_divisions/student_conduct_and_academic_integrity/)
 
 - [Information Security Policy and Standards](https://sc.edu/about/offices_and_divisions/division_of_information_technology/security/policy/index.php) (https://sc.edu/about/offices_and_divisions/division_of_information_technology/security/policy/index.php)
 
@@ -405,7 +403,11 @@ This campus offers a wide range of academic support services to help students ac
 
 ## Disability Services
 
-The [Student Disability Resource Center](http://www.sa.sc.edu/sds/) (SDRC) (http://www.sa.sc.edu/sds/) empowers students to manage challenges and limitations imposed by disabilities. To receive reasonable accommodations from me, you must be registered with the Student Disability Resource Center (1705 College Street, Close-Hipp Suite 102, Columbia, SC 29208, 803-777-6142). Any student with a documented disability should contact the SDRC to arrange appropriate accommodation. Registration takes at least two weeks and includes a required orientation, so please start early. Once registered, students with disabilities are encouraged to contact me (within the first week of the semester) to discuss the logistics of any accommodation needed to fulfill course requirements.
+The University of South Carolina is committed to providing equitable access to learning opportunities for students with disabilities. Students seeking accommodations should contact the [Student Disability Resource Center](http://www.sa.sc.edu/sds/) (SDRC) (http://www.sa.sc.edu/sds/) at 803-777-6142, email <sadrc@mailbox.sc.edu>, or visit Close-Hipp Suite 102 to begin the registration process. Registration takes at least two weeks and includes a required orientation, so please start early.
+
+Once accommodations have been approved through the SDRC, students should provide their accommodation notification letters to their instructors as early as possible. I encourage you to contact me within the first week of the semester, or as soon as your letter is issued, so that we can discuss the logistics of any accommodation you need for this course.
+
+Students who have questions or experience barriers related to disability access are encouraged to contact the SDRC for assistance.
 
 ## Mental Health and Well-Being
 
@@ -415,9 +417,9 @@ If stress is affecting your ability to complete schoolwork, maintain relationshi
 
 - [Therapy Assistance Online (TAO) by Uplift](https://us.taoconnect.org/login) (https://us.taoconnect.org/login) offers virtual self-help modules. See [TAO registration](https://us.taoconnect.org/register) (https://us.taoconnect.org/register).
 
-- **Counseling & Psychology Services (CAPS)** offers individual and group counseling, as well as psychiatric services. Schedule an appointment at (803) 777-5223 or through [MyHealthSpace](https://myhealthspace.ushs.sc.edu/) (https://myhealthspace.ushs.sc.edu/).
+- **Counseling & Psychology Services (CAPS)** offers brief individual and group counseling, as well as psychiatric services. Schedule an appointment at (803) 777-5223 or through [MyHealthSpace](https://myhealthspace.ushs.sc.edu/) (https://myhealthspace.ushs.sc.edu/).
 
-- **24-Hour Mental Health Support Line**: Call (833) 664-2854 for immediate support.
+- **24-Hour Mental Health Support Line**: Call (844) 287-6963 for immediate support.
 
 - **Anonymous Mental Health Screening**: Take an anonymous [mental health screening](https://www.uscscreening.org/welcome.cfm?access=website) (https://www.uscscreening.org/welcome.cfm?access=website).
 
@@ -425,15 +427,15 @@ If stress is affecting your ability to complete schoolwork, maintain relationshi
 
 In partnership with USC faculty, the [Student Success Center](https://sc.edu/about/offices_and_divisions/student_success_center/index.php) (SSC) (https://sc.edu/about/offices_and_divisions/student_success_center/index.php) offers several programs designed to help you better understand your course material and to support your academic success. SSC programs are led by professional staff, graduate students, and trained undergraduate peer leaders who have previously excelled in their courses. Resources available to you in this course may include:
 
-- **Peer Tutoring:** Schedule a one-on-one appointment with a [Peer Tutor](http://www.sc.edu/success) (http://www.sc.edu/success). Drop-in and Online Tutoring may also be available for this course. Visit the website for a full schedule of times, locations, and courses.
+- **Peer Tutoring:** Schedule a one-on-one appointment with a [Peer Tutor](https://sc.edu/about/offices_and_divisions/student_success_center/undergraduate-support/index.php) (https://sc.edu/about/offices_and_divisions/student_success_center/undergraduate-support/index.php). Drop-in and Online Tutoring may also be available for this course. Visit the website for a full schedule of times, locations, and courses.
 
 - **Supplemental Instruction (SI):** SI Leaders are assigned to specific course sections and hold three weekly study sessions focused on the most challenging course content. The SI session schedule is posted on the SSC website each week and will also be communicated in class by the SI Leader.
 
-- **Peer Writing:** Improve your college-level writing skills by bringing writing assignments from any of your classes to a Peer Writing Tutor. You can schedule an appointment through the website and view the full schedule of available drop-in hours and locations.
+- **Peer Writing and Communications Tutoring:** Improve your college-level writing skills by bringing writing assignments from any of your classes to a Peer Writing Tutor. You can schedule an appointment through the website and view the full schedule of available drop-in hours and locations.
 
-- **Success Consultations:** SSC staff offer personalized consultations to help you develop study skills, set academic goals, and connect with campus resources. Throughout the semester, I may communicate with the SSC about your progress to ensure your success in this course. If the SSC contacts you, please schedule a Success Consultation promptly. Referrals are not punitive, and any information shared is confidential under FERPA privacy laws. Student Success Center services are available to all USC undergraduates at no additional cost. To check the schedule and make appointments, please call 803-777-1000, visit <http://www.sc.edu/success>, or stop by the Student Success Center in the Thomas Cooper Library (Mezzanine Level).
+- **Success Coaching:** SSC staff offer personalized sessions to help you develop study skills, set academic goals, and connect with campus resources. Throughout the semester, I may communicate with the SSC about your progress to ensure your success in this course. If the SSC contacts you, please schedule Success Coaching promptly. Referrals are not punitive, and any information shared is confidential under FERPA privacy laws. Student Success Center services are available to all USC undergraduates at no additional cost. To check the schedule and make appointments, please call 803-777-1000, visit <http://www.sc.edu/success>, or stop by the Student Success Center in the Thomas Cooper Library (Mezzanine Level).
 
-This course may participate in the university's Progress Report/Alert Initiative. At key points throughout the semester, the instructor may notify the Student Success Center and/or University Advising Center about students who may not be meeting established criteria for attendance, grades, or assignment performance. Students who receive an alert may get an e-mail, phone call or text message from their Academic Advisor and/or the Student Success Center, encouraging them to connect with additional academic support resources.
+This course may participate in the university's Progress Report/Alert Initiative. At key points throughout the semester, the instructor may notify the Student Success Center about students who may not be meeting established criteria for attendance, grades, or assignment performance. Students who receive an alert may get an e-mail, phone call or text message from the Student Success Center, encouraging them to connect with additional academic support resources.
 
 ## Library Resources
 
