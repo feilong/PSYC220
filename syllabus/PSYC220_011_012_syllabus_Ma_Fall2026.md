@@ -293,7 +293,7 @@ Letter grades are assigned strictly according to the scale above; I do not round
 
 You are expected to attend class. Though I do not plan to monitor absences, and attendance itself carries no grade penalty, *I strongly encourage you to attend class*. Course material is cumulative, and it will be very difficult to catch up if you miss too much.
 
-To incentivize your attendance, I will (a) work through examples in class that will not be posted on Blackboard, and (b) offer in-class, extra credit pop quizzes over the semester. Quizzes will not be announced and will be given at the beginning of a class period. If you are late for class and we have finished the quiz, you forfeit your opportunity to take it. Across the semester, pop quizzes can add up to 10 extra credit points to your course total.
+To incentivize your attendance, I will offer in-class, extra credit pop quizzes over the semester. Quizzes will not be announced and will be given at the beginning of a class period. If you are late for class and we have finished the quiz, you forfeit your opportunity to take it. Across the semester, pop quizzes can add up to 10 extra credit points to your course total.
 
 If you are absent, you remain responsible for the material covered in class. See "Make-Up Work Policy" above for how excused absences are handled.
 
