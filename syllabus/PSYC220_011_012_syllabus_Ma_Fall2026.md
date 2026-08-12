@@ -56,9 +56,7 @@ Psychological Statistics (3 Credits)—Introduction to statistical methods essen
 
 ## Prerequisite(s)
 
-C or better in [**PSYC 101**](https://academicbulletins.sc.edu/search/?P=PSYC%20101); C or better in [**MATH 111**](https://academicbulletins.sc.edu/search/?P=MATH%20111) or equivalent or Math placement score.
-
-## 
+C or better in [**PSYC 101**](https://academicbulletins.sc.edu/search/?P=PSYC%20101); C or better in [**MATH 111**](https://academicbulletins.sc.edu/search/?P=MATH%20111) or equivalent or Math placement score.
 
 ## Course Learning Outcomes
 
@@ -118,6 +116,10 @@ For those who seek a companion text, I recommend "An Introduction to Psychologic
 
 We will also make use of a computer software called "SPSS" to apply the statistical concepts we learn in real data. You will practice using SPSS each week in your lab section for the course, and course exams will include questions using SPSS output.
 
+## Interactive Demonstrations
+
+I have built a set of free, browser-based interactive demonstrations for this course, available at [Psychology Statistics Demos](https://feilong.github.io/PSYC220/) (https://feilong.github.io/PSYC220/). They let you generate data and watch the math react, rather than only memorizing formulas. Modules cover the sum of squares and why we divide by *n* − 1, sampling distributions and the Central Limit Theorem, independent samples and the logic behind ANOVA, and a game for calibrating your eye to correlation coefficients. Nothing on these pages is graded; they are there to help concepts click. I will point you to specific modules as we reach the relevant topics.
+
 ## Technology Requirements
 
 The lecture presentations, assignments, quizzes, rubrics, and links to articles are all available on the Blackboard site for the course. To participate in learning activities and complete assignments, you will need daily access to:
@@ -138,11 +140,7 @@ For further questions or assistance with software, please contact the [Division 
 
 ## Minimal Student Technical Requirements/Skills
 
-This course is mathematical in nature and requires a strong command of basic arithmetic, order
-
-of operations, summation, and algebra. Course content will be difficult to master without these
-
-skills. Please consider the Math Tutoring Center (https://sc.edu/study/colleges_schools/artsandsciences/mathematics/study/tutoring/) if you need extra instruction.
+This course is mathematical in nature and requires a strong command of basic arithmetic, order of operations, summation, and algebra. Course content will be difficult to master without these skills. Please consider the [Math Tutoring Center](https://sc.edu/study/colleges_schools/artsandsciences/mathematics/study/tutoring/) (https://sc.edu/study/colleges_schools/artsandsciences/mathematics/study/tutoring/) if you need extra instruction.
 
 This course requires a basic level of technical skills. Many assignments and course work will be completed and submitted online through Blackboard, so you must have consistent and reliable access to a computer and the internet. The minimum technical skills required include the ability to:
 
@@ -172,7 +170,24 @@ If you experience computer issues, there are computer labs available at the Thom
 
 ## Calculators
 
-You may need a basic scientific calculator for class that can take square roots, and calculators may be required on each exam. For test security, I do not allow the use of a phone calculator or a graphing/programmable calculator. If you do not have an appropriate calculator already, please consider buying one. There are several options for ~\$10 (e.g., Casio FX-300 or TI-30Xa).
+You are **allowed to use a five-function calculator** in class, on homework and lab assignments, and on every exam. You are not required to—if you would rather work the arithmetic by hand, that is your choice—but most students find one helpful, and I recommend having one.
+
+If you do use a calculator, everything this course asks of it is: **add, subtract, multiply, divide, and take square roots.** Nothing here requires more than that.
+
+A plain four-function calculator with a square-root key—sometimes sold as a "five-function" calculator, though that label is not used consistently—is enough, and costs about \$5. A basic scientific calculator is also fine. If you do not have an appropriate calculator already, please consider buying one; there are several options for ~\$10 (e.g., **Casio FX-300** or **TI-30Xa**).
+
+**Calculators more powerful than a basic scientific model are not permitted**, for test security. The extra capability is no advantage in this course—there is nothing here for it to do—but it is a test-security problem, so it is not allowed regardless of what you use it for. Specifically prohibited:
+
+- Graphing calculators of any kind (e.g., TI-83/84 Plus, TI-89, TI-Nspire, Casio fx-9750/fx-9860/fx-CG50, HP Prime, NumWorks)
+- Programmable calculators, and any calculator with a computer algebra system (CAS)
+- Any calculator that stores text or formulas, has a QWERTY keyboard, or connects to a network
+- Phones, tablets, laptops, smart watches, and their calculator apps
+
+This list is not exhaustive. If your calculator does noticeably more than a Casio FX-300 or a TI-30Xa, assume it is not allowed and ask first. Show it to me or your TA **before the first exam**—not on exam day.
+
+These rules apply to homework and lab assignments as well as to exams. Practice with the calculator you will actually have on exam day: if you work through homework on a graphing calculator and then meet a basic one in the exam room, you will have practiced the wrong thing.
+
+**On exam day:** if you want a calculator, bring your own. You may not borrow or share one during an exam. A prohibited calculator will be collected for the duration of the exam and you will complete the exam without one.
 
 ## Assignments and Assessments
 
@@ -294,9 +309,7 @@ If you are absent, you remain responsible for the material covered in class. See
 
 ## Academic Integrity Statement
 
-As a partner in your learning, it is important to both of us that any assignment submission is a pure reflection of your work and understanding. Suspicions of alleged violations of Cheating –
-
-defined as “unauthorized assistance in connection with any academic work” and/or Falsification, which includes “Misrepresenting or misleading others with respect to academic work or misrepresenting facts for an academic advantage” – will be referred to the Office of Academic Integrity.
+As a partner in your learning, it is important to both of us that any assignment submission is a pure reflection of your work and understanding. Suspicions of alleged violations of Cheating – defined as "unauthorized assistance in connection with any academic work" and/or Falsification, which includes "Misrepresenting or misleading others with respect to academic work or misrepresenting facts for an academic advantage" – will be referred to the Office of Academic Integrity.
 
 You are expected to practice the highest possible standards of academic integrity. Any deviation from this expectation will result in a minimum academic penalty of your failing the assignment and will result in additional disciplinary measures. This includes improper citation of sources, using another student's work, and any other form of academic misrepresentation.
 
@@ -306,7 +319,7 @@ Below are some websites for you to visit to learn more about university policies
 
 - [Carolinian Creed](https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/involvement_and_leadership/carolinian_creed/index.php) (https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/involvement_and_leadership/carolinian_creed/index.php)
 
-- [Academic Responsibility](https://www.sc.edu/policies/ppm/staf625.pdf) (http://www.sc.edu/policies/staf625.pdf)
+- [Academic Responsibility](https://www.sc.edu/policies/ppm/staf625.pdf) (https://www.sc.edu/policies/ppm/staf625.pdf)
 
 - [Office of Student Conduct and Academic Integrity](https://www.sa.sc.edu/academicintegrity/) (https://www.sa.sc.edu/academicintegrity/)
 
@@ -314,7 +327,7 @@ Below are some websites for you to visit to learn more about university policies
 
 ### Plagiarism
 
-Using the words or ideas of another as if they were your own is a serious form of academic dishonesty. If another person’s complete sentence, syntax, key words, or specific or unique ideas and information are used, you must give that person credit through proper citation.
+Using the words or ideas of another as if they were your own is a serious form of academic dishonesty. If another person's complete sentence, syntax, key words, or specific or unique ideas and information are used, you must give that person credit through proper citation.
 
 ## Generative Artificial Intelligence (GenAI) Policy
 
@@ -336,9 +349,11 @@ You may use GenAI tools in certain activities to support your progress toward th
 
 **Prohibited Uses**
 
-You are not allowed to use GenAI tools to complete any aspect of class assignments and/or course assessments. All submitted work must be fully your own, and you are fully responsible for it. Using GenAI tools to complete any coursework is plagiarism and will be treated as such.
+You are not allowed to use GenAI tools to complete any aspect of class assignments and/or course assessments. All submitted work must be fully your own, and you are fully responsible for it. Using GenAI tools to complete any coursework is plagiarism and will be treated as such. No AI tools of any kind may be used during exams.
 
 Accordingly, you should be prepared to defend anything you submit. Failure to do so may result in penalties for your grades.
+
+Note that AI systems can be confidently wrong, and they are wrong about statistics often enough to matter. If a tool gives you an answer you do not understand or cannot verify, bring it to me or to your TA.
 
 ## Expectations for Classroom Behavior
 
@@ -396,11 +411,11 @@ The [Student Disability Resource Center](http://www.sa.sc.edu/sds/) (SDRC) (http
 
 ## Mental Health and Well-Being
 
-If stress is affecting your ability to complete schoolwork, maintain relationships, eat, sleep, or enjoy life, please reach out to any of USC’s mental health resources. Most of these services are offered at no cost, as they are covered by the Student Health Services tuition fee.  For a complete list of available mental health resources, refer to the quick reference list below and visit [Student Health and Well-Being](https://sc.edu/about/offices_and_divisions/student-health-well-being/index.php) (https://sc.edu/about/offices_and_divisions/student-health-well-being/index.php). 
+If stress is affecting your ability to complete schoolwork, maintain relationships, eat, sleep, or enjoy life, please reach out to any of USC's mental health resources. Most of these services are offered at no cost, as they are covered by the Student Health Services tuition fee. For a complete list of available mental health resources, refer to the quick reference list below and visit [Student Health and Well-Being](https://sc.edu/about/offices_and_divisions/student-health-well-being/index.php) (https://sc.edu/about/offices_and_divisions/student-health-well-being/index.php).
 
-- **Wellness Coaching** can help you improve in areas related to emotional and physical well-being (e.g., sleep, resiliency, balanced eating, and more). Schedule an appointment at (803) 777-6518 or through [MyHealthSpace](https://myhealthspace.ushs.sc.edu/) (https://myhealthspace.ushs.sc.edu/)
+- **Wellness Coaching** can help you improve in areas related to emotional and physical well-being (e.g., sleep, resiliency, balanced eating, and more). Schedule an appointment at (803) 777-6518 or through [MyHealthSpace](https://myhealthspace.ushs.sc.edu/) (https://myhealthspace.ushs.sc.edu/)
 
-- [[**Therapy Assistance Online (TAO) by Uplift**](https://us.taoconnect.org/register)](https://us.taoconnect.org/login) (https://us.taoconnect.org/login) offers virtual self-help modules. See [[TAO registration](https://sc.edu/about/offices_and_divisions/student-health-well-being/mental-health/24_hour_online_support/index.php)](https://us.taoconnect.org/login) (https://us.taoconnect.org/register).
+- [Therapy Assistance Online (TAO) by Uplift](https://us.taoconnect.org/login) (https://us.taoconnect.org/login) offers virtual self-help modules. See [TAO registration](https://us.taoconnect.org/register) (https://us.taoconnect.org/register).
 
 - **Counseling & Psychology Services (CAPS)** offers individual and group counseling, as well as psychiatric services. Schedule an appointment at (803) 777-5223 or through [MyHealthSpace](https://myhealthspace.ushs.sc.edu/) (https://myhealthspace.ushs.sc.edu/).
 
@@ -421,10 +436,6 @@ In partnership with USC faculty, the [Student Success Center](https://sc.edu/abo
 - **Success Consultations:** SSC staff offer personalized consultations to help you develop study skills, set academic goals, and connect with campus resources. Throughout the semester, I may communicate with the SSC about your progress to ensure your success in this course. If the SSC contacts you, please schedule a Success Consultation promptly. Referrals are not punitive, and any information shared is confidential under FERPA privacy laws. Student Success Center services are available to all USC undergraduates at no additional cost. To check the schedule and make appointments, please call 803-777-1000, visit <http://www.sc.edu/success>, or stop by the Student Success Center in the Thomas Cooper Library (Mezzanine Level).
 
 This course may participate in the university's Progress Report/Alert Initiative. At key points throughout the semester, the instructor may notify the Student Success Center and/or University Advising Center about students who may not be meeting established criteria for attendance, grades, or assignment performance. Students who receive an alert may get an e-mail, phone call or text message from their Academic Advisor and/or the Student Success Center, encouraging them to connect with additional academic support resources.
-
-## Writing Center
-
-This course has some writing assignments. The University [Writing Center](http://artsandsciences.sc.edu/write/university-writing-center) (http://artsandsciences.sc.edu/write/university-writing-center) is an important resource you should use! It's open to help any USC student needing assistance with a writing project at any stage of development. The main Writing Center is in Byrnes 703.
 
 ## Library Resources
 
