@@ -1,56 +1,52 @@
-# PSYC 220 (003 004)
+# PSYC 220 (011 012)
 
 Psychological Statistics
 
 3 Credit Hours
 
-Spring 2026 (01/12/2026–05/06/2026)
+Fall 2026 (08/18/2026–12/14/2026)
 
 Instructor: Professor Feilong Ma
 
-Teaching Assistant: ​Kofi H. Mosley-Kellum
+Teaching Assistant: Jacob Watson
 
 ## Lectures
 
-08:30 AM–09:45 AM, Tuesdays and Thursdays
+11:40 AM–12:55 PM, Tuesdays and Thursdays
 
-Close-Hipp Building, Room 450
+Hamilton College, Room 236
 
 ## Lab sessions
 
-Section 003 (CRN 48449):
+Section 011 (CRN 24018):
 
-08:30 AM–09:20 AM, Wednesdays
+12:00 PM–12:50 PM, Fridays
 
-Wardlaw Coll, Room 029
+Hamilton College, Room 238
 
-Section 004 (CRN 48450):
+Section 012 (CRN 24020):
 
-08:30 AM–09:20 AM, Fridays
+01:10 PM–02:00 PM, Fridays
 
-Humanities Classroom, Room 505
+Hamilton College, Room 238
 
 ## Contact Information/Office Hours
 
 Dr. Feilong Ma
 
-Discovery 222
+Discovery I, Room 222
 
 <feilong@sc.edu>
 
-TBA
+Office hours: TBA, and by appointment
 
-By appointment
+Jacob Watson
 
-Kofi H. Mosley-Kellum
+Discovery I, Room 308
 
-Barnwell 510
+<Jrw38@email.sc.edu>
 
-<KOFIM@email.sc.edu>
-
-TBA
-
-By appointment
+Office hours: TBA, and by appointment
 
 ## Academic Bulletin Course Description
 
