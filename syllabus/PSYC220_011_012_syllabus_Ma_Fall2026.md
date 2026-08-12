@@ -176,17 +176,53 @@ You may need a basic scientific calculator for class that can take square roots,
 
 ## Assignments and Assessments
 
-There will be 10 homework assignments for the lecture components of the class and 10 lab assignments. Homework assignments will be graded on a 10-point scale (10=Excellent, 8=Very Good, 6=Good, 4=Fair, 2=Poor). Lab assignments will be graded on a binary scale (complete/incomplete).
+### Homework and lab assignments
 
-You will turn in homework assignments at the beginning of class on a given due date. Lab assignments will be reviewed at the end of each lab period. Please plan accordingly and complete your assignments by the deadlines to ensure that unanticipated circumstances do not affect you turning in work. *I do not accept late assignments to respect your TA’s time as a working student.*
+There will be 10 homework assignments for the lecture components of the class and 10 lab assignments tied to your Friday lab section. **All assignments are completed and submitted online through [Blackboard](https://blackboard.sc.edu/) (https://blackboard.sc.edu/) and are graded automatically**, so you will see your score without waiting on us. Each homework assignment and each lab assignment is worth 10 points.
 
-There are four class exams, including a cumulative final. Each exam is worth 100 points. I only count three exams toward your grade, by dropping your lowest score.
+Lab assignments are designed so that attending lab is enough to earn full credit. Your TA will work through the lab questions with the class, so if you come to lab and follow along, you will leave with the right answers and all 10 points. If you already feel comfortable with the material, you are welcome to complete the lab assignment on your own instead—the points are the same either way. This is the most reliable 100 points in the course, and it is the main reason I ask you not to skip lab.
 
-Exams include multiple-choice, short-answer, and computational questions, as well as questions asking you to read and interpret SPSS output. Scantrons will be provided; **bring your own pencils**, as we do not supply them.
+Every assignment has a posted deadline, and Blackboard closes at that deadline. Submit well before it rather than at the last minute: an attempt that is not completed in time—because you ran out of time, lost your internet connection, or were still working on it—is a missed submission. Please plan accordingly so that unanticipated circumstances do not keep you from turning in work. *Outside of a certified excused absence (see "Make-Up Work Policy" below), I do not accept late assignments.*
 
-You may bring **one letter-sized "cheat sheet," front and back**, to every exam, including the final. It must be **handwritten by you**—not typed, not printed, not photocopied, and not borrowed from another student. Within that constraint it may contain anything you like. I allow this so that you can spend your preparation on understanding the material rather than on memorizing formulas, and I require that you write it yourself because deciding what belongs on the page, and copying it out by hand, is itself one of the most effective ways to study.
+It is **highly recommended** to finish the lab and homework assignments within a week from the corresponding lectures, even though the due date may be later. The deadline is the last moment I will accept the work, not the moment to begin it. This material is cumulative and it does not keep well: a problem set you postpone for three weeks stops being practice and becomes relearning, and the exam covering it arrives before you have caught up.
 
-Apart from your cheat sheet and a permitted calculator, exams are closed-book: no textbooks, no additional notes, and no cell phones, tablets, laptops, smart watches, or other electronic devices.
+You may discuss and work on assignments together and ask me or your TA questions, but the answers you submit must be your own.
+
+### Exams
+
+There are **six exams** this semester: five in-semester exams and a cumulative final. Each exam is worth 60 points, and **your five highest exam scores count toward your grade—your lowest exam score is dropped.**
+
+- Exams 1 through 5 are given during the regular lecture period. Each one focuses on the topics taught since the previous exam, and that is where nearly all of the questions come from—you are tested on a few weeks of material at a time rather than half a semester at once.
+
+- These exams are not formally cumulative, but **any exam may include content from earlier topics.** This material builds on itself: you cannot compute a *t*-test without standard deviations, or interpret a confidence interval without z-scores. Do not discard a topic once its exam is over—you will meet it again, in the questions that come after it and on the final.
+
+- Exam 5 is scheduled before the last week of class, so that **every topic in the course is examined at least once during the semester**. Nothing is covered only by the final.
+
+- The final exam is **cumulative** and covers the whole course. Its date and time are set by the [University Registrar](https://sc.edu/about/offices_and_divisions/registrar/final_exams/index.php) (https://sc.edu/about/offices_and_divisions/registrar/final_exams/index.php) according to our lecture meeting time: **Tuesday, December 8, at 12:30 p.m.** Note that this is *not* our usual class time, and it falls before the last day of the exam period—do not book travel home before it.
+
+- Exams include multiple-choice, short-answer, and computational questions, as well as questions asking you to read and interpret SPSS output. Scantrons will be provided; **bring your own pencils**, as we do not supply them.
+
+- You may bring **one letter-sized "cheat sheet," front and back**, to every exam, including the final. It must be **handwritten by you**—not typed, not printed, not photocopied, and not borrowed from another student. Within that constraint it may contain anything you like. I allow this so that you can spend your preparation on understanding the material rather than on memorizing formulas, and I require that you write it yourself because deciding what belongs on the page, and copying it out by hand, is itself one of the most effective ways to study. A typed, printed, or shared sheet will be collected at the start of the exam and you will take the exam without it. I will still provide the statistical tables (z, t, F, and r) that you need.
+
+- Apart from your cheat sheet and a permitted calculator (see "Calculators" above), exams are closed-book: no textbooks, no additional notes, and no cell phones, tablets, laptops, smart watches, or other electronic devices.
+
+**FAQ**
+
+*Q: What can I put on the cheat sheet?*
+
+A: Anything you like, as long as it fits on one letter-sized page, front and back, and you wrote it out by hand yourself. Formulas, worked examples, decision trees, reminders about which test to use—your call. Printing your notes or using a classmate's sheet defeats the purpose: the studying happens while you write it.
+
+*Q: If I am happy with my scores on Exams 1–5, do I have to take the final?*
+
+A: No. If you choose not to take the cumulative final, it becomes the score that gets dropped. I would still encourage you to sit for it—the cumulative review is the single best preparation for later methods courses—but the choice is yours, and you will not be penalized.
+
+*Q: I missed an exam. Is that automatically my dropped score?*
+
+A: Only if you want it to be. If your absence is certified as excused, you may take a make-up exam instead (see below), and then your lowest of six scores is dropped as usual. If the absence is not excused, the missed exam is a zero, which will normally become your dropped score.
+
+*Q: What if I miss two exams?*
+
+A: One dropped score only protects you once. Any second missed exam counts as a zero unless it is covered by a certified excused absence and made up.
 
 ## Make-Up Work Policy
 
@@ -212,7 +248,7 @@ Students who miss the **final exam** with a certified excused absence will be gi
 
 ## Grading Policy
 
-3 exams × 100 points = 300 points
+5 exams × 60 points = 300 points
 
 10 HW assignments × 10 points = 100 points
 
@@ -402,41 +438,68 @@ Part of the syllabus was adapted from materials kindly provided by many PSYC 220
 
 ## Tentative Course Schedule
 
-|  | **Day** | **Date** | **Topic** |
-|:--:|:--:|:--:|----|
-|  | T | 1/13/2026 | Classes Begin |
-| 1 | T | 1/13/2026 | Introduction to the course |
-| 2 | TH | 1/15/2026 | Basic Concepts & Distributions |
-|  | T | 1/20/2026 | Last day to change/drop a course without a grade of "W" being recorded |
-| 3 | T | 1/20/2026 | Measures of Central Tendency & Graphs |
-| 4 | TH | 1/22/2026 | Measures of Spread & Variability |
-| 5 | T | 1/27/2026 | Measures of Spread & Variability cntd. |
-| 6 | TH | 1/29/2026 | z-scores & Standard Normal Distribution |
-| 7 | T | 2/3/2026 | z-scores & Standard Normal Distribution cntd. |
-| 8 | TH | 2/5/2026 | Probability |
-| 9 | T | 2/10/2026 | Sampling Distributions |
-| 10 | TH | 2/12/2026 | **Exam \#1** |
-| 11 | T | 2/17/2026 | Central Limit Theorem |
-| 12 | TH | 2/19/2026 | Introduction to Hypothesis Testing |
-| 13 | T | 2/24/2026 | Statistical Errors, Effect Size |
-| 14 | TH | 2/26/2026 | Confidence Intervals |
-| 15 | T | 3/3/2026 | One-Sample t-test |
-|  | TH | 3/5/2026 | Midpoint in Semester |
-| 16 | TH | 3/5/2026 | **Exam \#2** |
-|  | T | 3/10/2026 | Spring Break (no classes) |
-|  | TH | 3/12/2026 | Spring Break (no classes) |
-| 17 | T | 3/17/2026 | Dependent-Samples t-test |
-| 18 | TH | 3/19/2026 | Dependent-Samples t-test cntd. |
-| 19 | T | 3/24/2026 | Independent-Samples t-test |
-| 20 | TH | 3/26/2026 | Independent-Samples t-test cntd. |
-|  | M | 3/30/2026 | Last day to drop a course or withdraw without a grade of "WF" being recorded |
-| 21 | T | 3/31/2026 | Analysis of Variance (ANOVA) |
-| 22 | TH | 4/2/2026 | Analysis of Variance (ANOVA) cntd. |
-| 23 | T | 4/7/2026 | **Exam \#3** |
-| 24 | TH | 4/9/2026 | Correlation |
-| 25 | T | 4/14/2026 | Correlation cntd. |
-| 26 | TH | 4/16/2026 | Linear Regression |
-| 27 | T | 4/21/2026 | Linear Regression cntd. |
-|  | TH | 4/23/2026 | Last Day of Class |
-| 28 | TH | 4/23/2026 | Review |
-|  | TH | 4/30/2026 | **Final Examination—9:00 a.m.** |
+### Exam dates at a glance
+
+| **Exam** | **Date** | **Main focus** |
+|:------------------:|:--------------------------------:|----------------------------------------------|
+| Exam 1 | Thursday, September 3 | Topics 1–4 — describing data |
+| Exam 2 | Thursday, September 24 | Topics 5–8 — distributions and sampling |
+| Exam 3 | Tuesday, October 13 | Topics 9–12 — inference with one sample |
+| Exam 4 | Thursday, October 29 | Topics 13–14 — comparing two means |
+| Exam 5 | Thursday, November 19 | Topics 15–17 — the general linear model |
+| Final Exam (cumulative) | Tuesday, December 8, 12:30 p.m. | Topics 1–17 |
+
+Put these six dates in your calendar now. **Each exam focuses on everything taught since the previous exam**, so no topic is skipped. Earlier material can still appear, because later topics are built on it. Remember that your lowest exam score is dropped, and that Exam 5 covers the last topic of the course, so nothing is examined for the first time on the final.
+
+### Semester dates
+
+- **Tuesday, August 18** — Classes begin
+- **Monday, August 24** — Last day to change or drop a course without a grade of "W" being recorded
+- **Thursday, October 15** — Fall Break (no classes)
+- **Tuesday, November 3** — General Election Day (no classes)
+- **Wednesday, November 4** — Last day to drop a course or withdraw without a grade of "WF" being recorded
+- **Tuesday, November 24 and Thursday, November 26** — Thanksgiving Recess (no classes)
+- **Thursday, December 3** — Last day of class
+- **Tuesday, December 8, 12:30 p.m.** — Final examination for this course (the university's final exam period runs December 7–14)
+
+### Class by class
+
+| **Class** | **Date** | **Topic** | **Reading** |
+|:-------:|:-----------:|------------------------------------------------------------|:------------:|
+| 1 | Tue 8/18 | Classes begin; **Topic 1.** Math skills review |  |
+| 2 | Thu 8/20 | **Topic 2.** Basic Concepts & Distributions | Ch. 1–2 |
+| 3 | Tue 8/25 | **Topic 3.** Measures of Central Tendency & Graphs | Ch. 3 |
+| 4 | Thu 8/27 | **Topic 4.** Measures of Spread & Variability | Ch. 3 |
+| 5 | Tue 9/1 | Topic 4, continued | Ch. 3 |
+| 6 | Thu 9/3 | **EXAM 1** (Topics 1–4) |  |
+| 7 | Tue 9/8 | **Topic 5.** z-scores & the Standard Normal Distribution | Ch. 4 |
+| 8 | Thu 9/10 | Topic 5, continued | Ch. 4 |
+| 9 | Tue 9/15 | **Topic 6.** Probability | Ch. 5 |
+| 10 | Thu 9/17 | **Topic 7.** Sampling Distributions | Ch. 6 |
+| 11 | Tue 9/22 | **Topic 8.** Central Limit Theorem | Ch. 6 |
+| 12 | Thu 9/24 | **EXAM 2** (Topics 5–8) |  |
+| 13 | Tue 9/29 | **Topic 9.** Introduction to Hypothesis Testing | Ch. 7 |
+| 14 | Thu 10/1 | **Topic 10.** Statistical Errors & Effect Size | Ch. 7 |
+| 15 | Tue 10/6 | **Topic 11.** Confidence Intervals | Ch. 8 |
+| 16 | Thu 10/8 | **Topic 12.** One-Sample *t*-test | Ch. 8 |
+| 17 | Tue 10/13 | **EXAM 3** (Topics 9–12) |  |
+|  | Thu 10/15 | *Fall Break — no class* |  |
+| 18 | Tue 10/20 | **Topic 13.** Dependent-Samples *t*-test | Ch. 9 |
+| 19 | Thu 10/22 | **Topic 14.** Independent-Samples *t*-test | Ch. 10 |
+| 20 | Tue 10/27 | Synthesis: which *t*-test when, effect sizes, SPSS output | Ch. 8–10 |
+| 21 | Thu 10/29 | **EXAM 4** (Topics 13–14) |  |
+|  | Tue 11/3 | *General Election Day — no class* |  |
+| 22 | Thu 11/5 | **Topic 15.** Analysis of Variance (ANOVA) | Ch. 11 |
+| 23 | Tue 11/10 | Topic 15, continued | Ch. 11 |
+| 24 | Thu 11/12 | **Topic 16.** Correlation | Ch. 12 |
+| 25 | Tue 11/17 | **Topic 17.** Linear Regression | Ch. 13 |
+| 26 | Thu 11/19 | **EXAM 5** (Topics 15–17) |  |
+|  | Tue 11/24 | *Thanksgiving Recess — no class* |  |
+|  | Thu 11/26 | *Thanksgiving Recess — no class* |  |
+| 27 | Tue 12/1 | Review of Topics 1–12 |  |
+| 28 | Thu 12/3 | Last day of class; review of Topics 13–17; Q&A for the final |  |
+|  | Tue 12/8 | **FINAL EXAM**, 12:30 p.m. (cumulative, Topics 1–17) |  |
+
+Your lab section meets each Friday. This schedule is tentative: if we need to adjust the pace, I will announce the change in class and on Blackboard, but **exam dates will not move**.
+
+Chapter numbers in the Reading column refer to the *optional* companion text, Foster et al. (2018), linked under "Course Materials." Nothing in it is required and I do not lecture from it; the chapters are listed so that you know where to look if you want a second explanation of a topic.
