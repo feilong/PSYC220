@@ -219,7 +219,7 @@ There are **six exams** this semester: five in-semester exams and a cumulative f
 
 - You may bring **one letter-sized "cheat sheet," front and back**, to every exam, including the final. It must be **handwritten by you**—not typed, not printed, not photocopied, and not borrowed from another student. Within that constraint it may contain anything you like. I allow this so that you can spend your preparation on understanding the material rather than on memorizing formulas, and I require that you write it yourself because deciding what belongs on the page, and copying it out by hand, is itself one of the most effective ways to study. A typed, printed, or shared sheet will be collected at the start of the exam and you will take the exam without it. I will still provide the statistical tables (z, t, F, and r) that you need.
 
-- Exams are closed-book. The only two things you may have at your desk are your handwritten cheat sheet and a permitted calculator (see "Calculators" above). Nothing else: no textbooks, no other notes, and no phones, tablets, laptops, smart watches, or any other electronic device.
+- Exams are closed-book. The only things you may have at your desk are your handwritten cheat sheet, a permitted calculator (see "Calculators" above), and your own pencils for the scantron. Nothing else: no textbooks, no other notes, and no phones, tablets, laptops, smart watches, or any other electronic device.
 
 **FAQ**
 
