@@ -86,7 +86,7 @@ You are enrolled in a weekly lab section led by your TA. It is a small-group set
 
 3.  Time for your questions—about lab, lecture, homework, or an upcoming exam.
 
-Where a topic calls for it, your TA will also introduce SPSS and show you what its output looks like—the goal is that you can read a printout, not that you master the software. Lab meets on Fridays, after both lecture meetings for the week, so it is the best place to consolidate what you saw in class.
+Where a topic calls for it, your TA will also introduce SPSS and show you how to read its output. Lab meets on Fridays, after both lecture meetings for the week, so it is the best place to consolidate what you saw in class.
 
 ## Course Communication and Feedback
 
@@ -114,7 +114,7 @@ The slides will be available to you on Blackboard, so there is no need to write 
 
 For those who seek a companion text, I recommend "Introduction to Statistics in the Psychological Sciences" by Cote, Gordon, Randell, Schmitt, and Marvin (2021; revised 2023) (<https://irl.umsl.edu/cgi/viewcontent.cgi?article=1024&context=oer>). The book is free, and it is optional: I do not lecture from it or assign readings in it. If you would like a second explanation of a topic, the course schedule at the end of this syllabus lists the chapter that corresponds to each topic. Its appendices also contain the statistical tables (z, t, F, r) we will use.
 
-We will also make use of a statistical software package called "SPSS." What you are expected to take away from it is the ability to **read and interpret SPSS output**: real analyses are reported in this form, and course exams will include questions that ask you to pull the answer out of a printout. You are not expected to become a proficient SPSS user, and you will not be graded on your ability to operate the software. Your TA will introduce SPSS in lab where a topic calls for it.
+We will also make use of a statistical software package called "SPSS." Real analyses are reported in its output, and what you should take from it is the ability to **read and interpret that output**: course exams will include questions that ask you to pull the answer out of a printout. Your TA will introduce SPSS in lab where a topic calls for it.
 
 ## Interactive Demonstrations
 
