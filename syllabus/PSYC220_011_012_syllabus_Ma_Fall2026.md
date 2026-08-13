@@ -78,15 +78,15 @@ Upon successful completion of this course, you will be able to:
 
 ## Lab Section Description
 
-You are enrolled in a weekly lab section led by your TA. It is a small-group setting where you can get help with material you are uncomfortable with or having trouble grasping, and every lab follows the same shape:
+You are enrolled in a weekly lab section led by your TA. It is a small-group setting where you can get help with material you are uncomfortable with or having trouble grasping. Most lab sessions follow the same shape:
 
 1.  A brief summary of what we covered in lecture that week.
 
-2.  **Working through that week's lab assignment together, question by question.** This is the bulk of the hour.
+2.  **Working through one of the course assignments together, question by question.** This is the bulk of the hour.
 
-3.  Time for your questions—about lab, lecture, homework, or an upcoming exam.
+3.  Time for your questions—about lab, lecture, an assignment, or an upcoming exam.
 
-Where a topic calls for it, your TA will also introduce SPSS and show you how to read its output. Lab meets on Fridays, after both lecture meetings for the week, so it is the best place to consolidate what you saw in class.
+Not every session follows that pattern: a session falling just before an exam may be given over to review instead. Where a topic calls for it, your TA will also introduce SPSS and show you how to read its output. Lab meets on Fridays, after both lecture meetings for the week, so it is the best place to consolidate what you saw in class.
 
 ## Course Communication and Feedback
 
@@ -170,7 +170,7 @@ If you experience computer issues, there are computer labs available at the Thom
 
 ## Calculators
 
-You are **allowed to use a five-function calculator** in class, on homework and lab assignments, and on every exam. You are not required to—if you would rather work the arithmetic by hand, that is your choice—but most students find one helpful, and I recommend having one.
+You are **allowed to use a five-function calculator** in class, on assignments, and on every exam. You are not required to—if you would rather work the arithmetic by hand, that is your choice—but most students find one helpful, and I recommend having one.
 
 If you do use a calculator, everything this course asks of it is: **add, subtract, multiply, divide, and take square roots.** Nothing here requires more than that.
 
@@ -185,21 +185,21 @@ A plain four-function calculator with a square-root key—sometimes sold as a "f
 
 This list is not exhaustive. If your calculator does noticeably more than a Casio FX-300 or a TI-30Xa, assume it is not allowed and ask first. Show it to me or your TA **before the first exam**—not on exam day.
 
-These rules apply to homework and lab assignments as well as to exams. Practice with the calculator you will actually have on exam day: if you work through homework on a graphing calculator and then meet a basic one in the exam room, you will have practiced the wrong thing.
+These rules apply to assignments as well as to exams. Practice with the calculator you will actually have on exam day: if you work through assignments on a graphing calculator and then meet a basic one in the exam room, you will have practiced the wrong thing.
 
 **On exam day:** if you want a calculator, bring your own. You may not borrow or share one during an exam. A prohibited calculator will be collected for the duration of the exam and you will complete the exam without one.
 
 ## Assignments and Assessments
 
-### Homework and lab assignments
+### Assignments
 
-There will be 10 homework assignments for the lecture components of the class and 10 lab assignments tied to your Friday lab section. **All assignments are completed and submitted online through [Blackboard](https://blackboard.sc.edu/) (https://blackboard.sc.edu/) and are graded automatically**, so you will see your score without waiting on us. Each homework assignment and each lab assignment is worth 10 points.
+There will be **20 assignments** over the semester, following the material as we cover it. **All are completed and submitted online through [Blackboard](https://blackboard.sc.edu/) (https://blackboard.sc.edu/) and graded automatically**, so you will see your score without waiting on us. Each assignment is worth 10 points, for 200 points in total.
 
-Lab assignments are designed so that attending lab is enough to earn full credit. Your TA will work through the lab questions with the class, so if you come to lab and follow along, you will leave with the right answers and all 10 points. If you already feel comfortable with the material, you are welcome to complete the lab assignment on your own instead—the points are the same either way. This is the most reliable 100 points in the course, and it is the main reason I ask you not to skip lab.
+Your TA will work through **approximately half of these assignments** with the class during lab, question by question. For those, attending lab is enough to earn full credit: come, follow along, and you will leave with the right answers and all 10 points. You are always free to complete an assignment on your own instead—the points are the same either way. Lab is the most dependable source of points in this course, and it is the main reason I ask you not to skip it.
 
 Every assignment has a posted deadline, and Blackboard closes at that deadline. Submit well before it rather than at the last minute: an attempt that is not completed in time—because you ran out of time, lost your internet connection, or were still working on it—is a missed submission. Please plan accordingly so that unanticipated circumstances do not keep you from turning in work. *Outside of a certified excused absence (see "Make-Up Work Policy" below), I do not accept late assignments.*
 
-It is **highly recommended** to finish the lab and homework assignments within a week from the corresponding lectures, even though the due date may be later. The deadline is the last moment I will accept the work, not the moment to begin it. This material is cumulative and it does not keep well: a problem set you postpone for three weeks stops being practice and becomes relearning, and the exam covering it arrives before you have caught up.
+It is **highly recommended** to finish each assignment within a week of the lecture it follows, even though the due date may be later. The deadline is the last moment I will accept the work, not the moment to begin it. This material is cumulative and it does not keep well: a problem set you postpone for three weeks stops being practice and becomes relearning, and the exam covering it arrives before you have caught up.
 
 You may discuss and work on assignments together and ask me or your TA questions, but the answers you submit must be your own.
 
@@ -241,7 +241,7 @@ A: One dropped score only protects you once. Any second missed exam counts as a 
 
 ## Make-Up Work Policy
 
-Make-up work—for homework, lab assignments, and exams—will be given **without penalty** when you have a university-approved [excused absence](https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/) (https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/).
+Make-up work—for assignments and exams—will be given **without penalty** when you have a university-approved [excused absence](https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/) (https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/).
 
 If you miss an exam or assignment because of an unanticipated excused absence (e.g., illness or injury, legal proceedings, death in the immediate family), request certification through the [Office of Student Advocacy](https://sc.edu/about/offices_and_divisions/student_affairs/student-services/academic_success/ombuds_services/our_services/class_absences/index.php) (https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/academic_success/ombuds_services/index.php) at the first opportunity:
 
@@ -263,9 +263,7 @@ Students who miss the **final exam** with a certified excused absence will be gi
 
 5 exams × 60 points = 300 points
 
-10 HW assignments × 10 points = 100 points
-
-10 lab assignments × 10 points = 100 points
+20 assignments × 10 points = 200 points
 
 Total Possible Points = 500 points
 
@@ -301,9 +299,9 @@ If you are absent, you remain responsible for the material covered in class. See
 
 - "Statistics is not primarily a matter of plugging numbers into formulas and performing rote computations." The point of this course is to acquaint you with the thinking behind the formulas—how statisticians draw inferences and make decisions from data. Rote memorization, or leaning on notes without genuine understanding, will not carry you through this class.
 
-- The material is genuinely cumulative: you need what we do in the first month to understand what we do in the last. The early material can look deceptively easy, and the hardest stretch begins around hypothesis testing. It is difficult to catch up once you fall behind, so keep turning in homework and attending lab.
+- The material is genuinely cumulative: you need what we do in the first month to understand what we do in the last. The early material can look deceptively easy, and the hardest stretch begins around hypothesis testing. It is difficult to catch up once you fall behind, so keep turning in assignments and attending lab.
 
-- This course is about methods you can use in your own life and research. We will work through many examples in lecture and lab, and you will see application questions on homework and exams. Real-life examples are based on made-up data and are used only to illustrate the material; the conclusions do not represent scientific fact or my own opinions.
+- This course is about methods you can use in your own life and research. We will work through many examples in lecture and lab, and you will see application questions on assignments and exams. Real-life examples are based on made-up data and are used only to illustrate the material; the conclusions do not represent scientific fact or my own opinions.
 
 ## Academic Integrity Statement
 
