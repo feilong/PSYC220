@@ -1,51 +1,37 @@
 # PSYC 220 (011 012)
 
-Psychological Statistics
+# Psychological Statistics
 
-3 Credit Hours
-
-Fall 2026 (08/18/2026–12/14/2026)
-
-Instructor: Professor Feilong Ma
-
+3 Credit Hours\
+Fall 2026 (08/18/2026–12/14/2026)\
+Instructor: Dr. Feilong Ma\
 Teaching Assistant: Jacob Watson
 
 ## Lectures
 
-11:40 AM–12:55 PM, Tuesdays and Thursdays
-
+11:40 AM–12:55 PM, Tuesdays and Thursdays\
 Hamilton College, Room 236
 
 ## Lab sessions
 
-Section 011 (CRN 24018):
-
-12:00 PM–12:50 PM, Fridays
-
+Section 011 (CRN 24018):\
+12:00 PM–12:50 PM, Fridays\
 Hamilton College, Room 238
 
-Section 012 (CRN 24020):
-
-01:10 PM–02:00 PM, Fridays
-
+Section 012 (CRN 24020):\
+01:10 PM–02:00 PM, Fridays\
 Hamilton College, Room 238
 
 ## Contact Information/Office Hours
 
-Dr. Feilong Ma
-
-Discovery I, Room 222
-
-<feilong@sc.edu>
-
+Dr. Feilong Ma\
+Discovery I, Room 222\
+<feilong@sc.edu>\
 Office hours: TBA, and by appointment
 
-Jacob Watson
-
-Discovery I, Room 308
-
-<Jrw38@email.sc.edu>
-
+Jacob Watson\
+Discovery I, Room 308\
+<Jrw38@email.sc.edu>\
 Office hours: TBA, and by appointment
 
 When you email either of us, please put **"PSYC 220"** and your section number in the subject line (e.g., "PSYC 220-011"). We teach two sections that meet together for lecture but separately for lab, and this helps us answer you accurately and quickly.
@@ -118,7 +104,7 @@ We will also make use of a statistical software package called "SPSS." Real anal
 
 ## Interactive Demonstrations
 
-I have built a set of free, browser-based interactive demonstrations for this course, available at [Psychology Statistics Demos](https://feilong.github.io/PSYC220/) (https://feilong.github.io/PSYC220/). They let you generate data and watch the math react, rather than only memorizing formulas. Modules cover the sum of squares and why we divide by *n* − 1, sampling distributions and the Central Limit Theorem, independent samples and the logic behind ANOVA, and a game for calibrating your eye to correlation coefficients. Nothing on these pages is graded; they are there to help concepts click. I will point you to specific modules as we reach the relevant topics.
+I have built a set of free, browser-based interactive demonstrations for this course, available at [Psychology Statistics Demos](https://feilong.github.io/PSYC220/) (https://feilong.github.io/PSYC220/). They let you generate data and watch the math react, rather than only memorizing formulas. Nothing on these pages is graded; they are there to help concepts click. I will point you to specific modules as we reach the relevant topics.
 
 ## Technology Requirements
 
@@ -221,7 +207,7 @@ There are **six exams** this semester: five in-semester exams and a cumulative f
 
 - Exams are closed-book. The only things you may have at your desk are your handwritten cheat sheet, a permitted calculator (see "Calculators" above), and your own pencils for the scantron. Nothing else: no textbooks, no other notes, and no phones, tablets, laptops, smart watches, or any other electronic device.
 
-**FAQ**
+### FAQ
 
 *Q: What can I put on the cheat sheet?*
 
@@ -229,7 +215,7 @@ A: Anything you like, as long as it fits on one letter-sized page, front and bac
 
 *Q: If I am happy with my scores on Exams 1–5, do I have to take the final?*
 
-A: No. If you choose not to take the cumulative final, it becomes the score that gets dropped. I would still encourage you to sit for it—the cumulative review is the single best preparation for later methods courses—but the choice is yours, and you will not be penalized.
+A: No. If you choose not to take the cumulative final, it becomes the score that gets dropped. I would still encourage you to sit for it—the cumulative review is the single best preparation for later methods courses—but the choice is yours.
 
 *Q: I missed an exam. Is that automatically my dropped score?*
 
