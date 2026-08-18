@@ -84,27 +84,27 @@ Announcements will be posted to the course as needed. If there's additional impo
 
 To check your email address in Blackboard, follow these steps:
 
-1.  Access [Blackboard](https://blackboard.sc.edu/) (https://blackboard.sc.edu/)
+1.  Access [Blackboard](https://blackboard.sc.edu/)
 
 2.  Click your name on the main navigation panel on the left
 
 3.  Review your email address. By default, Blackboard uses your university-issued email address.
 
-Your email address in Blackboard should match your preferred university email. If you are unsure of your preferred email, [check your account](https://myaccount.sc.edu/) (https://myaccount.sc.edu/). For more information on changing your primary university email, please refer to the Knowledge Base article - [How To Change Your Primary University Email Address](https://scprod.service-now.com/sp?id=kb_article_view&sysparm_article=KB0011464) (https://scprod.service-now.com/sp?id=kb_article_view&sysparm_article=KB0011464).
+Your email address in Blackboard should match your preferred university email. If you are unsure of your preferred email, [check your account](https://myaccount.sc.edu/). For more information on changing your primary university email, please refer to the Knowledge Base article - [How To Change Your Primary University Email Address](https://scprod.service-now.com/sp?id=kb_article_view&sysparm_article=KB0011464).
 
 ## Course Materials
 
-The course is based on standalone slides and course handouts, so that course materials are free of cost to you. These materials will be posted on [Blackboard](https://blackboard.sc.edu/) (<https://blackboard.sc.edu/>). All course readings/materials comply with copyright/fair use policies.
+The course is based on standalone slides and course handouts, so that course materials are free of cost to you. These materials will be posted on [Blackboard](https://blackboard.sc.edu/). All course readings/materials comply with copyright/fair use policies.
 
 The slides will be available to you on Blackboard, so there is no need to write down everything you see in class. Spend class following the explanation and annotating the parts that matter, rather than transcribing.
 
-For those who seek a companion text, I recommend "Introduction to Statistics in the Psychological Sciences" by Cote, Gordon, Randell, Schmitt, and Marvin (2021; revised 2023) (<https://irl.umsl.edu/cgi/viewcontent.cgi?article=1024&context=oer>). The book is free, and it is optional: I do not lecture from it or assign readings in it. If you would like a second explanation of a topic, the course schedule at the end of this syllabus lists the chapter that corresponds to each topic. Its appendices also contain the statistical tables (z, t, F, r) we will use.
+For those who seek a companion text, I recommend "Introduction to Statistics in the Psychological Sciences" by Cote, Gordon, Randell, Schmitt, and Marvin (2021; revised 2023). The book is free, and it is optional: I do not lecture from it or assign readings in it. If you would like a second explanation of a topic, the course schedule at the end of this syllabus lists the chapter that corresponds to each topic. Its appendices also contain the statistical tables (z, t, F, r) we will use.
 
 We will also make use of a statistical software package called "SPSS." Real analyses are reported in its output, and what you should take from it is the ability to **read and interpret that output**: course exams will include questions that ask you to pull the answer out of a printout. Your TA will introduce SPSS in lab where a topic calls for it.
 
 ## Interactive Demonstrations
 
-I have built a set of free, browser-based interactive demonstrations for this course, available at [Psychology Statistics Demos](https://feilong.github.io/PSYC220/) (https://feilong.github.io/PSYC220/). They let you generate data and watch the math react, rather than only memorizing formulas. Nothing on these pages is graded; they are there to help concepts click. I will point you to specific modules as we reach the relevant topics.
+I have built a set of free, browser-based interactive demonstrations for this course, available at [Psychology Statistics Demos](https://feilong.github.io/PSYC220/). They let you generate data and watch the math react, rather than only memorizing formulas. Nothing on these pages is graded; they are there to help concepts click. I will point you to specific modules as we reach the relevant topics.
 
 ## Technology Requirements
 
@@ -118,15 +118,15 @@ The lecture presentations, assignments, quizzes, rubrics, and links to articles 
 
 - Reliable data storage for your work, such as a USB drive or Office365 OneDrive cloud storage.
 
-Microsoft Office 365 is available free to all students. It includes access to the latest versions of Word, Excel, PowerPoint, OneNote, and much more. You can install Office 365 on up to five compatible devices, including tablets. All work can be saved online in OneDrive so it can be accessed no matter which device is being used. You can use this Office 365 subscription for as long as you are enrolled at the University of South Carolina. [Download Office 365](https://sc.edu/about/offices_and_divisions/division_of_information_technology/end_user_services/available_technology_resources/information_for_students/index.php) (https://sc.edu/about/offices_and_divisions/division_of_information_technology/end_user_services/available_technology_resources/information_for_students/index.php).
+Microsoft Office 365 is available free to all students. It includes access to the latest versions of Word, Excel, PowerPoint, OneNote, and much more. You can install Office 365 on up to five compatible devices, including tablets. All work can be saved online in OneDrive so it can be accessed no matter which device is being used. You can use this Office 365 subscription for as long as you are enrolled at the University of South Carolina. [Download Office 365](https://sc.edu/about/offices_and_divisions/division_of_information_technology/end_user_services/available_technology_resources/information_for_students/index.php).
 
-All computers connected to the university network must have up-to-date **antivirus software**. Microsoft Windows includes antivirus software, but Macs do not. If your computer does not have antivirus software, please request assistance from the [Carolina Tech Zone](https://sc.edu/about/offices_and_divisions/division_of_information_technology/end_user_services/available_technology_resources/carolina_tech_zone/) (https://sc.edu/about/offices_and_divisions/division_of_information_technology/end_user_services/available_technology_resources/carolina_tech_zone/).
+All computers connected to the university network must have up-to-date **antivirus software**. Microsoft Windows includes antivirus software, but Macs do not. If your computer does not have antivirus software, please request assistance from the [Carolina Tech Zone](https://sc.edu/about/offices_and_divisions/division_of_information_technology/end_user_services/available_technology_resources/carolina_tech_zone/).
 
-For further questions or assistance with software, please contact the [Division of Information Technology's Service Desk](https://www.sc.edu/about/offices_and_divisions/university_technology_services/support/servicedesk.php) (https://www.sc.edu/about/offices_and_divisions/university_technology_services/support/servicedesk.php).
+For further questions or assistance with software, please contact the [Division of Information Technology's Service Desk](https://www.sc.edu/about/offices_and_divisions/university_technology_services/support/servicedesk.php).
 
 ## Minimal Student Technical Requirements/Skills
 
-This course is mathematical in nature and requires a strong command of basic arithmetic, order of operations, summation, and algebra. Course content will be difficult to master without these skills. Please consider the [Math Tutoring Center](https://sc.edu/study/colleges_schools/artsandsciences/mathematics/study/tutoring/) (https://sc.edu/study/colleges_schools/artsandsciences/mathematics/study/tutoring/) if you need extra instruction.
+This course is mathematical in nature and requires a strong command of basic arithmetic, order of operations, summation, and algebra. Course content will be difficult to master without these skills. Please consider the [Math Tutoring Center](https://sc.edu/study/colleges_schools/artsandsciences/mathematics/study/tutoring/) if you need extra instruction.
 
 This course requires a basic level of technical skills. Many assignments and course work will be completed and submitted online through Blackboard, so you must have consistent and reliable access to a computer and the internet. The minimum technical skills required include the ability to:
 
@@ -148,9 +148,9 @@ If you have questions or problems related to your computer, software, or need te
 
 - Contact the Division of Information Technology (DoIT) Service Desk at (803) 777-1800,
 
-- Submit an online request through the [Self-Service Portal](https://scprod.service-now.com/sp) (https://scprod.service-now.com/sp), or
+- Submit an online request through the [Self-Service Portal](https://scprod.service-now.com/sp), or
 
-- Visit the [Carolina Tech Zone](https://sc.edu/about/offices_and_divisions/division_of_information_technology/end_user_services/available_technology_resources/carolina_tech_zone/) (https://sc.edu/about/offices_and_divisions/division_of_information_technology/end_user_services/available_technology_resources/carolina_tech_zone/).
+- Visit the [Carolina Tech Zone](https://sc.edu/about/offices_and_divisions/division_of_information_technology/end_user_services/available_technology_resources/carolina_tech_zone/).
 
 If you experience computer issues, there are computer labs available at the Thomas Cooper Library and in certain campus classroom buildings. If you are not located in the Columbia, SC area, most regional campuses and public libraries have computers for public use.
 
@@ -179,7 +179,7 @@ These rules apply to assignments as well as to exams. Practice with the calculat
 
 ### Assignments
 
-There will be **20 assignments** over the semester, following the material as we cover it. **All are completed and submitted online through [Blackboard](https://blackboard.sc.edu/) (https://blackboard.sc.edu/) and graded automatically**, so you will see your score without waiting on us. Each assignment is worth 10 points, for 200 points in total.
+There will be **20 assignments** over the semester, following the material as we cover it. **All are completed and submitted online through [Blackboard](https://blackboard.sc.edu/) and graded automatically**, so you will see your score without waiting on us. Each assignment is worth 10 points, for 200 points in total.
 
 Your TA will work through **approximately half of these assignments** with the class during lab, question by question. For those, attending lab is enough to earn full credit: come, follow along, and you will leave with the right answers and all 10 points. You are always free to complete an assignment on your own instead—the points are the same either way. Lab is the most dependable source of points in this course, and it is the main reason I ask you not to skip it.
 
@@ -199,7 +199,7 @@ There are **six exams** this semester: five in-semester exams and a cumulative f
 
 - Exam 5 is scheduled before the last week of class, so that **every topic in the course is examined at least once during the semester**. Nothing is covered only by the final.
 
-- The final exam is **cumulative** and covers the whole course. Its date and time are set by the [University Registrar](https://sc.edu/about/offices_and_divisions/registrar/final_exams/index.php) (https://sc.edu/about/offices_and_divisions/registrar/final_exams/index.php) according to our lecture meeting time: **Tuesday, December 8, at 12:30 p.m.** Note that this is *not* our usual class time, and it falls before the last day of the exam period—do not book travel home before it.
+- The final exam is **cumulative** and covers the whole course. Its date and time are set by the [University Registrar](https://sc.edu/about/offices_and_divisions/registrar/final_exams/index.php) according to our lecture meeting time: **Tuesday, December 8, at 12:30 p.m.** Note that this is *not* our usual class time, and it falls before the last day of the exam period—do not book travel home before it.
 
 - Exams test both computation and understanding. You will work problems and calculate values by hand, interpret what a result means, decide which test fits a given design, and read values out of SPSS output. Scantrons will be provided; **bring your own pencils**, as we do not supply them.
 
@@ -227,11 +227,11 @@ A: One dropped score only protects you once. Any second missed exam counts as a 
 
 ## Make-Up Work Policy
 
-Make-up work—for assignments and exams—will be given **without penalty** when you have a university-approved [excused absence](https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/) (https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/).
+Make-up work—for assignments and exams—will be given **without penalty** when you have a university-approved [excused absence](https://academicbulletins.sc.edu/undergraduate/policies-regulations/undergraduate-academic-regulations/).
 
-If you miss an exam or assignment because of an unanticipated excused absence (e.g., illness or injury, legal proceedings, death in the immediate family), request certification through the [Office of Student Advocacy](https://sc.edu/about/offices_and_divisions/student_affairs/student-services/academic_success/ombuds_services/our_services/class_absences/index.php) (https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/academic_success/ombuds_services/index.php) at the first opportunity:
+If you miss an exam or assignment because of an unanticipated excused absence (e.g., illness or injury, legal proceedings, death in the immediate family), request certification through the [Office of Student Advocacy](https://sc.edu/about/offices_and_divisions/student_affairs/student-services/academic_success/ombuds_services/our_services/class_absences/index.php) at the first opportunity:
 
-- Fill out the online [Student Advocacy Report Form](https://cm.maxient.com/reportingform.php?UnivofSouthCarolina&layout_id=77) (https://cm.maxient.com/reportingform.php?UnivofSouthCarolina&layout_id=77).
+- Fill out the online [Student Advocacy Report Form](https://cm.maxient.com/reportingform.php?UnivofSouthCarolina&layout_id=77).
 
 - If the absence meets the requirements for an excused absence, the Office of Student Advocacy will certify it and notify your instructors.
 
@@ -239,7 +239,7 @@ If you miss an exam or assignment because of an unanticipated excused absence (e
 
 Please do not send medical or personal documentation directly to me or to your TA—send it to the Office of Student Advocacy.
 
-For absences you can **anticipate** at the start of the term and that qualify as excused (e.g., authorized University activities, religious observances—see the [Interfaith Calendar](https://sc.edu/about/offices_and_divisions/student_affairs/student-services/student_life/spiritual_religious_life/interfaith_calendar/) (https://sc.edu/about/offices_and_divisions/student_affairs/student-services/student_life/spiritual_religious_life/interfaith_calendar/)), email me by the end of the second week of the semester with the dates and, if applicable, a request for make-up work. Anticipated absences for medical reasons go to the Office of Student Advocacy rather than to me.
+For absences you can **anticipate** at the start of the term and that qualify as excused (e.g., authorized University activities, religious observances—see the [Interfaith Calendar](https://sc.edu/about/offices_and_divisions/student_affairs/student-services/student_life/spiritual_religious_life/interfaith_calendar/)), email me by the end of the second week of the semester with the dates and, if applicable, a request for make-up work. Anticipated absences for medical reasons go to the Office of Student Advocacy rather than to me.
 
 Missed work associated with an **unexcused** absence receives a zero, which the dropped exam score may or may not cover. Pop quizzes and other extra credit cannot be made up, because they are extra credit: missing them cannot keep you from earning 100% of the course points.
 
@@ -297,13 +297,13 @@ You are expected to practice the highest standards of academic integrity. Any de
 
 Below are some websites for you to visit to learn more about university policies:
 
-- [Carolinian Creed](https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/involvement_and_leadership/carolinian_creed/index.php) (https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/involvement_and_leadership/carolinian_creed/index.php)
+- [Carolinian Creed](https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/involvement_and_leadership/carolinian_creed/index.php)
 
-- [Academic Responsibility](https://www.sc.edu/policies/ppm/staf625.pdf) (https://www.sc.edu/policies/ppm/staf625.pdf)
+- [Academic Responsibility](https://www.sc.edu/policies/ppm/staf625.pdf)
 
-- [Office of Student Conduct and Academic Integrity](https://sc.edu/about/offices_and_divisions/student_conduct_and_academic_integrity/) (https://sc.edu/about/offices_and_divisions/student_conduct_and_academic_integrity/)
+- [Office of Student Conduct and Academic Integrity](https://sc.edu/about/offices_and_divisions/student_conduct_and_academic_integrity/)
 
-- [Information Security Policy and Standards](https://sc.edu/about/offices_and_divisions/division_of_information_technology/security/policy/index.php) (https://sc.edu/about/offices_and_divisions/division_of_information_technology/security/policy/index.php)
+- [Information Security Policy and Standards](https://sc.edu/about/offices_and_divisions/division_of_information_technology/security/policy/index.php)
 
 ### Plagiarism
 
@@ -345,7 +345,7 @@ You may be assigned an 'I' (Incomplete) grade if you are unable to complete a si
 
 ## Supportive Learning Environment
 
-The university is committed to a campus environment that is supportive, safe, and respectful for all persons, and one that fully embraces the [Carolinian Creed](https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/involvement_and_leadership/carolinian_creed/index.php) (https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/involvement_and_leadership/carolinian_creed/index.php). To that end, all course activities will be conducted in an atmosphere of friendly participation and interaction among colleagues, recognizing and appreciating the unique experiences, background, and point of view each student brings. You are always expected to apply the highest academic standards to this course and to treat others with dignity and respect.
+The university is committed to a campus environment that is supportive, safe, and respectful for all persons, and one that fully embraces the [Carolinian Creed](https://sc.edu/about/offices_and_divisions/student_affairs/our_initiatives/involvement_and_leadership/carolinian_creed/index.php). To that end, all course activities will be conducted in an atmosphere of friendly participation and interaction among colleagues, recognizing and appreciating the unique experiences, background, and point of view each student brings. You are always expected to apply the highest academic standards to this course and to treat others with dignity and respect.
 
 I believe we are all lifelong learners, constantly absorbing lessons from the world around us. Attentive, reflective individuals are always open to learning from others. Good discussions are energetic and passionate, yet always respectful and constructive. Vibrant, rigorous inquiry emerges from conversations that:
 
@@ -361,9 +361,9 @@ I am expected to facilitate a supportive and productive learning environment, an
 
 ## Interpersonal Violence Statement
 
-Interpersonal violence—including sexual harassment, relationship violence, sexual assault, and stalking—is prohibited at USC. Faculty, staff, and administrators encourage anyone experiencing interpersonal violence to speak with someone, so they can get the necessary support and USC can respond appropriately. If you or someone you know has been or is currently impacted by interpersonal violence, you can find the appropriate resources at the [Sexual Assault and Violence Intervention & Prevention](http://www.sc.edu/stopsexualassault) (SAVIP) (https://sc.edu/safety/interpersonal-violence/index.php) website.
+Interpersonal violence—including sexual harassment, relationship violence, sexual assault, and stalking—is prohibited at USC. Faculty, staff, and administrators encourage anyone experiencing interpersonal violence to speak with someone, so they can get the necessary support and USC can respond appropriately. If you or someone you know has been or is currently impacted by interpersonal violence, you can find the appropriate resources at the [Sexual Assault and Violence Intervention & Prevention](http://www.sc.edu/stopsexualassault) (SAVIP) website.
 
-As faculty, I must report all incidents of interpersonal violence and sexual misconduct and thus cannot guarantee confidentiality. Please know that you can seek [confidential resources](https://sc.edu/about/initiatives/safety/stop_sexual_assault/contacts/index.php) (https://sc.edu/safety/interpersonal-violence/index.php). If you want to make a formal report, you can [report interpersonal violence and sexual misconduct](https://cm.maxient.com/reportingform.php?UnivofSouthCarolina&layout_id=25) (https://cm.maxient.com/reportingform.php?UnivofSouthCarolina&layout_id=25) or contact the institution's Title IX Coordinator, or one of the Deputy Title IX Coordinators listed on the SAVIP website. You can also file a police report by contacting USC Police at 803-777-4215.
+As faculty, I must report all incidents of interpersonal violence and sexual misconduct and thus cannot guarantee confidentiality. Please know that you can seek [confidential resources](https://sc.edu/about/initiatives/safety/stop_sexual_assault/contacts/index.php). If you want to make a formal report, you can [report interpersonal violence and sexual misconduct](https://cm.maxient.com/reportingform.php?UnivofSouthCarolina&layout_id=25) or contact the institution's Title IX Coordinator, or one of the Deputy Title IX Coordinators listed on the SAVIP website. You can also file a police report by contacting USC Police at 803-777-4215.
 
 ## Academic Success Statement
 
@@ -387,7 +387,7 @@ This campus offers a wide range of academic support services to help students ac
 
 ## Disability Services
 
-The University of South Carolina is committed to providing equitable access to learning opportunities for students with disabilities. Students seeking accommodations should contact the [Student Disability Resource Center](http://www.sa.sc.edu/sds/) (SDRC) (http://www.sa.sc.edu/sds/) at 803-777-6142, email <sadrc@mailbox.sc.edu>, or visit Close-Hipp Suite 102 to begin the registration process. Registration takes at least two weeks and includes a required orientation, so please start early.
+The University of South Carolina is committed to providing equitable access to learning opportunities for students with disabilities. Students seeking accommodations should contact the [Student Disability Resource Center](http://www.sa.sc.edu/sds/) (SDRC) at 803-777-6142, email <sadrc@mailbox.sc.edu>, or visit Close-Hipp Suite 102 to begin the registration process. Registration takes at least two weeks and includes a required orientation, so please start early.
 
 Once accommodations have been approved through the SDRC, students should provide their accommodation notification letters to their instructors as early as possible. I encourage you to contact me within the first week of the semester, or as soon as your letter is issued, so that we can discuss the logistics of any accommodation you need for this course.
 
@@ -395,35 +395,35 @@ Students who have questions or experience barriers related to disability access 
 
 ## Mental Health and Well-Being
 
-If stress is affecting your ability to complete schoolwork, maintain relationships, eat, sleep, or enjoy life, please reach out to any of USC's mental health resources. Most of these services are offered at no cost, as they are covered by the Student Health Services tuition fee. For a complete list of available mental health resources, refer to the quick reference list below and visit [Student Health and Well-Being](https://sc.edu/about/offices_and_divisions/student-health-well-being/index.php) (https://sc.edu/about/offices_and_divisions/student-health-well-being/index.php).
+If stress is affecting your ability to complete schoolwork, maintain relationships, eat, sleep, or enjoy life, please reach out to any of USC's mental health resources. Most of these services are offered at no cost, as they are covered by the Student Health Services tuition fee. For a complete list of available mental health resources, refer to the quick reference list below and visit [Student Health and Well-Being](https://sc.edu/about/offices_and_divisions/student-health-well-being/index.php).
 
-- **Wellness Coaching** can help you improve in areas related to emotional and physical well-being (e.g., sleep, resiliency, balanced eating, and more). Schedule an appointment at (803) 777-6518 or through [MyHealthSpace](https://myhealthspace.ushs.sc.edu/) (https://myhealthspace.ushs.sc.edu/)
+- **Wellness Coaching** can help you improve in areas related to emotional and physical well-being (e.g., sleep, resiliency, balanced eating, and more). Schedule an appointment at (803) 777-6518 or through [MyHealthSpace](https://myhealthspace.ushs.sc.edu/)
 
-- [Therapy Assistance Online (TAO) by Uplift](https://us.taoconnect.org/login) (https://us.taoconnect.org/login) offers virtual self-help modules. See [TAO registration](https://us.taoconnect.org/register) (https://us.taoconnect.org/register).
+- [Therapy Assistance Online (TAO) by Uplift](https://us.taoconnect.org/login) offers virtual self-help modules. See [TAO registration](https://us.taoconnect.org/register).
 
-- **Counseling & Psychology Services (CAPS)** offers brief individual and group counseling, as well as psychiatric services. Schedule an appointment at (803) 777-5223 or through [MyHealthSpace](https://myhealthspace.ushs.sc.edu/) (https://myhealthspace.ushs.sc.edu/).
+- **Counseling & Psychology Services (CAPS)** offers brief individual and group counseling, as well as psychiatric services. Schedule an appointment at (803) 777-5223 or through [MyHealthSpace](https://myhealthspace.ushs.sc.edu/).
 
 - **24-Hour Mental Health Support Line**: Call (844) 287-6963 for immediate support.
 
-- **Anonymous Mental Health Screening**: Take an anonymous [mental health screening](https://www.uscscreening.org/welcome.cfm?access=website) (https://www.uscscreening.org/welcome.cfm?access=website).
+- **Anonymous Mental Health Screening**: Take an anonymous [mental health screening](https://www.uscscreening.org/welcome.cfm?access=website).
 
 ## Student Success Center
 
-In partnership with USC faculty, the [Student Success Center](https://sc.edu/about/offices_and_divisions/student_success_center/index.php) (SSC) (https://sc.edu/about/offices_and_divisions/student_success_center/index.php) offers several programs designed to help you better understand your course material and to support your academic success. SSC programs are led by professional staff, graduate students, and trained undergraduate peer leaders who have previously excelled in their courses. Resources available to you in this course may include:
+In partnership with USC faculty, the [Student Success Center](https://sc.edu/about/offices_and_divisions/student_success_center/index.php) (SSC) offers several programs designed to help you better understand your course material and to support your academic success. SSC programs are led by professional staff, graduate students, and trained undergraduate peer leaders who have previously excelled in their courses. Resources available to you in this course may include:
 
-- **Peer Tutoring:** Schedule a one-on-one appointment with a [Peer Tutor](https://sc.edu/about/offices_and_divisions/student_success_center/undergraduate-support/index.php) (https://sc.edu/about/offices_and_divisions/student_success_center/undergraduate-support/index.php). Drop-in and Online Tutoring may also be available for this course. Visit the website for a full schedule of times, locations, and courses.
+- **Peer Tutoring:** Schedule a one-on-one appointment with a [Peer Tutor](https://sc.edu/about/offices_and_divisions/student_success_center/undergraduate-support/index.php). Drop-in and Online Tutoring may also be available for this course. Visit the website for a full schedule of times, locations, and courses.
 
 - **Supplemental Instruction (SI):** SI Leaders are assigned to specific course sections and hold three weekly study sessions focused on the most challenging course content. The SI session schedule is posted on the SSC website each week and will also be communicated in class by the SI Leader.
 
 - **Peer Writing and Communications Tutoring:** Improve your college-level writing skills by bringing writing assignments from any of your classes to a Peer Writing Tutor. You can schedule an appointment through the website and view the full schedule of available drop-in hours and locations.
 
-- **Success Coaching:** SSC staff offer personalized sessions to help you develop study skills, set academic goals, and connect with campus resources. Throughout the semester, I may communicate with the SSC about your progress to ensure your success in this course. If the SSC contacts you, please schedule Success Coaching promptly. Referrals are not punitive, and any information shared is confidential under FERPA privacy laws. Student Success Center services are available to all USC undergraduates at no additional cost. To check the schedule and make appointments, please call 803-777-1000, visit <http://www.sc.edu/success>, or stop by the Student Success Center in the Thomas Cooper Library (Mezzanine Level).
+- **Success Coaching:** SSC staff offer personalized sessions to help you develop study skills, set academic goals, and connect with campus resources. Throughout the semester, I may communicate with the SSC about your progress to ensure your success in this course. If the SSC contacts you, please schedule Success Coaching promptly. Referrals are not punitive, and any information shared is confidential under FERPA privacy laws. Student Success Center services are available to all USC undergraduates at no additional cost. To check the schedule and make appointments, please call 803-777-1000, visit [the Student Success Center website](http://www.sc.edu/success), or stop by the Student Success Center in the Thomas Cooper Library (Mezzanine Level).
 
 This course may participate in the university's Progress Report/Alert Initiative. At key points throughout the semester, the instructor may notify the Student Success Center about students who may not be meeting established criteria for attendance, grades, or assignment performance. Students who receive an alert may get an e-mail, phone call or text message from the Student Success Center, encouraging them to connect with additional academic support resources.
 
 ## Library Resources
 
-[University Libraries Resources](https://sc.edu/about/offices_and_divisions/university_libraries/index.php) (https://sc.edu/about/offices_and_divisions/university_libraries/index.php) has access to books, articles, subject specific resources, citation help, and more. If you are not sure where to start, assistance is available at [Ask a Librarian!](http://sc.edu/libraries/ask) (http://sc.edu/libraries/ask).
+[University Libraries Resources](https://sc.edu/about/offices_and_divisions/university_libraries/index.php) has access to books, articles, subject specific resources, citation help, and more. If you are not sure where to start, assistance is available at [Ask a Librarian!](http://sc.edu/libraries/ask)
 
 Remember that if you use anything that is not your own writing or media (quotes from books, articles, interviews, websites, movies – everything) you must cite the source in APA (or other appropriate and approved) format.
 
@@ -495,6 +495,6 @@ Put these six dates in your calendar now. **Each exam focuses on everything taug
 | 28 | Thu 12/3 | Last day of class; review of Topics 13–17; Q&A for the final |  |
 |  | Tue 12/8 | **FINAL EXAM**, 12:30 p.m. (cumulative, Topics 1–17) |  |
 
-Your lab section meets each Friday. This schedule is tentative: if we need to adjust the pace, I will announce the change in class and on Blackboard, but **exam dates will not move**.
+Your lab section meets each Friday. This schedule is tentative: if we need to adjust the pace, I will announce the change in class and on Blackboard.
 
 Chapter numbers in the Reading column refer to the *optional* companion text, Cote et al. (2021), linked under "Course Materials." Nothing in it is required and I do not lecture from it; the chapters are listed so that you know where to look if you want a second explanation of a topic.

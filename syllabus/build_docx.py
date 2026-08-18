@@ -160,6 +160,22 @@ def split_width(total, pcts):
     return cols
 
 
+def repeat_header_row(tbl):
+    """Mark the first row as a header so it repeats on every page a table spans
+    (a digital-accessibility requirement for USC syllabi)."""
+    tr = tbl.find(W + 'tr')
+    if tr is None:
+        return False
+    trPr = tr.find(W + 'trPr')
+    if trPr is None:
+        trPr = ET.Element(W + 'trPr')
+        tr.insert(0, trPr)
+    if trPr.find(W + 'tblHeader') is None:
+        ET.SubElement(trPr, W + 'tblHeader')
+        return True
+    return False
+
+
 def set_table_widths(tbl, cols):
     grid = tbl.find(W + 'tblGrid')
     for gc, w in zip(grid.findall(W + 'gridCol'), cols):
@@ -219,6 +235,7 @@ def main():
         if ncol != len(pcts):
             raise SystemExit(f'table has {ncol} columns, spec has {len(pcts)}')
         set_table_widths(tbl, split_width(total, pcts))
+        repeat_header_row(tbl)
 
     out = ET.tostring(root, encoding='unicode')
     out = re.sub(r'^<w:document\b[^>]*>', open_tag, out, count=1)
