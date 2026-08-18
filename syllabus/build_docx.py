@@ -15,7 +15,11 @@ from xml.etree import ElementTree as ET
 
 MD = 'PSYC220_011_012_syllabus_Ma_Fall2026.md'
 DOCX = 'PSYC220_011_012_syllabus_Ma_Fall2026.docx'
-REFERENCE = 'PSYC220_003_004_syllabus_Ma_Spring2026.docx'
+# Formatting template: a frozen copy of the current syllabus, so rebuilds
+# inherit the fonts, styles and spacing set by hand in Word. Refresh it with
+#   cp PSYC220_011_012_syllabus_Ma_Fall2026.docx syllabus_reference.docx
+# after any formatting change you want future builds to keep.
+REFERENCE = 'syllabus_reference.docx'
 
 # Column widths as percentages of the text width, per table, in document order.
 COLUMN_PCT = [

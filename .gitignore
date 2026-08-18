@@ -13,3 +13,6 @@
 syllabus/*
 !syllabus/*.md
 !syllabus/build_docx.py
+# formatting template for build_docx.py -- binary, but the build cannot
+# reproduce the hand-set Word formatting without it
+!syllabus/syllabus_reference.docx
