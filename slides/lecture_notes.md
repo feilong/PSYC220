@@ -10,6 +10,16 @@ Each entry: what happened, and the concrete change to make. Vague notes
 Status key: **TODO** = not yet done · **DONE (F26)** = fixed during Fall 2026 ·
 **NEXT** = deliberately deferred to a future section.
 
+**Keynote, before you script anything:** Keynote is sandboxed and can only open a
+file the *user* has opened at least once. That grant is stored per file, so
+`cp` produces a deck Keynote refuses to open — silently under AppleScript, and
+in the UI as *"Keynote couldn't read the file. You can try restoring to a
+previous version."* That message means **permission, not corruption**
+(`NSCocoaErrorDomain Code=257` in `log show --predicate 'process == "Keynote"'`).
+`mv` keeps the grant because the inode is unchanged, so rename decks into place
+rather than copying them. A copy has to be double-clicked once before any script
+can touch it.
+
 ---
 
 ## Lecture 1 — Introduction to the course
@@ -45,10 +55,44 @@ Status key: **TODO** = not yet done · **DONE (F26)** = fixed during Fall 2026 �
   but it is a lot of screen time on one idea. Consider collapsing to two or three
   builds and putting the rest on the board.
 
-## Lecture 3 —
+## Lecture 3 — Central tendency & graphs
 
-_(add after teaching)_
+Built 8/24 for Tue 8/25, from the Spring **Lecture 4** deck rather than Spring
+Lecture 3. Spring L3 lost its first half to one-off business (a pop-quiz demo, a
+CSV cleanup walkthrough, lab-classroom updates), ran out of time, and L4 then
+re-taught graphs and central tendency in cleaner form — two barplot examples
+instead of four, a *Bar plots vs. histograms* comparison, and the three
+"Characteristics of…" slides consolidated into one table.
 
-## Lecture 4 —
+- **DONE (F26) — restored the three worked Example slides.** Spring L4 defines
+  mean, median and mode back to back with no computation shown, because L3 had
+  already worked `X = {10, 4, 10, 7, 9, 8, 10, 6, 9, 7}` three times. Teaching
+  this once meant grafting those back, one after each measure. A2 and the Spring
+  HW2 numeric items ask students to compute exactly these.
+- **DONE (F26) — restored the "Frequency distribution graphs" opener** with the
+  Confucius gag. L4 opened cold on "Bar plots" with no motivation for graphing.
+- **NEXT — the pop-quiz data demo.** Collecting live data from the class, showing
+  the raw Blackboard CSV, cleaning it, then graphing it is a genuine
+  data-analysis narrative on the students' own data. Deferred out of Lecture 3,
+  which is already carrying graphs plus all three measures of central tendency.
+  Needs a fresh Fall quiz and new screenshots when it lands.
+- **NEXT — "Sometimes ordinal scale can be treated as interval scale."** Dropped
+  from Lecture 3 because its image is a pandas `.describe()` of the Spring
+  pop-quiz columns (`love_stats`, `height_in`) — meaningless to students who
+  never took that quiz. Travels with the demo above, or needs a new figure.
+- **TODO — the deck is still text-and-screenshots.** Same note as Lecture 2: the
+  central tendency half (Mean / Median / Mode / Example ×3) is pure text.
 
-_(add after teaching)_
+## Lecture 4 — Spread & variability
+
+Deck split off from the same Spring Lecture 4 file; slides 22–49 (the two
+same-mean-different-spread distributions onward) are the Fall Lecture 4 spine.
+
+- **TODO — not yet built.** Needs the admin and central-tendency half deleted,
+  the Week 2 / Week 3 plan slide added, and a decision on whether the
+  central-tendency exercise (`X = {3,4,5,6,7}`, `Y = {5,5,5,5,5}`) stays at the
+  end of Lecture 3 as practice or moves here as the hook into variability. It is
+  currently at the end of Lecture 3.
+- **NEXT — seven skipped slides carry instructor keys** (one with raw LaTeX,
+  `$\bar{x}$, rendered as literal text). If those are meant to be shown, the
+  LaTeX needs rendering; if not, they are fine skipped.
