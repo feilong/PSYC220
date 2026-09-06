@@ -431,10 +431,24 @@ Fall Lecture 7, so this was a clean 1:1 split — unlike Lectures 3/4.
 - **DONE (F26) — the three-panel σ comparison had no alt text** on any of its
   three curves. Described each by what it shows: same score of 85, same mean of
   65, σ of 5, 15 and 40, giving z of 4, 1.33 and 0.5.
-- **TODO — the title slide's course block is left-aligned**, where Lectures 4 and
-  5 have it centered. Paragraph alignment is not settable from AppleScript, so
-  this is a click in the Format inspector. Same for anything else needing
-  alignment — budget a manual pass.
+- **TODO — two things need a click each in the Format inspector**, because text
+  alignment is genuinely read-only in this Keynote's AppleScript. Every form is
+  refused — `alignment of object text`, `alignment of every paragraph`,
+  `alignment of paragraph 1`, `paragraph alignment` — so a script can build a
+  two-column slide but cannot left-align the second column.
+    1. The title slide's course block is left-aligned, where Lectures 4 and 5
+       have it centered.
+    2. The right-hand column of "This Week and Next" is centered and needs to be
+       left-aligned to match the left column (and to match Lecture 3).
+  Budget one manual alignment pass per deck; everything else here is scriptable.
+- **Two-column weekly slide, working geometry** (16:10 ratio theme): left is the
+  body placeholder at 89,205 540 wide; right is a plain text item at **651,206**
+  540 wide, HelveticaNeue 34, with literal `•` glyphs and a **blank line between
+  every bullet** so its spacing matches the placeholder's paragraph spacing.
+  The text item centers *vertically* as well, so its y depends on how much text
+  it holds — 651,237 from the handoff was written for a shorter column. Set the
+  content first, then nudge y until the first rows line up, and check with a
+  render rather than by arithmetic.
 - **NEXT — the topic line reads "Topic 5 — z-scores", not the syllabus wording.**
   The syllabus gives classes 7 and 8 the single title "Topic 5. z-scores & the
   Standard Normal Distribution", which is too long for one line at 44 pt and
