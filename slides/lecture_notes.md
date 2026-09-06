@@ -462,3 +462,35 @@ Fall Lecture 7, so this was a clean 1:1 split — unlike Lectures 3/4.
 - **NEXT — slides 7 and 8 already bridge from Topics 3–4 into z-scores**
   ("Descriptive statistics", "For the methods we've learned so far…"), so the new
   "The previous lecture" recap at slide 3 partly duplicates them. Keep one.
+
+## Lecture 7 — The standard normal distribution (Thu 9/10)
+
+Built from Spring's `Lecture_7_Normal distribution.key`, renamed to
+`Lecture_07_Normal distribution.key`. 49 slides, 27 exporting; slides 28–49 are
+the Topic 7 sampling-distribution material, already skipped.
+
+- **TODO — the deck is still on the `White` theme.** Every other Fall deck is on
+  `16:10 ratio`. Change it by hand, then say so and the column geometry can be
+  re-run: `White` gives 874 pt of usable width against the other theme's 1103,
+  so the weekly slide is currently built to narrower, temporary numbers
+  (30 pt, two 420-wide columns at x = 203 and 648, no blank lines between
+  bullets — at 34 pt in a 420 column the right box grew to 877 pt tall, taller
+  than the canvas).
+- **Text-item alignment follows the theme, and the two themes disagree.** On
+  `White` a new text item is **left**-aligned; on `16:10 ratio` it is
+  **centered**. So re-theming this deck will silently centre both the topic line
+  on the title slide (which is what we want — it matches Lecture 4) and the
+  right-hand column of the weekly slide (which we do not want). Expect to
+  left-align that one box by hand afterwards; see the Lecture 6 note on
+  alignment being read-only.
+- **DONE (F26) — five figures had no alt text**: the Flynn Effect line graph, the
+  three-panel σ comparison carried over from Lecture 6, and the four-curve
+  "normal distributions with varying means and standard deviations" plate.
+- **NEXT — slides 5, 6 and 8 replay Lecture 6's motivation example** (the score
+  of 85, and the σ = 5/15/40 panels). In Spring that was genuine re-teaching
+  because the material had not been finished. In Fall these are consecutive
+  classes, so it is a recap — but combined with the new slide-3 recap it is now
+  told three times before the Flynn Effect. Worth cutting one.
+- **NEXT — the four-curve plate (slide 14) sits low and small** on an otherwise
+  empty slide, and has no title. It is the clearest statement of what μ and σ do
+  to a normal curve, and deserves better placement than it has.
