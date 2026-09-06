@@ -144,6 +144,13 @@ Exam 2 is 30 questions at 2 points, in the planned 9/7/8/6 shape, and every
 question mirrors a family the students worked in A5–A9. Built by
 `exams/build_exam2.py`; keys land 8/7/8/7 across A/B/C/D.
 
+Mock Exam 2 has the same shape: 20 items straight from A5–A9 (choosing the
+assignment items Exam 2 did *not* use) and 10 from the same families with fresh
+values. `build_mock2.py` asserts that no keyed answer appears on Exam 2 — it
+caught a `z = 1.50` collision on the first run — and that the two papers' answer
+sequences differ, which they did not at first, because balancing both with the
+same pattern gave them an identical key.
+
 **The Spring pool for A8 and A9 was thinner than this document assumed.** Spring
 Exam 3 Q1 and Q2 are verbatim copies of Exam 2 Q1 and Q4, so the six items
 credited to A8 are really five, and A9's four are three. The shortfall was

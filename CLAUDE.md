@@ -28,7 +28,15 @@ print('A/B/C/D =', [d[i] for i in range(4)])
 
 Use a **fixed pattern, not a random shuffle**, so that rebuilding a paper
 reproduces it exactly. `assignments/build_a5_a6.py` has a `balance()` helper and
-a `PATTERN` constant; copy that approach.
+a `PATTERN` constant; `exams/examlib.py` has the same for exams, and
+`examlib.check()` now refuses to write a paper where one position holds more
+than 40% of the keys.
+
+**A mock and its real exam must not share an answer sequence.** Both are 30
+questions with the key written first, so the same pattern hands them an
+identical key — memorising the mock would then pass the exam. Pass a different
+`offset=` to `examlib.balance()`; `build_mock2.py` verifies its sequence against
+`Exam_2_key.md` and fails if more than 40% of positions match.
 
 **Why this is a rule.** Assignments 1–4, Exam 1 and Mock Exam 1 were built with
 the correct answer in position A for all 69 questions, because the source order
