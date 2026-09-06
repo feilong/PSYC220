@@ -128,6 +128,30 @@ Spring exams 1–4.
 | A19 | Correlation | 16 | HW9 · Lab11 Q1–5 · Lab12 Q1–5 · E4 Q14–24 | 32 | — |
 | A20 | Regression | 17 | HW10 · Lab12 Q6–10 · E4 Q25–37 | 28 | — |
 
+## Key position must be balanced
+
+**Every correct answer in A1-A4, Exam 1 and Mock Exam 1 sits in position A** -
+69 questions, no exceptions. Nothing in the build scripts ever shuffled the
+options, and the source order from the Spring bank was kept as-is. A student who
+notices can score full marks without reading a single stem, and Exam 1 has
+already been administered this way.
+
+From A5 onward every assignment spreads its keys across all four positions -
+3/3/2/2 for a ten-question set - using a fixed pattern in the builder rather
+than a random shuffle, so a rebuild reproduces the same paper. Exams 2-5 need
+the same treatment before they are printed, and the four uploaded assignments
+need re-uploading or Blackboard's per-question *randomize answers* setting
+turned on.
+
+Two related defects found while pulling from the bank, both fixed in A6:
+
+- **Lab 6 Q3** offered `1/4` and `13/52` as separate choices. They are the same
+  number, so the key marks a correct answer wrong. Replaced with `1/2`.
+- **Lab 6 Q4** offered `1/6` and `6/36`. Same problem. Replaced with `5/36`.
+- **Homework 3 Q2** is mis-keyed: population SS = 100, N = 5 gives
+  sigma = sqrt(20) = 4.47, but the bank marks `4` correct. Not used in A5, but
+  do not reuse it without re-keying. Joins Lab Week 1 Q3 on the bad-item list.
+
 ## Delivery order of Topics 5 and 6
 
 Probability (Topic 6) is taught on **Thu 9/10**, ahead of the standard normal
