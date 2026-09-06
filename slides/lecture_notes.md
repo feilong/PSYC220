@@ -412,3 +412,39 @@ equation images, so new ones have to be produced.
 - **NEXT — seven skipped slides carry instructor keys** (one with raw LaTeX,
   `$\bar{x}$, rendered as literal text). If those are meant to be shown, the
   LaTeX needs rendering; if not, they are fine skipped.
+
+## Lecture 6 — z-scores (Tue 9/8)
+
+Built from Spring's `Lecture_6.key` (z-scores), renamed rather than copied so
+Keynote kept its file grant. Spring's Lecture 7 stays behind as the source for
+Fall Lecture 7, so this was a clean 1:1 split — unlike Lectures 3/4.
+
+- **DONE (F26) — "Transform" had its two charts sitting on top of the body text**,
+  and the lower one ran 2 px off the bottom of the canvas, which is why
+  `fix_offcanvas` did not flag it. Rebuilt as a before/after pair side by side at
+  560 x 186, text lifted to y = 190. Worth checking the other figure slides for
+  the same near-miss: an item that overhangs by a hair passes the off-canvas test
+  but still looks broken.
+- **DONE (F26) — "The rank order of the scores are preserved"** → *is preserved*.
+  It had been hidden behind a chart, so it survived Spring unnoticed. Fixing a
+  layout problem is how you find the proofreading problems underneath it.
+- **DONE (F26) — the three-panel σ comparison had no alt text** on any of its
+  three curves. Described each by what it shows: same score of 85, same mean of
+  65, σ of 5, 15 and 40, giving z of 4, 1.33 and 0.5.
+- **TODO — the title slide's course block is left-aligned**, where Lectures 4 and
+  5 have it centered. Paragraph alignment is not settable from AppleScript, so
+  this is a click in the Format inspector. Same for anything else needing
+  alignment — budget a manual pass.
+- **NEXT — the topic line reads "Topic 5 — z-scores", not the syllabus wording.**
+  The syllabus gives classes 7 and 8 the single title "Topic 5. z-scores & the
+  Standard Normal Distribution", which is too long for one line at 44 pt and
+  wraps to two, left-aligned and ugly. Splitting it across the two decks
+  (z-scores here, the standard normal distribution on 9/10) is both shorter and
+  more honest about what each class covers.
+- **NEXT — Spring's homework-review block is skipped, not deleted** (4 slides at
+  the end). It shows 2-point items on Topics 1–2, already examined on Exam 1.
+  Something belongs in that spot — an Exam 1 post-mortem is the obvious
+  candidate — but it needs Fall content.
+- **NEXT — slides 7 and 8 already bridge from Topics 3–4 into z-scores**
+  ("Descriptive statistics", "For the methods we've learned so far…"), so the new
+  "The previous lecture" recap at slide 3 partly duplicates them. Keep one.
