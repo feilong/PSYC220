@@ -128,6 +128,34 @@ Spring exams 1–4.
 | A19 | Correlation | 16 | HW9 · Lab11 Q1–5 · Lab12 Q1–5 · E4 Q14–24 | 32 | — |
 | A20 | Regression | 17 | HW10 · Lab12 Q6–10 · E4 Q25–37 | 28 | — |
 
+## Built so far (as of 9/6)
+
+A5–A9 and Exam 2 are drafted; everything for Exam 2 on Thu 9/24 now exists.
+
+| # | Title | Topic | Taught | Sourced / new |
+|:--:|---|:--:|:--:|:--:|
+| A5 | z-scores                     | 5 | Tue 9/8  | 10 / 0 |
+| A6 | Probability                  | 6 | Thu 9/10 |  9 / 1 |
+| A7 | The standard normal distribution | 5 | Tue 9/15 |  8 / 2 |
+| A8 | Sampling distributions       | 7 | Thu 9/17 |  6 / 4 |
+| A9 | Central Limit Theorem        | 8 | Tue 9/22 |  3 / 7 |
+
+Exam 2 is 30 questions at 2 points, in the planned 9/7/8/6 shape, and every
+question mirrors a family the students worked in A5–A9. Built by
+`exams/build_exam2.py`; keys land 8/7/8/7 across A/B/C/D.
+
+**The Spring pool for A8 and A9 was thinner than this document assumed.** Spring
+Exam 3 Q1 and Q2 are verbatim copies of Exam 2 Q1 and Q4, so the six items
+credited to A8 are really five, and A9's four are three. The shortfall was
+written rather than stretched: A9 in particular is now mostly new items covering
+what the CLT claims about the centre and the spread of the sampling
+distribution, a small-*n* skewed case, and two computations.
+
+**Conditional probability is assigned but not lectured.** A6 Q9 and Q10 and
+Exam 2 Q16 ask for probabilities within a subgroup. The Lecture 7 deck covers
+classical probability and the frequency table but never names conditional
+probability. Either add a slide or drop those items.
+
 ## Key position must be balanced
 
 **Every correct answer in A1-A4, Exam 1 and Mock Exam 1 sits in position A** -
