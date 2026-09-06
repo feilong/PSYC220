@@ -108,12 +108,12 @@ Spring exams 1–4.
 | # | Assignment | Topic | Draw from | Pool | New |
 |:--:|---|:--:|---|:--:|:--:|
 | A1 | Math review & basic concepts | 1–2 | HW1 · Lab1 · Lab2 · E1 Q1–13 | 18 | — |
-| A2 | Central tendency & graphs | 3 | HW2 Q2–4,8,9 · Lab3 Q1–3,11 · E1 Q14–17 | 14 | — |
-| A3 | Spread & variability | 4 | HW2 Q5–7,10,11 · HW3 Q1–5 · Lab3 Q4–10 · E1 Q18–20,33–38 | 21 | — |
-| A4 | Part 1 mixed review | 1–4 | surplus from A1–A3 | 12 | — |
+| A2 | Central tendency & graphs | 3 | HW2 Q2–4,8,9 · Lab3 Q1–3,11 · E1 Q14,15,17 | 13 | — |
+| A3 | Spread & variability | 4 | HW2 Q5–7,10,11 · Lab3 Q4–10 · E1 Q16,18–20 | 22 | — |
+| A4 | Part 1 mixed review | 1–4 | HW1 Q2–4,7 · Lab1 Q1,3,4 · Lab2 Q2 · E1 Q33–38 | 15 | **1** |
 | A5 | z-scores | 5 | HW3 Q6–10 · Lab4 Q1–6 · E1 Q21–26 | 17 | — |
-| A6 | Standard normal distribution | 5 | HW4 Q1–3,6,8,9,11 · Lab4 Q7–10 · E1 Q27–32,39,40 | 19 | — |
-| A7 | Probability | 6 | HW4 Q4,5,7,10 · Lab6 Q1,3–10 | 13 | — |
+| A6 | Probability | 6 | HW4 Q4,5,7,10 · Lab6 Q1,3–10 | 13 | — |
+| A7 | Standard normal distribution | 5 | HW4 Q1–3,6,8,9,11 · Lab4 Q7–10 · E1 Q27–32,39,40 | 19 | — |
 | A8 | **Sampling distributions** | 7 | HW5 Q8 · E2 Q1–4 · E3 Q1,2 | 6 | **4** |
 | A9 | **Central Limit Theorem** | 8 | HW5 Q1 · Lab6 Q2 · E2 Q20 · E3 Q9 | 4 | **6** |
 | A10 | Hypothesis testing | 9 | HW5 Q2,3,6,7 · Lab7 Q1–3 · E2 Q5,8,11 | 10 | — |
@@ -128,6 +128,27 @@ Spring exams 1–4.
 | A19 | Correlation | 16 | HW9 · Lab11 Q1–5 · Lab12 Q1–5 · E4 Q14–24 | 32 | — |
 | A20 | Regression | 17 | HW10 · Lab12 Q6–10 · E4 Q25–37 | 28 | — |
 
+## Delivery order of Topics 5 and 6
+
+Probability (Topic 6) is taught on **Thu 9/10**, ahead of the standard normal
+distribution (the second half of Topic 5) on **Tue 9/15**. Areas under the normal
+curve are probabilities, so probability has to come first for that to mean
+anything; Spring taught it the other way round and had to assert the connection.
+
+The topic *numbers* are unchanged — they identify content, not sequence — so
+Exam 2 still covers Topics 5–8 and every mapping below still holds. Two
+consequences:
+
+- **A6 and A7 swapped content, keeping their weeks.** A6 is now Probability and
+  A7 the standard normal distribution, so no assignment is ever due before its
+  lecture. Their question sources moved with them.
+- **The lecture decks for these two classes carry no topic number** on the title
+  slide, since naming Topic 6 before Topic 5 on screen would raise a question
+  that has no useful answer. They read "Probability" and "The Standard Normal
+  Distribution".
+- **The syllabus's class-by-class table still shows the old order** for classes 8
+  and 9 and needs correcting.
+
 ## Week by week
 
 Two assignments in a normal teaching week, one in an exam week, none in the two
@@ -140,8 +161,8 @@ one assignment.
 | 1    | 8/18–8/21   | T1 math review · T2 basic concepts                 | A1                 | 1 |
 | 2    | 8/25–8/28   | T3 central tendency · T4 variability               | A2, A3             | 2 |
 | 3    | 9/1–9/4     | review · **Exam 1**                                | A4 (Part 1 review) | 1 |
-| 4    | 9/8–9/11    | T5 z-scores ×2                                     | A5, A6             | 2 |
-| 5    | 9/15–9/18   | T6 probability · T7 sampling distributions         | A7, A8             | 2 |
+| 4    | 9/8–9/11    | T5 z-scores · T6 probability                       | A5, A6             | 2 |
+| 5    | 9/15–9/18   | T5 standard normal · T7 sampling distributions     | A7, A8             | 2 |
 | 6    | 9/22–9/25   | T8 CLT · **Exam 2**                                | A9                 | 1 |
 | 7    | 9/29–10/2   | T9 hypothesis testing · T10 errors and effect size | A10, A11           | 2 |
 | 8    | 10/6–10/9   | T11 confidence intervals · T12 one-sample *t*      | A12, A13           | 2 |
@@ -206,6 +227,92 @@ CLT and sampling distributions are the conceptual pivot of the course and the
 weakest-resourced topics in it — Spring had no lab assignment for either
 (Lab Weeks 5 and 10 do not exist). Both now have their own class and both sit
 on Exam 2.
+
+## Built so far
+
+| # | Files | Shape | Notes |
+|:--:|---|---|---|
+| A1 | `A1_upload.txt` · `A1_math_review_basic_concepts.md` | 1 NUM + 9 MC | Topics 1–2 |
+| A2 | `A2_upload.txt` · `A2_central_tendency_graphs.md` | 1 NUM + 9 MC | Topic 3 |
+| A3 | `A3_upload.txt` · `A3_spread_variability.md` | 1 NUM + 9 MC | Topic 4; Q1–4 are a chain on `X = {3,15,8,11,8,14,8,13}` (M = 10, SS = 112, s² = 16, s = 4) |
+| A4 | `A4_upload.txt` · `A4_part_1_mixed_review.md` | 1 NUM + 9 MC | Topics 1–4; Q8–10 a chain on `X = {2,2,6,10,10}` (median 6, SS 64, s = 4) |
+
+Every key is **computed**, not transcribed, and each file is checked before
+release: exactly 10 rows, 10 fields per `MC` and 4 per `NUM`, exactly one
+`correct` per MC, pure ASCII (no LaTeX, no symbols that flatten on upload), and
+no stem sharing a data set *and* a quantity with any earlier assignment.
+
+Numeric items run 10% (1 of 10) against Spring's 8%, and sit in the
+hand-computation topics where Spring used them.
+
+**A3 deliberately leans on computation.** SS, variance and standard deviation are
+almost the whole Topic 4 pool — HW2 Q5–7, HW3 Q1–2, Lab 3 Q6–10, E1 Q18–20 and
+Q37–38 — and the 8/27 lecture ran out of time before working any of them by hand
+(see `slides/lecture_notes.md`). A3 and the Friday lab are where that has to land
+before Exam 1 on 9/3.
+
+**A4 carries one new item** — a skew-direction question — because the surplus
+holds no graph or shape item once A2 has taken its share, and a Part 1 review
+with nothing from the graphs half would misrepresent the exam.
+
+## Exam 1 draft vs. the assignments
+
+`exams/Exam_1.md` (student), `exams/Exam_1_key.md` (key + coverage),
+`exams/Exam_1.pdf` (5 pages, letter) — 30 questions × 2 points, weighted
+T1 ×3 · T2 ×9 · T3 ×8 · T4 ×10. Every key computed, not transcribed.
+
+**Eight of the 30 test something A1–A4 never asked.** All eight are taught, and
+the 9/1 review deck covers them, but no graded assignment made a student
+practise them:
+
+| Q | Tests | Why it is a gap |
+|:--:|---|---|
+| 4  | Definition of a variable                | recall only, never assigned |
+| 9  | Experimental vs. correlational design   | A1 identified an IV; never classified a design |
+| 10 | Descriptive vs. inferential             | never assigned |
+| 11 | Population vs. sample in a scenario     | A1/A4 defined statistic and parameter, never applied them to a case |
+| 16 | Definition of the median                | A2 computed it, never defined it |
+| 19 | Symmetric ⇒ mean = median = mode        | A2/A4 tested skewed cases only |
+| 26 | **IQR from a raw data set**             | A3 handed over Q1 and Q3; finding quartiles was never practised |
+| 30 | **Population SD (÷ N)**                 | A3 tested the sample SD only; HW3 Q2 (the ÷N version) went unused |
+
+The last two are the ones that matter. They are *procedures*, not recall — a
+student who has never found a quartile or divided by N instead of n − 1 cannot
+reason it out under time pressure. The other six are definitional and the review
+lecture handles them.
+
+**Cheapest fix: swap two items into A4.** A4 Q9 (SS) and Q10 (sample SD)
+duplicate A3 Q2 and Q4 on a different data set; replacing them with an
+IQR-from-raw-data item and a population-SD item closes both procedural gaps
+without lengthening the assignment. A4 is the review set due before the exam, so
+it is the right place.
+
+## Defects found in the source pool
+
+Items that need re-keying or rewriting before reuse. Add to this as each
+assignment gets built; a bad key hits every student in both sections silently.
+
+- **Lab Week 1 Q3** ("Which list is an ordinal level of measurement?") is keyed
+  to the TV-show list. The ordinal answer is "Sophomore, Junior, Freshman".
+- **Lab Week 3 Q11** ("What type of graph should you use to describe continuous
+  data?") offers *Box Plot* alongside the keyed answer *Histogram*. A box plot
+  also describes continuous data, so the item has two defensible answers — it
+  only works because box plots are never taught. Rewritten for A2 with *Pie
+  chart* and *Frequency table* as the categorical-data distractors.
+- **HW2 Q8** ("most resistant to outliers") must **not** offer *Mode* as a
+  distractor. The course's own comparison table marks both median and mode as
+  uninfluenced by outliers, so offering both makes the item ambiguous. Spring's
+  original options avoid this; keep them.
+- **E1 Q16 was misfiled in the plan above** — it asks for the IQR from Q1 and
+  Q3, which is Topic 4, not Topic 3. Moved out of A2's row and into A3's, where
+  it is now question 8.
+- **Lab Week 1 Q3 is used in A4 with a corrected key.** The archive keys it to
+  the TV-show list; the ordinal answer is "Sophomore, Junior, Freshman". A fourth
+  option was added, since the original offers only three.
+- **HW3 Q1–5 went unused.** Q3–Q5 (range, median, IQR) duplicate quantities A3
+  already covers on a better data set, and Q1–Q2 hand a student SS and ask only
+  for the square root, which tests less than computing SS. They stay in surplus
+  for the Exam 4 review set.
 
 ## Practical notes on reuse
 

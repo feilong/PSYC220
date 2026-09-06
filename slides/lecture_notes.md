@@ -463,10 +463,10 @@ Fall Lecture 7, so this was a clean 1:1 split — unlike Lectures 3/4.
   ("Descriptive statistics", "For the methods we've learned so far…"), so the new
   "The previous lecture" recap at slide 3 partly duplicates them. Keep one.
 
-## Lecture 7 — The standard normal distribution (Thu 9/10)
+## Lecture 8 — The standard normal distribution (Tue 9/15)
 
 Built from Spring's `Lecture_7_Normal distribution.key`, renamed to
-`Lecture_07_Normal distribution.key`. 49 slides, 27 exporting; slides 28–49 are
+`Lecture_08_Normal distribution.key` when probability moved ahead of it. 49 slides, 27 exporting; slides 28–49 are
 the Topic 7 sampling-distribution material, already skipped.
 
 - **TODO — the deck is still on the `White` theme.** Every other Fall deck is on
@@ -494,3 +494,36 @@ the Topic 7 sampling-distribution material, already skipped.
 - **NEXT — the four-curve plate (slide 14) sits low and small** on an otherwise
   empty slide, and has no title. It is the clearest statement of what μ and σ do
   to a normal curve, and deserves better placement than it has.
+
+## Lecture 7 — Probability (Thu 9/10)
+
+Built from Spring's `Lecture_8_Probability.key`. Probability was moved **ahead**
+of the standard normal distribution: areas under the normal curve are
+probabilities, so probability has to come first for that to land. Spring taught
+it the other way round and had to assert the link.
+
+- **DONE (F26) — the IQ build is the best thing in this deck** and is exactly why
+  the reorder works. Five stages take 10,000 IQ scores from a histogram, to the
+  three highlighted bins for IQ 115–130 summing to **13.92%**, to a smooth
+  theoretical curve, to the same region shaded under that curve at **13.59%**.
+  Both figures check out, and the small gap between them *is* the lesson. All
+  five now carry alt text describing what changed at that stage.
+- **NEXT — the title slides for this deck and Lecture 8 carry no topic number.**
+  The syllabus numbers probability Topic 6 and the normal distribution Topic 5,
+  so showing them in delivery order would put Topic 6 before Topic 5 on screen.
+  Numbers identify content, not sequence, and Exam 2 still covers Topics 5–8.
+- **TODO — the syllabus class-by-class table still shows the old order** for
+  classes 8 and 9. Students have that document.
+- **A6 and A7 swapped content, keeping their weeks**, so nothing is due before
+  its lecture. Recorded in `syllabus/assignments.md`.
+- **TODO — still on the `White` theme**, like Lecture 8. Weekly columns use the
+  narrow geometry until both are re-themed.
+
+## A trap: `text items` includes the body placeholder
+
+Matching a slide's boxes by their *content* is unsafe. `text items of slide`
+returns the body placeholder as well as free text items, so a loop like
+"if this box mentions Week 5, replace it" overwrote the left column of
+Lecture 8's weekly slide with the right column's text. Address the two boxes by
+index — `iWork item 2` is the placeholder, `iWork item 3` the text item — or by
+class. Caught on a geometry probe, not by eye; both columns said Week 6.
