@@ -516,8 +516,27 @@ it the other way round and had to assert the link.
   classes 8 and 9. Students have that document.
 - **A6 and A7 swapped content, keeping their weeks**, so nothing is due before
   its lecture. Recorded in `syllabus/assignments.md`.
-- **TODO — still on the `White` theme**, like Lecture 8. Weekly columns use the
-  narrow geometry until both are re-themed.
+- **DONE (F26) — re-themed to `16:10 ratio`, and the fallout cleaned up.** The
+  theme change reset the weekly slide's body placeholder to full width and left
+  the two columns mismatched (one 30 pt over 1103, the other bold 30 pt over
+  420); both are now 540 wide at 34 pt. It also pushed the *Parameters* label on
+  the population/sample slide to x = −33, off the left edge.
+- **DONE (F26) — the `fix_offcanvas` pass surfaced a second problem it cannot
+  detect.** With *Parameters* back on the canvas, the *Inference* arrow was seen
+  to run straight through "Sample mean: M": the arrow ends at x = 932 and the
+  label started at 866. Both labels are now centred under their own figure
+  (x = 147 and x = 964), which fixes the collision and makes the slide
+  symmetric. **Overlap is invisible to the off-canvas test — only a render
+  catches it.**
+- **DONE (F26) — added a "Conditional probability" slide** after the
+  classical-probability example. A6 Q9–Q10 and Exam 2 Q16 all ask for a
+  probability within a subgroup, and nothing in the deck had named the idea. It
+  works the same 24/32 = 0.75 example the assignment uses, and says explicitly
+  that the denominator is the subgroup.
+- **TODO — the right-hand weekly column is centred again.** Re-theming flipped
+  it back, as predicted; alignment is still not settable from AppleScript. One
+  click in the Format inspector.
+- The population/sample slide now uses the minions, per the Lecture 2 note.
 
 ## A trap: `text items` includes the body placeholder
 
