@@ -561,3 +561,37 @@ returns the body placeholder as well as free text items, so a loop like
 Lecture 8's weekly slide with the right column's text. Address the two boxes by
 index — `iWork item 2` is the placeholder, `iWork item 3` the text item — or by
 class. Caught on a geometry probe, not by eye; both columns said Week 6.
+
+## Lecture 9 — Sampling distributions (Thu 9/17)
+
+Built from Spring's `Lecture_9_Sampling distribution_CLT.key`, renamed. Spring
+ran one deck over four things: IQ frequency tables, a CLT introduction, the
+sampling-distribution core, then the CLT in practice. Fall splits it — the
+frequency tables are already taught in Lecture 7, and the CLT is Lecture 10 — so
+this deck keeps Spring slides 15–35 and skips the rest. 46 slides, 25 exporting.
+
+- **DONE (F26) — added "Standard error: a worked example".** A8 Q6 and Exam 2
+  Q22 both ask students to *compute* a standard error, and the deck only stated
+  the formula. The new slide works σ = 20 at n = 25 and again at n = 100, and
+  names the payoff: four times the data buys half the error, because precision
+  grows with √n rather than n.
+- **A8 checks out against the deck.** All ten items map to slides that survive
+  the cut: what a sampling distribution is, unbiased estimators, why n − 1, the
+  mean of the sampling distribution, computing and interpreting standard error,
+  and both replacement items. Nothing on the assignment is unlectured.
+- **The `PSYC222` typo is already fixed here** — this deck's height histogram
+  reads PSYC220. Whatever regenerated it did not reach Lectures 3 and 5.
+- **TODO — `Lecture_10_Central_Limit_Theorem.key` is a `cp`,** so Keynote cannot
+  open it until it is double-clicked once (pitfall 5). It holds the same Spring
+  deck; Lecture 10 will keep slides 10–14 and 36–44, the mirror image of this
+  cut.
+- **The repeated SS/variance figures are deliberate.** Pages 13/14 show n = 5,
+  and 20–23 show n = 5 beside n = 10 after "Effects of sample size". They look
+  like duplicates on a contact sheet but they are the comparison.
+
+## A race in the inventory script
+
+`count of documents > 0` goes true *before* Keynote has populated the document.
+The first inventory of this deck returned `0x0 theme=Custom Theme slides=0`,
+which looks exactly like a corrupt file and is not. Wait on
+`count of slides of front document > 0`, not just on the document existing.
