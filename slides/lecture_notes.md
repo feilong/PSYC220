@@ -491,9 +491,24 @@ the Topic 7 sampling-distribution material, already skipped.
   because the material had not been finished. In Fall these are consecutive
   classes, so it is a recap — but combined with the new slide-3 recap it is now
   told three times before the Flynn Effect. Worth cutting one.
-- **NEXT — the four-curve plate (slide 14) sits low and small** on an otherwise
-  empty slide, and has no title. It is the clearest statement of what μ and σ do
-  to a normal curve, and deserves better placement than it has.
+- **DONE (F26) — formatted after re-theming to `16:10 ratio`.** Same two pieces
+  of fallout as Lecture 7: the weekly slide's body placeholder was reset to full
+  width (both columns now 540 wide at 34 pt), and on the title slide the
+  instructor line snapped back to the theme default at y = 411, where it
+  collided with the topic line at y = 426. Instructor line moved to 560; the
+  topic line had also been restyled Bold by the theme and is back to
+  HelveticaNeue-Medium to match Lectures 4 and 6.
+- **The figure slides are fine.** They read as small and neglected on a contact
+  sheet, but the images are 735×476 to 824×545 and every one is centred on
+  x = 640. The whitespace is the empty title placeholder above them, not bad
+  placement. Worth checking geometry before "fixing" a thumbnail.
+- **TODO — slides 14 and 24 are the same figure**, `pasted-image.jpeg`, the
+  four-curve "normal distributions with varying means and standard deviations"
+  plate. Slide 24 earns its place: it sits directly before "all normal
+  distributions have a similar shape and can be stretched to match one another",
+  which is exactly what it shows. Slide 14 sits in a run of *empirical*
+  distributions (Monte Carlo, birthweights, SAT scores), where a theoretical
+  plate is the odd one out. Recommend skipping 14 and keeping 24.
 
 ## Lecture 7 — Probability (Thu 9/10)
 
