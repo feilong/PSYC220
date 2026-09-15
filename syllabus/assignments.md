@@ -136,7 +136,7 @@ A5–A9 and Exam 2 are drafted; everything for Exam 2 on Thu 9/24 now exists.
 |:--:|---|:--:|:--:|:--:|
 | A5 | z-scores                     | 5 | Tue 9/8  | 10 / 0 |
 | A6 | Probability                  | 6 | Thu 9/10 |  9 / 1 |
-| A7 | The standard normal distribution | 5 | Tue 9/15 |  8 / 2 |
+| A7 | The standard normal distribution | 5 | Tue 9/15 |  6 / 4 |
 | A8 | Sampling distributions       | 7 | Thu 9/17 |  6 / 4 |
 | A9 | Central Limit Theorem        | 8 | Tue 9/22 |  3 / 7 |
 
@@ -150,6 +150,29 @@ values. `build_mock2.py` asserts that no keyed answer appears on Exam 2 — it
 caught a `z = 1.50` collision on the first run — and that the two papers' answer
 sequences differ, which they did not at first, because balancing both with the
 same pattern gave them an identical key.
+
+**A7 lost its three duplicate raw-score items.** Lab 4 Q7, Q8 and Q10 are the
+same question three times — X = M + z·s with new numbers — so one was kept and
+the other two slots, plus the Empirical-Rule recall item, went to skills nothing
+else assessed:
+
+| Q  | Skill                                   | Why it was added                                          |
+|:--:|-----------------------------------------|-----------------------------------------------------------|
+| 2  | Percentile → raw score, using the table | Reverses Q8; the z must be found before the score          |
+| 9  | Area to the left of a z-score           | Closes the gap below                                       |
+| 10 | Empirical Rule applied to μ = 100, σ = 15 | Q1 recites the percentages; this one uses them           |
+
+**Nothing assessed the z-table before this.** Reading an area from a z-score is
+the second half of Chapter 4 and the last third of Lecture 8, and neither A5, A7
+nor Exam 2 asked for it. A7 now does. **Exam 2 still does not** — its nine
+Topic 5 items are three z-from-raw, two raw-from-z, interpret z = 0, the
+transform, Empirical 68% and compare-two-students. One of the duplicated
+z-from-raw items should become a table lookup, or the assignment stops
+predicting the exam.
+
+Both table items carry the excerpt in the stem rather than pointing at a posted
+table: the Blackboard upload file is tab-delimited, so a tab inside a stem
+splits the field, and a text upload cannot carry an attached image.
 
 **The Spring pool for A8 and A9 was thinner than this document assumed.** Spring
 Exam 3 Q1 and Q2 are verbatim copies of Exam 2 Q1 and Q4, so the six items
