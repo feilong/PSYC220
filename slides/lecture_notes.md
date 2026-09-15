@@ -502,6 +502,13 @@ the Topic 7 sampling-distribution material, already skipped.
   sheet, but the images are 735×476 to 824×545 and every one is centred on
   x = 640. The whitespace is the empty title placeholder above them, not bad
   placement. Worth checking geometry before "fixing" a thumbnail.
+- **DONE (F26) — added "Scenario 3: subtract the mean, then divide by s"** after
+  the X = {1, 3, 5} example. That slide already asks what adding 2 points and
+  doubling every score do to M and s, so the z-score transformation is the same
+  pair of moves rather than a new idea: subtracting the mean gives {−2, 0, 2}
+  (mean 0, s still 2), dividing by s gives {−1, 0, 1} (mean 0, s now 1). The
+  arithmetic is exact, which is what makes the point land — students see M = 0
+  and s = 1 fall out rather than being told.
 - **TODO — slides 14 and 24 are the same figure**, `pasted-image.jpeg`, the
   four-curve "normal distributions with varying means and standard deviations"
   plate. Slide 24 earns its place: it sits directly before "all normal
