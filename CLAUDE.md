@@ -44,27 +44,30 @@ from the Spring question bank was kept as-is and nothing ever shuffled it. A
 student who notices scores full marks without reading a stem. Exam 1 had already
 been administered before this was caught.
 
-## Nothing on an exam may be new
+## Most exam questions should have been rehearsed
 
-**Every skill an exam tests must already have been met in the homework *and* in
-that exam's mock.** The rule runs one way only. Homework may go further than the
-exam, and a mock may carry extra — what is forbidden is an exam question that
-rehearses nothing the students have already worked.
+**Most questions on an exam should have something similar in the homework
+assignments *or* in that exam's mock.** Either one is enough; it does not have
+to be both. The rule runs one way only — homework and mocks may go further than
+the exam, and often should. Adding a question to an assignment never obliges you
+to add one to the exam.
 
-So adding a question to an assignment never obliges you to add one to the exam.
-Removing or re-scoping an exam question never obliges you to touch the homework.
-Only the reverse direction is a defect.
+An exam question that rehearses nothing is a **warning worth reading**, not a
+defect. A handful is normal. Only a large share means the paper has drifted away
+from what students were given to practise on, and that is worth failing the
+build over.
 
-Check it by skill, not by provenance label. `exams/build_mock2.py` carries
-`EXAM2_SKILLS` and `MOCK2_SKILLS` — one tag per question in paper order — and
-`check_rehearsed()` fails the build on any exam skill the mock does not cover.
-Copy that pattern for Exams 3–5.
+Check by **skill, not by provenance label**. `exams/build_mock2.py` carries
+`EXAM2_SKILLS`, `MOCK2_SKILLS` and `ASSIGNMENT_SKILLS` — one tag per question in
+paper order for the two papers, plus the set A5–A9 covers — and
+`check_rehearsed()` prints every unrehearsed question, failing only past
+`UNREHEARSED_LIMIT` (20% of the paper). Copy that for Exams 3–5.
 
-Skill tags, not source references, are what catches this. Mock Exam 2's
-provenance labels all looked healthy while six exam skills went unrehearsed:
-the mock spent two slots on sampling *with replacement*, which Exam 2 never
-asks about, and doubled up on classical probability and on computing a standard
-error. Labels track where an item came from; only tags track what it teaches.
+Labels hide what tags catch. Mock Exam 2's provenance labels all looked healthy
+while six Exam 2 skills went unrehearsed *in the mock* — it spent two slots on
+sampling with replacement, which Exam 2 never asks about. Under the OR rule
+those six were fine, because the homework had already covered them; the tags are
+what let you see the situation and judge it, rather than guess from `A8 Q9`.
 
 ## Related item-quality checks
 
