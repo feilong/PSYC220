@@ -604,13 +604,19 @@ this deck keeps Spring slides 15–35 and skips the rest. 46 slides, 25 exportin
   | 6 | Two scores from the same population| (X₁ + X₂)/2 ∼ N(μ, σ²/2)                            |
   | 7 | n scores from the same population  | M ∼ N(μ, σ²/n), so the SD of M is σ/√n — the standard error |
 
-  **Notation convention, set here:** results are stated as `X ∼ N(μ, σ²)`, not in
-  prose, and the notation is glossed on its first use on slide 5 since this is
-  the first time the course writes it. Unicode carries it well enough — `∼ μ σ²
-  X₁ X₂ Σ √` all render in HelveticaNeue — with one limit: **there is no capital
-  subscript in Unicode**, so `σ_M` printed the underscore literally. Say "the
-  standard error" in body text and leave the symbol to the rendered equation on
-  the standard-error slide.
+  **Notation convention, set here:** results are stated as `X ∼ 𝒩(μ, σ²)`, not in
+  prose, and glossed on first use on slide 5 since this is the first time the
+  course writes it. Two things worth knowing before reusing it:
+
+  - **The script 𝒩 is U+1D4A9**, outside the basic plane, so HelveticaNeue does
+    not have it and macOS substitutes **STIX Two Math**. It renders properly and
+    sits well beside HelveticaNeue, and the substituted font *is* embedded in
+    the exported PDF, so the file travels. Text extraction keeps the character,
+    so it survives copy-paste and screen readers.
+  - **There is no capital subscript in Unicode**, so `σ_M` printed its underscore
+    literally. Say "the standard error" in body text and leave the symbol to the
+    rendered equation on the standard-error slide. The rest — `∼ μ σ² X₁ X₂ Σ √`
+    — is fine in HelveticaNeue itself.
 
   Slide 7 closes with the line that gives Lecture 10 its job: this is *exact*
   when the population is normal, and the Central Limit Theorem extends it to
