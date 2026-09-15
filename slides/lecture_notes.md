@@ -600,9 +600,17 @@ this deck keeps Spring slides 15–35 and skips the rest. 46 slides, 25 exportin
   | # | Slide                              | Says                                                |
   |:-:|------------------------------------|-----------------------------------------------------|
   | 4 | A normal curve needs only μ and σ  | the four-curve plate carried over from Lecture 8     |
-  | 5 | Adding two normal variables        | means add, **variances** add, standard deviations do not |
-  | 6 | Two scores from the same population| sum is N(2μ, 2σ²); mean is N(μ, σ²/2)               |
-  | 7 | n scores from the same population  | mean is N(μ, σ²/n), so its SD is σ/√n — the standard error |
+  | 5 | Adding two normal variables        | X₁ + X₂ ∼ N(μ₁ + μ₂, σ₁² + σ₂²); variances add, SDs do not |
+  | 6 | Two scores from the same population| (X₁ + X₂)/2 ∼ N(μ, σ²/2)                            |
+  | 7 | n scores from the same population  | M ∼ N(μ, σ²/n), so the SD of M is σ/√n — the standard error |
+
+  **Notation convention, set here:** results are stated as `X ∼ N(μ, σ²)`, not in
+  prose, and the notation is glossed on its first use on slide 5 since this is
+  the first time the course writes it. Unicode carries it well enough — `∼ μ σ²
+  X₁ X₂ Σ √` all render in HelveticaNeue — with one limit: **there is no capital
+  subscript in Unicode**, so `σ_M` printed the underscore literally. Say "the
+  standard error" in body text and leave the symbol to the rendered equation on
+  the standard-error slide.
 
   Slide 7 closes with the line that gives Lecture 10 its job: this is *exact*
   when the population is normal, and the Central Limit Theorem extends it to
