@@ -592,6 +592,27 @@ this deck keeps Spring slides 15–35 and skips the rest. 46 slides, 25 exportin
   the formula. The new slide works σ = 20 at n = 25 and again at n = 100, and
   names the payoff: four times the data buys half the error, because precision
   grows with √n rather than n.
+- **DONE (F26) — added the algebra of normal distributions as slides 4–7**,
+  before any sampling-distribution material. Everything later in the deck — the
+  standard error, the effect of sample size — is a consequence of three facts
+  Spring stated only in passing on a slide that was skipped:
+
+  | # | Slide                              | Says                                                |
+  |:-:|------------------------------------|-----------------------------------------------------|
+  | 4 | A normal curve needs only μ and σ  | the four-curve plate carried over from Lecture 8     |
+  | 5 | Adding two normal variables        | means add, **variances** add, standard deviations do not |
+  | 6 | Two scores from the same population| sum is N(2μ, 2σ²); mean is N(μ, σ²/2)               |
+  | 7 | n scores from the same population  | mean is N(μ, σ²/n), so its SD is σ/√n — the standard error |
+
+  Slide 7 closes with the line that gives Lecture 10 its job: this is *exact*
+  when the population is normal, and the Central Limit Theorem extends it to
+  populations that are not. The standard-error slide later in the deck now
+  states a result the students have already derived rather than a new formula.
+- **A watch-out: Keynote silently shrinks a title that does not fit.** Slide 4's
+  first title ran 44 characters and rendered visibly smaller than every other
+  title in the deck, though `size of object text` still reported 82 pt. Titles
+  at this size hold about 35 characters on one line; past that the font reported
+  and the font drawn stop agreeing, and only a render shows it.
 - **A8 checks out against the deck.** All ten items map to slides that survive
   the cut: what a sampling distribution is, unbiased estimators, why n − 1, the
   mean of the sampling distribution, computing and interpreting standard error,
