@@ -509,6 +509,16 @@ the Topic 7 sampling-distribution material, already skipped.
   (mean 0, s still 2), dividing by s gives {−1, 0, 1} (mean 0, s now 1). The
   arithmetic is exact, which is what makes the point land — students see M = 0
   and s = 1 fall out rather than being told.
+- **DONE (F26) — every figure description rewritten.** The deck already passed
+  an automated alt-text check: every image had one. Thirteen of the fifteen were
+  one-word labels — `z table`, `normal distribution`, `GPA inflation`,
+  `percentile rank` — which satisfy a checker and tell a screen-reader user
+  nothing. Each was rewritten from the rendered slide; median description length
+  went from about 19 characters to 241.
+- **TODO — two movies and two equations still carry no alt text.** The
+  Galton-board video and the Monte Carlo animation are movies, and `description`
+  is read-only for those. The two probability-density formulas are anchored
+  inside the body text. All four need the Format inspector.
 - **TODO — slides 14 and 24 are the same figure**, `pasted-image.jpeg`, the
   four-curve "normal distributions with varying means and standard deviations"
   plate. Slide 24 earns its place: it sits directly before "all normal
