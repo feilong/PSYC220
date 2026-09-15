@@ -162,13 +162,14 @@ else assessed:
 | 9  | Area to the left of a z-score           | Closes the gap below                                       |
 | 10 | Empirical Rule applied to μ = 100, σ = 15 | Q1 recites the percentages; this one uses them           |
 
+**The coverage rule runs one way.** Everything on an exam must already appear in
+the homework and in that exam's mock; the reverse is not required. So A7 testing
+the z-table while Exam 2 does not is fine and needs no change to the exam.
+
 **Nothing assessed the z-table before this.** Reading an area from a z-score is
 the second half of Chapter 4 and the last third of Lecture 8, and neither A5, A7
-nor Exam 2 asked for it. A7 now does. **Exam 2 still does not** — its nine
-Topic 5 items are three z-from-raw, two raw-from-z, interpret z = 0, the
-transform, Empirical 68% and compare-two-students. One of the duplicated
-z-from-raw items should become a table lookup, or the assignment stops
-predicting the exam.
+nor Exam 2 asked for it. A7 now does; Exam 2 deliberately does not, which the
+rule above permits.
 
 Both table items carry the excerpt in the stem rather than pointing at a posted
 table: the Blackboard upload file is tab-delimited, so a tab inside a stem

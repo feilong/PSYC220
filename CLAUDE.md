@@ -44,6 +44,28 @@ from the Spring question bank was kept as-is and nothing ever shuffled it. A
 student who notices scores full marks without reading a stem. Exam 1 had already
 been administered before this was caught.
 
+## Nothing on an exam may be new
+
+**Every skill an exam tests must already have been met in the homework *and* in
+that exam's mock.** The rule runs one way only. Homework may go further than the
+exam, and a mock may carry extra — what is forbidden is an exam question that
+rehearses nothing the students have already worked.
+
+So adding a question to an assignment never obliges you to add one to the exam.
+Removing or re-scoping an exam question never obliges you to touch the homework.
+Only the reverse direction is a defect.
+
+Check it by skill, not by provenance label. `exams/build_mock2.py` carries
+`EXAM2_SKILLS` and `MOCK2_SKILLS` — one tag per question in paper order — and
+`check_rehearsed()` fails the build on any exam skill the mock does not cover.
+Copy that pattern for Exams 3–5.
+
+Skill tags, not source references, are what catches this. Mock Exam 2's
+provenance labels all looked healthy while six exam skills went unrehearsed:
+the mock spent two slots on sampling *with replacement*, which Exam 2 never
+asks about, and doubled up on classical probability and on computing a standard
+error. Labels track where an item came from; only tags track what it teaches.
+
 ## Related item-quality checks
 
 While you are in the bank, two failure modes have shown up more than once:
