@@ -622,6 +622,18 @@ this deck keeps Spring slides 15–35 and skips the rest. 46 slides, 25 exportin
   when the population is normal, and the Central Limit Theorem extends it to
   populations that are not. The standard-error slide later in the deck now
   states a result the students have already derived rather than a new formula.
+- **DONE (F26) — formatting pass after the re-theme.** Two faults, both the same
+  ones Lecture 8 had: the title slide's instructor line snapped back to the
+  theme default at y = 411 and collided with the topic line at 419, and the
+  weekly slide still carried the narrow White-theme columns (body reset to full
+  width at 30 pt, right column 420 wide and bold). Instructor line to 560, both
+  columns to 540 at 34 pt. **This is now a reliable consequence of re-theming —
+  check both on every deck after the theme change.**
+- **Keynote subscript cannot be applied by script.** `baseline shift`,
+  `superscript` and `subscript` are not in the AppleScript dictionary, so the
+  Unicode characters are not a stylistic preference but the only option short of
+  formatting every character by hand. They render well; the only true gap is
+  capital subscripts, which Unicode lacks entirely.
 - **A watch-out: Keynote silently shrinks a title that does not fit.** Slide 4's
   first title ran 44 characters and rendered visibly smaller than every other
   title in the deck, though `size of object text` still reported 82 pt. Titles
