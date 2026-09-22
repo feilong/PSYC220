@@ -683,3 +683,34 @@ Exported with a full accessibility pass. 46 slides, 18 exporting.
   flags anything under 60 characters. **Use it as the final check on every deck.**
 - Nothing off-canvas; title slide and weekly columns were already correct, so the
   re-theme checklist came back clean on a deck built by hand.
+
+## Lecture 11 — Hypothesis testing (Tue 9/29)
+
+Spring's `Lecture_10_Hypothesis testing.key`, renamed. **Fall numbering runs one
+ahead of Spring's from here**, because Exam 2 takes the 9/24 slot and carries no
+deck. The deck was already re-themed and Fall-titled; 34 slides, all exporting,
+built around the Lady Tasting Tea.
+
+- **DONE (F26) — added the standard front matter**: topic line on the title
+  slide, the Week 7 / Week 8 plan, and a recap carrying the sampling
+  distribution forward (normal, centered on μ, SD σ/√n) into today's question of
+  whether a result is more than chance. Exam 2 gets a line in the recap since it
+  fell between the two lectures.
+- **TODO — every figure description is a stub.** All 18 described objects are
+  under 60 characters: "The design of experiments.", "zscore, standard normal
+  distribution". Same job as Lectures 8 and 10.
+- **TODO — two decks now start `Lecture_12`.** Spring's errors/effect-size deck
+  was renamed to `Lecture_12_Statistical_errors_effect_size.key` for Thu 10/1,
+  and Spring's `Lecture_12_CI_t-test.key` still carries its own numbering. Any
+  script guard must match past the number — `Lecture_12_Statistical`, not
+  `Lecture_12`. The CI deck covers confidence intervals *and* the one-sample
+  *t*-test, which are Fall classes 15 and 16, so it needs splitting before it can
+  be named.
+
+### Spring → Fall deck numbering
+
+| Spring deck                    | Fall     | Class             |
+|--------------------------------|----------|-------------------|
+| `Lecture_10_Hypothesis testing`| L11      | Tue 9/29          |
+| `Lecture_11_Statistical errors`| L12      | Thu 10/1          |
+| `Lecture_12_CI_t-test`         | L13 + L14| Tue 10/6, Thu 10/8|
