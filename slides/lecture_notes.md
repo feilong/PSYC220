@@ -659,3 +659,27 @@ this deck keeps Spring slides 15–35 and skips the rest. 46 slides, 25 exportin
 The first inventory of this deck returned `0x0 theme=Custom Theme slides=0`,
 which looks exactly like a corrupt file and is not. Wait on
 `count of slides of front document > 0`, not just on the document existing.
+
+## Lecture 10 — Central Limit Theorem (Tue 9/22)
+
+Exported with a full accessibility pass. 46 slides, 18 exporting.
+
+- **DONE (F26) — nine figure descriptions rewritten.** Every figure arrived with
+  a one-line label — "Dice - twice", "Sampling distribution n = 5" — which passes
+  a presence check and helps nobody. Both figure runs are three-stage CLT
+  demonstrations, so each description now names what changed at that stage: the
+  skewed population, then n = 5 "trying to fix itself", then n = 30 symmetric;
+  and the flat single die, then the triangle for two, then the bell for many.
+  Median description length is now about 240 characters.
+- **TODO — the standardisation animation on page 5 still has a stub.** It reads
+  "normal distributions have similar shapes"; the animation actually shows two
+  curves, σ = 1 and σ = 2, being rescaled onto a shared z-axis until they
+  coincide. Movie descriptions are not settable from AppleScript, so this is a
+  Format inspector job. Suggested wording is in the session notes.
+- **The deck-side audit lied about it.** `description of movie` returned an
+  empty string for that animation even though the export carried the 40-character
+  stub, which is why a clean deck-side audit still produced a stub in the PDF.
+  Added `slides/audit_pdf_alt.py`, which reads the PDF structure tree instead and
+  flags anything under 60 characters. **Use it as the final check on every deck.**
+- Nothing off-canvas; title slide and weekly columns were already correct, so the
+  re-theme checklist came back clean on a deck built by hand.
