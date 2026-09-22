@@ -25,7 +25,7 @@ can touch it.
 ## Lecture 1 — Introduction to the course
 
 **DONE (F26, all decks) — the title slide now names the week's topic.** Lectures
-1–5 each carry a centred topic line under the course block: "Introduction & Math
+1–5 each carry a centered topic line under the course block: "Introduction & Math
 Skills Review", "Topic 2 — Basic Concepts & Distributions", "Topic 3 — Measures
 of Central Tendency & Graphs", "Topic 4 — Measures of Spread & Variability",
 "Exam 1 Review". Wording follows the syllabus's class-by-class table. See the
@@ -51,7 +51,7 @@ Lecture 1 took the same coordinates despite still being on `White`.
 
   | Slides | Topic                                   | What an image would do                                            |
   |:------:|:----------------------------------------|:------------------------------------------------------------------|
-  | 19–21  | Population / sample / parameter & statistic | The core metaphor — crowd vs. circled subset, μ vs. x̄ labelled |
+  | 19–21  | Population / sample / parameter & statistic | The core metaphor — crowd vs. circled subset, μ vs. x̄ labeled |
   | 22, 28 | Sampling bias, sampling error           | Same crowd, but the circled subset visibly unrepresentative        |
   | 24–26  | Simple random / stratified / convenience | Three panels of the same crowd, sampled three ways                 |
   | 10–15  | Levels of measurement                    | One concrete example pictured per level, not just named            |
@@ -99,7 +99,7 @@ instead of four, a *Bar plots vs. histograms* comparison, and the three
   cannot emit from the deck.
 - **DONE (F26) — the ordinal bar plot hung 4 pt off the bottom** of the canvas and
   lost its axis border on export. Pulled back to y = 167.
-- **TODO — the survey figures are labelled "PSYC222 Students".** Wrong course
+- **TODO — the survey figures are labeled "PSYC222 Students".** Wrong course
   number, on slides 5, 6, 7, 10 and 12. It is baked into the matplotlib images, so
   fixing it means regenerating them. The Fall class took the same pop quiz on 8/18
   (`Pop quiz #1.download.csv` — 34 responses, 28 of them consenting to use), so
@@ -107,7 +107,7 @@ instead of four, a *Bar plots vs. histograms* comparison, and the three
   Deferred 8/24: the Spring figures teach the point, and the height column needs
   cleaning first (one response is `5'5`).
 - **TODO — slide 12's two columns are 22 pt bold**, against 34–42 pt everywhere
-  else in the deck, and the right column is centre-aligned while the left is
+  else in the deck, and the right column is center-aligned while the left is
   left-aligned. Both predate the re-theme; neither is worth fixing mid-week, but
   rebuild the slide as two matched plain shapes when the deck next gets attention.
 - **TODO — slides 5 and 6 are the same bar plot, re-sorted** — survey order, then
@@ -118,7 +118,7 @@ instead of four, a *Bar plots vs. histograms* comparison, and the three
   displaced. Worth knowing what a re-theme actually does, because Lectures 1 and
   5–9 still have to go through it:
   - Every **title and body placeholder is re-anchored and restyled** — titles from
-    203,36 874×170 (centred) to 89,59 1103×120 (left, HelveticaNeue-Medium 82),
+    203,36 874×170 (centered) to 89,59 1103×120 (left, HelveticaNeue-Medium 82),
     bodies from 203,220 874×495 to 89,205 1103×488. Slides that are just
     title-plus-image come through untouched.
   - **Hand-built two-column slides break.** Slide 12 built its left column out of
@@ -143,7 +143,7 @@ instead of four, a *Bar plots vs. histograms* comparison, and the three
   Topic 2 → Ch. 1 · Topic 3 → Ch. 2 + Ch. 3 (through *Comparing Measures of
   Central Tendency*) · Topic 4 → Ch. 3 (*Spread and Variability* onward).
 - **DONE (F26) — added slide 23, "Skew and central tendency."** Slide 22 showed
-  the three skew shapes but labelled mean and median only inside the figure, at a
+  the three skew shapes but labeled mean and median only inside the figure, at a
   size nobody can read from a seat, and HW2 Q9 asks the relationship outright. The
   new slide states it in words, following Foster's own framing: the mode stays at
   the peak, the median is pulled into the tail, the mean is pulled farthest —
@@ -214,7 +214,7 @@ out of time on 8/27, which is the single biggest gap before the exam.
 
 **The weekly plan is one column here, not two.** Keynote will not let AppleScript
 set text alignment, so a second text item cannot be made to read as a
-left-aligned list — it centres every line and rides up over the title. One
+left-aligned list — it centers every line and rides up over the title. One
 full-width body placeholder avoids the fight. See HANDOFF pitfall 14.
 
 Exported and patched: 26 pages, `/Lang`, and the title "PSYC 220 Lecture 5:
@@ -298,7 +298,7 @@ it once you are happy.
 defines a Population SS and a Sample SS as a pair, but nothing downstream uses
 the population one (the N-term Σ(X − μ)² over the whole population). The arc
 actually contrasts two things, both computed **on a sample of n** — Σ(X − μ)²
-and Σ(X − M)² — differing only in which mean you centre on. Show that pair
+and Σ(X − M)² — differing only in which mean you center on. Show that pair
 instead. Note this is not a text edit: both formulas on that slide are rendered
 equation images, so new ones have to be produced.
 
@@ -403,7 +403,7 @@ equation images, so new ones have to be produced.
 
   Figures: `~/miniconda3/envs/nb/bin/python slides/make_l4_figs.py` regenerates
   all four from `PSYC220/quiz_data_table_wide_clean.csv`. Blue/orange, validated
-  for colour-vision separation (ΔE 24.6 protan); both series direct-labelled,
+  for color-vision separation (ΔE 24.6 protan); both series direct-labeled,
   which is also the required relief for orange's low contrast on white. Bodies
   are four bullets with the placeholder at h = 250 — **five bullets triggers
   Keynote's autoshrink** and the slide silently renders smaller than its
@@ -478,7 +478,7 @@ the Topic 7 sampling-distribution material, already skipped.
   than the canvas).
 - **Text-item alignment follows the theme, and the two themes disagree.** On
   `White` a new text item is **left**-aligned; on `16:10 ratio` it is
-  **centered**. So re-theming this deck will silently centre both the topic line
+  **centered**. So re-theming this deck will silently center both the topic line
   on the title slide (which is what we want — it matches Lecture 4) and the
   right-hand column of the weekly slide (which we do not want). Expect to
   left-align that one box by hand afterwards; see the Lecture 6 note on
@@ -499,7 +499,7 @@ the Topic 7 sampling-distribution material, already skipped.
   topic line had also been restyled Bold by the theme and is back to
   HelveticaNeue-Medium to match Lectures 4 and 6.
 - **The figure slides are fine.** They read as small and neglected on a contact
-  sheet, but the images are 735×476 to 824×545 and every one is centred on
+  sheet, but the images are 735×476 to 824×545 and every one is centered on
   x = 640. The whitespace is the empty title placeholder above them, not bad
   placement. Worth checking geometry before "fixing" a thumbnail.
 - **DONE (F26) — added "Scenario 3: subtract the mean, then divide by s"** after
@@ -556,7 +556,7 @@ it the other way round and had to assert the link.
 - **DONE (F26) — the `fix_offcanvas` pass surfaced a second problem it cannot
   detect.** With *Parameters* back on the canvas, the *Inference* arrow was seen
   to run straight through "Sample mean: M": the arrow ends at x = 932 and the
-  label started at 866. Both labels are now centred under their own figure
+  label started at 866. Both labels are now centered under their own figure
   (x = 147 and x = 964), which fixes the collision and makes the slide
   symmetric. **Overlap is invisible to the off-canvas test — only a render
   catches it.**
@@ -565,7 +565,7 @@ it the other way round and had to assert the link.
   probability within a subgroup, and nothing in the deck had named the idea. It
   works the same 24/32 = 0.75 example the assignment uses, and says explicitly
   that the denominator is the subgroup.
-- **TODO — the right-hand weekly column is centred again.** Re-theming flipped
+- **TODO — the right-hand weekly column is centered again.** Re-theming flipped
   it back, as predicted; alignment is still not settable from AppleScript. One
   click in the Format inspector.
 - The population/sample slide now uses the minions, per the Lecture 2 note.

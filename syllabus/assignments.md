@@ -116,8 +116,8 @@ Spring exams 1–4.
 | A7 | Standard normal distribution | 5 | HW4 Q1–3,6,8,9,11 · Lab4 Q7–10 · E1 Q27–32,39,40 | 19 | — |
 | A8 | **Sampling distributions** | 7 | HW5 Q8 · E2 Q1–4 · E3 Q1,2 | 6 | **4** |
 | A9 | **Central Limit Theorem** | 8 | HW5 Q1 · Lab6 Q2 · E2 Q20 · E3 Q9 | 4 | **6** |
-| A10 | Hypothesis testing | 9 | HW5 Q2,3,6,7 · Lab7 Q1–3 · E2 Q5,8,11 | 10 | — |
-| A11 | Errors & effect size | 10 | HW5 Q4,5,9,10 · Lab7 Q4–6,9,10 · E2 Q6,7,13 | 13 | — |
+| A10 | Hypothesis testing | 9 | HW5 Q2,3,6,7,11 · Lab7 Q1 · E2 Q5,11 | 8 | **2** |
+| A11 | Errors & effect size | 10 | HW5 Q4,5,9 · Lab7 Q4–6,9,10 · E2 Q6 | 9 | **1** |
 | A12 | **Confidence intervals** | 11 | HW6 Q1 · Lab7 Q7,8 · E2 Q12,17 · E3 Q4 | 6 | **4** |
 | A13 | One-sample *t*-test | 12 | HW6 Q2–11 · E2 Q14–19,34–40 | 21 | — |
 | A14 | Dependent-samples *t* | 13 | HW7 Q5–8 · Lab8 · Lab9 Q8–10 · E3 Q11–19 | 27 | — |
@@ -128,9 +128,10 @@ Spring exams 1–4.
 | A19 | Correlation | 16 | HW9 · Lab11 Q1–5 · Lab12 Q1–5 · E4 Q14–24 | 32 | — |
 | A20 | Regression | 17 | HW10 · Lab12 Q6–10 · E4 Q25–37 | 28 | — |
 
-## Built so far (as of 9/6)
+## Built so far (as of 9/19)
 
-A5–A9 and Exam 2 are drafted; everything for Exam 2 on Thu 9/24 now exists.
+A5–A11 and Exam 2 are drafted; everything for Exam 2 on Thu 9/24 exists, and
+Week 7's two assignments are ready ahead of the Exam 3 block.
 
 | # | Title | Topic | Taught | Sourced / new |
 |:--:|---|:--:|:--:|:--:|
@@ -139,6 +140,39 @@ A5–A9 and Exam 2 are drafted; everything for Exam 2 on Thu 9/24 now exists.
 | A7 | The standard normal distribution | 5 | Tue 9/15 |  6 / 4 |
 | A8 | Sampling distributions       | 7 | Thu 9/17 |  6 / 4 |
 | A9 | Central Limit Theorem        | 8 | Tue 9/22 |  3 / 7 |
+| A10 | Hypothesis testing          | 9 | Tue 9/29 |  8 / 2 |
+| A11 | Errors & effect size        | 10 | Thu 10/1 |  9 / 1 |
+
+### A10 and A11 (`assignments/build_a10_a11.py`)
+
+The plan promised 10 and 13 sourced items with nothing authored. Neither pool
+held up:
+
+* **HW5 Q10 was double-booked.** It is listed as an A11 source but is a
+  standard-error item already used in A8, where it belongs. Dropped.
+* **Four source pairs are the same question twice** — Lab7 Q2 / E2 Q5
+  (null vs alternative), Lab7 Q3 / E2 Q11 (compare P to alpha), Lab7 Q4 / E2 Q7
+  (how to raise power), HW5 Q9 / E2 Q13 (d does not depend on n). One of each
+  pair was kept; Lab 7's wording lost every time, its distractors running to
+  "I have never heard of these".
+* **A10's pool is all concept and no computation**, though Topic 9 is mostly
+  procedure. Two authored items cover it: a z-statistic from mu, sigma, n and M
+  (key 2.00, with distractors for dividing by sigma, by sqrt(n), and by
+  sigma/n), and the two-tailed critical values at alpha = .05.
+* **A11's pool never defines power**, only lists ways to raise it, so one
+  authored item does.
+
+Two Lab 7 stems were repaired rather than dropped. Lab7 Q1 lost its list markup
+in the QTI export and reads as a run-on; the four steps are restored. Lab7 Q10
+said "(Reference your answer to #9)", which Blackboard's question shuffling
+breaks, so the value is inlined — as **1.10**, not the 1.40 that Q9 computes,
+since reusing it would have handed students Q9's answer.
+
+A10 and A11 each get their own key pattern (`P10`, `P11`). A5–A9 all share the
+default `PATTERN`, so their key sequences are character-for-character identical
+— a weaker form of the all-A problem that prompted the balancing rule.
+`check()` also refuses to ship a stem that already appears in A1–A9, which is
+what caught the HW5 Q10 double-booking.
 
 Exam 2 is 30 questions at 2 points, in the planned 9/7/8/6 shape, and every
 question mirrors a family the students worked in A5–A9. Built by
@@ -179,7 +213,7 @@ splits the field, and a text upload cannot carry an attached image.
 Exam 3 Q1 and Q2 are verbatim copies of Exam 2 Q1 and Q4, so the six items
 credited to A8 are really five, and A9's four are three. The shortfall was
 written rather than stretched: A9 in particular is now mostly new items covering
-what the CLT claims about the centre and the spread of the sampling
+what the CLT claims about the center and the spread of the sampling
 distribution, a small-*n* skewed case, and two computations.
 
 **Conditional probability is assigned but not lectured.** A6 Q9 and Q10 and
@@ -319,6 +353,8 @@ on Exam 2.
 | A2 | `A2_upload.txt` · `A2_central_tendency_graphs.md` | 1 NUM + 9 MC | Topic 3 |
 | A3 | `A3_upload.txt` · `A3_spread_variability.md` | 1 NUM + 9 MC | Topic 4; Q1–4 are a chain on `X = {3,15,8,11,8,14,8,13}` (M = 10, SS = 112, s² = 16, s = 4) |
 | A4 | `A4_upload.txt` · `A4_part_1_mixed_review.md` | 1 NUM + 9 MC | Topics 1–4; Q8–10 a chain on `X = {2,2,6,10,10}` (median 6, SS 64, s = 4) |
+| A10 | `A10_hypothesis_testing_upload.txt` · `A10_hypothesis_testing.md` | 10 MC | Topic 9; key sequence `ACBDCADBAB` |
+| A11 | `A11_errors_effect_size_upload.txt` · `A11_errors_effect_size.md` | 10 MC | Topic 10; key sequence `DBACBDCABA` |
 
 Every key is **computed**, not transcribed, and each file is checked before
 release: exactly 10 rows, 10 fields per `MC` and 4 per `NUM`, exactly one
@@ -346,7 +382,7 @@ T1 ×3 · T2 ×9 · T3 ×8 · T4 ×10. Every key computed, not transcribed.
 
 **Eight of the 30 test something A1–A4 never asked.** All eight are taught, and
 the 9/1 review deck covers them, but no graded assignment made a student
-practise them:
+practice them:
 
 | Q | Tests | Why it is a gap |
 |:--:|---|---|
@@ -356,7 +392,7 @@ practise them:
 | 11 | Population vs. sample in a scenario     | A1/A4 defined statistic and parameter, never applied them to a case |
 | 16 | Definition of the median                | A2 computed it, never defined it |
 | 19 | Symmetric ⇒ mean = median = mode        | A2/A4 tested skewed cases only |
-| 26 | **IQR from a raw data set**             | A3 handed over Q1 and Q3; finding quartiles was never practised |
+| 26 | **IQR from a raw data set**             | A3 handed over Q1 and Q3; finding quartiles was never practiced |
 | 30 | **Population SD (÷ N)**                 | A3 tested the sample SD only; HW3 Q2 (the ÷N version) went unused |
 
 The last two are the ones that matter. They are *procedures*, not recall — a
