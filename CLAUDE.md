@@ -69,14 +69,41 @@ is the reference: same `y` and height as the left body placeholder, at
 style and centers its text; a shape takes the theme's **Body** style and
 left-aligns.
 
-**Converting one to the other is not scriptable.** `make new shape` returns a
-shape with the theme's default styling — blue fill, white centered text — and
-Keynote exposes no fill property and no alignment, so there is no way to strip
-it back to a plain Body text box. Build these by hand. Two related traps:
-`make new shape with properties {object text:…}` is refused outright, and
-selecting the old column by text length picks the *body placeholder* instead,
-whose deletion raises "Can't set default body item of slide to any" — select by
-class and width.
+**Telling the three apart.** `class` is not enough — a *placeholder* also
+reports `class = shape`. Membership in the `shapes` collection is the
+discriminator, and `text items` is no help at all because it returns everything
+containing text:
+
+| Box | `class` | in `shapes`? |
+|---------------------------|-------------|:------------:|
+| Title / body placeholder  | `shape`     | no           |
+| Shape (what we want)      | `shape`     | **yes**      |
+| Text box                  | `text item` | no           |
+
+**Converting one to the other is not scriptable.** Every route is closed, tested
+10/3 against Lecture 14:
+
+| Attempt | Result |
+|---------------------------------------|--------------------------------------------|
+| `make new shape`, then strip the fill | `background fill type` reads but will not set |
+| `duplicate` a Body-styled shape       | "Shapes can not be copied"                  |
+| set the paragraph style to Body       | not in the dictionary                       |
+| set alignment directly                | refused                                     |
+
+A scripted shape therefore arrives as a **blue filled box with centered text**,
+which is worse than the text box it would replace. Only `color of object text`
+is settable, and that fixes just the white text.
+
+**Do it by copy-paste instead:** copy the right-hand column from Lecture 13 and
+paste it in. The clipboard carries fill, paragraph style and alignment, which is
+exactly what AppleScript will not. Then set `x = 638, y = 205, w = 540, h = 488`.
+Script the *content* and the *geometry* first so the pasted box drops straight
+in.
+
+Two related traps: `make new shape with properties {object text:…}` is refused
+outright, and selecting the old column by text length picks the *body
+placeholder*, whose deletion raises "Can't set default body item of slide to
+any" — select by class and width.
 
 **The decks cannot be fixed by script.** `H0`/`H1` in the slides are *real*
 Keynote subscripts (the H at 42 pt, the digit at 28 pt), and setting
