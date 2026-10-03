@@ -14,6 +14,107 @@ It applies to everything: slide text, figure descriptions and alt text, exam and
 assignment items, and the notes and documentation in this repo. Alt text counts —
 a screen reader reads it aloud to the same students.
 
+**And one notation, consistently.** Lowercase the statistical symbols: `p-value`
+(not `P-value`), **`Cohen's d`** (not `Cohen's D`), `z-score`, `t-test`,
+`t-distribution`. `H0`/`H1` with the digit zero, not `Ho`. `Type I`/`Type II` in
+roman numerals.
+
+### H1 for the alternative hypothesis, glossed once as H1 (HA)
+
+Settled 10/3. **Write `H0` and `H1`.** Where the symbol is first introduced in a
+deck or an assignment, gloss it once as **`H1 (HA)`**, then use `H1` alone.
+
+The gloss is not decoration. The companion textbook writes the alternative
+**`H_A` 68 times against `H_1` once**, and the syllabus sends students to Ch. 7
+for this topic, so they will meet the other symbol the moment they open it.
+Naming both once turns a collision into a taught point.
+
+Why `H1` and not `H_A`, given the textbook:
+
+| | |
+|---|---|
+| Already taught | L11 introduces it as `H1` six times; Topic 9 was taught 9/29 |
+| Already released | A10 uses `H1`; `as_released/` is what the students hold |
+| Already written down | this file has said `H0`/`H1` since the notation rules began |
+| Pairs on the page | `H0` / `H1` contrast as digits, one glyph apart |
+
+Choosing `H_A` would have meant contradicting a lecture already delivered and an
+assignment already submitted. Choosing `H1` costs only forward edits to decks
+not yet rebuilt, which is the cheaper and less confusing direction.
+
+**Still carrying `HA` as the primary symbol** — all Spring decks not yet rebuilt:
+`Lecture_13_dependent-samples t test` (×4), `Lecture_14_independent-samples t
+test` (×3), `Lecture_16_ANOVA`, `Lecture_17_ANOVA`. Flip them when each is
+rebuilt.
+
+`style_check.py` flags a bare `HA`, `H_A` or `Ha` and allows the `H1 (HA)`
+gloss, which it strips before testing. It cannot police the decks — see below.
+
+**The decks cannot be fixed by script.** `H0`/`H1` in the slides are *real*
+Keynote subscripts (the H at 42 pt, the digit at 28 pt), and setting
+`object text` rewrites the whole run at one size, flattening them. Every slide
+change involving these symbols is a Format inspector job.
+
+### p vs P — they are two different things
+
+Settled 10/2 after auditing the decks. The casing depends on what the symbol
+means, and both appear in this course:
+
+| | Case | Examples in the decks |
+|---|---|---|
+| **Probability** of an event | capital **P** | `P(E)`, `P(A \| B)`, "P = 0: an impossible event", "an event where P ≤ .05" — L7 ×8, L8 ×1 |
+| The **p-value** of a test | lowercase **p** | `p-value`, `p < .05`, `p > α` — L12 ×5 |
+
+Capital P for probability is standard and correct; leave it. Lowercase p for
+the p-value is APA 7, which is what these students will have to write, and it
+is what every assignment already uses.
+
+`style_check.py` enforces the word `p-value`. It deliberately does **not** flag
+a bare `P < .05`, because that is indistinguishable by regex from the legitimate
+probability usage in L7 and L8 — that one needs a human eye.
+
+### This is enforced, not just requested
+
+`style_check.py` at the repo root holds both lists and is wired into the two
+funnels every item passes through:
+
+* `assignments/build_a5_a6.write()` — checks the exact stems and options the
+  student sees, for every assignment builder that calls it.
+* `exams/examlib.check()` — same, via `style=True`, which is the default.
+
+Either one refuses the build and names the word, the fix and the stem it is in.
+It does **not** false-positive on `analysis`, `analyses`, `practice`,
+`parameter` or `diameter`; only the unambiguous British verb forms are matched.
+
+**Why it exists.** The American-spelling rule above was in force the whole time
+and nothing checked it, so violations shipped — most of them written by the
+agent that had just been told to use American English:
+
+| Item | Carried | Outcome |
+|---|---|---|
+| A9 | `centred` | **fixed** 10/2 |
+| A10 | `P-value` ×2 (against `p-value` elsewhere) | **fixed** 10/2 |
+| A11 | `Cohen's D`, and `D = 0.8/0.5/0.2/0.4` in its options | **fixed** 10/2 |
+| Exam 2 | `centred`, `favours`, `standardised` | grandfathered — administered 9/24 |
+| Mock Exam 2 | `behavioural`, `favours` | grandfathered — already released |
+
+**A1–A13 now all pass with the gate fully enforced; no assignment uses
+`grandfathered=True`.** Only the two Week-6 papers keep `style=False`, each with
+a comment naming its defect. **Neither flag is ever right for a new item.**
+
+The A9/A10/A11 corrections changed wording only: all three answer-letter
+sequences are byte-identical before and after, and the one keyed answer whose
+text moved was `D = 0.2` → `d = 0.2`, the same value. **`assignments/as_released/`
+holds a copy of all 13 assignments exactly as students received them**, taken
+before the edits — never regenerate it, and never point a builder at it.
+
+**These three need re-uploading to Blackboard** to take effect; the files on
+disk are corrected but the live tests are not.
+
+One more, not caught by the gate because it is instructor-facing rather than
+item text: `examlib.write()` is called with the column header **"Practised in"**
+by `build_exam2.py`. Use **"Practiced in"** from Exam 3 onward.
+
 ## Balance the answer key across all four positions
 
 **Every multiple-choice set — assignment, mock, or exam — must spread its
@@ -140,6 +241,15 @@ While you are in the bank, two failure modes have shown up more than once:
   emphasis and a bare `%` for percent, and keep backslashes inside `$...$`.
   `examlib.check()` now calls `check_markup()`, which fails the build on any
   `\command` or `\%` found outside math mode.
+
+- **A bare `*` inside `$...$`.** `convert.py` runs its `*italic*` regex over the
+  whole line, math included, so a *pair* of asterisks inside math is silently
+  eaten. Exam 3 had `$z^{*}$ ... $z^{*}$` in one stem; the pair became `<em>`,
+  the braces collapsed to `z^{}`, MathJax gave up, and the raw `\left(\sigma /
+  \sqrt{n}\right)` printed on the page. Write `\ast`, never a bare `*`, inside
+  math. `check_markup()` now refuses it. Note the failure needs *two*
+  asterisks in one block, so a single `$t^{*}$` can survive by luck — which is
+  why the rule is absolute rather than "watch out for it".
 
 Reading the `.md` is not enough to catch this class of bug — `\emph{not}` looks
 deliberate in source. Render the PDF and look at the page, or extract its text:
