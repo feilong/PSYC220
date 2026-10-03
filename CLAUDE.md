@@ -52,6 +52,32 @@ places — those glosses now read backwards and want flipping to `HA (H1)`.
 `style_check.py` flags a bare `H1`, `H_1` or `$H_1$`, and allows both gloss
 forms, which it strips before testing. `H0` is untouched.
 
+**Greek letters are spelled as letters.** Write `α` and `β`, not the words
+"alpha" and "beta". These are plain Unicode and need no formatting, so they
+*are* scriptable.
+
+**Subscripts: `₀` yes, capital `A` no.** Unicode has a subscript zero (`H₀`,
+U+2080) that renders correctly in HelveticaNeue and matches the look of a real
+Keynote subscript closely enough. It has **no capital subscript A** — only a
+lowercase `ₐ`, which is wrong for this course and sits visibly lower and
+smaller than `₀`. So `H₀` can be written by script; `H_A` has to be formatted by
+hand, every time.
+
+**The weekly slide's right column is a `shape`, not a `text item`** — Lecture 13
+is the reference: same `y` and height as the left body placeholder, at
+`x = 638, y = 205, w = 540, h = 488`. A text item carries a different paragraph
+style and centers its text; a shape takes the theme's **Body** style and
+left-aligns.
+
+**Converting one to the other is not scriptable.** `make new shape` returns a
+shape with the theme's default styling — blue fill, white centered text — and
+Keynote exposes no fill property and no alignment, so there is no way to strip
+it back to a plain Body text box. Build these by hand. Two related traps:
+`make new shape with properties {object text:…}` is refused outright, and
+selecting the old column by text length picks the *body placeholder* instead,
+whose deletion raises "Can't set default body item of slide to any" — select by
+class and width.
+
 **The decks cannot be fixed by script.** `H0`/`H1` in the slides are *real*
 Keynote subscripts (the H at 42 pt, the digit at 28 pt), and setting
 `object text` rewrites the whole run at one size, flattening them. Every slide
