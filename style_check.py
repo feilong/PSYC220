@@ -60,19 +60,24 @@ NOTATION = [
     (r'\bT-distribution', 't-distribution -- lowercase t'),
     (r'\bP-?values?\b', 'p-value -- lowercase p; reword if it starts a sentence'),
     (r'\bHo\b', 'H0 -- the digit zero, not the letter o'),
-    # The alternative hypothesis is H1 in this course. The textbook writes it
-    # H_A (68 times, against H_1 once), so "H1 (HA)" is allowed as a gloss and
-    # is stripped before this runs -- see GLOSS below. A bare HA is not.
-    (r'\bH_?\{?[Aa]\}?\b', 'H1 -- the alternative hypothesis is H1 here; '
-     'write "H1 (HA)" only to gloss the textbook on first use'),
+    # The alternative hypothesis is HA in this course, matching the textbook
+    # (which writes H_A 68 times against H_1 once). "HA (H1)" and "HA, also
+    # written H1" are allowed as glosses and stripped before this runs -- see
+    # GLOSS below. A bare H1 is not.
+    (r'\bH_?\{?1\}?\b', 'HA -- the alternative hypothesis is HA here; '
+     'write "HA (H1)" only to note that H1 means the same thing'),
     (r'\bType\s+[12]\b', 'Type I / Type II -- roman numerals'),
     (r'\bstandard error of mean\b', 'standard error of the mean'),
 ]
 
 
-# "H1 (HA)" introduces the textbook's symbol alongside ours; strip it so the
-# bare-HA rule above does not fire on a deliberate gloss.
-GLOSS = re.compile(r'H_?\{?1\}?\s*\(\s*H_?\{?[Aa]\}?\s*\)')
+# A gloss noting that H1 means the same as HA is deliberate; strip it so the
+# bare-H1 rule above does not fire on it. Both shapes are allowed:
+#   "HA (H1)"            and   "HA, also written H1"
+GLOSS = re.compile(
+    r'H_?\{?[Aa]\}?\s*\(\s*H_?\{?1\}?\s*\)'
+    r'|H_?\{?[Aa]\}?\s*,?\s*(?:also\s+written|or)\s+H_?\{?1\}?',
+    re.IGNORECASE)
 
 
 def find_style_issues(texts):
@@ -81,7 +86,7 @@ def find_style_issues(texts):
     for t in texts:
         if not t:
             continue
-        t = GLOSS.sub('H1', t)
+        t = GLOSS.sub('HA', t)
         for pat, fix in BRITISH:
             for m in re.finditer(pat, t, re.IGNORECASE):
                 out.append((m.group(0), fix, t[:72]))

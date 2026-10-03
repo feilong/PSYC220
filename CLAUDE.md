@@ -19,36 +19,38 @@ a screen reader reads it aloud to the same students.
 `t-distribution`. `H0`/`H1` with the digit zero, not `Ho`. `Type I`/`Type II` in
 roman numerals.
 
-### H1 for the alternative hypothesis, glossed once as H1 (HA)
+### HA for the alternative hypothesis, with H1 noted occasionally
 
-Settled 10/3. **Write `H0` and `H1`.** Where the symbol is first introduced in a
-deck or an assignment, gloss it once as **`H1 (HA)`**, then use `H1` alone.
+Settled 10/3. **Write `H0` and `HA`.** Occasionally — at the first use in a deck,
+and once in any assignment that leans on the symbol — note that **`H1` means the
+same thing**, either as `HA (H1)` or as "the alternative hypothesis (HA, also
+written H1)".
 
-The gloss is not decoration. The companion textbook writes the alternative
-**`H_A` 68 times against `H_1` once**, and the syllabus sends students to Ch. 7
-for this topic, so they will meet the other symbol the moment they open it.
-Naming both once turns a collision into a taught point.
+The gloss is not decoration, and it runs in this direction for a reason: the
+course taught `H1` first. L11 introduced hypothesis testing on 9/29 using `H1`
+six times, and A10 went out with `H1`. Students already hold that symbol, so
+`HA` needs to be introduced as the same idea rather than silently substituted.
 
-Why `H1` and not `H_A`, given the textbook:
+Why `HA`:
 
 | | |
 |---|---|
-| Already taught | L11 introduces it as `H1` six times; Topic 9 was taught 9/29 |
-| Already released | A10 uses `H1`; `as_released/` is what the students hold |
-| Already written down | this file has said `H0`/`H1` since the notation rules began |
-| Pairs on the page | `H0` / `H1` contrast as digits, one glyph apart |
+| The textbook | writes `H_A` **68 times against `H_1` once**, and the syllabus sends students to Ch. 7 for this topic |
+| Most decks already | `HA` is the primary symbol in every Spring deck not yet rebuilt — four of them |
+| Reads as what it is | `A` for alternative, rather than a subscript that differs from `H0` by one glyph |
 
-Choosing `H_A` would have meant contradicting a lecture already delivered and an
-assignment already submitted. Choosing `H1` costs only forward edits to decks
-not yet rebuilt, which is the cheaper and less confusing direction.
+**Converted 10/3:** `build_a10_a11.py` (stem now glosses, options use `HA`;
+answer sequence `ACBDCADBAB` byte-identical before and after) and
+`build_mock3.py` (4 symbols, not yet administered). `Exam_3` never names the
+alternative symbolically, so it needed no change. A12 and A13 use `H0` only.
 
-**Still carrying `HA` as the primary symbol** — all Spring decks not yet rebuilt:
-`Lecture_13_dependent-samples t test` (×4), `Lecture_14_independent-samples t
-test` (×3), `Lecture_16_ANOVA`, `Lecture_17_ANOVA`. Flip them when each is
-rebuilt.
+**Still carrying `H1` as the primary symbol:** `Lecture_11_Hypothesis_testing`
+(×6, taught 9/29), `Lecture_12_Statistical_errors_effect_size` (×3) and
+`Lecture_14_One_sample_t_test` (×1). The last two already write `H1 (HA)` in
+places — those glosses now read backwards and want flipping to `HA (H1)`.
 
-`style_check.py` flags a bare `HA`, `H_A` or `Ha` and allows the `H1 (HA)`
-gloss, which it strips before testing. It cannot police the decks — see below.
+`style_check.py` flags a bare `H1`, `H_1` or `$H_1$`, and allows both gloss
+forms, which it strips before testing. `H0` is untouched.
 
 **The decks cannot be fixed by script.** `H0`/`H1` in the slides are *real*
 Keynote subscripts (the H at 42 pt, the digit at 28 pt), and setting
