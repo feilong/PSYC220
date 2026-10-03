@@ -52,6 +52,29 @@ places — those glosses now read backwards and want flipping to `HA (H1)`.
 `style_check.py` flags a bare `H1`, `H_1` or `$H_1$`, and allows both gloss
 forms, which it strips before testing. `H0` is untouched.
 
+**One mu, and it is the Greek one.** Use **U+03BC GREEK SMALL LETTER MU (μ)**,
+never **U+00B5 MICRO SIGN (µ)**. They are near-identical on screen and were mixed
+throughout every deck — Lecture 12 alone carried 16 micro signs against 3 mu.
+Two different codepoints means Find fails, copy-paste is inconsistent, and a
+screen reader may read one of them as "micro".
+
+Fix it **character by character**, never by rewriting `object text`:
+
+    set character N of object text of itm to μ
+
+Rewriting the whole text flattens every subscript in the same box. The
+character form leaves surrounding runs alone — verified on Lecture 14, where all
+15 subscript spans survived. `slides/` has the script; the AppleScript literals
+are `«data utxt00B5»` and `«data utxt03BC»`, big-endian, which is easy to get
+backwards and fails silently with zero replacements.
+
+**Do not sweep the assignment or exam builders.** Their uploads are pure ASCII
+on purpose — Greek letters go out as the words "mu" and "sigma" — and the
+`_ASCII` table in `build_a12_a13.py` deliberately carries *both* spellings as
+keys so either one gets normalized. A blanket micro→mu replace collapses them
+into a duplicate key and silently disables micro-sign handling, which is the
+exact failure the table exists to prevent. It broke the A13 build on 10/3.
+
 **Greek letters are spelled as letters.** Write `α` and `β`, not the words
 "alpha" and "beta". These are plain Unicode and need no formatting, so they
 *are* scriptable.
