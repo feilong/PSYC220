@@ -854,7 +854,7 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
   | 19–38  | caffeine *improves* | one-tailed, α = .05    | t* = 1.711     | reject   |
 
   Two-tailed for the CI half because a 95% CI matches a two-tailed test at .05,
-  and that is the link A12 Q10, Mock 3 Q131 and Exam 3 all test. It also left the
+  and that is the link A12 Q10, Mock Exam 3 and Exam 3 all test. It also left the
   figures correct as drawn. Edits: slide 7 back to *changes*; slides 11–12
   z* 1.645 → 1.96; slide 10 marks 95% as the coffee example's; slide 17 adds "a
   sharper question: does caffeine improve scores? That is a one-tailed test";
