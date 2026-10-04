@@ -740,13 +740,27 @@ slide for slide.
   refused to set its description, so `patch_pdf_alt.py` writes it into the PDF.
 - **Slide 23 is skipped** and never reaches the PDF. It was described anyway so
   that unskipping it does not silently restore a stub.
-- **TODO — lowercase the p-value, 5 strings on 2 slides.** Course convention is
-  lowercase `p` for the p-value and capital `P` for probability (CLAUDE.md).
-  L12 is the only deck that needs it; L7's and L8's capital P are probabilities
-  and are correct as they stand. On the "Step 4: Make the decision" slide,
-  `P < 0.05` → `p < 0.05`; on "The danger of P-hacking", two `P-value` →
-  `p-value` and `P > ɑ` / `P < ɑ` → `p > ɑ` / `p < ɑ`. The deck is unchanged and
-  verified byte-identical to its backup — the scripted attempt never saved.
+- **DONE (F26, 10/4) — p-values lowercase, α Greek.** Slide 13 `P < 0.05` →
+  `p < 0.05`; slide 24 retitled "The danger of p-hacking", two `P-value` →
+  `p-value`, `P > ɑ` / `P < ɑ` → `p > α` / `p < α`. Latin `ɑ` (U+0251) → `α` on
+  slides 24 and 25, and on skipped slide 32. Written slide by slide with guards on
+  each title, so it ran in under a minute.
+- **DONE (F26, 10/4) — slide 24's two-tailed p-value was .0718; it is .0719.**
+  For z = 1.8, two-tailed p = 2 × .03593 = .07186. The one-tailed .0359 was right.
+- **DONE (F26, 10/4) — slides 50–51 carried the n = 25 summary line.** Their body
+  says n = 27,056, M = 80.1 and n = 2,705,544, M = 80.01, but the bullet under it
+  still read "n = 25, M = 83.6". It is not visible on the page, yet it is in the
+  text layer, so a screen reader read the wrong study aloud. Both n values are
+  the smallest that clear the exact one-tailed z* = 1.644854 (z = 1.644871 and
+  1.644854, p = .049998 and .0499999), so "improves" and one-tailed is right.
+- **DONE (F26, 10/4) — the ROC movie's alt text had reverted to the stub "ROC
+  example".** Rewritten from the GIF itself (120 frames, 6 s, criterion sweeping
+  90 → 75) and patched into the PDF. Re-run `patch_pdf_alt.py` with the text in
+  the current PDF after every export.
+- **Flag — skipped slide 32 swaps sensitivity and specificity.** It labels
+  sensitivity "1 − α, correct decision when null is true" but defines it as
+  TP / (TP + FN), which is power, 1 − β; specificity the reverse. Harmless while
+  skipped. Fix it before unskipping. The visible SDT slides (26–31) are right.
 - **`replace_text.applescript` does not scale.** It makes one AppleScript
   round-trip per shape per slide; on this 56-slide deck it ran past 900 seconds
   without finishing. It is fine for a small deck. For a large one, find the two
@@ -863,6 +877,29 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
   the same 83.6 is retained two-tailed and rejected one-tailed, and that
   difference is exactly the power a directional test buys. Choose the direction
   before seeing the data.
+- **Audited 10/4 — every coffee example, L12 and L13, against its test.** Each
+  study is one or the other, never mixed, and every number recomputes:
+
+  | Deck | Slides    | Question | Test                | Critical         | Statistic | Decision |
+  |------|-----------|----------|---------------------|------------------|-----------|----------|
+  | L12  | 5–13      | improves | one-tailed, z       | z* = 1.645       | z = 1.80  | reject   |
+  | L12  | 14–21     | changes  | two-tailed, z       | z* = ±1.96       | z = 1.80  | retain   |
+  | L12  | 24        | both     | p-hacking contrast  | p .0719 vs .0359 | z = 1.80  | —        |
+  | L12  | 33–41     | improves | one-tailed figures  | M* = 83.29       | M = 83.60 | reject   |
+  | L12  | 50–51     | improves | one-tailed, huge n  | z* = 1.644854    | z ≈ z*    | reject   |
+  | L13  | 7–16      | changes  | two-tailed, z / CI  | z* = 1.96        | z = 1.80  | retain   |
+  | L13  | 19–38     | improves | one-tailed, t       | t* = 1.711       | t = 1.80  | reject   |
+
+  Supporting numbers: σM = 2; one-tailed critical mean 83.29; two-tailed critical
+  means 76.08 and 83.92; 95% CI 79.68 to 87.52, which contains 80; Cohen's d =
+  0.36. The power figures check too: σM = 1 at n = 100, critical 81.645; α = .2
+  puts the criterion at 81.68; ROC d′ = 2.5 gives power .80 at α = .05 and .95
+  at α = .2, and d′ = 5 gives 1.00. Mock Exam 3's "caffeine changes reaction
+  time" item is correctly two-tailed (μ ≠ 250).
+- **Flag — L11's last slide is two-tailed after a one-tailed example.** "Hypothesis
+  testing about the mean: H0: μ = 0.5, H1: μ ≠ 0.5" follows the tea example's
+  P(correct) > 0.5. It is a generic lead-in to L12 rather than a coffee example,
+  and L11 has been taught. Worth a look next time.
 - **DONE (F26) — added "Common critical values"** (90% → 1.645, 95% → 1.96,
   99% → 2.576). **1.96 appeared nowhere** in either deck, although A12 Q5 and Q6
   both require it.
