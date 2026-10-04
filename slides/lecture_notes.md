@@ -840,14 +840,32 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
 | 18–38  | The one-sample *t*-test, worked through all four steps           |
 | 39     | Effect size: estimated Cohen's *d*                               |
 
-- **DONE (F26) — the two halves disagreed on the direction of the test.** Lecture
-  13's coffee study asked whether caffeine *changes* performance (two-tailed);
-  every Lecture 14 slide said *improves*, and the CI example's z* = 1.645 is the
-  one-tailed .05 value. Now *improves* throughout.
+- **DONE (F26) — each half is now consistent with its own test (10/4).** The
+  merge had left the deck reaching opposite decisions about the same data. The
+  CI half's two figures (slides 13–14) are drawn two-tailed at α = .05, critical
+  value 83.92, and show M = 83.6 retained with 80 inside the 95% CI (79.68 to
+  87.52). Slide 12 used z* = 1.645, which rejects. The *t*-test half is one-tailed
+  throughout and rejects. Settled as:
+
+  | Slides | Question            | Test                   | Critical value | Decision |
+  |--------|---------------------|------------------------|----------------|----------|
+  | 7–16   | caffeine *changes*  | two-tailed, α = .05    | z* = 1.96      | retain   |
+  | 17     | bridge              | flags the switch       | —              | —        |
+  | 19–38  | caffeine *improves* | one-tailed, α = .05    | t* = 1.711     | reject   |
+
+  Two-tailed for the CI half because a 95% CI matches a two-tailed test at .05,
+  and that is the link A12 Q10, Mock 3 Q131 and Exam 3 all test. It also left the
+  figures correct as drawn. Edits: slide 7 back to *changes*; slides 11–12
+  z* 1.645 → 1.96; slide 10 marks 95% as the coffee example's; slide 17 adds "a
+  sharper question: does caffeine improve scores? That is a one-tailed test";
+  slide 36 reads "One-tailed test: does caffeine improve scores?". The slide 13
+  and 14 alt text now names the test and the decision. **Say it aloud in class:**
+  the same 83.6 is retained two-tailed and rejected one-tailed, and that
+  difference is exactly the power a directional test buys. Choose the direction
+  before seeing the data.
 - **DONE (F26) — added "Common critical values"** (90% → 1.645, 95% → 1.96,
-  99% → 2.576). The deck said "usually 95%" and then worked an example with 1.645
-  — a 90% interval — without saying so, and **1.96 appeared nowhere** although A12
-  Q5 and Q6 both require it.
+  99% → 2.576). **1.96 appeared nowhere** in either deck, although A12 Q5 and Q6
+  both require it.
 - **DONE (F26) — added "Effect size: estimated Cohen's d"**, d = (M − μ)/s, worked
   on the coffee data as 0.36. A13 Q10 asks for exactly this. **Correction:** slide
   37 ("Step 3: Compute the statistic") already computes d = (83.6 − 80)/10 = 0.36,
@@ -856,30 +874,31 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
   drop it.
 - **DONE (F26) — Latin alpha `ɑ` (U+0251) on slide 9 → Greek `α`**, the same
   class of fault as the micro sign. Titles `z scores vs. t scores` hyphenated.
-- **TODO — the "Did I see this before?" rejection rule is a two-tailed rule.**
-  "M not within μ ± z*σM" with z* = 1.645 is a two-tailed test at α = .10, not the
-  one-tailed .05 test the lecture is about. It gives the same decision here
-  because M lies above μ, but a lower-tail case would be rejected by this rule and
-  retained by the one-tailed test. A one-sided bound (M > μ + z*σM) is the honest
-  pairing. The slide carries inline equations, so it is a hand edit.
-- **TODO — A12 Q7 has no lecture behind it and contradicts the new slide.** It asks
-  for the margin of error of a *proportion*, which no deck teaches (Topic 11 is the
-  CI for a mean), and states that 95% "corresponds to z = 2" — the critical-values
-  slide now says 1.96. A12 is live and due Tue 10/13.
-- **TODO — slide 34 states the null hypothesis wrongly.** It reads "H0: Drinking
-  coffee does improve test performance" over μ ≤ 80; it must say *does not
-  improve*. The same slide reads `H1 (HA)`, backwards under the HA rule. Both lines
-  carry real subscripts, so edit by hand (a scripted insert timed out — Keynote
-  would not open the deck, 10/3).
-- **TODO — title slide: the topic line wraps onto the instructor line.** Shorten
-  it to "Topics 11–12 — CIs & the One-Sample t-Test", or move the instructor line
-  down to about y = 560.
-- **TODO — slide 32 alt text is a stub and wrong.** It says "t distributions for
-  different df"; the figure shows one t curve (df = 2) against the normal. Write a
-  real description: flatter peak, heavier tails, closer to the normal as df grows.
-- **TODO — the slide 13 figure is two-tailed at α = .025.** The figure
-  shades both tails, and its alt text says "critical value for alpha = 0.025".
-  The slides use the one-tailed z* = 1.645. Redraw it one-tailed at .05, or say
-  what it shows. This is the same problem as the rejection rule below.
+- **DONE (F26) — A12 Q7 replaced (10/4).** It asked for the margin of error of a
+  *proportion*, which no deck teaches (Topic 11 is the CI for a mean), and said
+  95% "corresponds to z = 2". It now reads a CI of 46 to 58 back to M = 52 and a
+  margin of error of 6, the slide 9 bounds run backwards. The answer sequence is
+  unchanged (`BDACDBCABA`); the rest of A12 is byte-identical. **Re-upload A12 to
+  Blackboard.** Students who have already answered the old Q7 got 0.10 as correct;
+  regrade it or drop it.
+- **DONE (F26) — slide 34's null hypothesis said "does improve"**; now "does not
+  improve". Still **TODO by hand:** the alternative reads `H1 (HA)`, backwards
+  under the HA rule, and its subscripts are real formatting.
+- **DONE (F26) — title slide** topic line shortened to "Topics 11–12 — CIs & the
+  One-Sample t-Test" so it no longer wraps onto the instructor line.
+- **DONE (F26) — slide 32 is a movie**, a 29-frame GIF looping the *t* curve from
+  df = 2 to 30 against the normal. The PDF shows only frame one. Its alt text is
+  written into the PDF by `patch_pdf_alt.py`, which must be re-run after every
+  export (as must `fix_pdf_a11y.py`):
+
+      ~/miniconda3/envs/nb/bin/python slides/patch_pdf_alt.py \
+        slides/Lecture_13_Confidence_intervals.pdf "t distributions for different df" "<text>"
+
+  The text is the 466-character description in the current PDF. The L14 PDF never
+  had it patched either.
+- **Note — slide 13's legend says "Critical value (α = 0.025)".** That is the area
+  of the one tail it marks, so it is not wrong, but students will read it as the
+  test's α. The alt text explains it. Regenerating the figure needs its source,
+  which is not in this repo.
 - **Not a fault — slide 19's callout overlays the body text.** That is Lecture
   14's build design, carried over unchanged.

@@ -118,7 +118,7 @@ Spring exams 1–4.
 | A9 | **Central Limit Theorem** | 8 | HW5 Q1 · Lab6 Q2 · E2 Q20 · E3 Q9 | 4 | **6** |
 | A10 | Hypothesis testing | 9 | HW5 Q2,3,6,7,11 · Lab7 Q1 · E2 Q5,11 | 8 | **2** |
 | A11 | Errors & effect size | 10 | HW5 Q4,5,9 · Lab7 Q4–6,9,10 · E2 Q6 | 9 | **1** |
-| A12 | **Confidence intervals** | 11 | HW6 Q1 · Lab7 Q7,8 · E2 Q12 | 4 | **6** |
+| A12 | **Confidence intervals** | 11 | HW6 Q1 · Lab7 Q7 · E2 Q12 | 3 | **7** |
 | A13 | One-sample *t*-test | 12 | HW6 Q2,3,5,6,9,10 · E2 Q15,18,36,38 | 10 | — |
 | A14 | Dependent-samples *t* | 13 | HW7 Q5–8 · Lab8 · Lab9 Q8–10 · E3 Q11–19 | 27 | — |
 | A15 | Independent-samples *t* | 14 | HW7 Q1–4 · HW8 Q2–5 · Lab9 Q1–7 · E3 Q20–27 · E4 Q38–43 | 31 | — |
