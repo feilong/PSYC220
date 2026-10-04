@@ -885,7 +885,7 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
   | L12  | 5–13      | improves | one-tailed, z       | z* = 1.645       | z = 1.80  | reject   |
   | L12  | 14–21     | changes  | two-tailed, z       | z* = ±1.96       | z = 1.80  | retain   |
   | L12  | 24        | both     | p-hacking contrast  | p .0719 vs .0359 | z = 1.80  | —        |
-  | L12  | 33–41     | improves | one-tailed figures  | M* = 83.29       | M = 83.60 | reject   |
+  | L12  | 33–43     | improves | one-tailed figures  | M* = 83.29       | M = 83.60 | reject   |
   | L12  | 50–51     | improves | one-tailed, huge n  | z* = 1.644854    | z ≈ z*    | reject   |
   | L13  | 7–16      | changes  | two-tailed, z / CI  | z* = 1.96        | z = 1.80  | retain   |
   | L13  | 19–38     | improves | one-tailed, t       | t* = 1.711       | t = 1.80  | reject   |
