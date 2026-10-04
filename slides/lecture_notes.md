@@ -696,9 +696,69 @@ built around the Lady Tasting Tea.
   distribution forward (normal, centered on μ, SD σ/√n) into today's question of
   whether a result is more than chance. Exam 2 gets a line in the recap since it
   fell between the two lectures.
-- **TODO — every figure description is a stub.** All 18 described objects are
-  under 60 characters: "The design of experiments.", "zscore, standard normal
-  distribution". Same job as Lectures 8 and 10.
+- **DONE (F26) — every figure description was a stub; all 18 rewritten.** They
+  were one-word labels ("8 cups", "1/70", "Fisher"), same job as Lectures 8 and
+  10. Median alt length is now 334 characters. Most of this deck's figures are
+  sepia illustrations whose entire content is **speech-bubble dialogue**, so a
+  screen reader got nothing at all from them; the new descriptions quote the
+  dialogue. `slides/a11y_lecture11.applescript` does 17 of them.
+  Slide 13's central-limit animation is a **movie**, which AppleScript cannot
+  describe, so it is patched into the PDF by `slides/patch_pdf_alt.py` — re-run
+  that, then `fix_pdf_a11y.py`, after every export.
+- **DONE (F26) — exported at `Good` image quality: 73.1 MB down to 18.7 MB.**
+  The deck's ten large photographs were the bulk of it. `Better` is pointless
+  here (71.4 MB), and `Good` costs only the tiny rotated tick labels on the
+  eight-panel chart on slide 12; the speech-bubble dialogue stays crisp.
+- The alt text carries the 1-in-256 → 1-in-70 → 1-in-40,320 thread deliberately,
+  since that arithmetic is the point of slides 10, 17 and 19 and is visible only
+  inside the images.
+## Lecture 12 — Errors & effect size (Thu 10/1)
+
+Spring's `Lecture_12_Statistical_errors_effect_size.key`. **It arrived as 85
+slides, and its first 32 were Lecture 11.** Spring's second deck was cumulative:
+it re-presented the whole Lady Tasting Tea sequence before getting to its own
+material. Delivered as-is on Thursday it would have repeated Tuesday's class
+slide for slide.
+
+- **DONE (F26) — cut slides 2–32, the L11 duplicate.** Slide 1 (the title) was
+  kept and the cut was guarded on a title check: the script refuses unless slide
+  32 is still "Hypothesis testing about the mean", which is exactly where L11
+  ends. The 85-slide original is in the session scratchpad as
+  `L12_original_85slides.key`.
+- **The cut is at old slide 33, not 54.** 33–53 are the four-step z-test worked
+  through twice, which L11 set up but never demonstrated, and which A10 asks
+  students to do. Cutting at 54 would have left that gap. **Moving the boundary
+  to 54 is the one judgment call worth revisiting** — it would drop 21 slides
+  and make Thursday purely Topic 10.
+- **DONE (F26) — standard front matter**, mirroring L11 slide for slide: topic
+  line on the title slide, the Week 7 / Week 8 plan, and a recap carrying H0/H1,
+  the alpha-level and the 1-in-70 result into today's worked test.
+- **DONE (F26) — all 25 stub descriptions rewritten**, median 304 characters.
+  `slides/a11y_lecture12.applescript`. The four z-table slides needed the *red
+  rings* described — which column and row are circled is the whole content, and
+  the stub said only "z table". Slide 48's ROC animation is a movie: Keynote
+  refused to set its description, so `patch_pdf_alt.py` writes it into the PDF.
+- **Slide 23 is skipped** and never reaches the PDF. It was described anyway so
+  that unskipping it does not silently restore a stub.
+- **TODO — lowercase the p-value, 5 strings on 2 slides.** Course convention is
+  lowercase `p` for the p-value and capital `P` for probability (CLAUDE.md).
+  L12 is the only deck that needs it; L7's and L8's capital P are probabilities
+  and are correct as they stand. On the "Step 4: Make the decision" slide,
+  `P < 0.05` → `p < 0.05`; on "The danger of P-hacking", two `P-value` →
+  `p-value` and `P > ɑ` / `P < ɑ` → `p > ɑ` / `p < ɑ`. The deck is unchanged and
+  verified byte-identical to its backup — the scripted attempt never saved.
+- **`replace_text.applescript` does not scale.** It makes one AppleScript
+  round-trip per shape per slide; on this 56-slide deck it ran past 900 seconds
+  without finishing. It is fine for a small deck. For a large one, find the two
+  or three slides first and write only those.
+- **TODO — one Format-inspector pass.** The Week 8 column on slide 2 is centered
+  where L11's is left-aligned. The font weight was fixable from AppleScript
+  (this deck defaults new text items to `HelveticaNeue-Bold`; L11 uses
+  `HelveticaNeue`) but `alignment` is not settable — pitfall 14, confirmed again
+  here. One click in the inspector.
+- 56 slides is long for one class. If it overruns, the ROC block (slides 44–48,
+  five slides plus the animation) is the most self-contained thing to drop.
+
 - **TODO — two decks now start `Lecture_12`.** Spring's errors/effect-size deck
   was renamed to `Lecture_12_Statistical_errors_effect_size.key` for Thu 10/1,
   and Spring's `Lecture_12_CI_t-test.key` still carries its own numbering. Any
@@ -707,10 +767,119 @@ built around the Lady Tasting Tea.
   *t*-test, which are Fall classes 15 and 16, so it needs splitting before it can
   be named.
 
+## Lecture 13 — Confidence intervals (Tue 10/6)
+## Lecture 14 — One-sample t-test (Thu 10/8)
+
+Both split out of Spring's `Lecture_12_CI_t-test.key` (35 slides), which breaks
+cleanly at slide 14, "t tests": 1–13 are confidence intervals, 14–35 the
+*t*-test. Unlike Spring's errors deck, **this one is not cumulative** — it does
+not re-present L12 — so the only surgery needed was the split.
+
+- `Lecture_13_Confidence_intervals.key` — 15 slides (title + front matter + 12)
+- `Lecture_14_One_sample_t_test.key` — 25 slides (title + front matter + 22)
+- The 35-slide original is archived in the session scratchpad; the Spring file
+  is untouched on disk.
+- Both built by `build_week8_deck.applescript`, which is parameterized and
+  guards the cut on slide 14's title, so it is a no-op against an already-cut
+  deck.
+
+**The deck would not open at all at first.** Every `open` timed out at -1712 and
+System Events timed out with it. It was neither the file nor the app: a valid
+3.4 MB zip, and another deck opened in 3 seconds right after. The cause was
+`com.apple.quarantine` with no `com.apple.macl` — a first-open dialog blocking
+Keynote's main thread. `xattr -d com.apple.quarantine` fixed it instantly. See
+HANDOFF pitfall 21; this corrects the earlier claim that quarantine was ruled
+out for the Lecture 10 hang.
+
+- **DONE (F26) — front matter on both**, mirroring L11/L12: topic line, the
+  Week 8 / Week 9 plan (Week 9 is Exam 3 on Tue 10/13, then Fall Break), and a
+  recap. L13 recaps errors and power; L14 recaps the confidence interval and
+  frames today as "what to do when sigma is unknown".
+- **DONE (F26) — alt text.** L13 had 3 stubs of 4, L14 had 10 of 10; medians are
+  now 369 and 379 characters. L14's figures carry a real argument that the stubs
+  destroyed — s squared is unbiased (empirical mean 99.92 vs 100), s is **not**
+  (9.89 vs 10), so sigma/s averages 1.03 and *that* is where the t
+  distribution's heavy tails come from. The descriptions state each empirical
+  mean against its parameter so a screen-reader user can follow it.
+- L14 slide 19 is a movie; Keynote refuses to describe it, so `patch_pdf_alt.py`
+  writes its alt into the PDF. **Slide 18 had to be rewritten first** — both
+  carried the identical stub "t distributions for different df", and the patcher
+  matches on that string, so without the rewrite it would have hit the image.
+- Exported at Good quality: 0.5 MB and 1.1 MB. L13 carries two tagged tables.
+- **TODO — one Format-inspector pass each.** The Week 9 column is centered where
+  L11's is left-aligned; `alignment` is still not settable (pitfall 14).
+
 ### Spring → Fall deck numbering
 
 | Spring deck                    | Fall     | Class             |
 |--------------------------------|----------|-------------------|
 | `Lecture_10_Hypothesis testing`| L11      | Tue 9/29          |
 | `Lecture_11_Statistical errors`| L12      | Thu 10/1          |
-| `Lecture_12_CI_t-test`         | L13 + L14| Tue 10/6, Thu 10/8|
+| `Lecture_12_CI_t-test`         | L13 + L14| Tue 10/6, Thu 10/8| **split, done** |
+
+**Name collision:** `Lecture_13_dependent-samples t test.key` and
+`Lecture_14_independent-samples t test.key` are Spring files still using their
+own numbers, so `Lecture_13` and `Lecture_14` each match two decks. Guards must
+say `Lecture_13_Confidence` / `Lecture_14_One_sample`.
+
+## Lecture 13 — Confidence intervals and the one-sample t-test (Tue 10/6)
+
+**Lecture 14 merged into Lecture 13**, so both topics are taught on Tue 10/6 and
+Thu 10/8 is free for Mock Exam 3. `Lecture_13_Confidence_intervals_original.key`
+is the CI-only deck as it stood before the merge; `Lecture_14_One_sample_t_test.key`
+is untouched on disk (md5-checked) and is now superseded.
+
+What moved: Lecture 14 slides 3–25, except slide 5. Its title and weekly slides
+were dropped, and slide 5 was Lecture 13 slide 7 again — slide 6 repeats it with
+the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39.
+
+| Slides | Content                                                          |
+|--------|------------------------------------------------------------------|
+| 1–16   | Confidence intervals (with the new critical-values slide at 10)  |
+| 17     | Bridge: "Confidence intervals in brief", ending "Next: …σ unknown" |
+| 18–38  | The one-sample *t*-test, worked through all four steps           |
+| 39     | Effect size: estimated Cohen's *d*                               |
+
+- **DONE (F26) — the two halves disagreed on the direction of the test.** Lecture
+  13's coffee study asked whether caffeine *changes* performance (two-tailed);
+  every Lecture 14 slide said *improves*, and the CI example's z* = 1.645 is the
+  one-tailed .05 value. Now *improves* throughout.
+- **DONE (F26) — added "Common critical values"** (90% → 1.645, 95% → 1.96,
+  99% → 2.576). The deck said "usually 95%" and then worked an example with 1.645
+  — a 90% interval — without saying so, and **1.96 appeared nowhere** although A12
+  Q5 and Q6 both require it.
+- **DONE (F26) — added "Effect size: estimated Cohen's d"**, d = (M − μ)/s, worked
+  on the coffee data as 0.36. A13 Q10 asks for exactly this. **Correction:** slide
+  37 ("Step 3: Compute the statistic") already computes d = (83.6 − 80)/10 = 0.36,
+  as an unlabeled equation beside t — a text search for "Cohen" missed it. So Q10
+  *was* lectured; slide 39 is the labeled summary, not new content. Keep it or
+  drop it.
+- **DONE (F26) — Latin alpha `ɑ` (U+0251) on slide 9 → Greek `α`**, the same
+  class of fault as the micro sign. Titles `z scores vs. t scores` hyphenated.
+- **TODO — the "Did I see this before?" rejection rule is a two-tailed rule.**
+  "M not within μ ± z*σM" with z* = 1.645 is a two-tailed test at α = .10, not the
+  one-tailed .05 test the lecture is about. It gives the same decision here
+  because M lies above μ, but a lower-tail case would be rejected by this rule and
+  retained by the one-tailed test. A one-sided bound (M > μ + z*σM) is the honest
+  pairing. The slide carries inline equations, so it is a hand edit.
+- **TODO — A12 Q7 has no lecture behind it and contradicts the new slide.** It asks
+  for the margin of error of a *proportion*, which no deck teaches (Topic 11 is the
+  CI for a mean), and states that 95% "corresponds to z = 2" — the critical-values
+  slide now says 1.96. A12 is live and due Tue 10/13.
+- **TODO — slide 34 states the null hypothesis wrongly.** It reads "H0: Drinking
+  coffee does improve test performance" over μ ≤ 80; it must say *does not
+  improve*. The same slide reads `H1 (HA)`, backwards under the HA rule. Both lines
+  carry real subscripts, so edit by hand (a scripted insert timed out — Keynote
+  would not open the deck, 10/3).
+- **TODO — title slide: the topic line wraps onto the instructor line.** Shorten
+  it to "Topics 11–12 — CIs & the One-Sample t-Test", or move the instructor line
+  down to about y = 560.
+- **TODO — slide 32 alt text is a stub and wrong.** It says "t distributions for
+  different df"; the figure shows one t curve (df = 2) against the normal. Write a
+  real description: flatter peak, heavier tails, closer to the normal as df grows.
+- **TODO — the slide 13 figure is two-tailed at α = .025.** The figure
+  shades both tails, and its alt text says "critical value for alpha = 0.025".
+  The slides use the one-tailed z* = 1.645. Redraw it one-tailed at .05, or say
+  what it shows. This is the same problem as the rejection rule below.
+- **Not a fault — slide 19's callout overlays the body text.** That is Lecture
+  14's build design, carried over unchanged.

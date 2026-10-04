@@ -118,8 +118,8 @@ Spring exams 1–4.
 | A9 | **Central Limit Theorem** | 8 | HW5 Q1 · Lab6 Q2 · E2 Q20 · E3 Q9 | 4 | **6** |
 | A10 | Hypothesis testing | 9 | HW5 Q2,3,6,7,11 · Lab7 Q1 · E2 Q5,11 | 8 | **2** |
 | A11 | Errors & effect size | 10 | HW5 Q4,5,9 · Lab7 Q4–6,9,10 · E2 Q6 | 9 | **1** |
-| A12 | **Confidence intervals** | 11 | HW6 Q1 · Lab7 Q7,8 · E2 Q12,17 · E3 Q4 | 6 | **4** |
-| A13 | One-sample *t*-test | 12 | HW6 Q2–11 · E2 Q14–19,34–40 | 21 | — |
+| A12 | **Confidence intervals** | 11 | HW6 Q1 · Lab7 Q7,8 · E2 Q12 | 4 | **6** |
+| A13 | One-sample *t*-test | 12 | HW6 Q2,3,5,6,9,10 · E2 Q15,18,36,38 | 10 | — |
 | A14 | Dependent-samples *t* | 13 | HW7 Q5–8 · Lab8 · Lab9 Q8–10 · E3 Q11–19 | 27 | — |
 | A15 | Independent-samples *t* | 14 | HW7 Q1–4 · HW8 Q2–5 · Lab9 Q1–7 · E3 Q20–27 · E4 Q38–43 | 31 | — |
 | A16 | Which *t*-test when | 12–14 | surplus from A13–A15 | 15 | — |
@@ -142,6 +142,79 @@ Week 7's two assignments are ready ahead of the Exam 3 block.
 | A9 | Central Limit Theorem        | 8 | Tue 9/22 |  3 / 7 |
 | A10 | Hypothesis testing          | 9 | Tue 9/29 |  8 / 2 |
 | A11 | Errors & effect size        | 10 | Thu 10/1 |  9 / 1 |
+| A12 | Confidence intervals        | 11 | Tue 10/6 |  4 / 6 |
+| A13 | One-sample *t*-test         | 12 | Tue 10/6 | 10 / 0 |
+
+### A12 and A13 (`assignments/build_a12_a13.py`)
+
+The plan gave A12 a pool of 6 and A13 a pool of 21. Reading them:
+
+* **A12's 6 is really 4.** Spring Exam 3 Q4 is a *verbatim* copy of Exam 2 Q12
+  (the margin-of-error term), and Exam 2 Q17 is the same 95%-confidence
+  misconception as HW6 Q1. Six authored items were needed, not four: a CI
+  definition, a computed interval, the z* value, the effect of confidence level
+  and of n on width, and the link back to hypothesis testing.
+* **HW6 Q5 is unanswerable.** Options A and B are both the literal string
+  `s n` *in the QTI itself* — the fraction markup was lost at export, so the key
+  cannot be told from a distractor. All four options rewritten in ASCII. This is
+  the Lab 6 duplicate-option defect a third time.
+* **HW6 Q8 is not a question.** It holds the shared scenario for Q9–Q11 and has
+  zero options, so it cannot be uploaded at all. The scenario is inlined.
+* **HW6 Q7 is already A11's** ("effect size does not change with n" = HW5 Q9),
+  and **HW6 Q11 duplicates HW6 Q6**. Both dropped.
+* **HW6 Q3 opened "In the hypothetical coffee study"** — a dangling reference to
+  a lecture example the homework never shows. Rewritten; n = 25 is all it needs.
+
+A13 reuses `X = {2, 2, 6, 10, 10}`, which A4 also used. A4 asked for its median
+and SS; A13 asks for s² and Cohen's d with SS given — same data, different
+quantities, which is what the rule requires.
+
+### Exam 3 and Mock Exam 3 (Tue 10/13)
+
+Topics 9–12, 30 questions at 2 points, shape 8/7/7/8. Built by
+`exams/build_exam3.py` and `exams/build_mock3.py`; every question mirrors a
+family worked in A10–A13.
+
+**This is the first pair built under the mock-distinctness rule, and the gate
+caught the first draft.** Seven mock items came back at ≥ 0.80 similarity,
+because reversing a task or negating a question keeps the sentence shape —
+"which change makes a CI narrower?" against "…wider?" scores 0.86, and a
+p-value of .03 against .08 scores 1.00. Ten items were restructured into
+genuinely different questions: counting significant results across four
+studies, spotting the error in a worked calculation, inferring the interval
+from a test decision, recovering n and s from s_M and df. The result:
+
+| | Mock Exam 2 | Mock Exam 3 |
+|---|--:|--:|
+| mean similarity to its exam | 0.61 | **0.38** |
+| items ≥ 0.80 | 7 | **0** |
+| items ≥ 0.60 | 16 of 30 | **0 of 30** |
+
+Key sequences differ in 25 of 30 positions, no short keyed answer appears on
+both papers, and all four topic shares match.
+
+### House-style corrections, 2026-10-02
+
+A9, A10 and A11 shipped with British spelling or inconsistent notation and have
+been corrected: `centred` → `centered`; `P-value` → `p-value` twice; and Lab 7
+Q6's `Cohen's D` retyped as `Cohen's d`, including its four options, which used
+a capital `D` as well. **No answer changed** — all three key sequences are
+identical before and after, verified against the archive.
+
+`assignments/as_released/` is a byte-for-byte copy of all 13 assignments as
+students received them, taken immediately before these edits. It exists so the
+wording a student actually answered can be recovered if a grade is queried.
+
+**The three corrected files still need re-uploading to Blackboard.**
+
+Enforcement now lives in `style_check.py` at the repo root, wired into
+`build_a5_a6.write()` and `examlib.check()`, so no future item can repeat this.
+
+**New guard: the upload must be pure ASCII.** HW6 Q2 carries a micro sign and a
+sigma, and `check()` now fails on any character above 126 after normalization.
+Worth knowing: **A1, A5, A7, A8 and A9 all contain non-ASCII** and were shipped
+that way, so this convention has never actually been enforced. They are already
+released; the guard protects everything from A12 on.
 
 ### A10 and A11 (`assignments/build_a10_a11.py`)
 
@@ -282,7 +355,7 @@ one assignment.
 | 5    | 9/15–9/18   | T5 standard normal · T7 sampling distributions     | A7, A8             | 2 |
 | 6    | 9/22–9/25   | T8 CLT · **Exam 2**                                | A9                 | 1 |
 | 7    | 9/29–10/2   | T9 hypothesis testing · T10 errors and effect size | A10, A11           | 2 |
-| 8    | 10/6–10/9   | T11 confidence intervals · T12 one-sample *t*      | A12, A13           | 2 |
+| 8    | 10/6–10/9   | T11 + T12 in one lecture · Mock Exam 3             | A12, A13           | 2 |
 | 9    | 10/13–10/16 | **Exam 3** · Fall Break                            | —                  | 0 |
 | 10   | 10/20–10/23 | T13 dependent *t* · T14 independent *t*            | A14, A15           | 2 |
 | 11   | 10/27–10/30 | review · **Exam 4**                                | A16 (synthesis)    | 1 |
@@ -355,6 +428,8 @@ on Exam 2.
 | A4 | `A4_upload.txt` · `A4_part_1_mixed_review.md` | 1 NUM + 9 MC | Topics 1–4; Q8–10 a chain on `X = {2,2,6,10,10}` (median 6, SS 64, s = 4) |
 | A10 | `A10_hypothesis_testing_upload.txt` · `A10_hypothesis_testing.md` | 10 MC | Topic 9; key sequence `ACBDCADBAB` |
 | A11 | `A11_errors_effect_size_upload.txt` · `A11_errors_effect_size.md` | 10 MC | Topic 10; key sequence `DBACBDCABA` |
+| A12 | `A12_confidence_intervals_upload.txt` · `A12_confidence_intervals.md` | 10 MC | Topic 11; key sequence `BDACDBCABA` |
+| A13 | `A13_one_sample_t_upload.txt` · `A13_one_sample_t.md` | 10 MC | Topic 12; key sequence `DCABDACBAB` |
 
 Every key is **computed**, not transcribed, and each file is checked before
 release: exactly 10 rows, 10 fields per `MC` and 4 per `NUM`, exactly one
