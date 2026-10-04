@@ -878,9 +878,8 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
   *proportion*, which no deck teaches (Topic 11 is the CI for a mean), and said
   95% "corresponds to z = 2". It now reads a CI of 46 to 58 back to M = 52 and a
   margin of error of 6, the slide 9 bounds run backwards. The answer sequence is
-  unchanged (`BDACDBCABA`); the rest of A12 is byte-identical. **Re-upload A12 to
-  Blackboard.** Students who have already answered the old Q7 got 0.10 as correct;
-  regrade it or drop it.
+  unchanged (`BDACDBCABA`); the rest of A12 is byte-identical. A12 had not been
+  released, so no student saw the old item.
 - **DONE (F26) — slide 34's null hypothesis said "does improve"**; now "does not
   improve". Still **TODO by hand:** the alternative reads `H1 (HA)`, backwards
   under the HA rule, and its subscripts are real formatting.
