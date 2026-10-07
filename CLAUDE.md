@@ -329,6 +329,12 @@ While you are in the bank, two failure modes have shown up more than once:
   asterisks in one block, so a single `$t^{*}$` can survive by luck — which is
   why the rule is absolute rather than "watch out for it".
 
+- **An escaped quote inside a raw string.** `r"a student writes: \"...\""`
+  keeps the backslash, because Python drops it only in a normal string. Mock
+  Exam 3 Q6 and Q17 printed `\"…\"` on the page until 10/6. Put a stem that
+  quotes someone in single quotes, `r'a student writes: "..."'`.
+  `check_markup()` now refuses `\"` and `\'` outside math.
+
 Reading the `.md` is not enough to catch this class of bug — `\emph{not}` looks
 deliberate in source. Render the PDF and look at the page, or extract its text:
 
