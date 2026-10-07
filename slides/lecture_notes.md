@@ -780,6 +780,17 @@ slide for slide.
   `Lecture_12`. The CI deck covers confidence intervals *and* the one-sample
   *t*-test, which are Fall classes 15 and 16, so it needs splitting before it can
   be named.
+- **NEXT — the p-value is never defined on a slide.** L11's "Was the lady
+  randomly guessing?" has the idea (reject H0 "if the results are very unlikely if
+  H0 is true"), and L12 uses the term from slide 13 on ("p < 0.05", "a p-value of
+  0.0719"), but no slide says what a p-value is, and "at least as extreme" never
+  appears. Add one line at the first Step 4 (slide 13): the probability of a
+  result at least as extreme as this one, if H0 is true. For Fall, Exam 3 Q4 was
+  reworded to "a result like this one" (10/7).
+- **NEXT — only the one-sample Cohen's d is taught**, d = (M − μ)/s (slide 52, and
+  again in L13). A11 Q8, already released, asks for a two-group d from a pooled
+  SD, which no slide shows. Either add the two-group form here or replace A11 Q8.
+  Exam 3 Q14 was changed to the one-sample form (10/7).
 
 ## Lecture 13 — Confidence intervals (Tue 10/6)
 ## Lecture 14 — One-sample t-test (Thu 10/8)
@@ -928,7 +939,7 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
   export (as must `fix_pdf_a11y.py`):
 
       ~/miniconda3/envs/nb/bin/python slides/patch_pdf_alt.py \
-        slides/Lecture_13_Confidence_intervals.pdf "t distributions for different df" "<text>"
+        "slides/Lecture_13_CI one-sample t-tests.pdf" "t distributions for different df" "<text>"
 
   The text is the 466-character description in the current PDF. The L14 PDF never
   had it patched either.
@@ -938,3 +949,19 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
   which is not in this repo.
 - **Not a fault — slide 19's callout overlays the body text.** That is Lecture
   14's build design, carried over unchanged.
+- **NEXT — say that a CI goes with a *two-tailed* p-value.** Not said in class on
+  10/6. Slides 12–14 show the 95% CI and the test reaching the same decision, but
+  nothing says the match holds only for a two-tailed test. A 95% CI leaves 2.5% in
+  each tail, so a μ outside it means two-tailed p < .05; a one-tailed test at
+  α = .05 matches a 90% CI instead (z* = 1.645). Put it on slide 14 ("Hypothesis
+  testing vs. confidence interval") or on the slide 17 bridge, which already
+  introduces the one-tailed question. Exam 3 Q22 and Mock Exam 3 Q22 both name
+  the test as two-tailed, so this term's papers do not depend on it.
+- **NEXT — df = n − 1 is never stated.** Slide 36 shows df = 24 for n = 25, and
+  slides 29–30 pair n = 3/10/25 with df = 2/9/24, but no slide writes the rule.
+  Exam 3 Q27–Q28 need it; A13 and Mock Exam 3 Q28 rehearse it. Change slide 36's
+  "df = 24" to "df = n − 1 = 24".
+- **NEXT — "estimated standard error" is never named.** Slides 24–25 write
+  s_M = s/√n and say s stands in for σ, but A13 uses the name. Name it on slide 25.
+  Exam 3 Q25–Q26 were reworded to "the standard error, computed with s in place of
+  σ" (10/7).
