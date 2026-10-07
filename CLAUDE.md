@@ -335,6 +335,12 @@ While you are in the bank, two failure modes have shown up more than once:
   quotes someone in single quotes, `r'a student writes: "..."'`.
   `check_markup()` now refuses `\"` and `\'` outside math.
 
+- **The reverse: LaTeX in a string that is *not* raw.** Python reads the
+  backslash first, so `"$z^{\ast}$"` stores a BEL character (`\a`) and the page
+  shows `z^{st}`. `\neq` turns into a newline and `\times` into a tab. Mock Exam 3
+  Q21 shipped this way until 10/7. Any string holding math gets the `r` prefix.
+  `check_markup()` now refuses any control character in item text.
+
 Reading the `.md` is not enough to catch this class of bug — `\emph{not}` looks
 deliberate in source. Render the PDF and look at the page, or extract its text:
 
