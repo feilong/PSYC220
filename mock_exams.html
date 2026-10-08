@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PSYC 220 — Interactive Demos</title>
+<title>Mock Exams – PSYC 220 — Interactive Demos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -186,35 +186,6 @@ ul.task-list li input[type="checkbox"] {
 })();
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -236,7 +207,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -248,7 +219,7 @@ window.Quarto = {
 <span class="menu-text">2. Sampling Distributions</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./mock_exams.html"> 
+    <a class="nav-link active" href="./mock_exams.html" aria-current="page"> 
 <span class="menu-text">Mock Exams</span></a>
   </li>  
 </ul>
@@ -268,8 +239,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PSYC 220 — Interactive Demos</h1>
-<p class="subtitle lead">Psychological Statistics · Fall 2026</p>
+<h1 class="title">Mock Exams</h1>
+<p class="subtitle lead">Practice papers you can click through</p>
 </div>
 
 
@@ -286,34 +257,32 @@ window.Quarto = {
 </header>
 
 
-<p>Two demos, both about the same four numbers: the <strong>mean (M)</strong>, the <strong>sum of squares (SS)</strong>, the <strong>variance (s²)</strong>, and the <strong>standard deviation (s)</strong>.</p>
-<p>Everything runs in your browser — nothing to install, and nothing you do here is recorded.</p>
-<section id="growing-a-sample" class="level3">
-<h3 class="anchored" data-anchor-id="growing-a-sample"><a href="./single_sample.html">1. Growing a Sample</a></h3>
-<p>Add scores to a sample one at a time and watch all four statistics update.</p>
-<p>The thing to notice is that they do not behave the same way. The mean settles on <span class="math inline">\(\mu\)</span>. The variance and SD settle too. But <strong>SS just keeps climbing</strong>, because it is a total rather than an average — which is exactly why SS on its own cannot tell you whether one group is more spread out than another.</p>
+<p>Each mock covers the same topics as its exam, asked in different ways. Click an answer and it is marked right or wrong at once; the question you just answered stays on screen beside the next one, so you can look back at it. At the end you get a score for each topic, with links back to the questions you missed.</p>
+<p>Your answers are kept in your own browser and are never sent anywhere.</p>
+<section id="mock-exam-1" class="level3">
+<h3 class="anchored" data-anchor-id="mock-exam-1"><a href="mocks/mock_exam_1.html">Mock Exam 1</a></h3>
+<p>Topics 1–4: math review, basic concepts, central tendency and graphs, and spread and variability. Practice for Exam 1 (Thursday, September 3).</p>
 </section>
-<section id="sampling-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="sampling-distributions"><a href="./sampling.html">2. Sampling Distributions</a></h3>
-<p>Fix a sample size, then draw sample after sample. Each one hands you a mean, an SS, a variance and an SD, and those values stack up into distributions of their own.</p>
-<p>Three things fall out of it: sample means form a bell curve centered on <span class="math inline">\(\mu\)</span> whatever the population looks like (the Central Limit Theorem); the spread of that curve is the <strong>standard error</strong>, <span class="math inline">\(\sigma/\sqrt{n}\)</span>; and <span class="math inline">\(s^2\)</span> averages out to exactly <span class="math inline">\(\sigma^2\)</span>, which is what dividing by <span class="math inline">\(n-1\)</span> is for.</p>
+<section id="mock-exam-2" class="level3">
+<h3 class="anchored" data-anchor-id="mock-exam-2"><a href="mocks/mock_exam_2.html">Mock Exam 2</a></h3>
+<p>Topics 5–8: <em>z</em>-scores and the standard normal distribution, probability, sampling distributions, and the Central Limit Theorem. Practice for Exam 2 (Thursday, September 24).</p>
+</section>
+<section id="mock-exam-3" class="level3">
+<h3 class="anchored" data-anchor-id="mock-exam-3"><a href="mocks/mock_exam_3.html">Mock Exam 3</a></h3>
+<p>Topics 9–12: hypothesis testing, statistical errors and effect size, confidence intervals, and the one-sample <em>t</em>-test. Practice for Exam 3 (Tuesday, October 13).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Try to break them
+<span class="screen-reader-only">Tip</span>Keyboard
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pick the exponential or bimodal population and set <span class="math inline">\(n = 2\)</span>. The population is nothing like a bell curve, but keep drawing and watch what the distribution of sample means does anyway. Then raise <span class="math inline">\(n\)</span> and watch it tighten.</p>
+<p>Press <kbd>A</kbd>–<kbd>D</kbd> to answer and <kbd>←</kbd> <kbd>→</kbd> to move between questions. A presentation clicker’s Page Up and Page Down keys work too.</p>
 </div>
 </div>
-</section>
-<section id="mock-exams" class="level3">
-<h3 class="anchored" data-anchor-id="mock-exams"><a href="./mock_exams.html">Mock Exams</a></h3>
-<p>Click-through versions of the three mock exams. Pick an answer and it is marked right or wrong at once, with the question you just answered kept on screen beside the next one.</p>
 
 
 </section>

@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PSYC 220 Mock Exam 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: a two-up stage -- the question just answered on the left, the live one
+   on the right -- under a strip of numbered answer-sheet bubbles. Stacks to one
+   column on a phone, live question first. */
+:root {
+  --paper: #edf0f4;
+  --card: #ffffff;
+  --sunk: #f6f8fa;
+  --ink: #18212d;
+  --muted: #586374;
+  --line: #d3d9e2;
+  --accent: #1f4fb8;
+  --accent-soft: #e3ebfa;
+  --right: #17713f;
+  --right-soft: #e1f1e7;
+  --wrong: #b42318;
+  --wrong-soft: #fbe5e2;
+  --on-mark: #ffffff;
+  --shadow: 0 1px 2px rgb(16 24 40 / .06), 0 10px 26px -14px rgb(16 24 40 / .22);
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --step--1: clamp(.8rem, .7rem + .25vw, 1rem);
+  --step-0: clamp(1rem, .7rem + .85vw, 1.6rem);
+  --step-1: clamp(1.25rem, .95rem + .9vw, 1.9rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1318; --card: #18202a; --sunk: #131a22; --ink: #e7ecf2;
+    --muted: #9aa6b5; --line: #2c3744; --accent: #8fb2ff; --accent-soft: #1c2944;
+    --right: #5cd193; --right-soft: #12301f; --wrong: #ff8f84; --wrong-soft: #3a1714;
+    --on-mark: #0e1318;
+    --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 28px -14px rgb(0 0 0 / .65);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1318; --card: #18202a; --sunk: #131a22; --ink: #e7ecf2;
+  --muted: #9aa6b5; --line: #2c3744; --accent: #8fb2ff; --accent-soft: #1c2944;
+  --right: #5cd193; --right-soft: #12301f; --wrong: #ff8f84; --wrong-soft: #3a1714;
+  --on-mark: #0e1318;
+  --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 28px -14px rgb(0 0 0 / .65);
+  color-scheme: dark;
+}
+
+html, body { background: var(--paper); color: var(--ink); }
+body { margin: 0; font-family: var(--f-body); font-size: var(--step-0); line-height: 1.4; }
+.wrap {
+  max-width: 1680px; margin-inline: auto; box-sizing: border-box;
+  padding-inline: clamp(16px, 2.5vw, 44px); padding-block: clamp(12px, 2vh, 26px) 28px;
+  display: grid; gap: clamp(12px, 2vh, 22px);
+}
+[hidden] { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---- top bar ---------------------------------------------------------- */
+.bar {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "title ctrl" "sheet sheet";
+  align-items: end; gap: 12px 24px;
+}
+.title { grid-area: title; min-width: 0; }
+.home { display: inline-block; margin-bottom: .35em; font: 600 var(--step--1)/1.3 var(--f-mono); color: var(--accent); text-decoration: none; }
+.home:hover { text-decoration: underline; }
+.eyebrow {
+  margin: 0; font: 600 var(--step--1)/1.3 var(--f-mono); color: var(--muted);
+  letter-spacing: .04em;
+}
+h1 { margin: .1em 0 0; font-size: var(--step-1); line-height: 1.1; text-wrap: balance; }
+.ctrl { grid-area: ctrl; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; justify-content: end; }
+.tally {
+  margin: 0 8px 0 0; font: 500 var(--step--1)/1 var(--f-mono); color: var(--muted);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.tally b { color: var(--ink); font-weight: 600; }
+.btn {
+  font: 700 var(--step--1)/1 var(--f-body); color: var(--ink);
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 8px;
+  padding: .6em .9em; cursor: pointer;
+}
+.btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.btn:disabled { color: var(--muted); cursor: default; opacity: .55; }
+.btn.quiet { background: transparent; }
+.btn.armed { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+
+.sheet { grid-area: sheet; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.grp { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.grp-label { font: 600 var(--step--1)/1 var(--f-mono); color: var(--muted); margin-right: 2px; }
+.dots { display: flex; flex-wrap: wrap; gap: 4px; }
+.dot {
+  font: 600 calc(var(--step--1) * .9)/1 var(--f-mono); font-variant-numeric: tabular-nums;
+  width: 2.3em; height: 1.6em; padding: 0; border-radius: 50%;
+  border: 1.5px solid var(--line); background: var(--card); color: var(--muted); cursor: pointer;
+}
+.dot:hover { border-color: var(--accent); color: var(--accent); }
+.dot.right { background: var(--right); border-color: var(--right); color: var(--on-mark); }
+.dot.wrong { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+.dot[aria-current="step"] { outline: 2.5px solid var(--accent); outline-offset: 2px; color: var(--ink); }
+.dot.right[aria-current="step"], .dot.wrong[aria-current="step"] { color: var(--on-mark); }
+
+/* ---- stage ------------------------------------------------------------ */
+.stage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 32px); align-items: start; }
+.slot { min-width: 0; }
+.card {
+  box-sizing: border-box; background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: clamp(16px, 1.8vw, 30px); display: grid; gap: .85em;
+}
+.slot-cur .card { box-shadow: var(--shadow), 0 0 0 3px var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.slot-prev .card { background: var(--sunk); }
+.card:focus { outline: none; }
+.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.q-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .35em .9em;
+  font: 600 var(--step--1)/1.25 var(--f-mono); color: var(--muted);
+}
+.role { text-transform: uppercase; letter-spacing: .09em; }
+.slot-cur .role { color: var(--accent); }
+.num { color: var(--ink); font-variant-numeric: tabular-nums; }
+.num .of { color: var(--muted); font-weight: 500; }
+.topic b { font-weight: 600; }
+.verdict {
+  margin-left: auto; display: inline-flex; align-items: center; gap: .35em;
+  padding: .3em .7em; border-radius: 999px; font: 700 var(--step--1)/1 var(--f-body);
+  background: transparent; color: var(--muted); border: 1.5px dashed var(--line);
+}
+.verdict svg { width: 1.05em; height: 1.05em; }
+.verdict.right { background: var(--right-soft); color: var(--right); border: 1.5px solid transparent; }
+.verdict.wrong { background: var(--wrong-soft); color: var(--wrong); border: 1.5px solid transparent; }
+
+.stem { margin: 0; text-wrap: pretty; }
+.opts { list-style: none; margin: 0; padding: 0; display: grid; gap: .45em; }
+.opt {
+  width: 100%; box-sizing: border-box; display: grid; grid-template-columns: auto minmax(0, 1fr) 1.2em;
+  align-items: center; gap: .7em; padding: .5em .75em; text-align: left;
+  font: inherit; line-height: 1.35; color: var(--ink); background: transparent;
+  border: 1.5px solid var(--line); border-radius: 10px; cursor: pointer;
+}
+.opt:disabled { cursor: default; }
+.opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.opt:hover:not(:disabled) .bubble { color: var(--accent); }
+.opt:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bubble {
+  display: inline-grid; place-items: center; width: 2.1em; height: 1.45em; border-radius: 50%;
+  border: 1.5px solid currentColor; color: var(--muted); font: 600 .75em/1 var(--f-mono);
+}
+.text { min-width: 0; overflow-wrap: anywhere; }
+.mark svg { display: block; width: 1.2em; height: 1.2em; }
+.done .opt { color: var(--muted); border-color: color-mix(in srgb, var(--line) 70%, transparent); }
+.done .opt.key { color: var(--ink); border-color: var(--right); background: var(--right-soft); }
+.done .opt.key .bubble { background: var(--right); border-color: var(--right); color: var(--on-mark); }
+.done .opt.key .mark { color: var(--right); }
+.done .opt.miss { color: var(--ink); border-color: var(--wrong); background: var(--wrong-soft); }
+.done .opt.miss .bubble { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+.done .opt.miss .mark { color: var(--wrong); }
+mjx-container { color: inherit; }
+
+/* ---- intro and results ------------------------------------------------ */
+.panel h2 { margin: 0; font-size: var(--step-1); line-height: 1.15; text-wrap: balance; }
+.how { margin: 0; padding-left: 1.1em; display: grid; gap: .4em; }
+.how li::marker { color: var(--muted); }
+kbd {
+  font: 600 .78em/1 var(--f-mono); padding: .2em .45em; border-radius: 5px;
+  border: 1.5px solid var(--line); border-bottom-width: 3px; background: var(--card);
+}
+.score { margin: 0; font-size: var(--step-1); font-weight: 700; font-variant-numeric: tabular-nums; }
+.score-sub { margin: -.4em 0 0; color: var(--muted); font-size: var(--step--1); }
+.topics { display: grid; grid-template-columns: minmax(0, auto) minmax(4rem, 1fr) auto; gap: .55em .9em; align-items: center; font-size: var(--step--1); }
+.topics .t-name b { font-family: var(--f-mono); font-weight: 600; margin-right: .4em; }
+.meter { height: .6em; border-radius: 999px; background: var(--line); overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--right); border-radius: inherit; }
+.topics .t-n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.review { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: var(--step--1); color: var(--muted); }
+.review .dot { font-size: var(--step--1); }
+.foot { margin: 0; font-size: var(--step--1); color: var(--muted); }
+
+#store { position: absolute; left: -300vw; top: 0; width: 46rem; visibility: hidden; pointer-events: none; }
+
+@media (max-width: 880px) {
+  .stage { grid-template-columns: minmax(0, 1fr); }
+  .slot-cur { order: -1; }
+}
+@media (max-width: 620px) {
+  .bar { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "ctrl" "sheet"; align-items: start; }
+  .ctrl { justify-content: start; }
+  .verdict { margin-left: 0; }
+}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$']] },
+  svg: { fontCache: 'global' },
+  // Equations sit inside the answer buttons; keep them out of the tab order.
+  options: { menuOptions: { settings: { inTabOrder: false } } }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <div class="title">
+      <a class="home" href="../mock_exams.html">← All mock exams</a>
+      <p class="eyebrow">PSYC 220 · Practice for Exam 1, Thursday, September 3</p>
+      <h1>Mock Exam 1</h1>
+    </div>
+    <div class="ctrl">
+      <p class="tally" id="tally"></p>
+      <button type="button" class="btn" id="back" title="Previous question (←)">← Back</button>
+      <button type="button" class="btn" id="next" title="Next question (→)">Next →</button>
+      <button type="button" class="btn quiet" id="reset">Start over</button>
+    </div>
+    <nav class="sheet" id="sheet" aria-label="Jump to a question"></nav>
+  </header>
+  <main class="stage">
+    <section class="slot slot-prev" id="slot-prev" aria-label="Previous question"></section>
+    <section class="slot slot-cur" id="slot-cur" aria-label="Current question"></section>
+  </main>
+  <p class="foot">Answers are kept in this browser only. Keyboard: <kbd>A</kbd>–<kbd>D</kbd> to answer, <kbd>←</kbd> <kbd>→</kbd> to move.</p>
+</div>
+
+<div id="store" aria-hidden="true">
+  <article class="card panel" id="intro" tabindex="-1">
+    <header class="q-head"><span class="role">How it works</span></header>
+    <h2>30 questions on Topics 1–4</h2>
+    <ul class="how">
+      <li>Click an answer. It is marked right or wrong, and the next question comes up.</li>
+      <li>The question you just answered stays on screen next to the new one.</li>
+      <li>Use the numbered bubbles to jump to any question, or Next to skip one.</li>
+      <li>The answer letters are in a different order from the printed paper.</li>
+    </ul>
+  </article>
+  <article class="card panel" id="summary" tabindex="-1">
+    <header class="q-head"><span class="role">Results</span></header>
+    <p class="score" id="s-score"></p>
+    <p class="score-sub" id="s-sub"></p>
+    <div class="topics" id="s-topics"></div>
+    <div class="review" id="s-review"></div>
+    <div><button type="button" class="btn" id="reset2">Start over</button></div>
+  </article>
+</div>
+<div id="live" class="sr" aria-live="polite"></div>
+
+<script>
+(() => {
+const DATA = {"slug": "mock-exam-1", "questions": [{"tag": "Topic 1", "title": "Math review", "stem": "For $X = \\{6, 5, 5, 3, 6\\}$, what is $\\Sigma X^2$?", "opts": ["625", "131", "25", "26"], "key": 1}, {"tag": "Topic 1", "title": "Math review", "stem": "What is $\\Sigma X$ for $X = \\{9, 3, 7, 1\\}$?", "opts": ["20", "140", "400", "4"], "key": 0}, {"tag": "Topic 1", "title": "Math review", "stem": "For $X = \\{2, 4\\}$, which statement is true?", "opts": ["$\\Sigma X^2 = 36$ and $(\\Sigma X)^2 = 20$", "$\\Sigma X^2 = (\\Sigma X)^2 = 36$", "$\\Sigma X^2 = 20$ and $(\\Sigma X)^2 = 36$", "$\\Sigma X^2 = (\\Sigma X)^2 = 20$"], "key": 2}, {"tag": "Topic 2", "title": "Basic concepts", "stem": "Which of the following is measured on an interval scale?", "opts": ["Eye color", "Temperature in degrees Fahrenheit", "Number of students in a class", "Height in centimeters"], "key": 1}, {"tag": "Topic 2", "title": "Basic concepts", "stem": "Which of the following is a discrete variable?", "opts": ["Temperature measured in Fahrenheit", "Time spent studying, measured in hours", "Height measured in centimeters", "The number of siblings a person has"], "key": 3}, {"tag": "Topic 2", "title": "Basic concepts", "stem": "Which list is measured on an ordinal scale?", "opts": ["Game of Thrones, Stranger Things, The Office", "Waffles, pancakes, french toast", "Red, blue, green", "Sophomore, Junior, Freshman"], "key": 3}, {"tag": "Topic 2", "title": "Basic concepts", "stem": "Which of the following best describes a parameter?", "opts": ["A numerical value that summarizes a sample", "A numerical value that summarizes a population", "The group of people of interest for a study", "The participants recruited for a study"], "key": 1}, {"tag": "Topic 2", "title": "Basic concepts", "stem": "A researcher studies the effect of sleep on test performance, assigning participants to 4, 6, or 8 hours of sleep. What is the dependent variable?", "opts": ["Test performance", "Hours of sleep", "The participants", "The researcher"], "key": 0}, {"tag": "Topic 2", "title": "Basic concepts", "stem": "In research, a variable is best described as:", "opts": ["A value that stays constant across all participants", "A numerical summary of a sample", "A characteristic that can take different values for different individuals", "The entire group a researcher wishes to study"], "key": 2}, {"tag": "Topic 2", "title": "Basic concepts", "stem": "A researcher measures how much coffee students drink and how many hours they sleep, without assigning anyone to conditions. This research design is:", "opts": ["Experimental", "Quasi-experimental", "Correlational", "Inferential"], "key": 2}, {"tag": "Topic 2", "title": "Basic concepts", "stem": "Organizing and summarizing the scores you actually collected, without generalizing beyond them, is:", "opts": ["Descriptive statistics", "Inferential statistics", "Sampling error", "A parameter"], "key": 0}, {"tag": "Topic 2", "title": "Basic concepts", "stem": "A researcher wants the average commute time of all 12,000 employees at a company and times 250 of them. The 250 employees are the ________ and the 12,000 are the ________.", "opts": ["population; sample", "parameter; statistic", "population; variable", "sample; population"], "key": 3}, {"tag": "Topic 3", "title": "Central tendency and graphs", "stem": "A distribution of exam scores has a long tail stretching toward the low end. This distribution is:", "opts": ["Positively skewed", "Negatively skewed", "Symmetric", "Bimodal"], "key": 1}, {"tag": "Topic 3", "title": "Central tendency and graphs", "stem": "For $X = \\{2, 2, 6, 10, 10\\}$, what is the median?", "opts": ["6", "2", "8", "10"], "key": 0}, {"tag": "Topic 3", "title": "Central tendency and graphs", "stem": "The value with 50% of the scores above it and 50% below it is called the:", "opts": ["Mean", "Mode", "Median", "Range"], "key": 2}, {"tag": "Topic 3", "title": "Central tendency and graphs", "stem": "In a perfectly symmetrical distribution with one peak, the mean, median, and mode are:", "opts": ["All different from one another", "All equal to one another", "Equal only if the sample is large", "Impossible to determine"], "key": 1}, {"tag": "Topic 3", "title": "Central tendency and graphs", "stem": "Which graph is appropriate for displaying nominal data?", "opts": ["Histogram", "Box plot", "Line graph", "Bar graph"], "key": 3}, {"tag": "Topic 3", "title": "Central tendency and graphs", "stem": "Which graph is appropriate for displaying continuous data?", "opts": ["Bar graph", "Pie chart", "Frequency table", "Histogram"], "key": 3}, {"tag": "Topic 3", "title": "Central tendency and graphs", "stem": "Which measure of central tendency takes every score into account?", "opts": ["Median", "Mean", "Mode", "Range"], "key": 1}, {"tag": "Topic 3", "title": "Central tendency and graphs", "stem": "One score in a data set is replaced by a value ten times larger. Which measure changes the least?", "opts": ["Median", "Mean", "Sum of squares", "Standard deviation"], "key": 0}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "For $X = \\{3, 15, 8, 11, 8, 14, 8, 13\\}$, what is the range?", "opts": ["15", "3", "12", "10"], "key": 2}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "For that same data set, the sum of squares is $SS = 112$. What is the sample variance?", "opts": ["14", "4", "16", "112"], "key": 2}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "If you subtract the mean from every score and add up the deviations, the result is always:", "opts": ["0", "1", "The variance", "The standard deviation"], "key": 0}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "In a distribution of scores, the 25th percentile is 40 and the 75th percentile is 60. What is the interquartile range?", "opts": ["100", "50", "10", "20"], "key": 3}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "A researcher measures reaction time in milliseconds. What are the units of the standard deviation and the variance?", "opts": ["Standard deviation: squared milliseconds; variance: milliseconds", "Standard deviation: milliseconds; variance: squared milliseconds", "Both are in milliseconds", "Both are unitless"], "key": 1}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "For $X = \\{2, 2, 6, 10, 10\\}$, what is the sum of squares (SS)?", "opts": ["64", "16", "4", "30"], "key": 0}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "For that same data set, what is the sample standard deviation?", "opts": ["16", "3.58", "4", "8"], "key": 2}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "For $X = \\{5, 7, 9, 11, 15, 19, 21, 25\\}$, what is the interquartile range (IQR)?", "opts": ["20", "12", "8", "13"], "key": 1}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "A population of $N = 8$ scores has $SS = 200$. What is the population standard deviation?", "opts": ["5.35", "25", "200", "5"], "key": 3}, {"tag": "Topic 4", "title": "Spread and variability", "stem": "If you subtract 3 points from every score in a data set, the standard deviation will:", "opts": ["Decrease by 3", "Decrease by 9", "Increase by 3", "Stay exactly the same"], "key": 3}], "topics": [{"tag": "Topic 1", "short": "T1", "title": "Math review", "first": 1, "last": 3}, {"tag": "Topic 2", "short": "T2", "title": "Basic concepts", "first": 4, "last": 12}, {"tag": "Topic 3", "short": "T3", "title": "Central tendency and graphs", "first": 13, "last": 20}, {"tag": "Topic 4", "short": "T4", "title": "Spread and variability", "first": 21, "last": 30}]};
+const Q = DATA.questions, N = Q.length, L = 'ABCD';
+const PAPER = Q.map(q => L[q.key]).join('');
+const SAVE = 'psyc220:' + DATA.slug;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = id => document.getElementById(id);
+const slotPrev = $('slot-prev'), slotCur = $('slot-cur'), store = $('store');
+const intro = $('intro'), summary = $('summary'), live = $('live');
+const CHECK = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.6 3.6 7.4-8.2" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const CROSS = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
+
+let answers = Array(N).fill(null), cur = 1, timer = 0;
+try {
+  const s = JSON.parse(localStorage.getItem(SAVE) || 'null');
+  if (s && s.paper === PAPER && Array.isArray(s.answers) && s.answers.length === N) {
+    answers = s.answers;
+    cur = Math.min(Math.max(1, s.cur | 0), N + 1);
+  }
+} catch (e) {}
+const save = () => { try { localStorage.setItem(SAVE, JSON.stringify({ paper: PAPER, answers, cur })); } catch (e) {} };
+const result = i => answers[i] === null ? '' : answers[i] === Q[i].key ? 'right' : 'wrong';
+
+// ---- build every card once, so MathJax typesets each one exactly once ----
+const cards = Q.map((q, i) => {
+  const el = document.createElement('article');
+  el.className = 'card q';
+  el.tabIndex = -1;
+  el.innerHTML =
+    `<header class="q-head"><span class="role"></span>` +
+    `<span class="num">Question ${i + 1}<span class="of"> of ${N}</span></span>` +
+    `<span class="topic"><b>${q.tag}</b> · ${q.title}</span>` +
+    `<span class="verdict" hidden></span></header>` +
+    `<p class="stem">${q.stem}</p><ol class="opts">` +
+    q.opts.map((o, j) =>
+      `<li><button type="button" class="opt" data-j="${j}">` +
+      `<span class="bubble">${L[j]}</span><span class="text">${o}</span>` +
+      `<span class="mark"></span><span class="sr"></span></button></li>`).join('') +
+    `</ol>`;
+  el.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => choose(i, +b.dataset.j)));
+  store.append(el);
+  return el;
+});
+
+const dots = [];
+for (const t of DATA.topics) {
+  const g = document.createElement('div');
+  g.className = 'grp';
+  g.innerHTML = `<span class="grp-label" title="${t.tag} · ${t.title}">${t.short}</span><div class="dots"></div>`;
+  for (let n = t.first; n <= t.last; n++) {
+    const d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'dot';
+    d.textContent = n;
+    d.addEventListener('click', () => go(n));
+    g.lastChild.append(d);
+    dots[n - 1] = d;
+  }
+  $('sheet').append(g);
+}
+
+// ---- painting -------------------------------------------------------------
+function paint(i) {
+  const el = cards[i], a = answers[i], k = Q[i].key, done = a !== null;
+  el.classList.toggle('done', done);
+  el.querySelectorAll('.opt').forEach((b, j) => {
+    const isKey = done && j === k, isPick = done && j === a;
+    b.classList.toggle('key', isKey);
+    b.classList.toggle('miss', isPick && !isKey);
+    b.querySelector('.mark').innerHTML = isKey ? CHECK : isPick ? CROSS : '';
+    b.querySelector('.sr').textContent =
+      isKey ? (isPick ? ', your answer, correct' : ', the correct answer')
+            : isPick ? ', your answer, incorrect' : '';
+  });
+  const v = el.querySelector('.verdict');
+  v.className = 'verdict ' + result(i);
+  v.innerHTML = !done ? 'Not answered'
+    : a === k ? CHECK + 'Correct' : CROSS + 'Incorrect · answer ' + L[k];
+  v.hidden = !done && !el.classList.contains('is-prev');
+}
+
+function paintSheet() {
+  dots.forEach((d, i) => {
+    const r = result(i);
+    d.className = 'dot' + (r ? ' ' + r : '');
+    d.setAttribute('aria-label', `Question ${i + 1}` + (r === 'right' ? ', correct' : r === 'wrong' ? ', incorrect' : ''));
+    if (i === cur - 1) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current');
+  });
+  const done = answers.filter(a => a !== null).length;
+  const right = answers.filter((a, i) => a !== null && a === Q[i].key).length;
+  $('tally').innerHTML = done ? `<b>${right}</b> of ${done} correct` : `${N} questions`;
+  $('back').disabled = cur === 1;
+  $('next').disabled = cur > N;
+  $('reset').disabled = done === 0;
+}
+
+function paintSummary() {
+  const right = answers.filter((a, i) => a !== null && a === Q[i].key).length;
+  const skipped = answers.filter(a => a === null).length;
+  $('s-score').textContent = `${right} of ${N} correct`;
+  $('s-sub').textContent = skipped ? `${skipped} not answered` : `${Math.round(100 * right / N)} percent`;
+  $('s-topics').innerHTML = DATA.topics.map(t => {
+    let r = 0;
+    for (let n = t.first; n <= t.last; n++) if (result(n - 1) === 'right') r++;
+    const of = t.last - t.first + 1;
+    return `<span class="t-name"><b>${t.short}</b>${t.title}</span>` +
+           `<span class="meter" role="img" aria-label="${r} of ${of}"><i style="width:${100 * r / of}%"></i></span>` +
+           `<span class="t-n">${r} / ${of}</span>`;
+  }).join('');
+  const redo = Q.map((_, i) => i).filter(i => result(i) !== 'right');
+  const box = $('s-review');
+  box.textContent = '';
+  if (redo.length) {
+    box.append(document.createTextNode('Review:'));
+    for (const i of redo) {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'dot ' + result(i);
+      d.textContent = i + 1;
+      d.setAttribute('aria-label', `Go to question ${i + 1}`);
+      d.addEventListener('click', () => go(i + 1));
+      box.append(d);
+    }
+  }
+}
+
+// ---- placing two cards on the stage --------------------------------------
+function place(dir) {
+  const left = cur === 1 ? intro : cards[cur - 2];
+  const right = cur > N ? summary : cards[cur - 1];
+  if (right === summary) paintSummary();
+  const animate = dir && !reduce;
+  const first = new Map();
+  if (animate) for (const el of [left, right])
+    if (el.parentElement === slotPrev || el.parentElement === slotCur) first.set(el, el.getBoundingClientRect());
+  // Fast clicking can start a move before the last one ends; finish it first.
+  for (const el of [left, right]) el.getAnimations().forEach(a => a.cancel());
+  for (const slot of [slotPrev, slotCur])
+    for (const el of [...slot.children]) if (el !== left && el !== right) store.append(el);
+  slotPrev.append(left);
+  slotCur.append(right);
+  for (const [el, isPrev] of [[left, true], [right, false]]) {
+    el.classList.toggle('is-prev', isPrev);
+    const i = cards.indexOf(el);
+    if (i < 0) continue;
+    el.querySelector('.role').textContent = isPrev ? 'Previous' : 'Now';
+    el.querySelectorAll('.opt').forEach(b => { b.disabled = isPrev || answers[i] !== null; });
+    paint(i);
+  }
+  if (animate) for (const el of [left, right]) {
+    const f = first.get(el);
+    if (f) {
+      const l = el.getBoundingClientRect(), dx = f.left - l.left, dy = f.top - l.top;
+      if (dx || dy) el.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }],
+                               { duration: 420, easing: 'cubic-bezier(.2, .8, .2, 1)' });
+    } else {
+      el.animate([{ opacity: 0, transform: `translateX(${dir * 28}px)` }, { opacity: 1, transform: 'none' }],
+                 { duration: 320, delay: 90, easing: 'cubic-bezier(.2, .8, .2, 1)', fill: 'backwards' });
+    }
+  }
+  paintSheet();
+}
+
+function go(n) {
+  clearTimeout(timer);
+  timer = 0;
+  n = Math.min(Math.max(1, n), N + 1);
+  if (n === cur) return;
+  const dir = Math.sign(n - cur), a = document.activeElement;
+  const hadFocus = a && a !== document.body && (slotPrev.contains(a) || slotCur.contains(a));
+  cur = n;
+  place(dir);
+  save();
+  const r = slotCur.getBoundingClientRect();
+  if (r.top < 0 || r.top > innerHeight * .6) slotCur.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  if (hadFocus) slotCur.firstElementChild.focus({ preventScroll: true });
+}
+
+function choose(i, j) {
+  if (i !== cur - 1 || answers[i] !== null || timer) return;
+  answers[i] = j;
+  cards[i].querySelectorAll('.opt').forEach(b => { b.disabled = true; });
+  paint(i);
+  paintSheet();
+  save();
+  live.textContent = j === Q[i].key ? `Question ${i + 1}: correct.`
+    : `Question ${i + 1}: incorrect. The answer is ${L[Q[i].key]}.`;
+  timer = setTimeout(() => go(i + 2), 750);
+}
+
+function resetAll() {
+  clearTimeout(timer);
+  timer = 0;
+  answers = Array(N).fill(null);
+  cards.forEach((_, i) => paint(i));
+  const dir = cur === 1 ? 0 : -1;
+  cur = 1;
+  place(dir);
+  save();
+  live.textContent = 'All answers cleared.';
+}
+
+// The viewer cannot show confirm(), so clearing takes a second click.
+for (const btn of [$('reset'), $('reset2')]) {
+  const label = btn.textContent;
+  let armed = 0;
+  btn.addEventListener('click', () => {
+    if (!armed) {
+      btn.textContent = 'Clear all answers?';
+      btn.classList.add('armed');
+      armed = setTimeout(() => { armed = 0; btn.textContent = label; btn.classList.remove('armed'); }, 4000);
+      return;
+    }
+    clearTimeout(armed);
+    armed = 0;
+    btn.textContent = label;
+    btn.classList.remove('armed');
+    resetAll();
+  });
+}
+
+$('back').addEventListener('click', () => go(cur - 1));
+$('next').addEventListener('click', () => go(cur + 1));
+document.addEventListener('keydown', e => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key.toLowerCase();
+  let j = -1;
+  if (k.length === 1) { j = 'abcd'.indexOf(k); if (j < 0) j = '1234'.indexOf(k); }
+  if (j >= 0) { if (cur <= N) choose(cur - 1, j); e.preventDefault(); return; }
+  // PageDown/PageUp are what most presentation clickers send.
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') { go(cur + 1); e.preventDefault(); }
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(cur - 1); e.preventDefault(); }
+});
+
+cards.forEach((_, i) => paint(i));
+place(0);
+})();
+</script>
+</body>
+</html>

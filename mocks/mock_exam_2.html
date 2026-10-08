@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PSYC 220 Mock Exam 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: a two-up stage -- the question just answered on the left, the live one
+   on the right -- under a strip of numbered answer-sheet bubbles. Stacks to one
+   column on a phone, live question first. */
+:root {
+  --paper: #edf0f4;
+  --card: #ffffff;
+  --sunk: #f6f8fa;
+  --ink: #18212d;
+  --muted: #586374;
+  --line: #d3d9e2;
+  --accent: #1f4fb8;
+  --accent-soft: #e3ebfa;
+  --right: #17713f;
+  --right-soft: #e1f1e7;
+  --wrong: #b42318;
+  --wrong-soft: #fbe5e2;
+  --on-mark: #ffffff;
+  --shadow: 0 1px 2px rgb(16 24 40 / .06), 0 10px 26px -14px rgb(16 24 40 / .22);
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --step--1: clamp(.8rem, .7rem + .25vw, 1rem);
+  --step-0: clamp(1rem, .7rem + .85vw, 1.6rem);
+  --step-1: clamp(1.25rem, .95rem + .9vw, 1.9rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1318; --card: #18202a; --sunk: #131a22; --ink: #e7ecf2;
+    --muted: #9aa6b5; --line: #2c3744; --accent: #8fb2ff; --accent-soft: #1c2944;
+    --right: #5cd193; --right-soft: #12301f; --wrong: #ff8f84; --wrong-soft: #3a1714;
+    --on-mark: #0e1318;
+    --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 28px -14px rgb(0 0 0 / .65);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1318; --card: #18202a; --sunk: #131a22; --ink: #e7ecf2;
+  --muted: #9aa6b5; --line: #2c3744; --accent: #8fb2ff; --accent-soft: #1c2944;
+  --right: #5cd193; --right-soft: #12301f; --wrong: #ff8f84; --wrong-soft: #3a1714;
+  --on-mark: #0e1318;
+  --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 28px -14px rgb(0 0 0 / .65);
+  color-scheme: dark;
+}
+
+html, body { background: var(--paper); color: var(--ink); }
+body { margin: 0; font-family: var(--f-body); font-size: var(--step-0); line-height: 1.4; }
+.wrap {
+  max-width: 1680px; margin-inline: auto; box-sizing: border-box;
+  padding-inline: clamp(16px, 2.5vw, 44px); padding-block: clamp(12px, 2vh, 26px) 28px;
+  display: grid; gap: clamp(12px, 2vh, 22px);
+}
+[hidden] { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---- top bar ---------------------------------------------------------- */
+.bar {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "title ctrl" "sheet sheet";
+  align-items: end; gap: 12px 24px;
+}
+.title { grid-area: title; min-width: 0; }
+.home { display: inline-block; margin-bottom: .35em; font: 600 var(--step--1)/1.3 var(--f-mono); color: var(--accent); text-decoration: none; }
+.home:hover { text-decoration: underline; }
+.eyebrow {
+  margin: 0; font: 600 var(--step--1)/1.3 var(--f-mono); color: var(--muted);
+  letter-spacing: .04em;
+}
+h1 { margin: .1em 0 0; font-size: var(--step-1); line-height: 1.1; text-wrap: balance; }
+.ctrl { grid-area: ctrl; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; justify-content: end; }
+.tally {
+  margin: 0 8px 0 0; font: 500 var(--step--1)/1 var(--f-mono); color: var(--muted);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.tally b { color: var(--ink); font-weight: 600; }
+.btn {
+  font: 700 var(--step--1)/1 var(--f-body); color: var(--ink);
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 8px;
+  padding: .6em .9em; cursor: pointer;
+}
+.btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.btn:disabled { color: var(--muted); cursor: default; opacity: .55; }
+.btn.quiet { background: transparent; }
+.btn.armed { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+
+.sheet { grid-area: sheet; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.grp { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.grp-label { font: 600 var(--step--1)/1 var(--f-mono); color: var(--muted); margin-right: 2px; }
+.dots { display: flex; flex-wrap: wrap; gap: 4px; }
+.dot {
+  font: 600 calc(var(--step--1) * .9)/1 var(--f-mono); font-variant-numeric: tabular-nums;
+  width: 2.3em; height: 1.6em; padding: 0; border-radius: 50%;
+  border: 1.5px solid var(--line); background: var(--card); color: var(--muted); cursor: pointer;
+}
+.dot:hover { border-color: var(--accent); color: var(--accent); }
+.dot.right { background: var(--right); border-color: var(--right); color: var(--on-mark); }
+.dot.wrong { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+.dot[aria-current="step"] { outline: 2.5px solid var(--accent); outline-offset: 2px; color: var(--ink); }
+.dot.right[aria-current="step"], .dot.wrong[aria-current="step"] { color: var(--on-mark); }
+
+/* ---- stage ------------------------------------------------------------ */
+.stage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 32px); align-items: start; }
+.slot { min-width: 0; }
+.card {
+  box-sizing: border-box; background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: clamp(16px, 1.8vw, 30px); display: grid; gap: .85em;
+}
+.slot-cur .card { box-shadow: var(--shadow), 0 0 0 3px var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.slot-prev .card { background: var(--sunk); }
+.card:focus { outline: none; }
+.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.q-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .35em .9em;
+  font: 600 var(--step--1)/1.25 var(--f-mono); color: var(--muted);
+}
+.role { text-transform: uppercase; letter-spacing: .09em; }
+.slot-cur .role { color: var(--accent); }
+.num { color: var(--ink); font-variant-numeric: tabular-nums; }
+.num .of { color: var(--muted); font-weight: 500; }
+.topic b { font-weight: 600; }
+.verdict {
+  margin-left: auto; display: inline-flex; align-items: center; gap: .35em;
+  padding: .3em .7em; border-radius: 999px; font: 700 var(--step--1)/1 var(--f-body);
+  background: transparent; color: var(--muted); border: 1.5px dashed var(--line);
+}
+.verdict svg { width: 1.05em; height: 1.05em; }
+.verdict.right { background: var(--right-soft); color: var(--right); border: 1.5px solid transparent; }
+.verdict.wrong { background: var(--wrong-soft); color: var(--wrong); border: 1.5px solid transparent; }
+
+.stem { margin: 0; text-wrap: pretty; }
+.opts { list-style: none; margin: 0; padding: 0; display: grid; gap: .45em; }
+.opt {
+  width: 100%; box-sizing: border-box; display: grid; grid-template-columns: auto minmax(0, 1fr) 1.2em;
+  align-items: center; gap: .7em; padding: .5em .75em; text-align: left;
+  font: inherit; line-height: 1.35; color: var(--ink); background: transparent;
+  border: 1.5px solid var(--line); border-radius: 10px; cursor: pointer;
+}
+.opt:disabled { cursor: default; }
+.opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.opt:hover:not(:disabled) .bubble { color: var(--accent); }
+.opt:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bubble {
+  display: inline-grid; place-items: center; width: 2.1em; height: 1.45em; border-radius: 50%;
+  border: 1.5px solid currentColor; color: var(--muted); font: 600 .75em/1 var(--f-mono);
+}
+.text { min-width: 0; overflow-wrap: anywhere; }
+.mark svg { display: block; width: 1.2em; height: 1.2em; }
+.done .opt { color: var(--muted); border-color: color-mix(in srgb, var(--line) 70%, transparent); }
+.done .opt.key { color: var(--ink); border-color: var(--right); background: var(--right-soft); }
+.done .opt.key .bubble { background: var(--right); border-color: var(--right); color: var(--on-mark); }
+.done .opt.key .mark { color: var(--right); }
+.done .opt.miss { color: var(--ink); border-color: var(--wrong); background: var(--wrong-soft); }
+.done .opt.miss .bubble { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+.done .opt.miss .mark { color: var(--wrong); }
+mjx-container { color: inherit; }
+
+/* ---- intro and results ------------------------------------------------ */
+.panel h2 { margin: 0; font-size: var(--step-1); line-height: 1.15; text-wrap: balance; }
+.how { margin: 0; padding-left: 1.1em; display: grid; gap: .4em; }
+.how li::marker { color: var(--muted); }
+kbd {
+  font: 600 .78em/1 var(--f-mono); padding: .2em .45em; border-radius: 5px;
+  border: 1.5px solid var(--line); border-bottom-width: 3px; background: var(--card);
+}
+.score { margin: 0; font-size: var(--step-1); font-weight: 700; font-variant-numeric: tabular-nums; }
+.score-sub { margin: -.4em 0 0; color: var(--muted); font-size: var(--step--1); }
+.topics { display: grid; grid-template-columns: minmax(0, auto) minmax(4rem, 1fr) auto; gap: .55em .9em; align-items: center; font-size: var(--step--1); }
+.topics .t-name b { font-family: var(--f-mono); font-weight: 600; margin-right: .4em; }
+.meter { height: .6em; border-radius: 999px; background: var(--line); overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--right); border-radius: inherit; }
+.topics .t-n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.review { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: var(--step--1); color: var(--muted); }
+.review .dot { font-size: var(--step--1); }
+.foot { margin: 0; font-size: var(--step--1); color: var(--muted); }
+
+#store { position: absolute; left: -300vw; top: 0; width: 46rem; visibility: hidden; pointer-events: none; }
+
+@media (max-width: 880px) {
+  .stage { grid-template-columns: minmax(0, 1fr); }
+  .slot-cur { order: -1; }
+}
+@media (max-width: 620px) {
+  .bar { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "ctrl" "sheet"; align-items: start; }
+  .ctrl { justify-content: start; }
+  .verdict { margin-left: 0; }
+}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$']] },
+  svg: { fontCache: 'global' },
+  // Equations sit inside the answer buttons; keep them out of the tab order.
+  options: { menuOptions: { settings: { inTabOrder: false } } }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <div class="title">
+      <a class="home" href="../mock_exams.html">← All mock exams</a>
+      <p class="eyebrow">PSYC 220 · Practice for Exam 2, Thursday, September 24</p>
+      <h1>Mock Exam 2</h1>
+    </div>
+    <div class="ctrl">
+      <p class="tally" id="tally"></p>
+      <button type="button" class="btn" id="back" title="Previous question (←)">← Back</button>
+      <button type="button" class="btn" id="next" title="Next question (→)">Next →</button>
+      <button type="button" class="btn quiet" id="reset">Start over</button>
+    </div>
+    <nav class="sheet" id="sheet" aria-label="Jump to a question"></nav>
+  </header>
+  <main class="stage">
+    <section class="slot slot-prev" id="slot-prev" aria-label="Previous question"></section>
+    <section class="slot slot-cur" id="slot-cur" aria-label="Current question"></section>
+  </main>
+  <p class="foot">Answers are kept in this browser only. Keyboard: <kbd>A</kbd>–<kbd>D</kbd> to answer, <kbd>←</kbd> <kbd>→</kbd> to move.</p>
+</div>
+
+<div id="store" aria-hidden="true">
+  <article class="card panel" id="intro" tabindex="-1">
+    <header class="q-head"><span class="role">How it works</span></header>
+    <h2>30 questions on Topics 5–8</h2>
+    <ul class="how">
+      <li>Click an answer. It is marked right or wrong, and the next question comes up.</li>
+      <li>The question you just answered stays on screen next to the new one.</li>
+      <li>Use the numbered bubbles to jump to any question, or Next to skip one.</li>
+      
+    </ul>
+  </article>
+  <article class="card panel" id="summary" tabindex="-1">
+    <header class="q-head"><span class="role">Results</span></header>
+    <p class="score" id="s-score"></p>
+    <p class="score-sub" id="s-sub"></p>
+    <div class="topics" id="s-topics"></div>
+    <div class="review" id="s-review"></div>
+    <div><button type="button" class="btn" id="reset2">Start over</button></div>
+  </article>
+</div>
+<div id="live" class="sr" aria-live="polite"></div>
+
+<script>
+(() => {
+const DATA = {"slug": "mock-exam-2", "questions": [{"tag": "Topic 5", "title": "z-scores and the standard normal distribution", "stem": "In a cognitive task the mean is 62.9 with $\\sigma = 2.5$. A participant scores 58.4. What is the $z$-score?", "opts": ["$1.80$", "$-1.60$", "$-1.80$", "$1.50$"], "key": 2}, {"tag": "Topic 5", "title": "z-scores and the standard normal distribution", "stem": "A measure has $\\mu = 132$ and $\\sigma = 5.2$. An individual scores 145. What is the $z$-score?", "opts": ["$2.45$", "$2.50$", "$2.75$", "$3.00$"], "key": 1}, {"tag": "Topic 5", "title": "z-scores and the standard normal distribution", "stem": "On a behavioral task the mean is 31.2 with $\\sigma = 2.4$. A participant scores 27.5. What is the $z$-score?", "opts": ["$-1.32$", "$-1.68$", "$1.12$", "$-1.54$"], "key": 3}, {"tag": "Topic 5", "title": "z-scores and the standard normal distribution", "stem": "A scale has $\\mu = 72.4$ and $\\sigma = 6.8$. A participant has $z = 1.35$. What is the raw score?", "opts": ["$81.90$", "$81.34$", "$90.00$", "$81.58$"], "key": 3}, {"tag": "Topic 5", "title": "z-scores and the standard normal distribution", "stem": "An exam has $\\mu = 105.6$ and $\\sigma = 4.2$. A student has $z = -2.15$. What is the raw score?", "opts": ["$96.87$", "$96.57$", "$95.40$", "$97.00$"], "key": 1}, {"tag": "Topic 5", "title": "z-scores and the standard normal distribution", "stem": "A student's score gives $z = -1.0$. What does that mean?", "opts": ["The score is one standard deviation below the mean", "The score is one point below the mean", "The student scored in the bottom 1% of the class", "The student's raw score is negative"], "key": 0}, {"tag": "Topic 5", "title": "z-scores and the standard normal distribution", "stem": "According to the Empirical Rule, roughly what percentage of a normal distribution lies within <em>two<\/em> standard deviations of the mean?", "opts": ["68%", "99.7%", "95%", "50%"], "key": 2}, {"tag": "Topic 5", "title": "z-scores and the standard normal distribution", "stem": "A set of reaction times is converted to $z$-scores. What are the mean and standard deviation of the resulting $z$-scores?", "opts": ["$M = 1$ and $s = 0$", "The same as the original reaction times", "$M = 0$ and $s = 1$", "$M = 100$ and $s = 15$"], "key": 2}, {"tag": "Topic 5", "title": "z-scores and the standard normal distribution", "stem": "Student A scores 78 on a test with $\\mu = 70$, $\\sigma = 4$. Student B scores 85 on a test with $\\mu = 75$, $\\sigma = 8$. Who did better relative to their own distribution?", "opts": ["Student A, whose $z$ of 2.00 beats Student B's 1.25", "Student B, whose raw score is 7 points higher", "They performed equally well", "They cannot be compared, because the tests differ"], "key": 0}, {"tag": "Topic 6", "title": "Probability", "stem": "Two fair six-sided dice are rolled. What is the probability the sum equals 7?", "opts": ["$5/36$", "$1/12$", "$1/3$", "$1/6$"], "key": 3}, {"tag": "Topic 6", "title": "Probability", "stem": "A fair coin is flipped three times. What is the probability of getting all heads?", "opts": ["$3/8$", "$1/8$", "$1/3$", "$1/6$"], "key": 1}, {"tag": "Topic 6", "title": "Probability", "stem": "Of 50 participants, 30 are female, and 18 of those reported high stress. Given that a participant is female, what is the probability they reported high stress?", "opts": ["$0.60$", "$0.36$", "$0.54$", "$0.10$"], "key": 0}, {"tag": "Topic 6", "title": "Probability", "stem": "A bag holds 4 green and 6 yellow marbles. One is drawn at random. What is $P(\\text{green})$?", "opts": ["$0.60$", "$4.00$", "$0.40$", "$1/6$"], "key": 2}, {"tag": "Topic 6", "title": "Probability", "stem": "A fair six-sided die is rolled once. What is the probability of <em>not<\/em> rolling a number greater than 4?", "opts": ["$2/6$", "$4/6$", "$5/6$", "$1/6$"], "key": 1}, {"tag": "Topic 6", "title": "Probability", "stem": "A student says: “Either I pass this exam or I fail it — two outcomes — so my chance of passing is 50%.” Which mistake is that?", "opts": ["The gambler's fallacy: past results changing future probabilities", "Sampling error: the sample differing from the population", "Confusing a $z$-score with an area under the curve", "The equiprobability fallacy: two possible outcomes need not be equally likely"], "key": 3}, {"tag": "Topic 6", "title": "Probability", "stem": "A fair die has come up 6 on each of the last four rolls. What is the probability the next roll is a 6?", "opts": ["Less than $1/6$, because four 6s is already too many", "More than $1/6$, because this die evidently favors 6", "It cannot be determined without rolling further", "$1/6$, because the die has no memory of earlier rolls"], "key": 3}, {"tag": "Topic 7", "title": "Sampling distributions", "stem": "Why is the sample mean called an <em>unbiased<\/em> estimator of the population mean?", "opts": ["It is never pulled off course by outliers", "Across all possible samples, the mean of its sampling distribution equals $\\mu$", "It equals $\\mu$ in every individual sample", "It is computed with $n-1$ in the denominator"], "key": 1}, {"tag": "Topic 7", "title": "Sampling distributions", "stem": "A researcher wants a sample statistic that will not systematically over- or under-shoot the value it estimates. Which one does that?", "opts": ["The sample mean", "The sample range", "The largest score in the sample", "The sample variance computed by dividing by $n$"], "key": 0}, {"tag": "Topic 7", "title": "Sampling distributions", "stem": "A population has $\\sigma = 18$. What is the standard error of the mean for samples of $n = 9$?", "opts": ["$2$", "$18$", "$6$", "$3$"], "key": 2}, {"tag": "Topic 7", "title": "Sampling distributions", "stem": "A researcher doubles the sample size. What happens to the standard error of the mean?", "opts": ["It gets larger, because a bigger sample carries more variability", "It is unchanged, provided $\\sigma$ is unchanged", "It gets smaller, so the sample means cluster more tightly around $\\mu$", "It becomes equal to $\\sigma$"], "key": 2}, {"tag": "Topic 7", "title": "Sampling distributions", "stem": "A sampling distribution is best described as the distribution of:", "opts": ["a statistic, such as the mean, across all samples of a given size", "the scores in one particular sample", "the scores in the whole population", "the errors a researcher makes when sampling"], "key": 0}, {"tag": "Topic 7", "title": "Sampling distributions", "stem": "If you drew every possible sample of size $n$ and averaged all their means, what would you get?", "opts": ["zero", "the standard error", "the mean of whichever sample was largest", "the population mean $\\mu$"], "key": 3}, {"tag": "Topic 7", "title": "Sampling distributions", "stem": "Which statement correctly separates a standard deviation from a standard error?", "opts": ["They are two names for the same quantity", "A standard deviation describes spread among scores; a standard error describes spread of a statistic across samples", "A standard error describes scores; a standard deviation describes sample means", "A standard error is always the larger of the two"], "key": 1}, {"tag": "Topic 7", "title": "Sampling distributions", "stem": "If a sample variance is computed by dividing the sum of squares by $n$ rather than $n-1$, the result is:", "opts": ["biased, and tends to underestimate $\\sigma^2$", "biased, and tends to overestimate $\\sigma^2$", "unbiased, but less precise", "identical, since the two divisors converge"], "key": 0}, {"tag": "Topic 8", "title": "Central Limit Theorem", "stem": "According to the Central Limit Theorem, the standard deviation of the sampling distribution of the mean equals:", "opts": ["$\\sigma$", "$\\sigma / n$", "$\\sigma / \\sqrt{n}$", "$\\sigma^2 / n$"], "key": 2}, {"tag": "Topic 8", "title": "Central Limit Theorem", "stem": "Reaction times in a population are strongly right-skewed. A researcher draws samples of $n = 4$. May the sampling distribution of the mean be treated as normal?", "opts": ["Yes — the theorem applies at any sample size", "No — with a skewed population and a sample that small, the theorem does not yet apply", "Yes — because a mean is always normally distributed", "It cannot be decided without knowing $\\sigma$"], "key": 1}, {"tag": "Topic 8", "title": "Central Limit Theorem", "stem": "As sample size increases, the Central Limit Theorem says the sampling distribution of the mean:", "opts": ["becomes wider", "shifts away from the population mean", "becomes identical to the population distribution", "approaches a normal distribution"], "key": 3}, {"tag": "Topic 8", "title": "Central Limit Theorem", "stem": "A population has $\\mu = 500$ and $\\sigma = 100$. What is the standard error of the mean for samples of $n = 25$?", "opts": ["$4$", "$100$", "$5$", "$20$"], "key": 3}, {"tag": "Topic 8", "title": "Central Limit Theorem", "stem": "With $\\mu = 500$ and a standard error of 20, what is the $z$-score for a sample mean of 535?", "opts": ["$0.35$", "$1.75$", "$35.0$", "$2.00$"], "key": 1}, {"tag": "Topic 8", "title": "Central Limit Theorem", "stem": "Does the Central Limit Theorem require the population to be normally distributed?", "opts": ["No — that is precisely why it is useful", "Yes — it applies only to normal populations", "Yes, unless sampling is done with replacement", "Only when the sample size is below 30"], "key": 0}], "topics": [{"tag": "Topic 5", "short": "T5", "title": "z-scores and the standard normal distribution", "first": 1, "last": 9}, {"tag": "Topic 6", "short": "T6", "title": "Probability", "first": 10, "last": 16}, {"tag": "Topic 7", "short": "T7", "title": "Sampling distributions", "first": 17, "last": 24}, {"tag": "Topic 8", "short": "T8", "title": "Central Limit Theorem", "first": 25, "last": 30}]};
+const Q = DATA.questions, N = Q.length, L = 'ABCD';
+const PAPER = Q.map(q => L[q.key]).join('');
+const SAVE = 'psyc220:' + DATA.slug;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = id => document.getElementById(id);
+const slotPrev = $('slot-prev'), slotCur = $('slot-cur'), store = $('store');
+const intro = $('intro'), summary = $('summary'), live = $('live');
+const CHECK = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.6 3.6 7.4-8.2" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const CROSS = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
+
+let answers = Array(N).fill(null), cur = 1, timer = 0;
+try {
+  const s = JSON.parse(localStorage.getItem(SAVE) || 'null');
+  if (s && s.paper === PAPER && Array.isArray(s.answers) && s.answers.length === N) {
+    answers = s.answers;
+    cur = Math.min(Math.max(1, s.cur | 0), N + 1);
+  }
+} catch (e) {}
+const save = () => { try { localStorage.setItem(SAVE, JSON.stringify({ paper: PAPER, answers, cur })); } catch (e) {} };
+const result = i => answers[i] === null ? '' : answers[i] === Q[i].key ? 'right' : 'wrong';
+
+// ---- build every card once, so MathJax typesets each one exactly once ----
+const cards = Q.map((q, i) => {
+  const el = document.createElement('article');
+  el.className = 'card q';
+  el.tabIndex = -1;
+  el.innerHTML =
+    `<header class="q-head"><span class="role"></span>` +
+    `<span class="num">Question ${i + 1}<span class="of"> of ${N}</span></span>` +
+    `<span class="topic"><b>${q.tag}</b> · ${q.title}</span>` +
+    `<span class="verdict" hidden></span></header>` +
+    `<p class="stem">${q.stem}</p><ol class="opts">` +
+    q.opts.map((o, j) =>
+      `<li><button type="button" class="opt" data-j="${j}">` +
+      `<span class="bubble">${L[j]}</span><span class="text">${o}</span>` +
+      `<span class="mark"></span><span class="sr"></span></button></li>`).join('') +
+    `</ol>`;
+  el.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => choose(i, +b.dataset.j)));
+  store.append(el);
+  return el;
+});
+
+const dots = [];
+for (const t of DATA.topics) {
+  const g = document.createElement('div');
+  g.className = 'grp';
+  g.innerHTML = `<span class="grp-label" title="${t.tag} · ${t.title}">${t.short}</span><div class="dots"></div>`;
+  for (let n = t.first; n <= t.last; n++) {
+    const d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'dot';
+    d.textContent = n;
+    d.addEventListener('click', () => go(n));
+    g.lastChild.append(d);
+    dots[n - 1] = d;
+  }
+  $('sheet').append(g);
+}
+
+// ---- painting -------------------------------------------------------------
+function paint(i) {
+  const el = cards[i], a = answers[i], k = Q[i].key, done = a !== null;
+  el.classList.toggle('done', done);
+  el.querySelectorAll('.opt').forEach((b, j) => {
+    const isKey = done && j === k, isPick = done && j === a;
+    b.classList.toggle('key', isKey);
+    b.classList.toggle('miss', isPick && !isKey);
+    b.querySelector('.mark').innerHTML = isKey ? CHECK : isPick ? CROSS : '';
+    b.querySelector('.sr').textContent =
+      isKey ? (isPick ? ', your answer, correct' : ', the correct answer')
+            : isPick ? ', your answer, incorrect' : '';
+  });
+  const v = el.querySelector('.verdict');
+  v.className = 'verdict ' + result(i);
+  v.innerHTML = !done ? 'Not answered'
+    : a === k ? CHECK + 'Correct' : CROSS + 'Incorrect · answer ' + L[k];
+  v.hidden = !done && !el.classList.contains('is-prev');
+}
+
+function paintSheet() {
+  dots.forEach((d, i) => {
+    const r = result(i);
+    d.className = 'dot' + (r ? ' ' + r : '');
+    d.setAttribute('aria-label', `Question ${i + 1}` + (r === 'right' ? ', correct' : r === 'wrong' ? ', incorrect' : ''));
+    if (i === cur - 1) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current');
+  });
+  const done = answers.filter(a => a !== null).length;
+  const right = answers.filter((a, i) => a !== null && a === Q[i].key).length;
+  $('tally').innerHTML = done ? `<b>${right}</b> of ${done} correct` : `${N} questions`;
+  $('back').disabled = cur === 1;
+  $('next').disabled = cur > N;
+  $('reset').disabled = done === 0;
+}
+
+function paintSummary() {
+  const right = answers.filter((a, i) => a !== null && a === Q[i].key).length;
+  const skipped = answers.filter(a => a === null).length;
+  $('s-score').textContent = `${right} of ${N} correct`;
+  $('s-sub').textContent = skipped ? `${skipped} not answered` : `${Math.round(100 * right / N)} percent`;
+  $('s-topics').innerHTML = DATA.topics.map(t => {
+    let r = 0;
+    for (let n = t.first; n <= t.last; n++) if (result(n - 1) === 'right') r++;
+    const of = t.last - t.first + 1;
+    return `<span class="t-name"><b>${t.short}</b>${t.title}</span>` +
+           `<span class="meter" role="img" aria-label="${r} of ${of}"><i style="width:${100 * r / of}%"></i></span>` +
+           `<span class="t-n">${r} / ${of}</span>`;
+  }).join('');
+  const redo = Q.map((_, i) => i).filter(i => result(i) !== 'right');
+  const box = $('s-review');
+  box.textContent = '';
+  if (redo.length) {
+    box.append(document.createTextNode('Review:'));
+    for (const i of redo) {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'dot ' + result(i);
+      d.textContent = i + 1;
+      d.setAttribute('aria-label', `Go to question ${i + 1}`);
+      d.addEventListener('click', () => go(i + 1));
+      box.append(d);
+    }
+  }
+}
+
+// ---- placing two cards on the stage --------------------------------------
+function place(dir) {
+  const left = cur === 1 ? intro : cards[cur - 2];
+  const right = cur > N ? summary : cards[cur - 1];
+  if (right === summary) paintSummary();
+  const animate = dir && !reduce;
+  const first = new Map();
+  if (animate) for (const el of [left, right])
+    if (el.parentElement === slotPrev || el.parentElement === slotCur) first.set(el, el.getBoundingClientRect());
+  // Fast clicking can start a move before the last one ends; finish it first.
+  for (const el of [left, right]) el.getAnimations().forEach(a => a.cancel());
+  for (const slot of [slotPrev, slotCur])
+    for (const el of [...slot.children]) if (el !== left && el !== right) store.append(el);
+  slotPrev.append(left);
+  slotCur.append(right);
+  for (const [el, isPrev] of [[left, true], [right, false]]) {
+    el.classList.toggle('is-prev', isPrev);
+    const i = cards.indexOf(el);
+    if (i < 0) continue;
+    el.querySelector('.role').textContent = isPrev ? 'Previous' : 'Now';
+    el.querySelectorAll('.opt').forEach(b => { b.disabled = isPrev || answers[i] !== null; });
+    paint(i);
+  }
+  if (animate) for (const el of [left, right]) {
+    const f = first.get(el);
+    if (f) {
+      const l = el.getBoundingClientRect(), dx = f.left - l.left, dy = f.top - l.top;
+      if (dx || dy) el.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }],
+                               { duration: 420, easing: 'cubic-bezier(.2, .8, .2, 1)' });
+    } else {
+      el.animate([{ opacity: 0, transform: `translateX(${dir * 28}px)` }, { opacity: 1, transform: 'none' }],
+                 { duration: 320, delay: 90, easing: 'cubic-bezier(.2, .8, .2, 1)', fill: 'backwards' });
+    }
+  }
+  paintSheet();
+}
+
+function go(n) {
+  clearTimeout(timer);
+  timer = 0;
+  n = Math.min(Math.max(1, n), N + 1);
+  if (n === cur) return;
+  const dir = Math.sign(n - cur), a = document.activeElement;
+  const hadFocus = a && a !== document.body && (slotPrev.contains(a) || slotCur.contains(a));
+  cur = n;
+  place(dir);
+  save();
+  const r = slotCur.getBoundingClientRect();
+  if (r.top < 0 || r.top > innerHeight * .6) slotCur.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  if (hadFocus) slotCur.firstElementChild.focus({ preventScroll: true });
+}
+
+function choose(i, j) {
+  if (i !== cur - 1 || answers[i] !== null || timer) return;
+  answers[i] = j;
+  cards[i].querySelectorAll('.opt').forEach(b => { b.disabled = true; });
+  paint(i);
+  paintSheet();
+  save();
+  live.textContent = j === Q[i].key ? `Question ${i + 1}: correct.`
+    : `Question ${i + 1}: incorrect. The answer is ${L[Q[i].key]}.`;
+  timer = setTimeout(() => go(i + 2), 750);
+}
+
+function resetAll() {
+  clearTimeout(timer);
+  timer = 0;
+  answers = Array(N).fill(null);
+  cards.forEach((_, i) => paint(i));
+  const dir = cur === 1 ? 0 : -1;
+  cur = 1;
+  place(dir);
+  save();
+  live.textContent = 'All answers cleared.';
+}
+
+// The viewer cannot show confirm(), so clearing takes a second click.
+for (const btn of [$('reset'), $('reset2')]) {
+  const label = btn.textContent;
+  let armed = 0;
+  btn.addEventListener('click', () => {
+    if (!armed) {
+      btn.textContent = 'Clear all answers?';
+      btn.classList.add('armed');
+      armed = setTimeout(() => { armed = 0; btn.textContent = label; btn.classList.remove('armed'); }, 4000);
+      return;
+    }
+    clearTimeout(armed);
+    armed = 0;
+    btn.textContent = label;
+    btn.classList.remove('armed');
+    resetAll();
+  });
+}
+
+$('back').addEventListener('click', () => go(cur - 1));
+$('next').addEventListener('click', () => go(cur + 1));
+document.addEventListener('keydown', e => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key.toLowerCase();
+  let j = -1;
+  if (k.length === 1) { j = 'abcd'.indexOf(k); if (j < 0) j = '1234'.indexOf(k); }
+  if (j >= 0) { if (cur <= N) choose(cur - 1, j); e.preventDefault(); return; }
+  // PageDown/PageUp are what most presentation clickers send.
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') { go(cur + 1); e.preventDefault(); }
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(cur - 1); e.preventDefault(); }
+});
+
+cards.forEach((_, i) => paint(i));
+place(0);
+})();
+</script>
+</body>
+</html>

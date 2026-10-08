@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PSYC 220 Mock Exam 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: a two-up stage -- the question just answered on the left, the live one
+   on the right -- under a strip of numbered answer-sheet bubbles. Stacks to one
+   column on a phone, live question first. */
+:root {
+  --paper: #edf0f4;
+  --card: #ffffff;
+  --sunk: #f6f8fa;
+  --ink: #18212d;
+  --muted: #586374;
+  --line: #d3d9e2;
+  --accent: #1f4fb8;
+  --accent-soft: #e3ebfa;
+  --right: #17713f;
+  --right-soft: #e1f1e7;
+  --wrong: #b42318;
+  --wrong-soft: #fbe5e2;
+  --on-mark: #ffffff;
+  --shadow: 0 1px 2px rgb(16 24 40 / .06), 0 10px 26px -14px rgb(16 24 40 / .22);
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --step--1: clamp(.8rem, .7rem + .25vw, 1rem);
+  --step-0: clamp(1rem, .7rem + .85vw, 1.6rem);
+  --step-1: clamp(1.25rem, .95rem + .9vw, 1.9rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1318; --card: #18202a; --sunk: #131a22; --ink: #e7ecf2;
+    --muted: #9aa6b5; --line: #2c3744; --accent: #8fb2ff; --accent-soft: #1c2944;
+    --right: #5cd193; --right-soft: #12301f; --wrong: #ff8f84; --wrong-soft: #3a1714;
+    --on-mark: #0e1318;
+    --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 28px -14px rgb(0 0 0 / .65);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1318; --card: #18202a; --sunk: #131a22; --ink: #e7ecf2;
+  --muted: #9aa6b5; --line: #2c3744; --accent: #8fb2ff; --accent-soft: #1c2944;
+  --right: #5cd193; --right-soft: #12301f; --wrong: #ff8f84; --wrong-soft: #3a1714;
+  --on-mark: #0e1318;
+  --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 28px -14px rgb(0 0 0 / .65);
+  color-scheme: dark;
+}
+
+html, body { background: var(--paper); color: var(--ink); }
+body { margin: 0; font-family: var(--f-body); font-size: var(--step-0); line-height: 1.4; }
+.wrap {
+  max-width: 1680px; margin-inline: auto; box-sizing: border-box;
+  padding-inline: clamp(16px, 2.5vw, 44px); padding-block: clamp(12px, 2vh, 26px) 28px;
+  display: grid; gap: clamp(12px, 2vh, 22px);
+}
+[hidden] { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---- top bar ---------------------------------------------------------- */
+.bar {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "title ctrl" "sheet sheet";
+  align-items: end; gap: 12px 24px;
+}
+.title { grid-area: title; min-width: 0; }
+.home { display: inline-block; margin-bottom: .35em; font: 600 var(--step--1)/1.3 var(--f-mono); color: var(--accent); text-decoration: none; }
+.home:hover { text-decoration: underline; }
+.eyebrow {
+  margin: 0; font: 600 var(--step--1)/1.3 var(--f-mono); color: var(--muted);
+  letter-spacing: .04em;
+}
+h1 { margin: .1em 0 0; font-size: var(--step-1); line-height: 1.1; text-wrap: balance; }
+.ctrl { grid-area: ctrl; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; justify-content: end; }
+.tally {
+  margin: 0 8px 0 0; font: 500 var(--step--1)/1 var(--f-mono); color: var(--muted);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.tally b { color: var(--ink); font-weight: 600; }
+.btn {
+  font: 700 var(--step--1)/1 var(--f-body); color: var(--ink);
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 8px;
+  padding: .6em .9em; cursor: pointer;
+}
+.btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.btn:disabled { color: var(--muted); cursor: default; opacity: .55; }
+.btn.quiet { background: transparent; }
+.btn.armed { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+
+.sheet { grid-area: sheet; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.grp { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.grp-label { font: 600 var(--step--1)/1 var(--f-mono); color: var(--muted); margin-right: 2px; }
+.dots { display: flex; flex-wrap: wrap; gap: 4px; }
+.dot {
+  font: 600 calc(var(--step--1) * .9)/1 var(--f-mono); font-variant-numeric: tabular-nums;
+  width: 2.3em; height: 1.6em; padding: 0; border-radius: 50%;
+  border: 1.5px solid var(--line); background: var(--card); color: var(--muted); cursor: pointer;
+}
+.dot:hover { border-color: var(--accent); color: var(--accent); }
+.dot.right { background: var(--right); border-color: var(--right); color: var(--on-mark); }
+.dot.wrong { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+.dot[aria-current="step"] { outline: 2.5px solid var(--accent); outline-offset: 2px; color: var(--ink); }
+.dot.right[aria-current="step"], .dot.wrong[aria-current="step"] { color: var(--on-mark); }
+
+/* ---- stage ------------------------------------------------------------ */
+.stage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 32px); align-items: start; }
+.slot { min-width: 0; }
+.card {
+  box-sizing: border-box; background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: clamp(16px, 1.8vw, 30px); display: grid; gap: .85em;
+}
+.slot-cur .card { box-shadow: var(--shadow), 0 0 0 3px var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.slot-prev .card { background: var(--sunk); }
+.card:focus { outline: none; }
+.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.q-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .35em .9em;
+  font: 600 var(--step--1)/1.25 var(--f-mono); color: var(--muted);
+}
+.role { text-transform: uppercase; letter-spacing: .09em; }
+.slot-cur .role { color: var(--accent); }
+.num { color: var(--ink); font-variant-numeric: tabular-nums; }
+.num .of { color: var(--muted); font-weight: 500; }
+.topic b { font-weight: 600; }
+.verdict {
+  margin-left: auto; display: inline-flex; align-items: center; gap: .35em;
+  padding: .3em .7em; border-radius: 999px; font: 700 var(--step--1)/1 var(--f-body);
+  background: transparent; color: var(--muted); border: 1.5px dashed var(--line);
+}
+.verdict svg { width: 1.05em; height: 1.05em; }
+.verdict.right { background: var(--right-soft); color: var(--right); border: 1.5px solid transparent; }
+.verdict.wrong { background: var(--wrong-soft); color: var(--wrong); border: 1.5px solid transparent; }
+
+.stem { margin: 0; text-wrap: pretty; }
+.opts { list-style: none; margin: 0; padding: 0; display: grid; gap: .45em; }
+.opt {
+  width: 100%; box-sizing: border-box; display: grid; grid-template-columns: auto minmax(0, 1fr) 1.2em;
+  align-items: center; gap: .7em; padding: .5em .75em; text-align: left;
+  font: inherit; line-height: 1.35; color: var(--ink); background: transparent;
+  border: 1.5px solid var(--line); border-radius: 10px; cursor: pointer;
+}
+.opt:disabled { cursor: default; }
+.opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.opt:hover:not(:disabled) .bubble { color: var(--accent); }
+.opt:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bubble {
+  display: inline-grid; place-items: center; width: 2.1em; height: 1.45em; border-radius: 50%;
+  border: 1.5px solid currentColor; color: var(--muted); font: 600 .75em/1 var(--f-mono);
+}
+.text { min-width: 0; overflow-wrap: anywhere; }
+.mark svg { display: block; width: 1.2em; height: 1.2em; }
+.done .opt { color: var(--muted); border-color: color-mix(in srgb, var(--line) 70%, transparent); }
+.done .opt.key { color: var(--ink); border-color: var(--right); background: var(--right-soft); }
+.done .opt.key .bubble { background: var(--right); border-color: var(--right); color: var(--on-mark); }
+.done .opt.key .mark { color: var(--right); }
+.done .opt.miss { color: var(--ink); border-color: var(--wrong); background: var(--wrong-soft); }
+.done .opt.miss .bubble { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+.done .opt.miss .mark { color: var(--wrong); }
+mjx-container { color: inherit; }
+
+/* ---- intro and results ------------------------------------------------ */
+.panel h2 { margin: 0; font-size: var(--step-1); line-height: 1.15; text-wrap: balance; }
+.how { margin: 0; padding-left: 1.1em; display: grid; gap: .4em; }
+.how li::marker { color: var(--muted); }
+kbd {
+  font: 600 .78em/1 var(--f-mono); padding: .2em .45em; border-radius: 5px;
+  border: 1.5px solid var(--line); border-bottom-width: 3px; background: var(--card);
+}
+.score { margin: 0; font-size: var(--step-1); font-weight: 700; font-variant-numeric: tabular-nums; }
+.score-sub { margin: -.4em 0 0; color: var(--muted); font-size: var(--step--1); }
+.topics { display: grid; grid-template-columns: minmax(0, auto) minmax(4rem, 1fr) auto; gap: .55em .9em; align-items: center; font-size: var(--step--1); }
+.topics .t-name b { font-family: var(--f-mono); font-weight: 600; margin-right: .4em; }
+.meter { height: .6em; border-radius: 999px; background: var(--line); overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--right); border-radius: inherit; }
+.topics .t-n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.review { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: var(--step--1); color: var(--muted); }
+.review .dot { font-size: var(--step--1); }
+.foot { margin: 0; font-size: var(--step--1); color: var(--muted); }
+
+#store { position: absolute; left: -300vw; top: 0; width: 46rem; visibility: hidden; pointer-events: none; }
+
+@media (max-width: 880px) {
+  .stage { grid-template-columns: minmax(0, 1fr); }
+  .slot-cur { order: -1; }
+}
+@media (max-width: 620px) {
+  .bar { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "ctrl" "sheet"; align-items: start; }
+  .ctrl { justify-content: start; }
+  .verdict { margin-left: 0; }
+}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$']] },
+  svg: { fontCache: 'global' },
+  // Equations sit inside the answer buttons; keep them out of the tab order.
+  options: { menuOptions: { settings: { inTabOrder: false } } }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <div class="title">
+      <a class="home" href="../mock_exams.html">← All mock exams</a>
+      <p class="eyebrow">PSYC 220 · Practice for Exam 3, Tuesday, October 13</p>
+      <h1>Mock Exam 3</h1>
+    </div>
+    <div class="ctrl">
+      <p class="tally" id="tally"></p>
+      <button type="button" class="btn" id="back" title="Previous question (←)">← Back</button>
+      <button type="button" class="btn" id="next" title="Next question (→)">Next →</button>
+      <button type="button" class="btn quiet" id="reset">Start over</button>
+    </div>
+    <nav class="sheet" id="sheet" aria-label="Jump to a question"></nav>
+  </header>
+  <main class="stage">
+    <section class="slot slot-prev" id="slot-prev" aria-label="Previous question"></section>
+    <section class="slot slot-cur" id="slot-cur" aria-label="Current question"></section>
+  </main>
+  <p class="foot">Answers are kept in this browser only. Keyboard: <kbd>A</kbd>–<kbd>D</kbd> to answer, <kbd>←</kbd> <kbd>→</kbd> to move.</p>
+</div>
+
+<div id="store" aria-hidden="true">
+  <article class="card panel" id="intro" tabindex="-1">
+    <header class="q-head"><span class="role">How it works</span></header>
+    <h2>30 questions on Topics 9–12</h2>
+    <ul class="how">
+      <li>Click an answer. It is marked right or wrong, and the next question comes up.</li>
+      <li>The question you just answered stays on screen next to the new one.</li>
+      <li>Use the numbered bubbles to jump to any question, or Next to skip one.</li>
+      
+    </ul>
+  </article>
+  <article class="card panel" id="summary" tabindex="-1">
+    <header class="q-head"><span class="role">Results</span></header>
+    <p class="score" id="s-score"></p>
+    <p class="score-sub" id="s-sub"></p>
+    <div class="topics" id="s-topics"></div>
+    <div class="review" id="s-review"></div>
+    <div><button type="button" class="btn" id="reset2">Start over</button></div>
+  </article>
+</div>
+<div id="live" class="sr" aria-live="polite"></div>
+
+<script>
+(() => {
+const DATA = {"slug": "mock-exam-3", "questions": [{"tag": "Topic 9", "title": "Hypothesis testing", "stem": "A researcher asks whether caffeine changes reaction time, where the population mean is $\\mu = 250$ ms. Which pair states the hypotheses correctly?", "opts": ["$H_0: \\mu \\neq 250$ and $H_A: \\mu = 250$", "$H_0: M = 250$ and $H_A: M \\neq 250$", "$H_0: \\mu &gt; 250$ and $H_A: \\mu &lt; 250$", "$H_0: \\mu = 250$ and $H_A: \\mu \\neq 250$"], "key": 3}, {"tag": "Topic 9", "title": "Hypothesis testing", "stem": "Why must $\\alpha$ be chosen before the data are examined?", "opts": ["Because the test statistic cannot be computed until $\\alpha$ is known", "Because $\\alpha$ is the probability that $H_0$ is true, which must be fixed first", "It need not be; $\\alpha$ can be chosen once the p-value is known", "So that the result cannot influence the rule for rejecting $H_0$"], "key": 3}, {"tag": "Topic 9", "title": "Hypothesis testing", "stem": "A researcher moves from $\\alpha = .05$ to $\\alpha = .01$. What does that change?", "opts": ["It takes weaker evidence to reject $H_0$", "It takes stronger evidence to reject $H_0$, and Type I errors become rarer", "It makes the null hypothesis more likely to be true", "It has no effect until the sample size changes"], "key": 1}, {"tag": "Topic 9", "title": "Hypothesis testing", "stem": "A study reports $p = .03$. That $.03$ is the probability of what?", "opts": ["Obtaining a result at least as extreme as this one, if $H_0$ were true", "The null hypothesis being true", "The alternative hypothesis being false", "Making a Type II error in this study"], "key": 0}, {"tag": "Topic 9", "title": "Hypothesis testing", "stem": "Four studies report p-values of $.002$, $.03$, $.04$ and $.09$, each tested at $\\alpha = .05$. How many are statistically significant?", "opts": ["Two", "Four", "Three", "One"], "key": 2}, {"tag": "Topic 9", "title": "Hypothesis testing", "stem": "A student writes: \"our test was not significant, so we proved there is no effect.\" What is wrong with that?", "opts": ["Nothing is wrong; that is what non-significance means", "The student should have said the alternative hypothesis was proved", "A non-significant result fails to reject $H_0$; it never proves $H_0$", "The error is only in the wording; the logic is correct"], "key": 2}, {"tag": "Topic 9", "title": "Hypothesis testing", "stem": "A student tests $M = 92$ against $\\mu = 80$ with $\\sigma = 20$ and $n = 25$, computing $z = (92 - 80) / 20 = 0.60$. What is wrong?", "opts": ["They divided by $\\sigma$ rather than the standard error $\\sigma/\\sqrt{n}$; $z = 3.00$", "They should have divided by $n$; $z = 0.48$", "They should have used $s$ rather than $\\sigma$", "Nothing; the calculation is correct"], "key": 0}, {"tag": "Topic 9", "title": "Hypothesis testing", "stem": "A critical value of $z = 1.645$ marks the rejection region for which test?", "opts": ["A two-tailed test at $\\alpha = .05$", "A two-tailed test at $\\alpha = .01$", "A one-tailed test at $\\alpha = .01$", "A one-tailed test at $\\alpha = .05$"], "key": 3}, {"tag": "Topic 10", "title": "Statistical errors and effect size", "stem": "A drug truly has no effect, but a trial reports that it works. Which error is that?", "opts": ["A Type II error", "A Type I error", "A sampling error", "A measurement error"], "key": 1}, {"tag": "Topic 10", "title": "Statistical errors and effect size", "stem": "A drug truly does work, but a trial fails to detect it. Which error is that?", "opts": ["A Type II error", "A Type I error", "An error of measurement", "No error; the trial was simply correct"], "key": 0}, {"tag": "Topic 10", "title": "Statistical errors and effect size", "stem": "A test has $\\beta = .10$. What is its statistical power?", "opts": ["$.10$", "$.05$", "$.90$", "$1.10$"], "key": 2}, {"tag": "Topic 10", "title": "Statistical errors and effect size", "stem": "Which is a legitimate way to increase the power of a planned study?", "opts": ["Raise alpha after seeing that the result just missed significance", "Recruit a larger sample before any data are collected", "Drop the participants whose scores weaken the effect", "Run the test repeatedly until one comes out significant"], "key": 1}, {"tag": "Topic 10", "title": "Statistical errors and effect size", "stem": "A researcher runs a study, finds $p = .07$, adds 20 more participants, retests, and reports $p = .04$ without mentioning the first test. What is this?", "opts": ["Good practice, because a larger sample is always better", "A Type II error", "Acceptable, because the final p-value is below .05", "This is p-hacking: the reported p-value understates the true false-positive rate"], "key": 3}, {"tag": "Topic 10", "title": "Statistical errors and effect size", "stem": "Two groups differ by a Cohen's d of $0.50$ and the pooled standard deviation is 12. How far apart are the group means?", "opts": ["$24$ points", "$0.04$ points", "$12.5$ points", "$6$ points"], "key": 3}, {"tag": "Topic 10", "title": "Statistical errors and effect size", "stem": "Why report an effect size alongside a p-value?", "opts": ["Because the effect size is a more reliable test of significance", "The p-value says whether an effect is detectable; the effect size says whether it is large enough to matter", "Because journals require two statistics for every test", "Because the effect size corrects the p-value for sample size"], "key": 1}, {"tag": "Topic 11", "title": "Confidence intervals", "stem": "A report gives a mean of 50 with a 95 percent confidence interval of 44 to 56. What does the interval tell a reader that the mean alone does not?", "opts": ["How precise the estimate is, and which values for $\\mu$ remain plausible", "The range covering 95 percent of the individual scores", "The probability that the study will replicate", "The size of the effect that was found"], "key": 0}, {"tag": "Topic 11", "title": "Confidence intervals", "stem": "A student says: \"the 95 percent interval is 10 to 20, so there is a 95 percent chance $\\mu$ is between 10 and 20.\" What is the flaw?", "opts": ["The interval should have been centered on zero", "There is no flaw; that is what a confidence interval means", "The 95 percent describes the procedure across samples, not this one interval", "The student should have used a 99 percent interval"], "key": 2}, {"tag": "Topic 11", "title": "Confidence intervals", "stem": "In $M \\pm z^{\\ast}\\left(\\sigma / \\sqrt{n}\\right)$, which part is the point estimate?", "opts": ["$z^{\\ast}$", "$\\sigma / \\sqrt{n}$", "$M$", "$z^{\\ast}\\left(\\sigma / \\sqrt{n}\\right)$"], "key": 2}, {"tag": "Topic 11", "title": "Confidence intervals", "stem": "A confidence interval is built with $z^{\\ast} = 1.96$. What confidence level is that?", "opts": ["95 percent", "99 percent", "90 percent", "98 percent"], "key": 0}, {"tag": "Topic 11", "title": "Confidence intervals", "stem": "A 95 percent confidence interval runs from $46.08$ to $53.92$. What are the sample mean and the margin of error?", "opts": ["$M = 50.00$ and a margin of error of $7.84$", "$M = 46.08$ and a margin of error of $3.92$", "$M = 53.92$ and a margin of error of $7.84$", "$M = 50.00$ and a margin of error of $3.92$"], "key": 3}, {"tag": "Topic 11", "title": "Confidence intervals", "stem": "Study A uses $n = 25$ and study B uses $n = 100$, with the same $\\sigma$ and the same confidence level. How do their intervals compare?", "opts": ["B's interval is wider, because a larger sample covers more scores", "A's interval is wider, because a smaller sample has a larger standard error", "The intervals are the same width, because the confidence level is the same", "A's interval is wider, because small samples use a larger $z^{\\ast}$"], "key": 1}, {"tag": "Topic 11", "title": "Confidence intervals", "stem": "A two-tailed test of $H_0: \\mu = 100$ at $\\alpha = .05$ retains the null hypothesis. What does that imply about the 95 percent confidence interval?", "opts": ["100 lies inside it", "100 lies outside it", "The interval is centered on 100", "Nothing; the interval and the test are unrelated"], "key": 0}, {"tag": "Topic 12", "title": "The one-sample t-test", "stem": "A researcher knows the population mean but not the population standard deviation, and has a sample of 20 scores. Which test applies?", "opts": ["A one-sample $z$-test", "No test is possible without $\\sigma$", "A one-sample $t$-test", "Either test; they give the same answer"], "key": 2}, {"tag": "Topic 12", "title": "The one-sample t-test", "stem": "Compared with the standard normal curve, a $t$-distribution with $df = 3$ is:", "opts": ["taller at the peak and lighter in the tails", "lower at the peak and heavier in the tails", "identical in shape", "shifted to the left"], "key": 1}, {"tag": "Topic 12", "title": "The one-sample t-test", "stem": "A student computes the estimated standard error for $s = 20$ and $n = 25$ as $s_M = 20 / 25 = 0.8$. What went wrong?", "opts": ["They should have divided by $n - 1$; $s_M = 0.83$", "They should have used $\\sigma$ rather than $s$", "Nothing; the calculation is correct", "They divided by $n$ instead of $\\sqrt{n}$; $s_M = 4$"], "key": 3}, {"tag": "Topic 12", "title": "The one-sample t-test", "stem": "Which quantity belongs in the denominator of a one-sample $t$-statistic?", "opts": ["The sample standard deviation", "The population standard deviation", "The sample size", "The estimated standard error of the mean"], "key": 3}, {"tag": "Topic 12", "title": "The one-sample t-test", "stem": "Two tests both use $n = 16$ at $\\alpha = .05$, one one-tailed and one two-tailed. Which has the larger critical value, and why?", "opts": ["The one-tailed test ($1.753$ against $2.131$), because all 5 percent is in one tail", "The two-tailed test ($2.131$ against $1.753$), because the 5 percent is split between two tails", "Neither; the critical value depends only on $df$", "The two-tailed test, because it uses twice the degrees of freedom"], "key": 1}, {"tag": "Topic 12", "title": "The one-sample t-test", "stem": "A one-sample test reports $s_M = 2$ with $df = 8$. What were the sample size and the sample standard deviation?", "opts": ["$n = 9$ and $s = 6$", "$n = 8$ and $s = 6$", "$n = 9$ and $s = 2$", "$n = 16$ and $s = 8$"], "key": 0}, {"tag": "Topic 12", "title": "The one-sample t-test", "stem": "A one-sample test against $\\mu = 25$ gives $t = 2.00$ with an estimated standard error of $s_M = 3$. What was the sample mean?", "opts": ["$27$", "$50$", "$31$", "$28$"], "key": 2}, {"tag": "Topic 12", "title": "The one-sample t-test", "stem": "Three one-sample tests, all with $df = 15$ and one-tailed at $\\alpha = .05$ so that $t^{\\ast} = 1.753$, give $t = 1.20$, $t = 1.90$ and $t = 2.60$. In how many is $H_0$ rejected?", "opts": ["Three", "One", "Two", "None"], "key": 2}], "topics": [{"tag": "Topic 9", "short": "T9", "title": "Hypothesis testing", "first": 1, "last": 8}, {"tag": "Topic 10", "short": "T10", "title": "Statistical errors and effect size", "first": 9, "last": 15}, {"tag": "Topic 11", "short": "T11", "title": "Confidence intervals", "first": 16, "last": 22}, {"tag": "Topic 12", "short": "T12", "title": "The one-sample t-test", "first": 23, "last": 30}]};
+const Q = DATA.questions, N = Q.length, L = 'ABCD';
+const PAPER = Q.map(q => L[q.key]).join('');
+const SAVE = 'psyc220:' + DATA.slug;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = id => document.getElementById(id);
+const slotPrev = $('slot-prev'), slotCur = $('slot-cur'), store = $('store');
+const intro = $('intro'), summary = $('summary'), live = $('live');
+const CHECK = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.6 3.6 7.4-8.2" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const CROSS = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
+
+let answers = Array(N).fill(null), cur = 1, timer = 0;
+try {
+  const s = JSON.parse(localStorage.getItem(SAVE) || 'null');
+  if (s && s.paper === PAPER && Array.isArray(s.answers) && s.answers.length === N) {
+    answers = s.answers;
+    cur = Math.min(Math.max(1, s.cur | 0), N + 1);
+  }
+} catch (e) {}
+const save = () => { try { localStorage.setItem(SAVE, JSON.stringify({ paper: PAPER, answers, cur })); } catch (e) {} };
+const result = i => answers[i] === null ? '' : answers[i] === Q[i].key ? 'right' : 'wrong';
+
+// ---- build every card once, so MathJax typesets each one exactly once ----
+const cards = Q.map((q, i) => {
+  const el = document.createElement('article');
+  el.className = 'card q';
+  el.tabIndex = -1;
+  el.innerHTML =
+    `<header class="q-head"><span class="role"></span>` +
+    `<span class="num">Question ${i + 1}<span class="of"> of ${N}</span></span>` +
+    `<span class="topic"><b>${q.tag}</b> · ${q.title}</span>` +
+    `<span class="verdict" hidden></span></header>` +
+    `<p class="stem">${q.stem}</p><ol class="opts">` +
+    q.opts.map((o, j) =>
+      `<li><button type="button" class="opt" data-j="${j}">` +
+      `<span class="bubble">${L[j]}</span><span class="text">${o}</span>` +
+      `<span class="mark"></span><span class="sr"></span></button></li>`).join('') +
+    `</ol>`;
+  el.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => choose(i, +b.dataset.j)));
+  store.append(el);
+  return el;
+});
+
+const dots = [];
+for (const t of DATA.topics) {
+  const g = document.createElement('div');
+  g.className = 'grp';
+  g.innerHTML = `<span class="grp-label" title="${t.tag} · ${t.title}">${t.short}</span><div class="dots"></div>`;
+  for (let n = t.first; n <= t.last; n++) {
+    const d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'dot';
+    d.textContent = n;
+    d.addEventListener('click', () => go(n));
+    g.lastChild.append(d);
+    dots[n - 1] = d;
+  }
+  $('sheet').append(g);
+}
+
+// ---- painting -------------------------------------------------------------
+function paint(i) {
+  const el = cards[i], a = answers[i], k = Q[i].key, done = a !== null;
+  el.classList.toggle('done', done);
+  el.querySelectorAll('.opt').forEach((b, j) => {
+    const isKey = done && j === k, isPick = done && j === a;
+    b.classList.toggle('key', isKey);
+    b.classList.toggle('miss', isPick && !isKey);
+    b.querySelector('.mark').innerHTML = isKey ? CHECK : isPick ? CROSS : '';
+    b.querySelector('.sr').textContent =
+      isKey ? (isPick ? ', your answer, correct' : ', the correct answer')
+            : isPick ? ', your answer, incorrect' : '';
+  });
+  const v = el.querySelector('.verdict');
+  v.className = 'verdict ' + result(i);
+  v.innerHTML = !done ? 'Not answered'
+    : a === k ? CHECK + 'Correct' : CROSS + 'Incorrect · answer ' + L[k];
+  v.hidden = !done && !el.classList.contains('is-prev');
+}
+
+function paintSheet() {
+  dots.forEach((d, i) => {
+    const r = result(i);
+    d.className = 'dot' + (r ? ' ' + r : '');
+    d.setAttribute('aria-label', `Question ${i + 1}` + (r === 'right' ? ', correct' : r === 'wrong' ? ', incorrect' : ''));
+    if (i === cur - 1) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current');
+  });
+  const done = answers.filter(a => a !== null).length;
+  const right = answers.filter((a, i) => a !== null && a === Q[i].key).length;
+  $('tally').innerHTML = done ? `<b>${right}</b> of ${done} correct` : `${N} questions`;
+  $('back').disabled = cur === 1;
+  $('next').disabled = cur > N;
+  $('reset').disabled = done === 0;
+}
+
+function paintSummary() {
+  const right = answers.filter((a, i) => a !== null && a === Q[i].key).length;
+  const skipped = answers.filter(a => a === null).length;
+  $('s-score').textContent = `${right} of ${N} correct`;
+  $('s-sub').textContent = skipped ? `${skipped} not answered` : `${Math.round(100 * right / N)} percent`;
+  $('s-topics').innerHTML = DATA.topics.map(t => {
+    let r = 0;
+    for (let n = t.first; n <= t.last; n++) if (result(n - 1) === 'right') r++;
+    const of = t.last - t.first + 1;
+    return `<span class="t-name"><b>${t.short}</b>${t.title}</span>` +
+           `<span class="meter" role="img" aria-label="${r} of ${of}"><i style="width:${100 * r / of}%"></i></span>` +
+           `<span class="t-n">${r} / ${of}</span>`;
+  }).join('');
+  const redo = Q.map((_, i) => i).filter(i => result(i) !== 'right');
+  const box = $('s-review');
+  box.textContent = '';
+  if (redo.length) {
+    box.append(document.createTextNode('Review:'));
+    for (const i of redo) {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'dot ' + result(i);
+      d.textContent = i + 1;
+      d.setAttribute('aria-label', `Go to question ${i + 1}`);
+      d.addEventListener('click', () => go(i + 1));
+      box.append(d);
+    }
+  }
+}
+
+// ---- placing two cards on the stage --------------------------------------
+function place(dir) {
+  const left = cur === 1 ? intro : cards[cur - 2];
+  const right = cur > N ? summary : cards[cur - 1];
+  if (right === summary) paintSummary();
+  const animate = dir && !reduce;
+  const first = new Map();
+  if (animate) for (const el of [left, right])
+    if (el.parentElement === slotPrev || el.parentElement === slotCur) first.set(el, el.getBoundingClientRect());
+  // Fast clicking can start a move before the last one ends; finish it first.
+  for (const el of [left, right]) el.getAnimations().forEach(a => a.cancel());
+  for (const slot of [slotPrev, slotCur])
+    for (const el of [...slot.children]) if (el !== left && el !== right) store.append(el);
+  slotPrev.append(left);
+  slotCur.append(right);
+  for (const [el, isPrev] of [[left, true], [right, false]]) {
+    el.classList.toggle('is-prev', isPrev);
+    const i = cards.indexOf(el);
+    if (i < 0) continue;
+    el.querySelector('.role').textContent = isPrev ? 'Previous' : 'Now';
+    el.querySelectorAll('.opt').forEach(b => { b.disabled = isPrev || answers[i] !== null; });
+    paint(i);
+  }
+  if (animate) for (const el of [left, right]) {
+    const f = first.get(el);
+    if (f) {
+      const l = el.getBoundingClientRect(), dx = f.left - l.left, dy = f.top - l.top;
+      if (dx || dy) el.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }],
+                               { duration: 420, easing: 'cubic-bezier(.2, .8, .2, 1)' });
+    } else {
+      el.animate([{ opacity: 0, transform: `translateX(${dir * 28}px)` }, { opacity: 1, transform: 'none' }],
+                 { duration: 320, delay: 90, easing: 'cubic-bezier(.2, .8, .2, 1)', fill: 'backwards' });
+    }
+  }
+  paintSheet();
+}
+
+function go(n) {
+  clearTimeout(timer);
+  timer = 0;
+  n = Math.min(Math.max(1, n), N + 1);
+  if (n === cur) return;
+  const dir = Math.sign(n - cur), a = document.activeElement;
+  const hadFocus = a && a !== document.body && (slotPrev.contains(a) || slotCur.contains(a));
+  cur = n;
+  place(dir);
+  save();
+  const r = slotCur.getBoundingClientRect();
+  if (r.top < 0 || r.top > innerHeight * .6) slotCur.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  if (hadFocus) slotCur.firstElementChild.focus({ preventScroll: true });
+}
+
+function choose(i, j) {
+  if (i !== cur - 1 || answers[i] !== null || timer) return;
+  answers[i] = j;
+  cards[i].querySelectorAll('.opt').forEach(b => { b.disabled = true; });
+  paint(i);
+  paintSheet();
+  save();
+  live.textContent = j === Q[i].key ? `Question ${i + 1}: correct.`
+    : `Question ${i + 1}: incorrect. The answer is ${L[Q[i].key]}.`;
+  timer = setTimeout(() => go(i + 2), 750);
+}
+
+function resetAll() {
+  clearTimeout(timer);
+  timer = 0;
+  answers = Array(N).fill(null);
+  cards.forEach((_, i) => paint(i));
+  const dir = cur === 1 ? 0 : -1;
+  cur = 1;
+  place(dir);
+  save();
+  live.textContent = 'All answers cleared.';
+}
+
+// The viewer cannot show confirm(), so clearing takes a second click.
+for (const btn of [$('reset'), $('reset2')]) {
+  const label = btn.textContent;
+  let armed = 0;
+  btn.addEventListener('click', () => {
+    if (!armed) {
+      btn.textContent = 'Clear all answers?';
+      btn.classList.add('armed');
+      armed = setTimeout(() => { armed = 0; btn.textContent = label; btn.classList.remove('armed'); }, 4000);
+      return;
+    }
+    clearTimeout(armed);
+    armed = 0;
+    btn.textContent = label;
+    btn.classList.remove('armed');
+    resetAll();
+  });
+}
+
+$('back').addEventListener('click', () => go(cur - 1));
+$('next').addEventListener('click', () => go(cur + 1));
+document.addEventListener('keydown', e => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key.toLowerCase();
+  let j = -1;
+  if (k.length === 1) { j = 'abcd'.indexOf(k); if (j < 0) j = '1234'.indexOf(k); }
+  if (j >= 0) { if (cur <= N) choose(cur - 1, j); e.preventDefault(); return; }
+  // PageDown/PageUp are what most presentation clickers send.
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') { go(cur + 1); e.preventDefault(); }
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(cur - 1); e.preventDefault(); }
+});
+
+cards.forEach((_, i) => paint(i));
+place(0);
+})();
+</script>
+</body>
+</html>
