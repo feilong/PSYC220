@@ -193,6 +193,27 @@ One more, not caught by the gate because it is instructor-facing rather than
 item text: `examlib.write()` is called with the column header **"Practised in"**
 by `build_exam2.py`. Use **"Practiced in"** from Exam 3 onward.
 
+## Real exams never go on the course website
+
+Settled 10/8. The Quarto site at feilong.github.io/PSYC220 is public, and so is
+this repo. **Mock exams may go on the site; real exams never do.** That covers
+the paper, the key and any interactive version. An interactive page carries its
+answer key in the page source, because it marks answers in the browser.
+
+| Paper          | Built by                     | Goes to                                                  |
+|----------------|------------------------------|----------------------------------------------------------|
+| Mock Exams 1–3 | `exams/build_interactive.py` | `quarto/mocks/`, published on the site                   |
+| Exam 3         | `exams/build_exam3.py`       | `exams/exam_3_interactive.html`, a local instructor copy |
+
+`exams/` is git-ignored, so the instructor copy never reaches GitHub either. Two
+guards enforce the rule:
+
+* `interactive.write()` refuses to write any paper not named "Mock…" inside a
+  Quarto project.
+* `build_interactive.py --check` fails if any file under `quarto/`, source or
+  `_site`, is a real exam's page or holds five or more of a real exam's
+  questions. Run it after rendering and before every push to `gh-pages`.
+
 ## Balance the answer key across all four positions
 
 **Every multiple-choice set — assignment, mock, or exam — must spread its
