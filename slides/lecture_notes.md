@@ -836,16 +836,20 @@ out for the Lecture 10 hang.
 
 ### Spring → Fall deck numbering
 
-| Spring deck                    | Fall     | Class             |
-|--------------------------------|----------|-------------------|
-| `Lecture_10_Hypothesis testing`| L11      | Tue 9/29          |
-| `Lecture_11_Statistical errors`| L12      | Thu 10/1          |
-| `Lecture_12_CI_t-test`         | L13 + L14| Tue 10/6, Thu 10/8| **split, done** |
+| Spring deck                             | Fall      | Class              | State                           |
+|-----------------------------------------|-----------|--------------------|---------------------------------|
+| `Lecture_10_Hypothesis testing`         | L11       | Tue 9/29           | done                            |
+| `Lecture_11_Statistical errors`         | L12       | Thu 10/1           | done                            |
+| `Lecture_12_CI_t-test`                  | L13 + L14 | Tue 10/6, Thu 10/8 | split, then merged into L13     |
+| `Lecture_13_dependent-samples t test`   | L14       | Tue 10/20          | built 10/19, renamed into place |
+| `Lecture_14_independent-samples t test` | L15       | Thu 10/22          | built 10/19, renamed into place |
+| `Lecture_15_t tests`                    | —         | Tue 10/27 review?  | not started                     |
 
-**Name collision:** `Lecture_13_dependent-samples t test.key` and
-`Lecture_14_independent-samples t test.key` are Spring files still using their
-own numbers, so `Lecture_13` and `Lecture_14` each match two decks. Guards must
-say `Lecture_13_Confidence` / `Lecture_14_One_sample`.
+**Name collision:** the two Spring t-test decks were renamed on 10/19, but
+`Lecture_14` still matches two files (`Lecture_14_Dependent-samples t-test` and
+the superseded `Lecture_14_One_sample_t_test`), and `Lecture_15` matches
+`Lecture_15_Independent-samples t-test` and Spring's `Lecture_15_t tests`.
+Guards must say `Lecture_14_Dependent` / `Lecture_15_Independent`.
 
 ## Lecture 13 — Confidence intervals and the one-sample t-test (Tue 10/6)
 
@@ -965,3 +969,104 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
   s_M = s/√n and say s stands in for σ, but A13 uses the name. Name it on slide 25.
   Exam 3 Q25–Q26 were reworded to "the standard error, computed with s in place of
   σ" (10/7).
+
+## Lecture 14 — Dependent-samples t-test (Tue 10/20)
+
+Built 10/19 from Spring's `Lecture_13_dependent-samples t test.key` (27 slides),
+renamed into place as `Lecture_14_Dependent-samples t-test.key`: 32 slides, 30
+exported. `slides/build_week10_decks.applescript L14` did it; the formula images
+come from `slides/make_t_test_equations.py`, which recomputes every number it
+prints. Checked against L13's titles first: Spring repeats only a short CI
+recap (slides 22–26), so nothing large was cut.
+
+| Slides | Content                                                                     |
+|--------|-----------------------------------------------------------------------------|
+| 1–3    | Title with topic line, This Week and Next (Weeks 10–11), recap of L13       |
+| 4–8    | Scenarios A and B: one-sample t-tests against μ₀ = 22, t = −4 and −6        |
+| 9–21   | Scenario C: difference scores, hypotheses, formulas, worked solution, names |
+| 22–31  | CI revisited, CIs with t, four error-bar charts                             |
+| 32     | Summary, bridging to L15                                                    |
+
+- **DONE (F26) — slide 14 says μ₀ is typically 0.** It writes H0: μD = μ0, but
+  slide 15's formulas (d = MD/sD, t = MD/sMD) test against 0 without saying so.
+  An italic line under the related-samples column now reads "μ₀ is typically 0:
+  no difference, on average". It is its own text box, because the hypotheses
+  above it carry real subscripts and any edit to that box risks flattening them.
+- **DONE (F26) — Scenario C is worked (slide 16).** Spring posed it and gave
+  the formulas but never computed it; the only numbers were on the CI chart.
+  MD = 2, SS = 48, sD = 4, sMD = 2, t = 1, df = 3, t* = ±3.182: retain H₀, with
+  d = 0.5. The formulas are a Computer Modern image with alt text, because
+  Helvetica Neue has no subscript D.
+- **DONE (F26) — "Confidence intervals with t" (slide 27).** The charts on 28–29
+  are built with t* = 3.182 (18 ± 3.182 × 1 = 14.82 to 21.18), but L13 built
+  CIs with z* only. The slide gives M ± t* × s/√n, works Scenarios A and C, and
+  states that a 95% CI matches a two-tailed test at α = .05. That is the L13
+  NEXT reminder, delivered this term. The recap (slide 3) says it too, and
+  states df = n − 1, the other L13 gap.
+- **DONE (F26) — slides 23–24 skipped, not deleted.** "Point estimate" repeats
+  L13 slide 8 almost verbatim, and 68–95–99.7 is L9/L10 material. Slide 25
+  stays: it states the test/interval equivalence that slide 27 relies on.
+- **DONE (F26) — text.** Every micro sign → μ, Latin ɑ → α, "t test" and
+  "z test" hyphenated (the space became the hyphen, so an italic t stays
+  italic), "α-level", df = 3 beside t* on slide 6, real minus signs in −4 and −6.
+- **DONE (F26) — alt text** on all 16 described objects, median 233 characters;
+  the t-table and the four charts state their numbers. The table on slide 13
+  now tags its header row.
+- **Every number recomputes.** A: M = 18, SS = 12, s = 2, sM = 1, t = −4,
+  p = .028. B: M = 16, t = −6, p = .009. C: t = 1, p = .39. CIs 14.82 to 21.18,
+  12.82 to 19.18 and −4.36 to 8.36.
+- **Say it aloud:** each pill differs significantly from 22 on its own, yet the
+  two do not differ from each other. The summary slide makes the point in
+  writing.
+- **NEXT — inline formulas on slides 6, 8 and 15 carry no alt text**
+  (HANDOFF pitfall 13). Spring's, unchanged.
+
+## Lecture 15 — Independent-samples t-test (Thu 10/22)
+
+Built 10/19 from Spring's `Lecture_14_independent-samples t test.key` (34
+slides, 5 already skipped), renamed into place as
+`Lecture_15_Independent-samples t-test.key`: 42 slides, 34 exported.
+`build_week10_decks.applescript L15`.
+
+| Slides | Content                                                                        |
+|--------|--------------------------------------------------------------------------------|
+| 1–3    | Title with topic line, This Week and Next, recap of L14                        |
+| 4–8    | The repeated-measures confound, Heraclitus, the smart-pill study (n = 5 vs. 4) |
+| 13–31  | Revisiting the one-sample test: SS, variance, the partition, pooled variance   |
+| 32–36  | Sum and difference of two normals; standard error of the difference            |
+| 37–42  | The t statistic, the smart pill in four steps, Cohen's d, which t-test         |
+
+- **DONE (F26) — the deck now finishes the test.** Spring stopped at the
+  standard-error formula; the computation lived in Spring's next deck
+  (`Lecture_15_t tests`), and Fall has no class for it. Slides 37–41: t =
+  (M1 − M2)/s(M1−M2) with df = n1 + n2 − 2; then the smart pill, with
+  M1 = 82, M2 = 80, SS 64 and 48, pooled variance 16, s(M1−M2) = √7.2 = 2.68,
+  t = 0.75, df = 7, t* = ±2.365, so retain H₀, and d = 2/4 = 0.50. scipy agrees
+  (t = 0.745, p = .48). The steps use L13's titles ("Step 3: Compute the
+  statistic", "Effect size: estimated Cohen's d").
+- **DONE (F26) — "Which t-test?" (slide 42)**, a table of design, H₀ and df for
+  all three tests. Exam 4's plan has six choosing-the-test items, and A16 is
+  that synthesis.
+- **DONE (F26) — the dumpster joke skipped (slides 10–12).** It runs in full in
+  L14 two days earlier; slide 13 keeps its thumbnail as the callback. One click
+  restores it.
+- **DONE (F26) — text.** 20 character fixes (micro signs, Latin alpha, "t test");
+  "an alpha level of 0.05" → "α-level"; "and is reflects" → "and reflects"
+  (slides 22–23); the two-sample partition's total reads "(n₁ + n₂ units of
+  variance)", not "(n units…)" (slides 24–25); section title 30 reads "Standard
+  error of the difference between two independent means" (it said "the mean
+  difference", which is the dependent-samples term).
+- **DONE (F26) — alt text** on all 10 described objects, median 335 characters.
+- **Flag — slides 17 and 18 disagree.** The SS histogram averages 84.10 around
+  the sample mean for n = 5, which is 21.03 per degree of freedom, but the
+  variance histogram reports 20.15 in both panels. They look like two separate
+  simulation runs, and 84.10 is also well above the 80 that σ² = 20 predicts.
+  The figures' source is not in this repo, so they were left as they are.
+- **Note — slide 35 repeats slide 32 word for word** ("What is the distribution
+  of the sum score…"). It works as a return to the question after slides 33–34,
+  but the answer (mean 40, SD 10, and the same SD for the difference) is only
+  spoken. Worth writing on the slide next time.
+- **NEXT — Spring's `Lecture_15_t tests.key`** has two practice problems on the
+  same five scores per group, one independent and one dependent. That is the
+  natural core of the Tue 10/27 review deck.
+
