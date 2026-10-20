@@ -973,8 +973,8 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
 ## Lecture 14 — Dependent-samples t-test (Tue 10/20)
 
 Built 10/19 from Spring's `Lecture_13_dependent-samples t test.key` (27 slides),
-renamed into place as `Lecture_14_Dependent-samples t-test.key`: 32 slides, 30
-exported. `slides/build_week10_decks.applescript L14` did it; the formula images
+renamed into place as `Lecture_14_Dependent-samples t-test.key`: 33 slides, 31
+exported (32 and 30 before the 10/20 textbook pass below). `slides/build_week10_decks.applescript L14` did it; the formula images
 come from `slides/make_t_test_equations.py`, which recomputes every number it
 prints. Checked against L13's titles first: Spring repeats only a short CI
 recap (slides 22–26), so nothing large was cut.
@@ -1020,12 +1020,28 @@ recap (slides 22–26), so nothing large was cut.
   writing.
 - **NEXT — inline formulas on slides 6, 8 and 15 carry no alt text**
   (HANDOFF pitfall 13). Spring's, unchanged.
+- **DONE (F26) — textbook pass, 10/20, before class.** Cote et al. Ch. 9 teaches
+  three things the deck did not, and Exam 4 now asks about each:
+  - **Direction (new slide 17, "Direction: one-tailed tests"):** one-tailed
+    alternatives μD > 0 and μD < 0, subtracting the same way for every pair,
+    and "lower can be better". Scenario C's own +2 (magic pill − placebo) is
+    the example: the pill left anxiety *higher*. A result on the wrong side of
+    a one-tailed HA cannot reject H₀.
+  - **Why pair (slide 13, and the summary):** "subtracting removes individual
+    differences: each person is compared with themselves". This is the
+    textbook's answer to its exercise 3.
+  - **Reporting (summary, slide 33):** t with its df, the p-value against α,
+    and d, as in t(3) = 1.00, p > .05, d = 0.50.
+
+  Exported page numbers after slide 16 moved up by one. Anything citing L14 p17
+  or later before 10/20 means the next page now.
 
 ## Lecture 15 — Independent-samples t-test (Thu 10/22)
 
 Built 10/19 from Spring's `Lecture_14_independent-samples t test.key` (34
 slides, 5 already skipped), renamed into place as
-`Lecture_15_Independent-samples t-test.key`: 42 slides, 34 exported.
+`Lecture_15_Independent-samples t-test.key`: 44 slides, 36 exported (42 and
+34 before the 10/20 textbook pass below).
 `build_week10_decks.applescript L15`.
 
 | Slides | Content                                                                        |
@@ -1069,4 +1085,19 @@ slides, 5 already skipped), renamed into place as
 - **NEXT — Spring's `Lecture_15_t tests.key`** has two practice problems on the
   same five scores per group, one independent and one dependent. That is the
   natural core of the Tue 10/27 review deck.
+- **DONE (F26) — textbook pass, 10/20.** Cote et al. Ch. 10 teaches four things
+  the deck did not, and Exam 4 now asks about each:
+  - **One-tailed tests and the t-table (new p31):** μ₁ − μ₂ > 0 or < 0, where
+    which sign is which depends on which group you call group 1. A df the
+    table skips takes the next lower row (df 45 → 40), which errs toward
+    retaining H₀.
+  - **CI for μ₁ − μ₂ (new p34):** the smart pill gives 2 ± 2.365 × 2.68, from
+    −4.34 to 8.34. It contains 0, the same decision as Step 4.
+  - **Pooled variance from s and n (p22):** two new bullets. Recover each SS as
+    s² × (n − 1), and note that the pooled variance always lies between the two
+    groups' variances.
+  - **Reporting (p35, the effect-size slide):** t(7) = 0.75, p > .05, d = 0.50.
+
+  Left out on purpose: homogeneity of variance and Welch's df (the book calls
+  them out of scope), and reading JASP/SPSS output, which no slide shows.
 
