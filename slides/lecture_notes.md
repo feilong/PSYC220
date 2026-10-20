@@ -1101,3 +1101,33 @@ slides, 5 already skipped), renamed into place as
   Left out on purpose: homogeneity of variance and Welch's df (the book calls
   them out of scope), and reading JASP/SPSS output, which no slide shows.
 
+## Notation pass: μ for the parameter, μ₀ for the null value (10/20)
+
+**M estimates μ; a test measures M − μ₀**, where μ₀ is the value H₀ states. The
+rule is in CLAUDE.md. L12 p28 (signal detection) had named the null mean μ₀ all
+along, and L14's Spring formulas wrote M − μ₀, but L12 and L13 wrote M − μ in
+nine formulas, so students met a silent switch on 10/20.
+
+| Deck | Pages         | Change                                                                                                       |
+|------|---------------|--------------------------------------------------------------------------------------------------------------|
+| L12  | p12, p20      | "μ₀ = 80, σ = 10, …"; σ_M and z = (M − μ₀)/σ_M re-rendered as an image                                       |
+| L12  | p50           | d = (M − μ₀)/s as an image; "Increasing … increases" (was "Increase … increase")                             |
+| L13  | p12, p24, p36 | the same givens line; z, t and d formulas re-rendered with μ₀                                                |
+| L13  | p25, p26      | both columns of z and t forms re-rendered; t/z = σ/s kept as it was                                          |
+| L13  | p38           | "Estimated d = (M − μ₀) / s"                                                                                 |
+| L14  | p3, p24       | recap "t = (M − μ₀) divided by it, where μ₀ is the value H₀ states"; the CI slide compares M with μ₀ ± z*σ_M |
+| L15  | p3, p29       | a Notation bullet in the recap; t = ((M₁ − M₂) − 0)/s_(M₁−M₂)                                                |
+
+- The L12/L13 formulas were **inline equations**, which no script can edit, so
+  they are now floating images from `slides/make_mu0_equations.py`, each with
+  alt text. The slides gained alt text they never had. Two of the new
+  descriptions are short ("σ sub M equals σ over the square root of n.") but
+  complete, so the audit's under-60 flag is expected there.
+- **Say it once in class:** "μ is the population mean we are estimating; μ₀ is
+  the value H₀ claims. Some books write μ in the formula and mean μ₀."
+- **Not changed:** A10–A13 and Exam 3 write (M − μ) and were already released.
+  Exam 4, Mock Exam 4 and A14–A16 never did, and `examlib.check_mu0()` now
+  refuses it in all five.
+- **NEXT — A13's builder** (`build_a12_a13.py`, Q3 and Q4) still writes (M − μ),
+  for next semester. The copy in `as_released/` stays as it was.
+

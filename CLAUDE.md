@@ -133,6 +133,34 @@ Keynote subscripts (the H at 42 pt, the digit at 28 pt), and setting
 `object text` rewrites the whole run at one size, flattening them. Every slide
 change involving these symbols is a Format inspector job.
 
+### μ for the parameter, μ₀ for the value H₀ states
+
+Settled 10/20. **M estimates μ, the unknown population mean. A test measures
+how far M lies from μ₀, the value H₀ states for μ:** z = (M − μ₀) / σ_M,
+t = (M − μ₀) / s_M, and the one-sample d = (M − μ₀) / s. Writing (M − μ) asks
+students to plug in a number they have just been told is unknown, and it blurs
+the CI–test link: the interval estimates μ, and H₀ is rejected exactly when μ₀
+falls outside it.
+
+μ stays wherever it really is the parameter: z-scores of raw scores
+(z = (X − μ) / σ), hypotheses (H₀: μ = 80), "the sampling distribution is
+centered on μ", "the CI captures μ", and L15's variance partition,
+Σ(M − μ)² = n(M − μ)². For two samples the value H₀ states is 0:
+H₀: μ_D = 0 with t = M_D / s_MD, and H₀: μ₁ − μ₂ = 0 with
+t = ((M₁ − M₂) − 0) / s_(M₁−M₂). The textbook writes μ (μ_D, μ₁ − μ₂) inside its
+formulas to mean the null value; L15's recap glosses that.
+
+| Where                      | State                                               |
+|----------------------------|-----------------------------------------------------|
+| L12 p28 (signal detection) | named the null mean μ₀ all along                    |
+| L12, L13                   | nine (M − μ) formulas re-rendered with μ₀, 10/20    |
+| L14, L15                   | μ₀ throughout                                       |
+| Exam 4, Mock 4, A14–A16    | μ₀ or a number; `examlib.check_mu0()` refuses M − μ |
+| A10–A13, Exam 3            | (M − μ); already released, left as they are         |
+
+L12 and L13's formulas were inline equations, which no script can edit, so
+they are now images from `slides/make_mu0_equations.py`, each with alt text.
+
 ### p vs P — they are two different things
 
 Settled 10/2 after auditing the decks. The casing depends on what the symbol
