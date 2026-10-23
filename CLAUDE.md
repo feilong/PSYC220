@@ -230,8 +230,9 @@ answer key in the page source, because it marks answers in the browser.
 
 | Paper          | Built by                     | Goes to                                                  |
 |----------------|------------------------------|----------------------------------------------------------|
-| Mock Exams 1–3 | `exams/build_interactive.py` | `quarto/mocks/`, published on the site                   |
+| Mock Exams 1–4 | `exams/build_interactive.py` | `quarto/mocks/`, published on the site                   |
 | Exam 3         | `exams/build_exam3.py`       | `exams/exam_3_interactive.html`, a local instructor copy |
+| Exam 4         | `exams/build_exam4.py`       | `exams/exam_4_interactive.html`, a local instructor copy |
 
 `exams/` is git-ignored, so the instructor copy never reaches GitHub either. Two
 guards enforce the rule:
