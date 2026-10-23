@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PSYC 220 Mock Exam 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: a two-up stage -- the question just answered on the left, the live one
+   on the right -- under a strip of numbered answer-sheet bubbles. Stacks to one
+   column on a phone, live question first. */
+:root {
+  --paper: #edf0f4;
+  --card: #ffffff;
+  --sunk: #f6f8fa;
+  --ink: #18212d;
+  --muted: #586374;
+  --line: #d3d9e2;
+  --accent: #1f4fb8;
+  --accent-soft: #e3ebfa;
+  --right: #17713f;
+  --right-soft: #e1f1e7;
+  --wrong: #b42318;
+  --wrong-soft: #fbe5e2;
+  --on-mark: #ffffff;
+  --shadow: 0 1px 2px rgb(16 24 40 / .06), 0 10px 26px -14px rgb(16 24 40 / .22);
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --step--1: clamp(.8rem, .7rem + .25vw, 1rem);
+  --step-0: clamp(1rem, .7rem + .85vw, 1.6rem);
+  --step-1: clamp(1.25rem, .95rem + .9vw, 1.9rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1318; --card: #18202a; --sunk: #131a22; --ink: #e7ecf2;
+    --muted: #9aa6b5; --line: #2c3744; --accent: #8fb2ff; --accent-soft: #1c2944;
+    --right: #5cd193; --right-soft: #12301f; --wrong: #ff8f84; --wrong-soft: #3a1714;
+    --on-mark: #0e1318;
+    --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 28px -14px rgb(0 0 0 / .65);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1318; --card: #18202a; --sunk: #131a22; --ink: #e7ecf2;
+  --muted: #9aa6b5; --line: #2c3744; --accent: #8fb2ff; --accent-soft: #1c2944;
+  --right: #5cd193; --right-soft: #12301f; --wrong: #ff8f84; --wrong-soft: #3a1714;
+  --on-mark: #0e1318;
+  --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 28px -14px rgb(0 0 0 / .65);
+  color-scheme: dark;
+}
+
+html, body { background: var(--paper); color: var(--ink); }
+body { margin: 0; font-family: var(--f-body); font-size: var(--step-0); line-height: 1.4; }
+.wrap {
+  max-width: 1680px; margin-inline: auto; box-sizing: border-box;
+  padding-inline: clamp(16px, 2.5vw, 44px); padding-block: clamp(12px, 2vh, 26px) 28px;
+  display: grid; gap: clamp(12px, 2vh, 22px);
+}
+[hidden] { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---- top bar ---------------------------------------------------------- */
+.bar {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "title ctrl" "sheet sheet";
+  align-items: end; gap: 12px 24px;
+}
+.title { grid-area: title; min-width: 0; }
+.home { display: inline-block; margin-bottom: .35em; font: 600 var(--step--1)/1.3 var(--f-mono); color: var(--accent); text-decoration: none; }
+.home:hover { text-decoration: underline; }
+.eyebrow {
+  margin: 0; font: 600 var(--step--1)/1.3 var(--f-mono); color: var(--muted);
+  letter-spacing: .04em;
+}
+h1 { margin: .1em 0 0; font-size: var(--step-1); line-height: 1.1; text-wrap: balance; }
+.ctrl { grid-area: ctrl; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; justify-content: end; }
+.tally {
+  margin: 0 8px 0 0; font: 500 var(--step--1)/1 var(--f-mono); color: var(--muted);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.tally b { color: var(--ink); font-weight: 600; }
+.btn {
+  font: 700 var(--step--1)/1 var(--f-body); color: var(--ink);
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 8px;
+  padding: .6em .9em; cursor: pointer;
+}
+.btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.btn:disabled { color: var(--muted); cursor: default; opacity: .55; }
+.btn.quiet { background: transparent; }
+.btn.armed { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+
+.sheet { grid-area: sheet; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.grp { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.grp-label { font: 600 var(--step--1)/1 var(--f-mono); color: var(--muted); margin-right: 2px; }
+.dots { display: flex; flex-wrap: wrap; gap: 4px; }
+.dot {
+  font: 600 calc(var(--step--1) * .9)/1 var(--f-mono); font-variant-numeric: tabular-nums;
+  width: 2.3em; height: 1.6em; padding: 0; border-radius: 50%;
+  border: 1.5px solid var(--line); background: var(--card); color: var(--muted); cursor: pointer;
+}
+.dot:hover { border-color: var(--accent); color: var(--accent); }
+.dot.right { background: var(--right); border-color: var(--right); color: var(--on-mark); }
+.dot.wrong { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+.dot[aria-current="step"] { outline: 2.5px solid var(--accent); outline-offset: 2px; color: var(--ink); }
+.dot.right[aria-current="step"], .dot.wrong[aria-current="step"] { color: var(--on-mark); }
+
+/* ---- stage ------------------------------------------------------------ */
+.stage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 32px); align-items: start; }
+.slot { min-width: 0; }
+.card {
+  box-sizing: border-box; background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: clamp(16px, 1.8vw, 30px); display: grid; gap: .85em;
+}
+.slot-cur .card { box-shadow: var(--shadow), 0 0 0 3px var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.slot-prev .card { background: var(--sunk); }
+.card:focus { outline: none; }
+.card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.q-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .35em .9em;
+  font: 600 var(--step--1)/1.25 var(--f-mono); color: var(--muted);
+}
+.role { text-transform: uppercase; letter-spacing: .09em; }
+.slot-cur .role { color: var(--accent); }
+.num { color: var(--ink); font-variant-numeric: tabular-nums; }
+.num .of { color: var(--muted); font-weight: 500; }
+.topic b { font-weight: 600; }
+.verdict {
+  margin-left: auto; display: inline-flex; align-items: center; gap: .35em;
+  padding: .3em .7em; border-radius: 999px; font: 700 var(--step--1)/1 var(--f-body);
+  background: transparent; color: var(--muted); border: 1.5px dashed var(--line);
+}
+.verdict svg { width: 1.05em; height: 1.05em; }
+.verdict.right { background: var(--right-soft); color: var(--right); border: 1.5px solid transparent; }
+.verdict.wrong { background: var(--wrong-soft); color: var(--wrong); border: 1.5px solid transparent; }
+
+.stem { margin: 0; text-wrap: pretty; }
+.opts { list-style: none; margin: 0; padding: 0; display: grid; gap: .45em; }
+.opt {
+  width: 100%; box-sizing: border-box; display: grid; grid-template-columns: auto minmax(0, 1fr) 1.2em;
+  align-items: center; gap: .7em; padding: .5em .75em; text-align: left;
+  font: inherit; line-height: 1.35; color: var(--ink); background: transparent;
+  border: 1.5px solid var(--line); border-radius: 10px; cursor: pointer;
+}
+.opt:disabled { cursor: default; }
+.opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.opt:hover:not(:disabled) .bubble { color: var(--accent); }
+.opt:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bubble {
+  display: inline-grid; place-items: center; width: 2.1em; height: 1.45em; border-radius: 50%;
+  border: 1.5px solid currentColor; color: var(--muted); font: 600 .75em/1 var(--f-mono);
+}
+.text { min-width: 0; overflow-wrap: anywhere; }
+.mark svg { display: block; width: 1.2em; height: 1.2em; }
+.done .opt { color: var(--muted); border-color: color-mix(in srgb, var(--line) 70%, transparent); }
+.done .opt.key { color: var(--ink); border-color: var(--right); background: var(--right-soft); }
+.done .opt.key .bubble { background: var(--right); border-color: var(--right); color: var(--on-mark); }
+.done .opt.key .mark { color: var(--right); }
+.done .opt.miss { color: var(--ink); border-color: var(--wrong); background: var(--wrong-soft); }
+.done .opt.miss .bubble { background: var(--wrong); border-color: var(--wrong); color: var(--on-mark); }
+.done .opt.miss .mark { color: var(--wrong); }
+mjx-container { color: inherit; }
+
+/* ---- intro and results ------------------------------------------------ */
+.panel h2 { margin: 0; font-size: var(--step-1); line-height: 1.15; text-wrap: balance; }
+.how { margin: 0; padding-left: 1.1em; display: grid; gap: .4em; }
+.how li::marker { color: var(--muted); }
+kbd {
+  font: 600 .78em/1 var(--f-mono); padding: .2em .45em; border-radius: 5px;
+  border: 1.5px solid var(--line); border-bottom-width: 3px; background: var(--card);
+}
+.score { margin: 0; font-size: var(--step-1); font-weight: 700; font-variant-numeric: tabular-nums; }
+.score-sub { margin: -.4em 0 0; color: var(--muted); font-size: var(--step--1); }
+.topics { display: grid; grid-template-columns: minmax(0, auto) minmax(4rem, 1fr) auto; gap: .55em .9em; align-items: center; font-size: var(--step--1); }
+.topics .t-name b { font-family: var(--f-mono); font-weight: 600; margin-right: .4em; }
+.meter { height: .6em; border-radius: 999px; background: var(--line); overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--right); border-radius: inherit; }
+.topics .t-n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.review { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: var(--step--1); color: var(--muted); }
+.review .dot { font-size: var(--step--1); }
+.appendix {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 12px clamp(16px, 1.8vw, 30px); font-size: var(--step--1);
+}
+.appendix summary { cursor: pointer; font: 600 var(--step--1)/1.3 var(--f-mono); color: var(--accent); }
+.appendix .t-appendix { overflow-x: auto; margin-top: 10px; }
+.appendix .t-note { margin: 0 0 10px; color: var(--muted); max-width: 62ch; }
+.t-table { border-collapse: collapse; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.t-table th, .t-table td { border: 1px solid var(--line); padding: .2em .7em; text-align: right; }
+.t-table thead th { background: var(--sunk); text-align: center; }
+.t-table th.lab, .t-table tbody th { text-align: left; background: var(--sunk); }
+.t-table tbody tr:nth-child(5n) > * { border-bottom: 2px solid var(--muted); }
+.foot { margin: 0; font-size: var(--step--1); color: var(--muted); }
+
+#store { position: absolute; left: -300vw; top: 0; width: 46rem; visibility: hidden; pointer-events: none; }
+
+@media (max-width: 880px) {
+  .stage { grid-template-columns: minmax(0, 1fr); }
+  .slot-cur { order: -1; }
+}
+@media (max-width: 620px) {
+  .bar { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "ctrl" "sheet"; align-items: start; }
+  .ctrl { justify-content: start; }
+  .verdict { margin-left: 0; }
+}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$']] },
+  svg: { fontCache: 'global' },
+  // Equations sit inside the answer buttons; keep them out of the tab order.
+  options: { menuOptions: { settings: { inTabOrder: false } } }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <div class="title">
+      <a class="home" href="../mock_exams.html">← All mock exams</a>
+      <p class="eyebrow">PSYC 220 · Practice for Exam 4, Thursday, October 29</p>
+      <h1>Mock Exam 4</h1>
+    </div>
+    <div class="ctrl">
+      <p class="tally" id="tally"></p>
+      <button type="button" class="btn" id="back" title="Previous question (←)">← Back</button>
+      <button type="button" class="btn" id="next" title="Next question (→)">Next →</button>
+      <button type="button" class="btn quiet" id="reset">Start over</button>
+    </div>
+    <nav class="sheet" id="sheet" aria-label="Jump to a question"></nav>
+  </header>
+  <main class="stage">
+    <section class="slot slot-prev" id="slot-prev" aria-label="Previous question"></section>
+    <section class="slot slot-cur" id="slot-cur" aria-label="Current question"></section>
+  </main>
+  <details class="appendix"><summary>The $t$-table</summary><div class="t-appendix"><p class="t-note">Each entry is the critical value $t^{\ast}$ that leaves probability $\alpha$ in the right tail of a $t$-distribution with $df$ degrees of freedom. For a one-tailed test, use the one-tailed $\alpha$ column; for a two-tailed test, the two-tailed one.</p><table class="t-table"><thead><tr><th class="lab">one-tailed $\alpha$</th><th>.10</th><th>.05</th><th>.025</th><th>.01</th><th>.005</th><th>.0005</th></tr><tr><th class="lab">two-tailed $\alpha$</th><th>.20</th><th>.10</th><th>.05</th><th>.02</th><th>.01</th><th>.001</th></tr><tr><th class="lab">$df$</th><th colspan="6">critical value $t^{\ast}$</th></tr></thead><tbody><tr><th>1</th><td>3.078</td><td>6.314</td><td>12.706</td><td>31.821</td><td>63.657</td><td>636.619</td></tr><tr><th>2</th><td>1.886</td><td>2.920</td><td>4.303</td><td>6.965</td><td>9.925</td><td>31.599</td></tr><tr><th>3</th><td>1.638</td><td>2.353</td><td>3.182</td><td>4.541</td><td>5.841</td><td>12.924</td></tr><tr><th>4</th><td>1.533</td><td>2.132</td><td>2.776</td><td>3.747</td><td>4.604</td><td>8.610</td></tr><tr><th>5</th><td>1.476</td><td>2.015</td><td>2.571</td><td>3.365</td><td>4.032</td><td>6.869</td></tr><tr><th>6</th><td>1.440</td><td>1.943</td><td>2.447</td><td>3.143</td><td>3.707</td><td>5.959</td></tr><tr><th>7</th><td>1.415</td><td>1.895</td><td>2.365</td><td>2.998</td><td>3.499</td><td>5.408</td></tr><tr><th>8</th><td>1.397</td><td>1.860</td><td>2.306</td><td>2.896</td><td>3.355</td><td>5.041</td></tr><tr><th>9</th><td>1.383</td><td>1.833</td><td>2.262</td><td>2.821</td><td>3.250</td><td>4.781</td></tr><tr><th>10</th><td>1.372</td><td>1.812</td><td>2.228</td><td>2.764</td><td>3.169</td><td>4.587</td></tr><tr><th>11</th><td>1.363</td><td>1.796</td><td>2.201</td><td>2.718</td><td>3.106</td><td>4.437</td></tr><tr><th>12</th><td>1.356</td><td>1.782</td><td>2.179</td><td>2.681</td><td>3.055</td><td>4.318</td></tr><tr><th>13</th><td>1.350</td><td>1.771</td><td>2.160</td><td>2.650</td><td>3.012</td><td>4.221</td></tr><tr><th>14</th><td>1.345</td><td>1.761</td><td>2.145</td><td>2.624</td><td>2.977</td><td>4.140</td></tr><tr><th>15</th><td>1.341</td><td>1.753</td><td>2.131</td><td>2.602</td><td>2.947</td><td>4.073</td></tr><tr><th>16</th><td>1.337</td><td>1.746</td><td>2.120</td><td>2.583</td><td>2.921</td><td>4.015</td></tr><tr><th>17</th><td>1.333</td><td>1.740</td><td>2.110</td><td>2.567</td><td>2.898</td><td>3.965</td></tr><tr><th>18</th><td>1.330</td><td>1.734</td><td>2.101</td><td>2.552</td><td>2.878</td><td>3.922</td></tr><tr><th>19</th><td>1.328</td><td>1.729</td><td>2.093</td><td>2.539</td><td>2.861</td><td>3.883</td></tr><tr><th>20</th><td>1.325</td><td>1.725</td><td>2.086</td><td>2.528</td><td>2.845</td><td>3.850</td></tr><tr><th>21</th><td>1.323</td><td>1.721</td><td>2.080</td><td>2.518</td><td>2.831</td><td>3.819</td></tr><tr><th>22</th><td>1.321</td><td>1.717</td><td>2.074</td><td>2.508</td><td>2.819</td><td>3.792</td></tr><tr><th>23</th><td>1.319</td><td>1.714</td><td>2.069</td><td>2.500</td><td>2.807</td><td>3.768</td></tr><tr><th>24</th><td>1.318</td><td>1.711</td><td>2.064</td><td>2.492</td><td>2.797</td><td>3.745</td></tr><tr><th>25</th><td>1.316</td><td>1.708</td><td>2.060</td><td>2.485</td><td>2.787</td><td>3.725</td></tr><tr><th>26</th><td>1.315</td><td>1.706</td><td>2.056</td><td>2.479</td><td>2.779</td><td>3.707</td></tr><tr><th>27</th><td>1.314</td><td>1.703</td><td>2.052</td><td>2.473</td><td>2.771</td><td>3.690</td></tr><tr><th>28</th><td>1.313</td><td>1.701</td><td>2.048</td><td>2.467</td><td>2.763</td><td>3.674</td></tr><tr><th>29</th><td>1.311</td><td>1.699</td><td>2.045</td><td>2.462</td><td>2.756</td><td>3.659</td></tr><tr><th>30</th><td>1.310</td><td>1.697</td><td>2.042</td><td>2.457</td><td>2.750</td><td>3.646</td></tr><tr><th>40</th><td>1.303</td><td>1.684</td><td>2.021</td><td>2.423</td><td>2.704</td><td>3.551</td></tr><tr><th>50</th><td>1.299</td><td>1.676</td><td>2.009</td><td>2.403</td><td>2.678</td><td>3.496</td></tr><tr><th>60</th><td>1.296</td><td>1.671</td><td>2.000</td><td>2.390</td><td>2.660</td><td>3.460</td></tr><tr><th>80</th><td>1.292</td><td>1.664</td><td>1.990</td><td>2.374</td><td>2.639</td><td>3.416</td></tr><tr><th>100</th><td>1.290</td><td>1.660</td><td>1.984</td><td>2.364</td><td>2.626</td><td>3.390</td></tr><tr><th>120</th><td>1.289</td><td>1.658</td><td>1.980</td><td>2.358</td><td>2.617</td><td>3.373</td></tr></tbody></table></div></details>
+  <p class="foot">Answers are kept in this browser only. Keyboard: <kbd>A</kbd>–<kbd>D</kbd> to answer, <kbd>←</kbd> <kbd>→</kbd> to move.</p>
+</div>
+
+<div id="store" aria-hidden="true">
+  <article class="card panel" id="intro" tabindex="-1">
+    <header class="q-head"><span class="role">How it works</span></header>
+    <h2>30 questions on Topics 13–14</h2>
+    <ul class="how">
+      <li>Click an answer. It is marked right or wrong, and the next question comes up.</li>
+      <li>The question you just answered stays on screen next to the new one.</li>
+      <li>Use the numbered bubbles to jump to any question, or Next to skip one.</li>
+      
+    </ul>
+  </article>
+  <article class="card panel" id="summary" tabindex="-1">
+    <header class="q-head"><span class="role">Results</span></header>
+    <p class="score" id="s-score"></p>
+    <p class="score-sub" id="s-sub"></p>
+    <div class="topics" id="s-topics"></div>
+    <div class="review" id="s-review"></div>
+    <div><button type="button" class="btn" id="reset2">Start over</button></div>
+  </article>
+</div>
+<div id="live" class="sr" aria-live="polite"></div>
+
+<script>
+(() => {
+const DATA = {"slug": "mock-exam-4", "questions": [{"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "Before-and-after scores often differ a lot from one person to the next, while each person's change is fairly similar. Why does a dependent-samples $t$-test handle this well?", "opts": ["It pools the variances of the before scores and the after scores", "Its critical values are larger, which absorbs the extra variability", "It drops the people whose scores are most extreme", "Each person serves as their own comparison, so the person-to-person differences drop out"], "key": 3}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "A dependent-samples $t$-test asks whether a diet changes weight, measuring the same people before and after. What does $H_0$ say in words?", "opts": ["Every person's weight stays exactly the same", "In the population, weight does not change on average: the mean of the differences is 0", "The sample's mean difference is exactly 0", "The diet causes people to lose weight"], "key": 1}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "Four people are tested before and after a course, scoring (10, 13), (12, 11), (9, 11) and (15, 15) as (before, after). What are the after $-$ before difference scores and their mean?", "opts": ["$3, -1, 2, 0$, with a mean of $1$", "$-3, 1, -2, 0$, with a mean of $-1$", "$3, 1, 2, 0$, with a mean of $1.5$", "$3, -1, 2, 0$, with a mean of $1.33$"], "key": 0}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "A dependent-samples study of 25 pairs finds $t = 2.30$, which is significant at $\\alpha = .05$, with $d = 0.46$. Which report is written correctly?", "opts": ["$t(25) = 2.30$, $p &lt; .05$, $d = 0.46$", "$t(48) = 2.30$, $p &lt; .05$, $d = 0.46$", "$t(24) = 2.30$, $p &lt; .05$, $d = 0.46$", "$t(24) = 2.30$, $p &gt; .05$, $d = 0.46$"], "key": 2}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "A student has $n = 5$ difference scores with $SS = 64$ and computes $s_D = \\sqrt{64/5} = 3.58$. What is the correct value, and why?", "opts": ["$s_D = 64/4 = 16$, because the standard deviation divides $SS$ by $n - 1$", "$s_D = 3.58$; the calculation is correct", "$s_D = \\sqrt{64/4} = 4$, because the sample variance divides $SS$ by $n - 1$", "$s_D = \\sqrt{64/6} = 3.27$, because a paired design adds one score"], "key": 2}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "A dependent-samples study of $n = 9$ pairs reports $s_{M_D} = 2.5$. What was $s_D$?", "opts": ["$7.5$", "$22.5$", "$0.83$", "$5.0$"], "key": 0}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "A dependent-samples test gives $t = 2.5$ with $s_{M_D} = 2$. What was the mean difference $M_D$?", "opts": ["$1.25$", "$0.8$", "$4.5$", "$5$"], "key": 3}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "Eight people are measured before and after a course, and the dependent-samples test gives $t = 2.10$. At $\\alpha = .05$, is that significant as a one-tailed test, and as a two-tailed test? (You may need the $t$-table at the end of the exam.)", "opts": ["Both, because $2.10$ is larger than $1.895$", "One-tailed yes ($t^{\\ast} = 1.895$); two-tailed no ($t^{\\ast} = 2.365$)", "Two-tailed yes ($t^{\\ast} = 1.895$); one-tailed no ($t^{\\ast} = 2.365$)", "Neither, because both tests use $t^{\\ast} = 2.365$"], "key": 1}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "Three dependent-samples tests, each with $df = 9$ and two-tailed at $\\alpha = .05$ so that $t^{\\ast} = \\pm 2.262$, give $t = -2.50$, $t = 1.90$ and $t = 2.30$. In how many is $H_0$ rejected?", "opts": ["Two", "One", "Three", "None"], "key": 0}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "A dependent-samples study reports Cohen's $d = 0.5$ with $s_D = 6$. What was the mean difference?", "opts": ["$12$", "$0.083$", "$3$", "$6.5$"], "key": 2}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "The 95 percent confidence interval for a mean difference $\\mu_D$ runs from $-1.2$ to $5.6$. What does a two-tailed test of $H_0: \\mu_D = 0$ at $\\alpha = .05$ conclude?", "opts": ["Reject $H_0$, because most of the interval is above 0", "Retain $H_0$, because 0 lies inside the interval", "Reject $H_0$, because the mean difference, $2.2$, is not 0", "No conclusion is possible without the sample size"], "key": 1}, {"tag": "Topic 13", "title": "The dependent-samples t-test", "stem": "A one-tailed test predicts that a course <em>raises<\/em> scores, $H_A: \\mu_D &gt; 0$, with differences computed as after $-$ before. The data give $M_D = -3$ and $t = -2.90$, and $t^{\\ast} = 1.833$. What is the decision?", "opts": ["Reject $H_0$, because $|t| = 2.90$ is larger than $1.833$", "Reject $H_0$ and conclude that the course lowers scores", "Switch to a two-tailed test, because the result is clearly significant", "Retain $H_0$: the scores moved opposite to the direction $H_A$ predicts, which cannot support it"], "key": 3}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "In the smart-pill study, one class's average rose from 20 to 40 to 60 to 80 across four tests, whatever treatment came before each. Which design would separate the pill's effect from that rise?", "opts": ["Test the same class more often, so that the rise averages out", "Give the pill before every test instead of only one", "Keep the design, but use a one-tailed test", "Randomly assign different students to a pill group and a placebo group, and test both groups once"], "key": 3}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "Group 1 takes a new drug and group 2 takes a placebo. The researcher predicts that the drug <em>lowers<\/em> symptom scores. Which alternative hypothesis fits a one-tailed test?", "opts": ["$H_A: \\mu_1 &gt; \\mu_2$", "$H_A: \\mu_1 &lt; \\mu_2$", "$H_A: \\mu_1 \\neq \\mu_2$", "$H_A: \\mu_1 = \\mu_2$"], "key": 1}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "An independent-samples $t$-test with two equal-sized groups reports $df = 26$. How many people were in each group?", "opts": ["14", "13", "26", "27"], "key": 0}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "Two independent groups of different sizes have sample variances of 9 and 36. Which value could be their pooled variance?", "opts": ["$45$", "$6$", "$24$", "$40$"], "key": 2}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "Two independent groups of 10 have sample variances $s_1^2 = 12$ and $s_2^2 = 20$. What is the pooled variance?", "opts": ["$32$", "$14.4$", "$16$", "$4$"], "key": 2}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "With $s_p^2 = 45$ and $n_1 = n_2 = 10$, a student computes $s_{M_1 - M_2} = \\sqrt{45/20} = 1.5$. What went wrong?", "opts": ["Each group contributes its own term: $\\sqrt{45/10 + 45/10} = 3$", "Nothing; $1.5$ is correct", "The square root should be dropped: $45/20 = 2.25$", "The denominator should be $n_1 + n_2 - 2$: $\\sqrt{45/18} = 1.58$"], "key": 0}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "An independent-samples test gives $t = 2.0$ with $s_{M_1 - M_2} = 3$. The first group's mean, $M_1 = 50$, is the higher one. What is $M_2$?", "opts": ["$47$", "$56$", "$48.5$", "$44$"], "key": 3}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "A two-tailed independent-samples test at $\\alpha = .05$ has $df = 34$, which the $t$-table at the end of the exam skips, and gives $t = 2.035$. What do you conclude?", "opts": ["Reject $H_0$: use the $df = 40$ row, and $2.035$ exceeds $t^{\\ast} = 2.021$", "Retain $H_0$: use the $df = 30$ row, and $2.035$ falls short of $t^{\\ast} = 2.042$", "Reject $H_0$: $2.035$ exceeds $1.697$ in the $df = 30$ row", "No decision is possible, because $df = 34$ is not in the table"], "key": 1}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "An independent-samples $t$-test comparing two teaching methods retains $H_0$. Which conclusion is justified?", "opts": ["The data do not show a significant difference between the methods, which does not prove the methods are equal", "The two methods produce exactly the same population mean", "The two groups' sample means were identical", "The test must have made a Type II error"], "key": 0}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "Two independent groups' means differ by 4 points, and Cohen's $d = 0.5$. What is the pooled standard deviation $s_p$?", "opts": ["$2$", "$0.125$", "$8$", "$64$"], "key": 2}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "A 95 percent confidence interval for $\\mu_1 - \\mu_2$ runs from $0.85$ to $7.15$. What are the difference between the sample means and the margin of error?", "opts": ["$M_1 - M_2 = 4$, with a margin of error of $6.30$", "$M_1 - M_2 = 4$, with a margin of error of $3.15$", "$M_1 - M_2 = 0.85$, with a margin of error of $3.15$", "$M_1 - M_2 = 8$, with a margin of error of $3.15$"], "key": 1}, {"tag": "Topic 14", "title": "The independent-samples t-test", "stem": "For two independent samples, the $n_1 + n_2$ units of variance split into parts. How many units are left for estimating the variability within the groups?", "opts": ["$n_1 + n_2 - 1$", "$n_1 + n_2$", "$2$", "$n_1 + n_2 - 2$"], "key": 3}, {"tag": "Topics 13–14", "title": "Choosing a t-test", "stem": "Each of 20 patients rates pain once with an old bandage and once with a new one. Which test compares the bandages?", "opts": ["An independent-samples $t$-test, because there are two bandages", "A one-sample $t$-test, because there is one group of patients", "A $z$-test, because pain ratings use a fixed scale", "A dependent-samples $t$-test, because every patient gives a score for both bandages"], "key": 3}, {"tag": "Topics 13–14", "title": "Choosing a t-test", "stem": "Two sections of a course are taught by different methods, and a random sample of 5 students from each section takes the same final exam. Which test compares the methods?", "opts": ["A dependent-samples $t$-test, because both samples take the same exam", "An independent-samples $t$-test, because the two samples contain different students", "A one-sample $t$-test on the combined 10 scores", "A dependent-samples $t$-test, because the two samples are the same size"], "key": 1}, {"tag": "Topics 13–14", "title": "Choosing a t-test", "stem": "Does the mean IQ of 30 students in a gifted program differ from 100? Only the sample's standard deviation is available. Which test fits?", "opts": ["A one-sample $t$-test against $\\mu_0 = 100$", "An independent-samples $t$-test with a second, average group", "A dependent-samples $t$-test, because IQ is measured twice", "A $z$-test, because IQ has a well-known mean"], "key": 0}, {"tag": "Topics 13–14", "title": "Choosing a t-test", "stem": "Twelve patients are each matched with a healthy control of the same age, gender and education, and both are tested. Which test compares patients with controls?", "opts": ["An independent-samples $t$-test, because patients and controls are different people", "A one-sample $t$-test on the patients only", "A dependent-samples $t$-test, because each patient is paired with a matched control", "A $z$-test, because the controls are healthy"], "key": 2}, {"tag": "Topics 13–14", "title": "Choosing a t-test", "stem": "Twenty-four scores could come from 12 people measured twice, or from 24 different people split into two groups of 12. What are the degrees of freedom in each case?", "opts": ["23 in both cases", "22 if measured twice; 11 if two groups", "11 if measured twice; 22 if two groups", "11 in both cases"], "key": 2}, {"tag": "Topics 13–14", "title": "Choosing a t-test", "stem": "A researcher knows that IQ scores have $\\sigma = 15$ and compares a sample of 36 students' mean IQ with 100. Which test fits?", "opts": ["A $z$-test, because the population standard deviation is known", "A one-sample $t$-test, because the sample is small", "A dependent-samples $t$-test, because the students are compared with the population", "An independent-samples $t$-test, with the population as the second group"], "key": 0}], "topics": [{"tag": "Topic 13", "short": "T13", "title": "The dependent-samples t-test", "first": 1, "last": 12}, {"tag": "Topic 14", "short": "T14", "title": "The independent-samples t-test", "first": 13, "last": 24}, {"tag": "Topics 13–14", "short": "T13–14", "title": "Choosing a t-test", "first": 25, "last": 30}]};
+const Q = DATA.questions, N = Q.length, L = 'ABCD';
+const PAPER = Q.map(q => L[q.key]).join('');
+const SAVE = 'psyc220:' + DATA.slug;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = id => document.getElementById(id);
+const slotPrev = $('slot-prev'), slotCur = $('slot-cur'), store = $('store');
+const intro = $('intro'), summary = $('summary'), live = $('live');
+const CHECK = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.6 3.6 7.4-8.2" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const CROSS = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
+
+let answers = Array(N).fill(null), cur = 1, timer = 0;
+try {
+  const s = JSON.parse(localStorage.getItem(SAVE) || 'null');
+  if (s && s.paper === PAPER && Array.isArray(s.answers) && s.answers.length === N) {
+    answers = s.answers;
+    cur = Math.min(Math.max(1, s.cur | 0), N + 1);
+  }
+} catch (e) {}
+const save = () => { try { localStorage.setItem(SAVE, JSON.stringify({ paper: PAPER, answers, cur })); } catch (e) {} };
+const result = i => answers[i] === null ? '' : answers[i] === Q[i].key ? 'right' : 'wrong';
+
+// ---- build every card once, so MathJax typesets each one exactly once ----
+const cards = Q.map((q, i) => {
+  const el = document.createElement('article');
+  el.className = 'card q';
+  el.tabIndex = -1;
+  el.innerHTML =
+    `<header class="q-head"><span class="role"></span>` +
+    `<span class="num">Question ${i + 1}<span class="of"> of ${N}</span></span>` +
+    `<span class="topic"><b>${q.tag}</b> · ${q.title}</span>` +
+    `<span class="verdict" hidden></span></header>` +
+    `<p class="stem">${q.stem}</p><ol class="opts">` +
+    q.opts.map((o, j) =>
+      `<li><button type="button" class="opt" data-j="${j}">` +
+      `<span class="bubble">${L[j]}</span><span class="text">${o}</span>` +
+      `<span class="mark"></span><span class="sr"></span></button></li>`).join('') +
+    `</ol>`;
+  el.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => choose(i, +b.dataset.j)));
+  store.append(el);
+  return el;
+});
+
+const dots = [];
+for (const t of DATA.topics) {
+  const g = document.createElement('div');
+  g.className = 'grp';
+  g.innerHTML = `<span class="grp-label" title="${t.tag} · ${t.title}">${t.short}</span><div class="dots"></div>`;
+  for (let n = t.first; n <= t.last; n++) {
+    const d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'dot';
+    d.textContent = n;
+    d.addEventListener('click', () => go(n));
+    g.lastChild.append(d);
+    dots[n - 1] = d;
+  }
+  $('sheet').append(g);
+}
+
+// ---- painting -------------------------------------------------------------
+function paint(i) {
+  const el = cards[i], a = answers[i], k = Q[i].key, done = a !== null;
+  el.classList.toggle('done', done);
+  el.querySelectorAll('.opt').forEach((b, j) => {
+    const isKey = done && j === k, isPick = done && j === a;
+    b.classList.toggle('key', isKey);
+    b.classList.toggle('miss', isPick && !isKey);
+    b.querySelector('.mark').innerHTML = isKey ? CHECK : isPick ? CROSS : '';
+    b.querySelector('.sr').textContent =
+      isKey ? (isPick ? ', your answer, correct' : ', the correct answer')
+            : isPick ? ', your answer, incorrect' : '';
+  });
+  const v = el.querySelector('.verdict');
+  v.className = 'verdict ' + result(i);
+  v.innerHTML = !done ? 'Not answered'
+    : a === k ? CHECK + 'Correct' : CROSS + 'Incorrect · answer ' + L[k];
+  v.hidden = !done && !el.classList.contains('is-prev');
+}
+
+function paintSheet() {
+  dots.forEach((d, i) => {
+    const r = result(i);
+    d.className = 'dot' + (r ? ' ' + r : '');
+    d.setAttribute('aria-label', `Question ${i + 1}` + (r === 'right' ? ', correct' : r === 'wrong' ? ', incorrect' : ''));
+    if (i === cur - 1) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current');
+  });
+  const done = answers.filter(a => a !== null).length;
+  const right = answers.filter((a, i) => a !== null && a === Q[i].key).length;
+  $('tally').innerHTML = done ? `<b>${right}</b> of ${done} correct` : `${N} questions`;
+  $('back').disabled = cur === 1;
+  $('next').disabled = cur > N;
+  $('reset').disabled = done === 0;
+}
+
+function paintSummary() {
+  const right = answers.filter((a, i) => a !== null && a === Q[i].key).length;
+  const skipped = answers.filter(a => a === null).length;
+  $('s-score').textContent = `${right} of ${N} correct`;
+  $('s-sub').textContent = skipped ? `${skipped} not answered` : `${Math.round(100 * right / N)} percent`;
+  $('s-topics').innerHTML = DATA.topics.map(t => {
+    let r = 0;
+    for (let n = t.first; n <= t.last; n++) if (result(n - 1) === 'right') r++;
+    const of = t.last - t.first + 1;
+    return `<span class="t-name"><b>${t.short}</b>${t.title}</span>` +
+           `<span class="meter" role="img" aria-label="${r} of ${of}"><i style="width:${100 * r / of}%"></i></span>` +
+           `<span class="t-n">${r} / ${of}</span>`;
+  }).join('');
+  const redo = Q.map((_, i) => i).filter(i => result(i) !== 'right');
+  const box = $('s-review');
+  box.textContent = '';
+  if (redo.length) {
+    box.append(document.createTextNode('Review:'));
+    for (const i of redo) {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'dot ' + result(i);
+      d.textContent = i + 1;
+      d.setAttribute('aria-label', `Go to question ${i + 1}`);
+      d.addEventListener('click', () => go(i + 1));
+      box.append(d);
+    }
+  }
+}
+
+// ---- placing two cards on the stage --------------------------------------
+function place(dir) {
+  const left = cur === 1 ? intro : cards[cur - 2];
+  const right = cur > N ? summary : cards[cur - 1];
+  if (right === summary) paintSummary();
+  const animate = dir && !reduce;
+  const first = new Map();
+  if (animate) for (const el of [left, right])
+    if (el.parentElement === slotPrev || el.parentElement === slotCur) first.set(el, el.getBoundingClientRect());
+  // Fast clicking can start a move before the last one ends; finish it first.
+  for (const el of [left, right]) el.getAnimations().forEach(a => a.cancel());
+  for (const slot of [slotPrev, slotCur])
+    for (const el of [...slot.children]) if (el !== left && el !== right) store.append(el);
+  slotPrev.append(left);
+  slotCur.append(right);
+  for (const [el, isPrev] of [[left, true], [right, false]]) {
+    el.classList.toggle('is-prev', isPrev);
+    const i = cards.indexOf(el);
+    if (i < 0) continue;
+    el.querySelector('.role').textContent = isPrev ? 'Previous' : 'Now';
+    el.querySelectorAll('.opt').forEach(b => { b.disabled = isPrev || answers[i] !== null; });
+    paint(i);
+  }
+  if (animate) for (const el of [left, right]) {
+    const f = first.get(el);
+    if (f) {
+      const l = el.getBoundingClientRect(), dx = f.left - l.left, dy = f.top - l.top;
+      if (dx || dy) el.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }],
+                               { duration: 420, easing: 'cubic-bezier(.2, .8, .2, 1)' });
+    } else {
+      el.animate([{ opacity: 0, transform: `translateX(${dir * 28}px)` }, { opacity: 1, transform: 'none' }],
+                 { duration: 320, delay: 90, easing: 'cubic-bezier(.2, .8, .2, 1)', fill: 'backwards' });
+    }
+  }
+  paintSheet();
+}
+
+function go(n) {
+  clearTimeout(timer);
+  timer = 0;
+  n = Math.min(Math.max(1, n), N + 1);
+  if (n === cur) return;
+  const dir = Math.sign(n - cur), a = document.activeElement;
+  const hadFocus = a && a !== document.body && (slotPrev.contains(a) || slotCur.contains(a));
+  cur = n;
+  place(dir);
+  save();
+  const r = slotCur.getBoundingClientRect();
+  if (r.top < 0 || r.top > innerHeight * .6) slotCur.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  if (hadFocus) slotCur.firstElementChild.focus({ preventScroll: true });
+}
+
+function choose(i, j) {
+  if (i !== cur - 1 || answers[i] !== null || timer) return;
+  answers[i] = j;
+  cards[i].querySelectorAll('.opt').forEach(b => { b.disabled = true; });
+  paint(i);
+  paintSheet();
+  save();
+  live.textContent = j === Q[i].key ? `Question ${i + 1}: correct.`
+    : `Question ${i + 1}: incorrect. The answer is ${L[Q[i].key]}.`;
+  timer = setTimeout(() => go(i + 2), 750);
+}
+
+function resetAll() {
+  clearTimeout(timer);
+  timer = 0;
+  answers = Array(N).fill(null);
+  cards.forEach((_, i) => paint(i));
+  const dir = cur === 1 ? 0 : -1;
+  cur = 1;
+  place(dir);
+  save();
+  live.textContent = 'All answers cleared.';
+}
+
+// The viewer cannot show confirm(), so clearing takes a second click.
+for (const btn of [$('reset'), $('reset2')]) {
+  const label = btn.textContent;
+  let armed = 0;
+  btn.addEventListener('click', () => {
+    if (!armed) {
+      btn.textContent = 'Clear all answers?';
+      btn.classList.add('armed');
+      armed = setTimeout(() => { armed = 0; btn.textContent = label; btn.classList.remove('armed'); }, 4000);
+      return;
+    }
+    clearTimeout(armed);
+    armed = 0;
+    btn.textContent = label;
+    btn.classList.remove('armed');
+    resetAll();
+  });
+}
+
+$('back').addEventListener('click', () => go(cur - 1));
+$('next').addEventListener('click', () => go(cur + 1));
+document.addEventListener('keydown', e => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key.toLowerCase();
+  let j = -1;
+  if (k.length === 1) { j = 'abcd'.indexOf(k); if (j < 0) j = '1234'.indexOf(k); }
+  if (j >= 0) { if (cur <= N) choose(cur - 1, j); e.preventDefault(); return; }
+  // PageDown/PageUp are what most presentation clickers send.
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') { go(cur + 1); e.preventDefault(); }
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(cur - 1); e.preventDefault(); }
+});
+
+cards.forEach((_, i) => paint(i));
+place(0);
+})();
+</script>
+</body>
+</html>
