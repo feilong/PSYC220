@@ -1187,6 +1187,16 @@ every number before writing. Result: **40 slides, 31 exported**.
   repeated-measures designs, and the proof that MS within estimates σ².
 - **Say it aloud:** with two groups F = t². Exam 3 in Spring asked exactly
   that (its Q40), and L15's smart pill gives t = 0.75, so F would be 0.5625.
+- **DONE (F26) — N → n, 11/4 evening.** The instructor's pass caught N used
+  for the total sample size, which this course reserves for a population
+  (Σ(X − μ)² / N since L4). The notation slide now reads n = n₁ + n₂ + … with
+  a one-line gloss that the textbook writes N; the df slide, the F-table
+  slide, the Step 3 check, the summary, the df image and the ANOVA-table
+  image all say n − k and n − 1. `slides/fix_l16_n.applescript` did it by
+  slide title, since the instructor had also deleted the quote slide
+  (pages after 9 moved up by one; 30 pages now) and trimmed the recap's
+  smart-pill bullet. A17 and A18 were rebuilt the same way; the rule is in
+  CLAUDE.md and `style_check.py` enforces it.
 - **NEXT — the inline equations on pages 17–20** (Spring's notation,
   ingredients and partition slides) carry no alt text and cannot, HANDOFF
   pitfall 13. Spring's, unchanged.

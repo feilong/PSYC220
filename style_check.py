@@ -58,6 +58,10 @@ NOTATION = [
     (r'\bZ-?scores?\b', 'z-score -- lowercase z'),
     (r'\bT-tests?\b', 't-test -- lowercase t'),
     (r'\bT-distribution', 't-distribution -- lowercase t'),
+    # Settled 11/4: N is a population's size (Σ(X − μ)² / N). The total of a
+    # multi-group sample is lowercase n, with n₁, n₂, … for the groups, so the
+    # ANOVA df read n − k and n − 1. The textbook writes N for that total.
+    (r'\bN\s*[−-]\s*(k|1|2)\b', 'n − k / n − 1 -- lowercase n for a total sample size; N is a population size'),
     (r'\bP-?values?\b', 'p-value -- lowercase p; reword if it starts a sentence'),
     (r'\bHo\b', 'H0 -- the digit zero, not the letter o'),
     # The alternative hypothesis is HA in this course, matching the textbook
@@ -78,6 +82,59 @@ GLOSS = re.compile(
     r'H_?\{?[Aa]\}?\s*\(\s*H_?\{?1\}?\s*\)'
     r'|H_?\{?[Aa]\}?\s*,?\s*(?:also\s+written|or)\s+H_?\{?1\}?',
     re.IGNORECASE)
+
+
+# --- what a Blackboard tab-delimited upload actually cannot take ----------
+#
+# NOT "non-ASCII". That rule was an over-generalization and is now withdrawn:
+# the original HANDOFF note was about *LaTeX* flattening -- HW1's summation
+# extracted as "X1X2X3X4X565536(sum)i=15Xi2" -- and the Unicode summation sign
+# in that very string came through intact. A1, A5, A7, A8 and A9 all shipped
+# with Greek letters, a superscript two, plus-minus, an arrow and even a
+# plane-1 math-italic sigma, and uploaded fine. Unicode is allowed; write
+# H-nought as H₀ and sigma-squared as σ² if you want to.
+#
+# Two things genuinely break an upload:
+_UPLOAD_FATAL = [
+    (r'\t', 'a literal TAB — the upload format is tab-delimited, so this '
+             'splits the row into the wrong fields'),
+    (r'\n|\r', 'a newline — it ends the row early'),
+]
+# ...and one genuinely flattens, losing its structure rather than its characters:
+_LATEX_IN_ITEM = [
+    (r'\\[a-zA-Z]+', r'a LaTeX command (\frac, \sigma, ...) — assignment items '
+                       'are plain text, not MathJax; use the Unicode character'),
+    (r'\$[^$\n]{1,80}\$', 'LaTeX math delimiters — these flatten on upload; '
+                           'write the symbols directly'),
+    (r'[\^_]\{', 'TeX grouping (^{...} or _{...}) — use ² ₀ ₘ or plain text'),
+    # An underscore between two alphanumerics is a LaTeX-ism: Blackboard's
+    # upload has no markup pass, so `s_M` reaches the student as the literal
+    # three characters s, underscore, M. A run of underscores on its own is a
+    # fill-in-the-blank line (A10 Q2) and is left alone.
+    (r'[A-Za-z0-9]_[A-Za-z0-9]',
+     'an underscore subscript — it renders literally, not as a subscript. Use a '
+     'Unicode subscript (sₘ, H₀, sₚ) or spell the quantity out'),
+]
+
+
+def check_upload_safe(texts, label=''):
+    """Fail on what a tab-delimited Blackboard upload cannot carry.
+
+    Unicode is fine. Call this from the assignment writer only: exams render
+    through MathJax and are *expected* to contain LaTeX.
+    """
+    bad = []
+    for t in texts:
+        if not t:
+            continue
+        for pat, why in _UPLOAD_FATAL + _LATEX_IN_ITEM:
+            for m in re.finditer(pat, t):
+                bad.append(f'  {m.group(0)!r} -> {why}\n      in: {t[:70]}')
+    if bad:
+        raise AssertionError(
+            f'{label}: {len(bad)} item(s) a Blackboard upload cannot carry:\n'
+            + '\n'.join(bad))
+    return True
 
 
 def find_style_issues(texts):

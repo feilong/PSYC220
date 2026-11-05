@@ -68,12 +68,35 @@ character form leaves surrounding runs alone — verified on Lecture 14, where a
 are `«data utxt00B5»` and `«data utxt03BC»`, big-endian, which is easy to get
 backwards and fails silently with zero replacements.
 
-**Do not sweep the assignment or exam builders.** Their uploads are pure ASCII
-on purpose — Greek letters go out as the words "mu" and "sigma" — and the
-`_ASCII` table in `build_a12_a13.py` deliberately carries *both* spellings as
-keys so either one gets normalized. A blanket micro→mu replace collapses them
-into a duplicate key and silently disables micro-sign handling, which is the
-exact failure the table exists to prevent. It broke the A13 build on 10/3.
+**Do not sweep the assignment or exam builders.** The `_CANON` table in
+`build_a12_a13.py` (renamed from `_ASCII` on 10/6) deliberately carries the
+micro sign as a key so that it folds to Greek mu. A blanket micro→mu replace
+collapses that into a duplicate key and silently disables micro-sign handling,
+which is the exact failure the table exists to prevent. It broke the A13 build
+on 10/3.
+
+**Assignment uploads take Unicode — the old "pure ASCII" rule is withdrawn.**
+It came from over-reading a HANDOFF note about *LaTeX* flattening; the giveaway
+is that HW1's garbled summation `X1X2X3X4X565536∑i=15Xi2` contains a Unicode
+`∑` that survived intact. A1, A5, A7, A8 and A9 had all shipped with Greek
+letters, `²`, `±` and an arrow. Write `μ σ α β Σ H₀ σ² √ ≤ ≥ ± sₚ` directly.
+
+`check_upload_safe()` in `style_check.py`, called from `build_a5_a6.write()`,
+now rejects only what genuinely breaks a tab-delimited upload:
+
+| Rejected | Why |
+|---|---|
+| a literal TAB | the format is tab-delimited; it splits the row |
+| a newline | it ends the row early |
+| `\command`, `$...$`, `^{…}`, `_{…}` | LaTeX; items are plain text, not MathJax |
+| `x_y` | an underscore is **not** a subscript — it reaches the student as the literal characters. A run of underscores alone is a fill-in-the-blank line and is allowed |
+
+**No subscript capital letters exist in Unicode** (nor b, c, d, f, g, q, w, y,
+z). So `s_M` has no exact equivalent: A13 uses `sₘ` with a lowercase subscript,
+the one place the homework's notation differs from the slides. Where naming the
+symbol adds nothing, drop it — A13 Q3 reads "the estimated standard error of
+the mean" with no symbol at all. This is the assignment-side twin of the
+`H₀` / `H_A` problem noted above for slides.
 
 **Greek letters are spelled as letters.** Write `α` and `β`, not the words
 "alpha" and "beta". These are plain Unicode and need no formatting, so they
@@ -160,6 +183,22 @@ formulas to mean the null value; L15's recap glosses that.
 
 L12 and L13's formulas were inline equations, which no script can edit, so
 they are now images from `slides/make_mu0_equations.py`, each with alt text.
+
+### N is a population's size; a total sample is n
+
+Settled 11/4, when Lecture 16 (ANOVA) was built. The course has written
+Σ(X − μ)² / N for a population since Lecture 4, so **N means the number of
+scores in a population.** The size of a sample is lowercase n, and when a
+sample has several groups, **n is the total and n₁, n₂, … are the groups:**
+n = n₁ + n₂ + …, df within = n − k, df total = n − 1. Spring's own ANOVA
+table wrote it this way. The textbook (Ch. 11) writes N for that total; the
+notation slide of L16 says so once, and that gloss is enough.
+
+Lecture 16 shipped with N for the total for about half an hour on 11/4
+before the instructor caught it. Its text, its df and ANOVA-table images and
+A17–A18 were corrected the same evening; `style_check.py` now refuses
+`N − k`, `N − 1` and `N − 2` in any item. "A population of N = 5 scores" is
+still fine, and is on Exam 1.
 
 ### p vs P — they are two different things
 
