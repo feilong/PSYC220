@@ -844,6 +844,8 @@ out for the Lecture 10 hang.
 | `Lecture_13_dependent-samples t test`   | L14       | Tue 10/20          | built 10/19, renamed into place |
 | `Lecture_14_independent-samples t test` | L15       | Thu 10/22          | built 10/19, renamed into place |
 | `Lecture_15_t tests`                    | —         | Tue 10/27 review?  | not started                     |
+| `Lecture_16_ANOVA`                      | L16       | Thu 11/5           | built 11/4, in place (same name) |
+| `Lecture_17_ANOVA`                      | L17       | Tue 11/10          | not started                     |
 
 **Name collision:** the two Spring t-test decks were renamed on 10/19, but
 `Lecture_14` still matches two files (`Lecture_14_Dependent-samples t-test` and
@@ -1131,3 +1133,73 @@ nine formulas, so students met a silent switch on 10/20.
 - **NEXT — A13's builder** (`build_a12_a13.py`, Q3 and Q4) still writes (M − μ),
   for next semester. The copy in `as_released/` stays as it was.
 
+
+## Lecture 16 — Analysis of variance, first class (Thu 11/5)
+
+Built 11/4 from Spring's `Lecture_16_ANOVA.key` (27 slides, 6 already
+skipped), edited **in place**: the Spring file already carried the Fall title
+and the 16:10 theme, and its name was already the Fall name, so nothing was
+renamed. A copy of the untouched Spring deck and its PDF is kept as
+`slides/Spring_L16_ANOVA_original.key` / `.pdf` (deliberately *not* named
+`Lecture_16…`, so a `contains "Lecture_16_ANOVA"` guard cannot pick it up).
+`slides/build_lecture16.applescript` did the build; the figures and formula
+images come from `slides/make_l16_figures.py`, whose `check()` recomputes
+every number before writing. Result: **40 slides, 31 exported**.
+
+| Pages | Content                                                                            |
+|-------|------------------------------------------------------------------------------------|
+| 1–3   | Title with topic line, This Week and Next (Weeks 12–13), recap of L15              |
+| 4–15  | Spring's opening: three-group smart pill, hypotheses, three t-tests, 101 pills, Type I inflation, the MegaTrawl |
+| 16–20 | Spring's two-sample bridge: notation, ingredients, the variance partition, SS between for two groups |
+| 21–27 | **New:** sources of variability, notation for k groups, three SS, df and MS, the F ratio, the ANOVA table, the F table |
+| 28–31 | **New:** the three-group smart pill in four steps (F(2, 6) = 6.75, reject), and a summary |
+
+- **Why the deck goes past Spring's.** Spring's first ANOVA class stopped at
+  the two-sample partition and never named F; the test itself lived in
+  Spring's second deck. Here the class ends with a complete, decided ANOVA,
+  so A17 (concepts) and A18 (computation) have something to rehearse and
+  Tue 11/10 can spend its time on *why* MS within estimates σ², η², post hoc
+  tests and practice. **If time runs short, pages 26–31 roll over cleanly:
+  page 25 (the F ratio) is a natural stopping point.**
+- **The three-group data** are smart pill 84, 88, 92; placebo 78, 82, 86; no
+  pill 72, 76, 80. Every number is an integer and each group has s² = 16,
+  the pooled variance from L15's two-group version. M = 88, 82, 76; grand
+  mean 82; SS within 96, SS between 216, SS total 312; df 2 and 6; MS 108
+  and 16; F = 6.75 against F* = 5.14 (p = .029, scipy agrees); η² = .69.
+- **DONE (F26) — skipped, not deleted:** Spring 15–16 (pooled variance, the
+  standard error of the difference) repeat L15 pages 25 and 31 word for
+  word; Spring 21 is the demo-site slide, and the site has no ANOVA demo.
+- **DONE (F26) — text.** 15 character fixes (micro signs → μ on the
+  hypotheses, t-test and standard-error slides); "This is means" → "This
+  means" (p8); a real minus sign in (1 − α)ᶜ (p12); the untitled SS-between
+  slide is now "SS between for two groups" (p20). Spring's "HA" on the
+  hypotheses slide is a real subscript and was left alone.
+- **DONE (F26) — alt text** on all 13 described objects, median 367
+  characters. Spring's were a label ("smart pill experiment") and a file
+  name ("Netmats MegaThawl"), twice each.
+- **DONE (F26) — textbook pass, Ch. 11 of Cote et al.,** folded into the new
+  slides rather than appended: sources of variability (their Figs. 11.1–11.3,
+  redrawn on the smart-pill data), the k / n / N / M_G notation, the three SS
+  and SS_T = SS_B + SS_W as a check, the ANOVA table read left to right, the
+  F table with two df and α = .05 only, no directional alternative, and the
+  reporting form F(2, 6) = 6.75, p < .05. Left for L17 on purpose: η² and
+  its .01/.09/.25 benchmarks, the three post hoc tests, factorial and
+  repeated-measures designs, and the proof that MS within estimates σ².
+- **Say it aloud:** with two groups F = t². Exam 3 in Spring asked exactly
+  that (its Q40), and L15's smart pill gives t = 0.75, so F would be 0.5625.
+- **NEXT — the inline equations on pages 17–20** (Spring's notation,
+  ingredients and partition slides) carry no alt text and cannot, HANDOFF
+  pitfall 13. Spring's, unchanged.
+- **NEXT — the figures on pages 25 and 27** (F distribution, F table) are
+  rendered at 540 and 470 pt wide; their axis labels and cells are legible
+  from the PDF but small on a projector. Worth a look in the room.
+- **NEXT — L17 (Tue 11/10)** builds from Spring's `Lecture_17_ANOVA.key`
+  (25 slides, 1 skipped). Its slides 4–15 re-derive the one-sample and
+  two-sample partitions that L15 and now L16 already taught — the same
+  cumulative-deck trap as Spring's L12 — so expect to skip most of them.
+  Its practice problem (0, 1, 2 / 1, 2, 3 / 2, 3, 4) reads F(2, 6) = 3 in the
+  deck; only the stale Spring PDF still says F(1, 3). Its ANOVA table on
+  slide 16 is a real Keynote table, worth moving rather than redrawing.
+- **NEXT — A17 is not built.** It is due with this class under the plan
+  (`syllabus/assignments.md`, Week 12), from HW8 Q6–12, Lab 11 Q9–10 and
+  Spring Exam 3 Q28–31, 39–40; every one of those skills is now on a slide.
