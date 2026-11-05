@@ -1200,6 +1200,7 @@ every number before writing. Result: **40 slides, 31 exported**.
   Its practice problem (0, 1, 2 / 1, 2, 3 / 2, 3, 4) reads F(2, 6) = 3 in the
   deck; only the stale Spring PDF still says F(1, 3). Its ANOVA table on
   slide 16 is a real Keynote table, worth moving rather than redrawing.
-- **NEXT — A17 is not built.** It is due with this class under the plan
-  (`syllabus/assignments.md`, Week 12), from HW8 Q6–12, Lab 11 Q9–10 and
-  Spring Exam 3 Q28–31, 39–40; every one of those skills is now on a slide.
+- **DONE (F26) — A17 and A18 built 11/4** (`assignments/build_a17_a18.py`):
+  A17 is the concepts set for this class, A18 the computation chain for
+  11/10. A18's last two items (η², F = t²) are L17 material: **put F = t²
+  on an L17 slide**; L16 only says it aloud.

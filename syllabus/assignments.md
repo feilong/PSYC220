@@ -144,6 +144,45 @@ Week 7's two assignments are ready ahead of the Exam 3 block.
 | A11 | Errors & effect size        | 10 | Thu 10/1 |  9 / 1 |
 | A12 | Confidence intervals        | 11 | Tue 10/6 |  4 / 6 |
 | A13 | One-sample *t*-test         | 12 | Tue 10/6 | 10 / 0 |
+| A14 | Dependent-samples *t*-test  | 13 | Tue 10/20 |  0 / 10 |
+| A15 | Independent-samples *t*-test | 14 | Thu 10/22 |  0 / 10 |
+| A16 | Which *t*-test when         | 12–14 | review, due 10/29 |  0 / 10 |
+| A17 | ANOVA: concepts             | 15 | Thu 11/5 |  0 / 10 |
+| A18 | ANOVA: computation          | 15 | Tue 11/10 |  0 / 10 |
+
+A14 onward are authored against the Fall slides rather than drawn from the
+bank; the bank items the plan lists were read for the skills they cover.
+
+### A17 and A18 (`assignments/build_a17_a18.py`), built 11/4
+
+Both from Lecture 16 (Thu 11/5), which goes further than Spring's first ANOVA
+class did: it ends with a decided three-group test, so the computation chain
+has something to rehearse. Each item notes the L16 page it leans on.
+
+- **A17, concepts**, released with the 11/5 class: why not many t-tests and
+  what c tests do to α, HA as "at least one differs", within-groups variance
+  as chance, df read backwards from F(2, 27), F near 1 under H₀, why F is
+  one-tailed, filling the ANOVA table, reading F* from two df, and what a
+  rejection does and does not say.
+- **A18, computation**, released with the 11/10 class: one data set (three
+  study strategies, four students each, group SS = 18 apiece, grand mean 7)
+  run through grand mean → SS within → SS between → df → MS → F = 6.00 →
+  decision against F*(2, 9) = 4.26 → η² = .57 → the APA report. Q10 is
+  F = t² for two groups. η² and F = t² are Lecture 17 material, which is why
+  A18 waits for that class; **make sure L17 states F = t² on a slide**, since
+  L16 only says it aloud.
+- Nothing is copied from the bank. HW8's chain ran a two-group t-test and
+  then the same data as an ANOVA (its Q12 is t² = F); Lab 11 Q9–10 hand the
+  student the group means; Spring's Exam 3 Q28–40 and Exam 4 Q44–50 are
+  two-group ANOVA chains kept clear for Exam 5.
+- Data set and numbers differ from L16's worked example (84/88/92 etc.,
+  F = 6.75) and from each other; `check()` recomputes every key, every
+  distractor's wrong path and every critical value, and refuses a stem reused
+  from A1–A16.
+- **Exam 5 does not exist yet.** `build_mock5.py` should read
+  `build_a17_a18.SKILLS` for its rehearsal check, and `build_exam5.py` should
+  run `examlib.check_distinct()` against these stems, as `build_a14_a16`
+  does against Exam 4.
 
 ### A12 and A13 (`assignments/build_a12_a13.py`)
 
@@ -210,11 +249,13 @@ wording a student actually answered can be recovered if a grade is queried.
 Enforcement now lives in `style_check.py` at the repo root, wired into
 `build_a5_a6.write()` and `examlib.check()`, so no future item can repeat this.
 
-**New guard: the upload must be pure ASCII.** HW6 Q2 carries a micro sign and a
-sigma, and `check()` now fails on any character above 126 after normalization.
-Worth knowing: **A1, A5, A7, A8 and A9 all contain non-ASCII** and were shipped
-that way, so this convention has never actually been enforced. They are already
-released; the guard protects everything from A12 on.
+**Withdrawn 10/6: the "pure ASCII" guard.** It was added here on 10/2 and was a
+mistake — the underlying HANDOFF note was about LaTeX flattening, not encoding,
+and A1, A5, A7, A8 and A9 had already shipped with Greek letters, `²`, `±` and
+an arrow without trouble. `check_upload_safe()` replaces it and rejects only
+what actually breaks a tab-delimited upload: tabs, newlines and LaTeX. Greek
+letters and sub/superscripts are allowed. The only knock-on was A13 Q1, whose
+options now read `(μ)` and `(σ)` again instead of `(mu)` and `(sigma)`.
 
 ### A10 and A11 (`assignments/build_a10_a11.py`)
 
@@ -433,7 +474,7 @@ on Exam 2.
 
 Every key is **computed**, not transcribed, and each file is checked before
 release: exactly 10 rows, 10 fields per `MC` and 4 per `NUM`, exactly one
-`correct` per MC, pure ASCII (no LaTeX, no symbols that flatten on upload), and
+`correct` per MC, no tabs, newlines or LaTeX (`check_upload_safe()`), and
 no stem sharing a data set *and* a quantity with any earlier assignment.
 
 Numeric items run 10% (1 of 10) against Spring's 8%, and sit in the
