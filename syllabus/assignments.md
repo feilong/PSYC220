@@ -133,22 +133,24 @@ Spring exams 1–4.
 A5–A11 and Exam 2 are drafted; everything for Exam 2 on Thu 9/24 exists, and
 Week 7's two assignments are ready ahead of the Exam 3 block.
 
-| # | Title | Topic | Taught | Sourced / new |
-|:--:|---|:--:|:--:|:--:|
-| A5 | z-scores                     | 5 | Tue 9/8  | 10 / 0 |
-| A6 | Probability                  | 6 | Thu 9/10 |  9 / 1 |
-| A7 | The standard normal distribution | 5 | Tue 9/15 |  6 / 4 |
-| A8 | Sampling distributions       | 7 | Thu 9/17 |  6 / 4 |
-| A9 | Central Limit Theorem        | 8 | Tue 9/22 |  3 / 7 |
-| A10 | Hypothesis testing          | 9 | Tue 9/29 |  8 / 2 |
-| A11 | Errors & effect size        | 10 | Thu 10/1 |  9 / 1 |
-| A12 | Confidence intervals        | 11 | Tue 10/6 |  4 / 6 |
-| A13 | One-sample *t*-test         | 12 | Tue 10/6 | 10 / 0 |
-| A14 | Dependent-samples *t*-test  | 13 | Tue 10/20 |  0 / 10 |
-| A15 | Independent-samples *t*-test | 14 | Thu 10/22 |  0 / 10 |
-| A16 | Which *t*-test when         | 12–14 | review, due 10/29 |  0 / 10 |
-| A17 | ANOVA: concepts             | 15 | Thu 11/5 |  0 / 10 |
-| A18 | ANOVA: computation          | 15 | Tue 11/10 |  0 / 10 |
+| #    | Title                            | Topic | Taught               | Sourced / new |
+| :--: | -------------------------------- | :---: | :------------------: | :-----------: |
+| A5   | z-scores                         | 5     | Tue 9/8              | 10 / 0        |
+| A6   | Probability                      | 6     | Thu 9/10             | 9 / 1         |
+| A7   | The standard normal distribution | 5     | Tue 9/15             | 6 / 4         |
+| A8   | Sampling distributions           | 7     | Thu 9/17             | 6 / 4         |
+| A9   | Central Limit Theorem            | 8     | Tue 9/22             | 3 / 7         |
+| A10  | Hypothesis testing               | 9     | Tue 9/29             | 8 / 2         |
+| A11  | Errors & effect size             | 10    | Thu 10/1             | 9 / 1         |
+| A12  | Confidence intervals             | 11    | Tue 10/6             | 4 / 6         |
+| A13  | One-sample *t*-test              | 12    | Tue 10/6             | 10 / 0        |
+| A14  | Dependent-samples *t*-test       | 13    | Tue 10/20            | 0 / 10        |
+| A15  | Independent-samples *t*-test     | 14    | Thu 10/22            | 0 / 10        |
+| A16  | Which *t*-test when              | 12–14 | review, due 10/29    | 0 / 10        |
+| A17  | ANOVA: concepts                  | 15    | Thu 11/5             | 0 / 10        |
+| A18  | ANOVA: computation               | 15    | Tue 11/10            | 0 / 10        |
+| A19  | Correlation                      | 16    | Thu 11/12            | 0 / 10        |
+| A20  | Linear regression                | 17    | Tue 11/17, due 11/19 | 0 / 10        |
 
 A14 onward are authored against the Fall slides rather than drawn from the
 bank; the bank items the plan lists were read for the skills they cover.
@@ -179,10 +181,42 @@ has something to rehearse. Each item notes the L16 page it leans on.
   F = 6.75) and from each other; `check()` recomputes every key, every
   distractor's wrong path and every critical value, and refuses a stem reused
   from A1–A16.
-- **Exam 5 does not exist yet.** `build_mock5.py` should read
-  `build_a17_a18.SKILLS` for its rehearsal check, and `build_exam5.py` should
-  run `examlib.check_distinct()` against these stems, as `build_a14_a16`
-  does against Exam 4.
+- **Exam 5 was built 11/5** (below). `build_mock5.py` reads
+  `build_a17_a18.SKILLS` for its rehearsal check, and
+  `build_a19_a20.check_against_exam()` holds A17–A20's stems apart from
+  Exam 5's.
+
+### A19 and A20 (`assignments/build_a19_a20.py`), built 11/5
+
+From Lectures 18 (correlation, Thu 11/12) and 19 (regression, Tue 11/17).
+Each is a short chain on one small data set, with every intermediate value
+given in the stem so that one slip does not cost the rest.
+
+- **A19, correlation**, released with the 11/12 class. Six students' energy
+  drinks a week against sleep quality: SS = 20 for both, SP = −16,
+  r = −.80, df = 4. It is **not** significant two-tailed (r* = .811) but is
+  one-tailed (r* = .729), which is the item that teaches the difference.
+  Also range restriction, a curved relationship with r near 0, |r| as
+  strength, r², and a third variable (churches and crime).
+- **A20, regression**, released with the 11/17 class and due before Exam 5.
+  Five employees' experience against a rating: SP = 32, SS for X = 40, so
+  b = 0.8 and a = 3.2; a prediction, a residual, the slope read in words,
+  b = r × s_Y / s_X, SS residual from r², F(1, 20) from SS and n, software
+  output read as a line, and the 0/1-coded t-test as a regression.
+- Unicode has a subscript x but no subscript y, so the items write "SS for
+  X", "the mean of Y"; Ŷ is the precomposed U+0176. The textbook's β for the
+  population slope is written "the population slope", since β is the Type II
+  error rate in this course.
+- `check()` recomputes every key and distractor and refuses a stem reused
+  from A1–A18. Patterns P19 and P20 are new.
+
+### Exam 5 and Mock Exam 5 (`exams/build_exam5.py`, `build_mock5.py`), built 11/5
+
+10 ANOVA · 10 correlation · 10 regression, as planned below, with the F- and
+r-tables appended (`examlib.f_table_html()`, `r_table_html()`, rows after
+Cote et al.'s Appendices C and D). All 30 Exam 5 skills are rehearsed: 27 by
+A17–A20 and all 30 by the mock. The three that only the mock rehearses are
+Tukey's intervals, outliers and the standard error of the estimate.
 
 ### A12 and A13 (`assignments/build_a12_a13.py`)
 

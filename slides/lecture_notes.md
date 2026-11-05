@@ -1214,3 +1214,154 @@ every number before writing. Result: **40 slides, 31 exported**.
   A17 is the concepts set for this class, A18 the computation chain for
   11/10. A18's last two items (η², F = t²) are L17 material: **put F = t²
   on an L17 slide**; L16 only says it aloud.
+
+## Lecture 17 — Analysis of variance, continued (Tue 11/10)
+
+Built 11/5 **in place** in Spring's `Lecture_17_ANOVA.key`, which already
+had the Fall name; the untouched Spring deck and PDF are kept as
+`slides/Spring_L17_ANOVA_original.key` / `.pdf`.
+`slides/build_part5_decks.applescript L17` did the build and
+`slides/make_l17_figures.py` the images, its `check()` recomputing every
+number. Result: **38 slides, 18 exported**.
+
+| Pages | Content                                                                                                   |
+|-------|-----------------------------------------------------------------------------------------------------------|
+| 1–3   | Title with topic line, This Week and Next (Weeks 13–14), recap of L16                                     |
+| 4     | Spring's section header                                                                                   |
+| 5–7   | **New:** why F is near 1 under H₀, η², reporting an ANOVA                                                 |
+| 8–11  | Spring's post hoc slide, then **new:** post hoc tests when and how, Tukey's HSD on the smart pill, F = t² |
+| 12–13 | Spring's practice problem and its sums                                                                    |
+| 14–18 | **New:** its decision and η², a fill-in ANOVA table and its solution, other designs, ANOVA in brief       |
+
+- **Spring's 4–19 are skipped, not deleted.** They re-derive the one- and
+  two-sample variance partitions (L15 pp. 13–24) and the ANOVA table and SS
+  formulas (L16 pp. 16–26), the cumulative-deck trap L16's notes predicted.
+  Also skipped: the three-towers photo (2), whose "foundations" point goes
+  with them; Spring's η² slide (19), replaced by a new one with alt text and
+  the course's .01/.09/.25; the demo-site slide (21; there is no ANOVA demo);
+  and the repeated smart-pill scenario (22).
+- **New: why F is near 1 under H₀**, as the textbook does not argue it:
+  MS within pools the groups' variances, and MS between is n_j times the
+  variance of the group means, which estimates σ² because a mean's variance
+  is σ²/n. On the smart pill, 3 × 36 = 108 = MS between.
+- **New: η², reporting, post hoc tests, F = t².** η² = 216/312 = .69 for
+  the smart pill, reported F(2, 6) = 6.75, p < .05, η² = .69, numerator df
+  first (Cote et al. Ch. 11). Tukey's HSD on the same data: only smart pill −
+  no pill excludes 0 (1.98 to 22.02); Bonferroni at .05/3 agrees. So a
+  significant F with only one of three pairs differing. F = t² on L15's
+  two-group smart pill: t(7) = 0.745, F(1, 7) = 0.556, F* = 5.59 = 2.365²,
+  same p = .48. A18 Q8–Q10 rehearse these three.
+- **Spring's practice problem** (0, 1, 2 / 1, 2, 3 / 2, 3, 4) now ends in a
+  decision: F(2, 6) = 3.00 < 5.14, retain, yet η² = .50. The same lesson as
+  L15's d = 0.50: a large effect that three scores per group cannot detect.
+- **New: fill-in ANOVA table** (k = 4, n = 20, SS between 48, SS total 112):
+  F(3, 16) = 4.00 > 3.24, η² = .43, and the next-lower-row rule for a df the
+  F table skips (Mock Exam 5 Q7 uses it).
+- **DONE (F26) — text.** "Adjust α or P" → "or p" on Spring's post hoc slide,
+  and 4 character fixes from the deck-wide sweep (micro sign → μ, Latin a
+  → α, "t test" → "t-test"), skipped slides included.
+- **Textbook pass, Cote et al. Ch. 11**, folded in: η² and its benchmarks,
+  the reporting form, the three post hoc tests by concept and Tukey's CIs
+  read for 0, other designs (repeated measures, factorial, mixed) named
+  only. The book has no assumptions section, no MS-within argument and no
+  post hoc formulas; it says students will not compute SS by hand, which
+  this course does.
+
+## Lecture 18 — Correlation (Thu 11/12)
+
+Built 11/5 **in place** in Spring's `Lecture_18_correlation.key`, with
+Spring's `Lecture_19_correlation.key` slides from "Pairs of continuous
+variables" to the end (30) **moved** onto its end
+(that file is untouched: closed without saving, md5 unchanged). The Spring
+originals are kept as `slides/Spring_L18_correlation_original.key` / `.pdf`.
+`build_part5_decks.applescript L18`, then `a11y_part5.applescript L18`;
+images from `make_l18_figures.py`. Result: **90 slides, 65 exported**.
+
+| Pages | Content                                                                                                                  |
+|-------|--------------------------------------------------------------------------------------------------------------------------|
+| 1–3   | Title with topic line, This Week and Next (Weeks 13–14), recap of L17                                                    |
+| 4–14  | Spring L18: the motivating scenario, what we can test so far, measures of variability, SP, covariance                    |
+| 15–17 | Pearson's r (Spring), then **new:** computing r by hand, and r = .968 with its scatterplot                               |
+| 18–30 | Spring L18: properties of r, scatterplots and the eight textbook examples, guess the correlation                         |
+| 31–35 | Spring L19 (moved): form, direction and strength, scatterplots from r = 1 to −1, df for co-variability                   |
+| 36–39 | **New:** hypotheses for r, the r table, the five students' test, a one-tailed test                                       |
+| 40–63 | Spring L19: units, r and r² as effect sizes, causation and confounds, spurious correlations, range restriction, outliers |
+| 64–65 | **New:** correlation matrices, correlation in brief                                                                      |
+
+- **One data set for both classes.** The worked r is Spring's own five
+  students from its GLM deck (hours studied 1–5; scores 65, 75, 75, 90, 95):
+  SP = 75, SS_X = 10, SS_Y = 600, r = .968, tested at df = 3 against
+  r* = .878, r(3) = .97, p < .05. Lecture 19 carries them into regression.
+- **New: the test of r**, which Spring never ran: H₀: ρ = 0 with two- and
+  one-tailed alternatives, df = n − 2, the r table (matching Cote et al.
+  Appendix D and Exam 5's appendix cell for cell), the four steps with the
+  null distribution of r for n = 5, and a one-tailed example (n = 10,
+  r = −.60: two-tailed retain against .632, one-tailed reject against .549).
+  The textbook works only a one-tailed test; both are here.
+- **New: correlation matrices** (Cote et al. Ch. 12's four job variables).
+- **Kept from Spring, in Spring's order:** the motivation scenario, SP,
+  covariance, r and its properties, the scatterplot gallery and the
+  guess-the-correlation demo, then L19's form/direction/strength, df n − 2,
+  units, r² as effect size, causation and confounds, spurious correlations
+  and the null distributions, range restriction and outliers.
+- **DONE (F26) — alt text.** Spring's eight textbook scatterplots carried
+  one-line labels ("Scatter plot showing a positive relationship."), and
+  L19's figures labels and file names; all rewritten with what each figure
+  shows and what to take from it. The untitled row of seven scatterplots is
+  now "Scatterplots from r = 1 to r = −1". The null-distribution
+  animation (p51) is a movie, which AppleScript cannot describe: its alt
+  text is written into the PDF by `patch_pdf_alt.py`, **so re-run that
+  after every export** (the command is in HANDOFF, "Lectures 17–19").
+- **DONE (F26) — legibility.** The first export drew the plots and the r
+  table at 11–12 pt, about 13 pt on the slide, against body text near
+  28; L16's notes flagged the same for its F table. Redrawn at 15–18 pt
+  and rebuilt the same afternoon, along with L19's plots and output.
+- **NEXT — the guess-the-correlation demo** sits mid-deck; it works as the
+  break between computing r and testing it.
+
+## Lecture 19 — Linear regression (Tue 11/17)
+
+Built 11/5 from Spring's `Lecture_20_regression.key`, **renamed** (mv) to
+`Lecture_19_Regression.key`, with Spring L21's slides 23–33 and Spring
+L22's 34–38 and 42–45 **moved** in (both files untouched). **Both Spring
+files are cumulative, in opposite directions:** L21 carries L22's slides
+after its own as skipped copies (34–46), and L22 carries all of L21's,
+skipped (1–33). So L22's PDF pages 2–6 and 10–13 are slides 34–38 and
+42–45; the first build attempt planned from the PDF, and its guard
+stopped it (the half-built deck was restored from the backup). Spring's
+L21 1–22 re-teach statistical errors with a smoke detector and an ROC
+curve, already taught in L12; L22's 39–41 repeat L21, and its 46 is the
+five students' data, now worked on new slides. The Spring original is kept as
+`slides/Spring_L20_regression_original.key` / `.pdf`. Result:
+**55 slides, 50 exported**.
+
+| Pages | Content                                                                                                                        |
+|-------|--------------------------------------------------------------------------------------------------------------------------------|
+| 1–3   | Title with topic line, This Week and Next (Week 14, Weeks 15–16), recap of L18                                                 |
+| 4–20  | Spring L20: r under changes of units, prediction from a line, ice cream, least squares and its derivation, b from r, asymmetry |
+| 21–23 | **New:** the five students' regression line, predictions and residuals, interpreting a and b                                   |
+| 24–29 | Spring L21 (moved): two kinds of SS, df, the ANOVA table for regression, SS model and SS residual                              |
+| 30–32 | **New:** testing the regression, R² and the standard error of the estimate; Spring's R² figure, now titled                     |
+| 33–35 | Spring L21's explained-variance problem, then **new:** its answer and reading regression output                                |
+| 36–39 | Spring L21: extensions (nonlinear, interaction, multiple regression, prediction)                                               |
+| 40–49 | Spring L22 (moved): the general linear model, the t-test and ANOVA as regressions; **new** p46, the smart pill coded 0/1       |
+| 50    | **New:** regression in brief                                                                                                   |
+
+- **The five students, continued:** b = 75/10 = 7.5, a = 80 − 7.5 × 3 =
+  57.5; predictions and residuals (SS residual 37.5); interpreting a and b,
+  with 6 hours predicting 102.5 on a test out of 100 as the extrapolation
+  warning; the ANOVA table F(1, 3) = 45.00 > 10.13; R² = .94 = r²; the
+  standard error of the estimate √12.5 = 3.54; and software-style output
+  (R .968, F 45.000, p .007, slope t 6.708, whose square is F).
+- **β gloss.** Cote et al. write H₀: β = 0 for the population slope; the
+  slide says β there is the slope, not the Type II error rate. The homework
+  says "the population slope" in words.
+- **New: the t-test as a regression** on L15's smart pill, placebo coded 0:
+  a = 82, b = −2, the slope's t = −0.745, F = t² = 0.556.
+- **The untitled R² figure** (Spring L20's last slide) moved to after the R²
+  slide and titled "R² for four lines through the same kind of data".
+- **DONE (F26) — alt text** on every Spring figure: L20's eight "scatter
+  plot" stubs, the ice-cream table and plots, L21's extension figures, L22's
+  three logos.
+- **NEXT — Exam 5 is two days later** with no review class; Mock Exam 5 and
+  A20 (due before the exam) are the preparation.
