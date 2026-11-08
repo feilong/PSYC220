@@ -207,8 +207,14 @@ given in the stem so that one slip does not cost the rest.
   X", "the mean of Y"; Ŷ is the precomposed U+0176. The textbook's β for the
   population slope is written "the population slope", since β is the Type II
   error rate in this course.
-- `check()` recomputes every key and distractor and refuses a stem reused
-  from A1–A18. Patterns P19 and P20 are new.
+- **A19 Q6 and Q8 carry an excerpt of the r table** in the stem (df 3–6,
+  one-tailed .05 and .025, with the two-tailed α beside each), as A7 does
+  for the z table. They first shipped without one, and Q6 asked for r* with
+  no table to read it from (caught 11/8). The excerpt is
+  laid out by column the way the slide's and Exam 5's table are, so the
+  item still asks which column is two-tailed .05.
+- `check()` recomputes every key and distractor, and every excerpt entry,
+  and refuses a stem reused from A1–A18. Patterns P19 and P20 are new.
 
 ### Exam 5 and Mock Exam 5 (`exams/build_exam5.py`, `build_mock5.py`), built 11/5
 
