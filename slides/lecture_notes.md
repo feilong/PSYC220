@@ -262,7 +262,7 @@ Keynote emits as boilerplate.) The four equation images on the new decomposition
 spelled out in words ("the sum of (X minus mu) squared…"), since a screen reader
 cannot read a rendered formula. `/Lang` is set to `en-US` and the title reads
 "PSYC 220 Lecture 4: Spread and Variability" rather than the filename — both via
-`slides/fix_pdf_a11y.py`, **which has to be re-run after every Keynote export**.
+`slides/scripts/fix_pdf_a11y.py`, **which has to be re-run after every Keynote export**.
 
 Two residual issues, neither scriptable:
 
@@ -289,7 +289,7 @@ sample *variance* two bullets above it on the same slide. Now `M_X`.
 
 Fixing it meant rebuilding the slide, because Keynote exposes no way to edit an
 inline equation (see HANDOFF). The four formulas are now floating images from
-`slides/make_l4_equations.py` (matplotlib, Computer Modern to match Keynote's
+`slides/scripts/make_l4_equations.py` (matplotlib, Computer Modern to match Keynote's
 LaTeX), each carrying alt text, with the labels as positioned text items. The
 original slide is kept as a **skipped duplicate at the end of the deck** — delete
 it once you are happy.
@@ -401,7 +401,7 @@ equation images, so new ones have to be produced.
     final bullet says SS about M is "never larger" rather than "always smaller",
     because at n = 24 the two are equal and the figure says so.
 
-  Figures: `~/miniconda3/envs/nb/bin/python slides/make_l4_figs.py` regenerates
+  Figures: `~/miniconda3/envs/nb/bin/python slides/scripts/make_l4_figs.py` regenerates
   all four from `PSYC220/quiz_data_table_wide_clean.csv`. Blue/orange, validated
   for color-vision separation (ΔE 24.6 protan); both series direct-labeled,
   which is also the required relief for orange's low contrast on white. Bodies
@@ -679,7 +679,7 @@ Exported with a full accessibility pass. 46 slides, 18 exporting.
 - **The deck-side audit lied about it.** `description of movie` returned an
   empty string for that animation even though the export carried the 40-character
   stub, which is why a clean deck-side audit still produced a stub in the PDF.
-  Added `slides/audit_pdf_alt.py`, which reads the PDF structure tree instead and
+  Added `slides/scripts/audit_pdf_alt.py`, which reads the PDF structure tree instead and
   flags anything under 60 characters. **Use it as the final check on every deck.**
 - Nothing off-canvas; title slide and weekly columns were already correct, so the
   re-theme checklist came back clean on a deck built by hand.
@@ -701,9 +701,9 @@ built around the Lady Tasting Tea.
   10. Median alt length is now 334 characters. Most of this deck's figures are
   sepia illustrations whose entire content is **speech-bubble dialogue**, so a
   screen reader got nothing at all from them; the new descriptions quote the
-  dialogue. `slides/a11y_lecture11.applescript` does 17 of them.
+  dialogue. `slides/scripts/a11y_lecture11.applescript` does 17 of them.
   Slide 13's central-limit animation is a **movie**, which AppleScript cannot
-  describe, so it is patched into the PDF by `slides/patch_pdf_alt.py` — re-run
+  describe, so it is patched into the PDF by `slides/scripts/patch_pdf_alt.py` — re-run
   that, then `fix_pdf_a11y.py`, after every export.
 - **DONE (F26) — exported at `Good` image quality: 73.1 MB down to 18.7 MB.**
   The deck's ten large photographs were the bulk of it. `Better` is pointless
@@ -734,7 +734,7 @@ slide for slide.
   line on the title slide, the Week 7 / Week 8 plan, and a recap carrying H0/H1,
   the alpha-level and the 1-in-70 result into today's worked test.
 - **DONE (F26) — all 25 stub descriptions rewritten**, median 304 characters.
-  `slides/a11y_lecture12.applescript`. The four z-table slides needed the *red
+  `slides/scripts/a11y_lecture12.applescript`. The four z-table slides needed the *red
   rings* described — which column and row are circled is the whole content, and
   the stub said only "z table". Slide 48's ROC animation is a movie: Keynote
   refused to set its description, so `patch_pdf_alt.py` writes it into the PDF.
@@ -944,7 +944,7 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
   written into the PDF by `patch_pdf_alt.py`, which must be re-run after every
   export (as must `fix_pdf_a11y.py`):
 
-      ~/miniconda3/envs/nb/bin/python slides/patch_pdf_alt.py \
+      ~/miniconda3/envs/nb/bin/python slides/scripts/patch_pdf_alt.py \
         "slides/Lecture_13_CI one-sample t-tests.pdf" "t distributions for different df" "<text>"
 
   The text is the 466-character description in the current PDF. The L14 PDF never
@@ -976,8 +976,8 @@ the key point added ("σ is usually unknown"). 15 + 22 = 37, then two added = 39
 
 Built 10/19 from Spring's `Lecture_13_dependent-samples t test.key` (27 slides),
 renamed into place as `Lecture_14_Dependent-samples t-test.key`: 33 slides, 31
-exported (32 and 30 before the 10/20 textbook pass below). `slides/build_week10_decks.applescript L14` did it; the formula images
-come from `slides/make_t_test_equations.py`, which recomputes every number it
+exported (32 and 30 before the 10/20 textbook pass below). `slides/scripts/build_week10_decks.applescript L14` did it; the formula images
+come from `slides/scripts/make_t_test_equations.py`, which recomputes every number it
 prints. Checked against L13's titles first: Spring repeats only a short CI
 recap (slides 22–26), so nothing large was cut.
 
@@ -1121,7 +1121,7 @@ nine formulas, so students met a silent switch on 10/20.
 | L15  | p3, p29       | a Notation bullet in the recap; t = ((M₁ − M₂) − 0)/s_(M₁−M₂)                                                |
 
 - The L12/L13 formulas were **inline equations**, which no script can edit, so
-  they are now floating images from `slides/make_mu0_equations.py`, each with
+  they are now floating images from `slides/scripts/make_mu0_equations.py`, each with
   alt text. The slides gained alt text they never had. Two of the new
   descriptions are short ("σ sub M equals σ over the square root of n.") but
   complete, so the audit's under-60 flag is expected there.
@@ -1140,10 +1140,10 @@ Built 11/4 from Spring's `Lecture_16_ANOVA.key` (27 slides, 6 already
 skipped), edited **in place**: the Spring file already carried the Fall title
 and the 16:10 theme, and its name was already the Fall name, so nothing was
 renamed. A copy of the untouched Spring deck and its PDF is kept as
-`slides/Spring_L16_ANOVA_original.key` / `.pdf` (deliberately *not* named
+`slides/spring2026/Spring_L16_ANOVA_original.key` / `.pdf` (deliberately *not* named
 `Lecture_16…`, so a `contains "Lecture_16_ANOVA"` guard cannot pick it up).
-`slides/build_lecture16.applescript` did the build; the figures and formula
-images come from `slides/make_l16_figures.py`, whose `check()` recomputes
+`slides/scripts/build_lecture16.applescript` did the build; the figures and formula
+images come from `slides/scripts/make_l16_figures.py`, whose `check()` recomputes
 every number before writing. Result: **40 slides, 31 exported**.
 
 | Pages | Content                                                                            |
@@ -1192,7 +1192,7 @@ every number before writing. Result: **40 slides, 31 exported**.
   (Σ(X − μ)² / N since L4). The notation slide now reads n = n₁ + n₂ + … with
   a one-line gloss that the textbook writes N; the df slide, the F-table
   slide, the Step 3 check, the summary, the df image and the ANOVA-table
-  image all say n − k and n − 1. `slides/fix_l16_n.applescript` did it by
+  image all say n − k and n − 1. `slides/scripts/fix_l16_n.applescript` did it by
   slide title, since the instructor had also deleted the quote slide
   (pages after 9 moved up by one; 30 pages now) and trimmed the recap's
   smart-pill bullet. A17 and A18 were rebuilt the same way; the rule is in
@@ -1219,9 +1219,9 @@ every number before writing. Result: **40 slides, 31 exported**.
 
 Built 11/5 **in place** in Spring's `Lecture_17_ANOVA.key`, which already
 had the Fall name; the untouched Spring deck and PDF are kept as
-`slides/Spring_L17_ANOVA_original.key` / `.pdf`.
-`slides/build_part5_decks.applescript L17` did the build and
-`slides/make_l17_figures.py` the images, its `check()` recomputing every
+`slides/spring2026/Spring_L17_ANOVA_original.key` / `.pdf`.
+`slides/scripts/build_part5_decks.applescript L17` did the build and
+`slides/scripts/make_l17_figures.py` the images, its `check()` recomputing every
 number. Result: **38 slides, 18 exported**.
 
 | Pages | Content                                                                                                   |
@@ -1273,7 +1273,7 @@ Built 11/5 **in place** in Spring's `Lecture_18_correlation.key`, with
 Spring's `Lecture_19_correlation.key` slides from "Pairs of continuous
 variables" to the end (30) **moved** onto its end
 (that file is untouched: closed without saving, md5 unchanged). The Spring
-originals are kept as `slides/Spring_L18_correlation_original.key` / `.pdf`.
+originals are kept as `slides/spring2026/Spring_L18_correlation_original.key` / `.pdf`.
 `build_part5_decks.applescript L18`, then `a11y_part5.applescript L18`;
 images from `make_l18_figures.py`. Result: **90 slides, 65 exported**.
 
@@ -1332,7 +1332,7 @@ stopped it (the half-built deck was restored from the backup). Spring's
 L21 1–22 re-teach statistical errors with a smoke detector and an ROC
 curve, already taught in L12; L22's 39–41 repeat L21, and its 46 is the
 five students' data, now worked on new slides. The Spring original is kept as
-`slides/Spring_L20_regression_original.key` / `.pdf`. Result:
+`slides/spring2026/Spring_L20_regression_original.key` / `.pdf`. Result:
 **55 slides, 50 exported**.
 
 | Pages | Content                                                                                                                        |

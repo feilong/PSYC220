@@ -64,7 +64,7 @@ Fix it **character by character**, never by rewriting `object text`:
 
 Rewriting the whole text flattens every subscript in the same box. The
 character form leaves surrounding runs alone — verified on Lecture 14, where all
-15 subscript spans survived. `slides/` has the script; the AppleScript literals
+15 subscript spans survived. `slides/scripts/` has the script; the AppleScript literals
 are `«data utxt00B5»` and `«data utxt03BC»`, big-endian, which is easy to get
 backwards and fails silently with zero replacements.
 
@@ -182,7 +182,7 @@ formulas to mean the null value; L15's recap glosses that.
 | A10–A13, Exam 3            | (M − μ); already released, left as they are         |
 
 L12 and L13's formulas were inline equations, which no script can edit, so
-they are now images from `slides/make_mu0_equations.py`, each with alt text.
+they are now images from `slides/scripts/make_mu0_equations.py`, each with alt text.
 
 ### N is a population's size; a total sample is n
 
