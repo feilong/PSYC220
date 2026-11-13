@@ -858,7 +858,8 @@ Guards must say `Lecture_14_Dependent` / `Lecture_15_Independent`.
 **Lecture 14 merged into Lecture 13**, so both topics are taught on Tue 10/6 and
 Thu 10/8 is free for Mock Exam 3. `Lecture_13_Confidence_intervals_original.key`
 is the CI-only deck as it stood before the merge; `Lecture_14_One_sample_t_test.key`
-is untouched on disk (md5-checked) and is now superseded.
+is untouched on disk (md5-checked) and is now superseded. Both moved to
+`slides/superseded/` on 11/13.
 
 What moved: Lecture 14 slides 3–25, except slide 5. Its title and weekly slides
 were dropped, and slide 5 was Lecture 13 slide 7 again — slide 6 repeats it with
